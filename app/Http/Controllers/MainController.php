@@ -40,11 +40,15 @@ class MainController extends Controller {
 		
 		$req = $request->all();
 		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
+		
+		$signals = $this->helpers->signals;
+		
+		/**
 		$cart = $this->helpers->getCart($user,$gid);
 		
 		$c = $this->helpers->getCategories();
 		
-		$signals = $this->helpers->signals;
+		
 		$na = $this->helpers->getNewArrivals();
 		#$na = [];
 		#dd($na);
@@ -60,8 +64,9 @@ class MainController extends Controller {
 		shuffle($ads);
 		shuffle($banners);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-
-    	return view("index-2",compact(['user','cart','c','banners','hasUnpaidOrders','bs','na','ad','signals','plugins']));
+       **/
+		$plugins = []; $banners = []; $cart = []; $ads = []; 
+    	return view("index",compact(['user','cart','banners','hasUnpaidOrders','ads','signals','plugins']));
     }
 	
 	/**
