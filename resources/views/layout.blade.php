@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-auto show-mobile">
-<div class="menu-toggle"> <a href="javascript:void(0)" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
+<div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
 				</div>
 				<div class="col-auto hdr-logo">
 					<a href="{{url('/')}}" class="logo">MOBILE HUT</a>
@@ -51,198 +51,198 @@
 				<div class="hdr-nav hide-mobile nav-holder-s">
 				<ul class="mmenu mmenu-js mmenu--withlabels">
 	<li class="mmenu-item--simple"><a href="{{url('/')}}" class="active">Home</a></li>
-	<li class="mmenu-item--simple"><a href="javascript:void(0)">Categories</a>
+	<li class="mmenu-item--simple"><a href="#">Categories</a>
 		<div class="mmenu-submenu">
 			<ul class="submenu-list">
 	
-	<li><a href="javascript:void(0)">Gallery</a></li>
-	<li><a href="javascript:void(0)">Faq</a></li>
-	<li><a href="javascript:void(0)">About Us</a></li>
-	<li><a href="javascript:void(0)">Contact Us</a></li>
+	<li><a href="#">Gallery</a></li>
+	<li><a href="#">Faq</a></li>
+	<li><a href="#">About Us</a></li>
+	<li><a href="#">Contact Us</a></li>
 </ul>
 		</div>
 	</li>
-	<li><a href="javascript:void(0)">Accessories<span class="menu-label">SALE</span></a></li>
-	<li class="mmenu-item--mega"><a href="javascript:void(0)">Men</a>
+	<li><a href="#">Accessories<span class="menu-label">SALE</span></a></li>
+	<li class="mmenu-item--mega"><a href="#">Men</a>
 		<div class="mmenu-submenu mmenu-submenu--has-bottom">
 			<div class="mmenu-submenu-inside">
 				<div class="container">
 					<div class="mmenu-left width-25">
 						<div class="mmenu-bnr-wrap">
-							<a href="javascript:void(0)" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-01.webp" class="lazyload fade-up" alt=""></a>
+							<a href="#" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-01.webp" class="lazyload fade-up" alt=""></a>
 						</div>
-						<h3 class="submenu-title"><a href="javascript:void(0)">Pre-Collection<br>Spring-Summer 2021</a></h3>
+						<h3 class="submenu-title"><a href="#">Pre-Collection<br>Spring-Summer 2021</a></h3>
 					</div>
 					<div class="mmenu-cols column-4">
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Collections</a></h3>
+							<h3 class="submenu-title"><a href="#">Collections</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Fall-Winter 2020/21</a></li>
+								<li><a href="#">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Fall-Winter 2020/21</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Ready-to-wear</a></h3>
+							<h3 class="submenu-title"><a href="#">Ready-to-wear</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)" class="active">Jackets</a>
+								<li><a href="#" class="active">Jackets</a>
 									<ul class="sub-level">
-										<li><a href="javascript:void(0)">Bomber Jackets</a></li>
-										<li><a href="javascript:void(0)">Biker Jacket</a></li>
-										<li><a href="javascript:void(0)">Trucker Jacket</a></li>
-										<li><a href="javascript:void(0)">Denim Jackets</a></li>
-										<li><a href="javascript:void(0)">Blouson Jacket<span class="menu-label">SALE</span></a></li>
-										<li><a href="javascript:void(0)">Overcoat</a></li>
-										<li><a href="javascript:void(0)">Trench Coat</a></li>
+										<li><a href="#">Bomber Jackets</a></li>
+										<li><a href="#">Biker Jacket</a></li>
+										<li><a href="#">Trucker Jacket</a></li>
+										<li><a href="#">Denim Jackets</a></li>
+										<li><a href="#">Blouson Jacket<span class="menu-label">SALE</span></a></li>
+										<li><a href="#">Overcoat</a></li>
+										<li><a href="#">Trench Coat</a></li>
 									</ul>
 								</li>
-								<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts</a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
-								<li><a href="javascript:void(0)">Swimwear</a></li>
+								<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts</a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
+								<li><a href="#">Swimwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Accessories</a></h3>
+							<h3 class="submenu-title"><a href="#">Accessories</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Brands</a></h3>
+							<h3 class="submenu-title"><a href="#">Brands</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-bottom justify-content-center">
-							<a href="javascript:void(0)"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
+							<a href="#"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</li>
-	<li class="mmenu-item--mega"><a href="javascript:void(0)">Women</a>
+	<li class="mmenu-item--mega"><a href="#">Women</a>
 		<div class="mmenu-submenu mmenu-submenu--has-bottom">
 			<div class="mmenu-submenu-inside">
 				<div class="container">
 					<div class="mmenu-right width-25">
 						<div class="mmenu-bnr-wrap">
-							<a href="javascript:void(0)" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-02.webp" class="lazyload fade-up" alt=""></a>
+							<a href="#" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-02.webp" class="lazyload fade-up" alt=""></a>
 						</div>
-						<h3 class="submenu-title"><a href="javascript:void(0)">Pre-Collection<br>Spring-Summer 2021</a></h3>
+						<h3 class="submenu-title"><a href="#">Pre-Collection<br>Spring-Summer 2021</a></h3>
 					</div>
 					<div class="mmenu-cols column-4">
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Collections</a></h3>
+							<h3 class="submenu-title"><a href="#">Collections</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Fall-Winter 2020/21</a></li>
+								<li><a href="#">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Fall-Winter 2020/21</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Ready-to-wear</a></h3>
+							<h3 class="submenu-title"><a href="#">Ready-to-wear</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+								<li><a href="#">Blouses &amp; Tops</a>
 									<ul>
-										<li><a href="javascript:void(0)">Jackets</a></li>
-										<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-										<li><a href="javascript:void(0)">Blouses &amp; Tops</a>
+										<li><a href="#">Jackets</a></li>
+										<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+										<li><a href="#">Blouses &amp; Tops</a>
 											<ul>
-												<li><a href="javascript:void(0)">Jackets</a></li>
-												<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
+												<li><a href="#">Jackets</a></li>
+												<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
 													<ul>
-														<li><a href="javascript:void(0)">Jackets</a></li>
-														<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
+														<li><a href="#">Jackets</a></li>
+														<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
 															<ul>
-																<li><a href="javascript:void(0)">Jackets</a></li>
-																<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-																<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-																<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-																<li><a href="javascript:void(0)">Skirts</a></li>
-																<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-																<li><a href="javascript:void(0)">Outerwear</a></li>
-																<li><a href="javascript:void(0)">Swimwear</a></li>
+																<li><a href="#">Jackets</a></li>
+																<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+																<li><a href="#">Blouses &amp; Tops</a></li>
+																<li><a href="#">Cardigans &amp; Pullovers</a></li>
+																<li><a href="#">Skirts</a></li>
+																<li><a href="#">Pants &amp; Shorts</a></li>
+																<li><a href="#">Outerwear</a></li>
+																<li><a href="#">Swimwear</a></li>
 															</ul>
 														</li>
-														<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-														<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-														<li><a href="javascript:void(0)">Skirts</a></li>
-														<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-														<li><a href="javascript:void(0)">Outerwear</a></li>
-														<li><a href="javascript:void(0)">Swimwear</a></li>
+														<li><a href="#">Blouses &amp; Tops</a></li>
+														<li><a href="#">Cardigans &amp; Pullovers</a></li>
+														<li><a href="#">Skirts</a></li>
+														<li><a href="#">Pants &amp; Shorts</a></li>
+														<li><a href="#">Outerwear</a></li>
+														<li><a href="#">Swimwear</a></li>
 													</ul>
 												</li>
-												<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-												<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-												<li><a href="javascript:void(0)">Skirts</a></li>
-												<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-												<li><a href="javascript:void(0)">Outerwear</a></li>
-												<li><a href="javascript:void(0)">Swimwear</a></li>
+												<li><a href="#">Blouses &amp; Tops</a></li>
+												<li><a href="#">Cardigans &amp; Pullovers</a></li>
+												<li><a href="#">Skirts</a></li>
+												<li><a href="#">Pants &amp; Shorts</a></li>
+												<li><a href="#">Outerwear</a></li>
+												<li><a href="#">Swimwear</a></li>
 											</ul>
 										</li>
-										<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-										<li><a href="javascript:void(0)">Skirts</a></li>
-										<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-										<li><a href="javascript:void(0)">Outerwear</a></li>
-										<li><a href="javascript:void(0)">Swimwear</a></li>
+										<li><a href="#">Cardigans &amp; Pullovers</a></li>
+										<li><a href="#">Skirts</a></li>
+										<li><a href="#">Pants &amp; Shorts</a></li>
+										<li><a href="#">Outerwear</a></li>
+										<li><a href="#">Swimwear</a></li>
 									</ul>
 								</li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts</a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
-								<li><a href="javascript:void(0)">Swimwear</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts</a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
+								<li><a href="#">Swimwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Accessories</a></h3>
+							<h3 class="submenu-title"><a href="#">Accessories</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Brands</a></h3>
+							<h3 class="submenu-title"><a href="#">Brands</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-bottom justify-content-center">
-							<a href="javascript:void(0)"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
+							<a href="#"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -254,28 +254,28 @@
 					<div class="hdr-inline-link">
 <div class="search_container_desktop">
 	<div class="dropdn dropdn_search dropdn_fullwidth">
-		<a href="javascript:void(0)" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
+		<a href="#" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
 		<div class="dropdn-content" style="max-height: 454px; top: 71px;">
 			<div class="container">
 				<form method="get" action="#" class="search search-off-popular">
 					<input name="search" type="text" class="search-input input-empty" placeholder="What are you looking for?">
 					<button type="submit" class="search-button"><i class="icon-search"></i></button>
-					<a href="javascript:void(0)" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
+					<a href="#" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="dropdn dropdn_wishlist">
-	<a href="javascript:void(0)" class="dropdn-link only-icon wishlist-link ">
+	<a href="#" class="dropdn-link only-icon wishlist-link ">
 		<i class="icon-heart"></i><span class="dropdn-link-txt">Wishlist</span><span class="wishlist-qty">3</span>
 	</a>
 </div>
 <div class="dropdn dropdn_account dropdn_fullheight">
-	<a href="javascript:void(0)" class="dropdn-link js-dropdn-link js-dropdn-link only-icon" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
+	<a href="#" class="dropdn-link js-dropdn-link js-dropdn-link only-icon" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
 </div>
 						<div class="dropdn dropdn_fullheight minicart">
-	<a href="javascript:void(0)" class="dropdn-link js-dropdn-link minicart-link only-icon" data-panel="#dropdnMinicart">
+	<a href="#" class="dropdn-link js-dropdn-link minicart-link only-icon" data-panel="#dropdnMinicart">
 		<i class="icon-basket"></i>
 		<span class="minicart-qty">3</span>
 		<span class="minicart-total hide-mobile">$34.99</span>
@@ -294,22 +294,22 @@
 <div class="hdr-line-separate">
 	<ul class="social-list list-unstyled">
 		<li>
-			<a href="javascript:void(0)"><i class="icon-facebook"></i></a>
+			<a href="#"><i class="icon-facebook"></i></a>
 		</li>
 		<li>
-			<a href="javascript:void(0)"><i class="icon-twitter"></i></a>
+			<a href="#"><i class="icon-twitter"></i></a>
 		</li>
 		<li>
-			<a href="javascript:void(0)"><i class="icon-google"></i></a>
+			<a href="#"><i class="icon-google"></i></a>
 		</li>
 		<li>
-			<a href="javascript:void(0)"><i class="icon-instagram"></i></a>
+			<a href="#"><i class="icon-instagram"></i></a>
 		</li>
 		<li>
-			<a href="javascript:void(0)"><i class="icon-vimeo"></i></a>
+			<a href="#"><i class="icon-vimeo"></i></a>
 		</li>
 		<li>
-			<a href="javascript:void(0)"><i class="icon-linkedin"></i></a>
+			<a href="#"><i class="icon-linkedin"></i></a>
 		</li>
 	</ul>
 </div>
@@ -325,33 +325,33 @@
 						<div class="hdr-inline-link">
 <div class="dropdn_language">
 	<div class="dropdn dropdn_language dropdn_language--noimg dropdn_caret">
-		<a href="javascript:void(0)" class="dropdn-link js-dropdn-link"><span class="js-dropdn-select-current">English</span><i class="icon-angle-down"></i></a>
+		<a href="#" class="dropdn-link js-dropdn-link"><span class="js-dropdn-select-current">English</span><i class="icon-angle-down"></i></a>
 		<div class="dropdn-content">
 			<ul>
-				<li class="active"><a href="javascript:void(0)"><img src="images/flags/en.webp" alt="">English</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/sp.webp" alt="">Spanish</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/de.webp" alt="">German</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/fr.webp" alt="">French</a></li>
+				<li class="active"><a href="#"><img src="images/flags/en.webp" alt="">English</a></li>
+				<li><a href="#"><img src="images/flags/sp.webp" alt="">Spanish</a></li>
+				<li><a href="#"><img src="images/flags/de.webp" alt="">German</a></li>
+				<li><a href="#"><img src="images/flags/fr.webp" alt="">French</a></li>
 			</ul>
 		</div>
 	</div>
 </div>
 <div class="dropdn_currency">
 	<div class="dropdn dropdn_caret">
-			<a href="javascript:void(0)" class="dropdn-link js-dropdn-link">US dollars<i class="icon-angle-down"></i></a>
+			<a href="#" class="dropdn-link js-dropdn-link">US dollars<i class="icon-angle-down"></i></a>
 			<div class="dropdn-content">
 					<ul>
-						<li class="active"><a href="javascript:void(0)"><span>US dollars</span></a></li>
-						<li><a href="javascript:void(0)"><span>Euro</span></a></li>
-						<li><a href="javascript:void(0)"><span>UK pounds</span></a></li>
-						<li><a href="javascript:void(0)"><span>Canadian dollars</span></a></li>
+						<li class="active"><a href="#"><span>US dollars</span></a></li>
+						<li><a href="#"><span>Euro</span></a></li>
+						<li><a href="#"><span>UK pounds</span></a></li>
+						<li><a href="#"><span>Canadian dollars</span></a></li>
 					</ul>
 			</div>
 	</div>
 </div>
 							<div class="hdr_container_desktop">
 <div class="dropdn dropdn_account dropdn_fullheight">
-	<a href="javascript:void(0)" class="dropdn-link js-dropdn-link" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
+	<a href="#" class="dropdn-link js-dropdn-link" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
 </div>
 							</div>
 						</div>
@@ -363,208 +363,208 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-auto show-mobile">
-<div class="menu-toggle"> <a href="javascript:void(0)" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
+<div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
 					</div>
 					<div class="col-auto hdr-logo">
 						<a href="{{url('/')}}" class="logo">MOBILE HUT</a>
 					</div>
 					<div class="hdr-nav hide-mobile nav-holder justify-content-center px-4" style="height: 75px;">
 <ul class="mmenu mmenu-js mmenu--withlabels">
-	<li class="mmenu-item--simple"><a href="javascript:void(0)" class="active">Home</a></li>
-	<li class="mmenu-item--simple"><a href="javascript:void(0)">Categories</a>
+	<li class="mmenu-item--simple"><a href="#" class="active">Home</a></li>
+	<li class="mmenu-item--simple"><a href="#">Categories</a>
 		<div class="mmenu-submenu">
 			<ul class="submenu-list">
-	<li><a href="javascript:void(0)">Gallery</a></li>
-	<li><a href="javascript:void(0)">Faq</a></li>
-	<li><a href="javascript:void(0)">About Us</a></li>
-	<li><a href="javascript:void(0)">Contact Us</a></li>
+	<li><a href="#">Gallery</a></li>
+	<li><a href="#">Faq</a></li>
+	<li><a href="#">About Us</a></li>
+	<li><a href="#">Contact Us</a></li>
 	<li><a href="404.html">404 Page</a></li>
-	<li><a href="javascript:void(0)">Typography</a></li>
+	<li><a href="#">Typography</a></li>
 	<li><a href="coming-soon.html" target="_blank">Coming soon</a></li>
 </ul>
 		</div>
 	</li>
-	<li><a href="javascript:void(0)">Accessories<span class="menu-label">SALE</span></a></li>
-	<li class="mmenu-item--mega"><a href="javascript:void(0)">Men</a>
+	<li><a href="#">Accessories<span class="menu-label">SALE</span></a></li>
+	<li class="mmenu-item--mega"><a href="#">Men</a>
 		<div class="mmenu-submenu mmenu-submenu--has-bottom">
 			<div class="mmenu-submenu-inside">
 				<div class="container">
 					<div class="mmenu-left width-25">
 						<div class="mmenu-bnr-wrap">
-							<a href="javascript:void(0)" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-01.webp" class="lazyload fade-up" alt=""></a>
+							<a href="#" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-01.webp" class="lazyload fade-up" alt=""></a>
 						</div>
-						<h3 class="submenu-title"><a href="javascript:void(0)">Pre-Collection<br>Spring-Summer 2021</a></h3>
+						<h3 class="submenu-title"><a href="#">Pre-Collection<br>Spring-Summer 2021</a></h3>
 					</div>
 					<div class="mmenu-cols column-4">
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Collections</a></h3>
+							<h3 class="submenu-title"><a href="#">Collections</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Fall-Winter 2020/21</a></li>
+								<li><a href="#">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Fall-Winter 2020/21</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Ready-to-wear</a></h3>
+							<h3 class="submenu-title"><a href="#">Ready-to-wear</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)" class="active">Jackets</a>
+								<li><a href="#" class="active">Jackets</a>
 									<ul class="sub-level">
-										<li><a href="javascript:void(0)">Bomber Jackets</a></li>
-										<li><a href="javascript:void(0)">Biker Jacket</a></li>
-										<li><a href="javascript:void(0)">Trucker Jacket</a></li>
-										<li><a href="javascript:void(0)">Denim Jackets</a></li>
-										<li><a href="javascript:void(0)">Blouson Jacket<span class="menu-label">SALE</span></a></li>
-										<li><a href="javascript:void(0)">Overcoat</a></li>
-										<li><a href="javascript:void(0)">Trench Coat</a></li>
+										<li><a href="#">Bomber Jackets</a></li>
+										<li><a href="#">Biker Jacket</a></li>
+										<li><a href="#">Trucker Jacket</a></li>
+										<li><a href="#">Denim Jackets</a></li>
+										<li><a href="#">Blouson Jacket<span class="menu-label">SALE</span></a></li>
+										<li><a href="#">Overcoat</a></li>
+										<li><a href="#">Trench Coat</a></li>
 									</ul>
 								</li>
-								<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts</a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
-								<li><a href="javascript:void(0)">Swimwear</a></li>
+								<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts</a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
+								<li><a href="#">Swimwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Accessories</a></h3>
+							<h3 class="submenu-title"><a href="#">Accessories</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Brands</a></h3>
+							<h3 class="submenu-title"><a href="#">Brands</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-bottom justify-content-center">
-							<a href="javascript:void(0)"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
+							<a href="#"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</li>
-	<li class="mmenu-item--mega"><a href="javascript:void(0)">Women</a>
+	<li class="mmenu-item--mega"><a href="#">Women</a>
 		<div class="mmenu-submenu mmenu-submenu--has-bottom">
 			<div class="mmenu-submenu-inside">
 				<div class="container">
 					<div class="mmenu-right width-25">
 						<div class="mmenu-bnr-wrap">
-							<a href="javascript:void(0)" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-02.webp" class="lazyload fade-up" alt=""></a>
+							<a href="#" class="image-hover-scale"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="images/menu/mmenu-bnr-02.webp" class="lazyload fade-up" alt=""></a>
 						</div>
-						<h3 class="submenu-title"><a href="javascript:void(0)">Pre-Collection<br>Spring-Summer 2021</a></h3>
+						<h3 class="submenu-title"><a href="#">Pre-Collection<br>Spring-Summer 2021</a></h3>
 					</div>
 					<div class="mmenu-cols column-4">
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Collections</a></h3>
+							<h3 class="submenu-title"><a href="#">Collections</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
-								<li><a href="javascript:void(0)">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
-								<li><a href="javascript:void(0)">Fall-Winter 2020/21</a></li>
+								<li><a href="#">Martins d'Art 2020/21<span class="submenu-link-txt">Available in boutiques from June 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021<span class="submenu-link-txt">Available in boutiques from March 2019</span></a></li>
+								<li><a href="#">Spring-Summer 2021 Pre-Collection<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Cruise 2020/21<span class="submenu-link-txt">In boutiques</span></a></li>
+								<li><a href="#">Fall-Winter 2020/21</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Ready-to-wear</a></h3>
+							<h3 class="submenu-title"><a href="#">Ready-to-wear</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+								<li><a href="#">Blouses &amp; Tops</a>
 									<ul>
-										<li><a href="javascript:void(0)">Jackets</a></li>
-										<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-										<li><a href="javascript:void(0)">Blouses &amp; Tops</a>
+										<li><a href="#">Jackets</a></li>
+										<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+										<li><a href="#">Blouses &amp; Tops</a>
 											<ul>
-												<li><a href="javascript:void(0)">Jackets</a></li>
-												<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
+												<li><a href="#">Jackets</a></li>
+												<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
 													<ul>
-														<li><a href="javascript:void(0)">Jackets</a></li>
-														<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
+														<li><a href="#">Jackets</a></li>
+														<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a>
 															<ul>
-																<li><a href="javascript:void(0)">Jackets</a></li>
-																<li><a href="javascript:void(0)">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
-																<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-																<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-																<li><a href="javascript:void(0)">Skirts</a></li>
-																<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-																<li><a href="javascript:void(0)">Outerwear</a></li>
-																<li><a href="javascript:void(0)">Swimwear</a></li>
+																<li><a href="#">Jackets</a></li>
+																<li><a href="#">Dresses<span class="menu-label menu-label--color3">SALE</span></a></li>
+																<li><a href="#">Blouses &amp; Tops</a></li>
+																<li><a href="#">Cardigans &amp; Pullovers</a></li>
+																<li><a href="#">Skirts</a></li>
+																<li><a href="#">Pants &amp; Shorts</a></li>
+																<li><a href="#">Outerwear</a></li>
+																<li><a href="#">Swimwear</a></li>
 															</ul>
 														</li>
-														<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-														<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-														<li><a href="javascript:void(0)">Skirts</a></li>
-														<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-														<li><a href="javascript:void(0)">Outerwear</a></li>
-														<li><a href="javascript:void(0)">Swimwear</a></li>
+														<li><a href="#">Blouses &amp; Tops</a></li>
+														<li><a href="#">Cardigans &amp; Pullovers</a></li>
+														<li><a href="#">Skirts</a></li>
+														<li><a href="#">Pants &amp; Shorts</a></li>
+														<li><a href="#">Outerwear</a></li>
+														<li><a href="#">Swimwear</a></li>
 													</ul>
 												</li>
-												<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-												<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-												<li><a href="javascript:void(0)">Skirts</a></li>
-												<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-												<li><a href="javascript:void(0)">Outerwear</a></li>
-												<li><a href="javascript:void(0)">Swimwear</a></li>
+												<li><a href="#">Blouses &amp; Tops</a></li>
+												<li><a href="#">Cardigans &amp; Pullovers</a></li>
+												<li><a href="#">Skirts</a></li>
+												<li><a href="#">Pants &amp; Shorts</a></li>
+												<li><a href="#">Outerwear</a></li>
+												<li><a href="#">Swimwear</a></li>
 											</ul>
 										</li>
-										<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-										<li><a href="javascript:void(0)">Skirts</a></li>
-										<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-										<li><a href="javascript:void(0)">Outerwear</a></li>
-										<li><a href="javascript:void(0)">Swimwear</a></li>
+										<li><a href="#">Cardigans &amp; Pullovers</a></li>
+										<li><a href="#">Skirts</a></li>
+										<li><a href="#">Pants &amp; Shorts</a></li>
+										<li><a href="#">Outerwear</a></li>
+										<li><a href="#">Swimwear</a></li>
 									</ul>
 								</li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts</a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
-								<li><a href="javascript:void(0)">Swimwear</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts</a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
+								<li><a href="#">Swimwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Accessories</a></h3>
+							<h3 class="submenu-title"><a href="#">Accessories</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-col">
-							<h3 class="submenu-title"><a href="javascript:void(0)">Brands</a></h3>
+							<h3 class="submenu-title"><a href="#">Brands</a></h3>
 							<ul class="submenu-list">
-								<li><a href="javascript:void(0)">Jackets</a></li>
-								<li><a href="javascript:void(0)">Dresses</a></li>
-								<li><a href="javascript:void(0)">Blouses &amp; Tops</a></li>
-								<li><a href="javascript:void(0)">Cardigans &amp; Pullovers</a></li>
-								<li><a href="javascript:void(0)">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
-								<li><a href="javascript:void(0)">Pants &amp; Shorts</a></li>
-								<li><a href="javascript:void(0)">Outerwear</a></li>
+								<li><a href="#">Jackets</a></li>
+								<li><a href="#">Dresses</a></li>
+								<li><a href="#">Blouses &amp; Tops</a></li>
+								<li><a href="#">Cardigans &amp; Pullovers</a></li>
+								<li><a href="#">Skirts<span class="menu-label menu-label--color1">SALE</span></a></li>
+								<li><a href="#">Pants &amp; Shorts</a></li>
+								<li><a href="#">Outerwear</a></li>
 							</ul>
 						</div>
 						<div class="mmenu-bottom justify-content-center">
-							<a href="javascript:void(0)"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
+							<a href="#"><i class="icon-fox icon--lg"></i><b>FOXshop News</b><i class="icon-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -577,30 +577,30 @@
 						<div class="hdr-inline-link">
 <div class="search_container_desktop">
 	<div class="dropdn dropdn_search dropdn_fullwidth">
-		<a href="javascript:void(0)" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
+		<a href="#" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
 		<div class="dropdn-content" style="max-height: 454px; top: 91px;">
 			<div class="container">
 				<form method="get" action="#" class="search search-off-popular">
 					<input name="search" type="text" class="search-input input-empty" placeholder="What are you looking for?">
 					<button type="submit" class="search-button"><i class="icon-search"></i></button>
-					<a href="javascript:void(0)" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
+					<a href="#" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="dropdn dropdn_wishlist">
-	<a href="javascript:void(0)" class="dropdn-link only-icon wishlist-link ">
+	<a href="#" class="dropdn-link only-icon wishlist-link ">
 		<i class="icon-heart"></i><span class="dropdn-link-txt">Wishlist</span><span class="wishlist-qty">3</span>
 	</a>
 </div>
 							<div class="hdr_container_mobile show-mobile">
 <div class="dropdn dropdn_account dropdn_fullheight">
-	<a href="javascript:void(0)" class="dropdn-link js-dropdn-link" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
+	<a href="#" class="dropdn-link js-dropdn-link" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
 </div>
 							</div>
 							<div class="dropdn dropdn_fullheight minicart">
-	<a href="javascript:void(0)" class="dropdn-link js-dropdn-link minicart-link" data-panel="#dropdnMinicart">
+	<a href="#" class="dropdn-link js-dropdn-link minicart-link" data-panel="#dropdnMinicart">
 		<i class="icon-basket"></i>
 		<span class="minicart-qty">3</span>
 		<span class="minicart-total hide-mobile">$34.99</span>
@@ -623,22 +623,22 @@
 				<div class="nav-toggle">
 					<span class="nav-back"><i class="icon-angle-left"></i></span>
 					<span class="nav-title"></span>
-					<a href="javascript:void(0)" class="nav-viewall">view all</a>
+					<a href="#" class="nav-viewall">view all</a>
 				</div>
 				<ul class="nav nav-level-1">
 					<li><a href="index.html">Layouts<span class="menu-label menu-label--color1">New</span><span class="arrow"><i class="icon-angle-right"></i></span></a>
 						<ul class="nav-level-2">
-							<li><a href="javascript:void(0)">Fashion (Default) Skin</a></li>
-							<li><a href="javascript:void(0)">Sport Skin</a></li>
-							<li><a href="javascript:void(0)">Halloween Skin</a></li>
-							<li><a href="javascript:void(0)">Medical Skin</a></li>
-							<li><a href="javascript:void(0)">Food Market Skin</a></li>
-							<li><a href="javascript:void(0)">Cosmetics Skin</a></li>
-							<li><a href="javascript:void(0)">Fishing Skin</a></li>
-							<li><a href="javascript:void(0)">Books Skin<span class="menu-label menu-label--color1">Coming Soon</span></a></li>
-							<li><a href="javascript:void(0)">Electronics Skin<span class="menu-label menu-label--color2">Coming Soon</span></a></li>
-							<li><a href="javascript:void(0)">Games Skin<span class="menu-label menu-label--color3">Coming Soon</span></a></li>
-							<li><a href="javascript:void(0)">Vaping Skin<span class="menu-label">Coming Soon</span></a></li>
+							<li><a href="#">Fashion (Default) Skin</a></li>
+							<li><a href="#">Sport Skin</a></li>
+							<li><a href="#">Halloween Skin</a></li>
+							<li><a href="#">Medical Skin</a></li>
+							<li><a href="#">Food Market Skin</a></li>
+							<li><a href="#">Cosmetics Skin</a></li>
+							<li><a href="#">Fishing Skin</a></li>
+							<li><a href="#">Books Skin<span class="menu-label menu-label--color1">Coming Soon</span></a></li>
+							<li><a href="#">Electronics Skin<span class="menu-label menu-label--color2">Coming Soon</span></a></li>
+							<li><a href="#">Games Skin<span class="menu-label menu-label--color3">Coming Soon</span></a></li>
+							<li><a href="#">Vaping Skin<span class="menu-label">Coming Soon</span></a></li>
 							<li><a href="index-02.html">Home page 2</a></li>
 							<li><a href="index-03.html">Home page 3</a></li>
 							<li><a href="index-04.html">Home page 4</a></li>
@@ -651,11 +651,11 @@
 							<li><a href="index-rtl.html">Home page RTL</a></li>
 						</ul>
 					</li>
-					<li><a href="javascript:void(0)">Pages<span class="arrow"><i class="icon-angle-right"></i></span></a>
+					<li><a href="#">Pages<span class="arrow"><i class="icon-angle-right"></i></span></a>
 						<ul class="nav-level-2">
-							<li><a href="javascript:void(0)">Product page<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Product page<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Product page variant 1<span class="menu-label menu-label--color3">Popular</span></a></li>
+									<li><a href="#">Product page variant 1<span class="menu-label menu-label--color3">Popular</span></a></li>
 									<li><a href="product-2.html">Product page variant 2</a></li>
 									<li><a href="product-3.html">Product page variant 3</a></li>
 									<li><a href="product-4.html">Product page variant 4</a></li>
@@ -664,20 +664,20 @@
 									<li><a href="product-7.html">Product page variant 7</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Category page<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Category page<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Left sidebar filters</a></li>
+									<li><a href="#">Left sidebar filters</a></li>
 									<li><a href="category-closed-filter.html">Closed filters</a></li>
 									<li><a href="category-horizontal-filter.html">Horizontal filters</a></li>
 									<li><a href="category-listview.html">Listing View</a></li>
 									<li><a href="category-empty.html">Empty category</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Cart &amp; Checkout<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Cart &amp; Checkout<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Cart Page</a></li>
+									<li><a href="#">Cart Page</a></li>
 									<li><a href="cart-empty.html">Empty cart</a></li>
-									<li><a href="javascript:void(0)">Checkout variant 1</a></li>
+									<li><a href="#">Checkout variant 1</a></li>
 									<li><a href="checkout-2.html">Checkout variant 2</a></li>
 									<li><a href="checkout-3.html">Checkout variant 3</a></li>
 								</ul>
@@ -686,10 +686,10 @@
 								<ul class="nav-level-3">
 									<li><a href="account-create.html">Login</a></li>
 									<li><a href="account-create.html">Create account</a></li>
-									<li><a href="javascript:void(0)">Account details</a></li>
+									<li><a href="#">Account details</a></li>
 									<li><a href="account-addresses.html">Account addresses</a></li>
-									<li><a href="javascript:void(0)">Order History</a></li>
-									<li><a href="javascript:void(0)">Wishlist</a></li>
+									<li><a href="#">Order History</a></li>
+									<li><a href="#">Wishlist</a></li>
 								</ul>
 							</li>
 							<li><a href="blog.html">Blog<span class="arrow"><i class="icon-angle-right"></i></span></a>
@@ -702,67 +702,67 @@
 									<li><a href="blog-post.html">Blog post</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Gallery</a></li>
-							<li><a href="javascript:void(0)">Faq</a></li>
-							<li><a href="javascript:void(0)">About Us</a></li>
-							<li><a href="javascript:void(0)">Contact Us</a></li>
+							<li><a href="#">Gallery</a></li>
+							<li><a href="#">Faq</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Contact Us</a></li>
 							<li><a href="404.html">404 Page</a></li>
-							<li><a href="javascript:void(0)">Typography</a></li>
+							<li><a href="#">Typography</a></li>
 							<li><a href="coming-soon.html" target="_blank">Coming soon</a></li>
 						</ul>
 					</li>
-					<li><a href="javascript:void(0)">New Arrivals<span class="arrow"><i class="icon-angle-right"></i></span></a>
+					<li><a href="#">New Arrivals<span class="arrow"><i class="icon-angle-right"></i></span></a>
 						<ul class="nav-level-2">
-							<li><a href="javascript:void(0)">Shoes<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Shoes<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Heels</a></li>
-									<li><a href="javascript:void(0)">Boots</a></li>
-									<li><a href="javascript:void(0)">Flats</a></li>
-									<li><a href="javascript:void(0)">Sneakers &amp; Athletic</a></li>
-									<li><a href="javascript:void(0)">Clogs &amp; Mules</a></li>
+									<li><a href="#">Heels</a></li>
+									<li><a href="#">Boots</a></li>
+									<li><a href="#">Flats</a></li>
+									<li><a href="#">Sneakers &amp; Athletic</a></li>
+									<li><a href="#">Clogs &amp; Mules</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Tops<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Tops<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Dresses</a></li>
-									<li><a href="javascript:void(0)">Shirts &amp; Tops</a></li>
-									<li><a href="javascript:void(0)">Coats &amp; Outerwear</a></li>
-									<li><a href="javascript:void(0)">Sweaters</a></li>
+									<li><a href="#">Dresses</a></li>
+									<li><a href="#">Shirts &amp; Tops</a></li>
+									<li><a href="#">Coats &amp; Outerwear</a></li>
+									<li><a href="#">Sweaters</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Shoes<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Shoes<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Heels</a></li>
-									<li><a href="javascript:void(0)">Boots</a></li>
-									<li><a href="javascript:void(0)">Flats</a></li>
-									<li><a href="javascript:void(0)">Sneakers &amp; Athletic</a></li>
-									<li><a href="javascript:void(0)">Clogs &amp; Mules</a></li>
+									<li><a href="#">Heels</a></li>
+									<li><a href="#">Boots</a></li>
+									<li><a href="#">Flats</a></li>
+									<li><a href="#">Sneakers &amp; Athletic</a></li>
+									<li><a href="#">Clogs &amp; Mules</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Bottoms<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Bottoms<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Jeans</a></li>
-									<li><a href="javascript:void(0)">Pants</a></li>
-									<li><a href="javascript:void(0)">slippers</a></li>
-									<li><a href="javascript:void(0)">suits</a></li>
-									<li><a href="javascript:void(0)">socks</a></li>
+									<li><a href="#">Jeans</a></li>
+									<li><a href="#">Pants</a></li>
+									<li><a href="#">slippers</a></li>
+									<li><a href="#">suits</a></li>
+									<li><a href="#">socks</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Accessories<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Accessories<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Sunglasses</a></li>
-									<li><a href="javascript:void(0)">Hats</a></li>
-									<li><a href="javascript:void(0)">Watches</a></li>
-									<li><a href="javascript:void(0)">Jewelry</a></li>
-									<li><a href="javascript:void(0)">Belts</a></li>
+									<li><a href="#">Sunglasses</a></li>
+									<li><a href="#">Hats</a></li>
+									<li><a href="#">Watches</a></li>
+									<li><a href="#">Jewelry</a></li>
+									<li><a href="#">Belts</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:void(0)">Bags<span class="arrow"><i class="icon-angle-right"></i></span></a>
+							<li><a href="#">Bags<span class="arrow"><i class="icon-angle-right"></i></span></a>
 								<ul class="nav-level-3">
-									<li><a href="javascript:void(0)">Handbags</a></li>
-									<li><a href="javascript:void(0)">Backpacks</a></li>
-									<li><a href="javascript:void(0)">Luggage</a></li>
-									<li><a href="javascript:void(0)">wallets</a></li>
+									<li><a href="#">Handbags</a></li>
+									<li><a href="#">Backpacks</a></li>
+									<li><a href="#">Luggage</a></li>
+									<li><a href="#">wallets</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -774,13 +774,13 @@
 				<div class="mobilemenu-currency">
 <div class="dropdn_currency">
 	<div class="dropdn dropdn_caret">
-			<a href="javascript:void(0)" class="dropdn-link js-dropdn-link">US dollars<i class="icon-angle-down"></i></a>
+			<a href="#" class="dropdn-link js-dropdn-link">US dollars<i class="icon-angle-down"></i></a>
 			<div class="dropdn-content">
 					<ul>
-						<li class="active"><a href="javascript:void(0)"><span>US dollars</span></a></li>
-						<li><a href="javascript:void(0)"><span>Euro</span></a></li>
-						<li><a href="javascript:void(0)"><span>UK pounds</span></a></li>
-						<li><a href="javascript:void(0)"><span>Canadian dollars</span></a></li>
+						<li class="active"><a href="#"><span>US dollars</span></a></li>
+						<li><a href="#"><span>Euro</span></a></li>
+						<li><a href="#"><span>UK pounds</span></a></li>
+						<li><a href="#"><span>Canadian dollars</span></a></li>
 					</ul>
 			</div>
 	</div>
@@ -789,13 +789,13 @@
 				<div class="mobilemenu-language">
 <div class="dropdn_language">
 	<div class="dropdn dropdn_language dropdn_language--noimg dropdn_caret">
-		<a href="javascript:void(0)" class="dropdn-link js-dropdn-link"><span class="js-dropdn-select-current">English</span><i class="icon-angle-down"></i></a>
+		<a href="#" class="dropdn-link js-dropdn-link"><span class="js-dropdn-select-current">English</span><i class="icon-angle-down"></i></a>
 		<div class="dropdn-content">
 			<ul>
-				<li class="active"><a href="javascript:void(0)"><img src="images/flags/en.webp" alt="">English</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/sp.webp" alt="">Spanish</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/de.webp" alt="">German</a></li>
-				<li><a href="javascript:void(0)"><img src="images/flags/fr.webp" alt="">French</a></li>
+				<li class="active"><a href="#"><img src="images/flags/en.webp" alt="">English</a></li>
+				<li><a href="#"><img src="images/flags/sp.webp" alt="">Spanish</a></li>
+				<li><a href="#"><img src="images/flags/de.webp" alt="">German</a></li>
+				<li><a href="#"><img src="images/flags/fr.webp" alt="">French</a></li>
 			</ul>
 		</div>
 	</div>
@@ -811,7 +811,7 @@
 		<ul>
 			<li><a href="account-create.html"><span>Log In</span><i class="icon-login"></i></a></li>
 			<li><a href="account-create.html"><span>Register</span><i class="icon-user2"></i></a></li>
-			<li><a href="javascript:void(0)"><span>Checkout</span><i class="icon-card"></i></a></li>
+			<li><a href="#"><span>Checkout</span><i class="icon-card"></i></a></li>
 		</ul>
 		<div class="dropdn-form-wrapper">
 			<h5>Quick Login</h5>
@@ -835,11 +835,11 @@
 		<div class="minicart-drop-content js-dropdn-content-scroll ps ps--theme_default ps--active-y" data-ps-id="135952b9-6ef1-4205-75fc-5f6027d78cfe">
 			<div class="minicart-prd row">
 				<div class="minicart-prd-image image-hover-scale-circle col">
-					<a href="javascript:void(0)"><img class="fade-up ls-is-cached lazyloaded" src="{{asset('images/product-01-1.webp')}}" data-src="{{asset('images/product-01-1.webp')}}" alt=""></a>
+					<a href="#"><img class="fade-up ls-is-cached lazyloaded" src="{{asset('images/product-01-1.webp')}}" data-src="{{asset('images/product-01-1.webp')}}" alt=""></a>
 				</div>
 				<div class="minicart-prd-info col">
 					<div class="minicart-prd-tag">FOXic</div>
-					<h2 class="minicart-prd-name"><a href="javascript:void(0)">Leather Pegged Pants</a></h2>
+					<h2 class="minicart-prd-name"><a href="#">Leather Pegged Pants</a></h2>
 					<div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Quantity:</span><span class="minicart-prd-qty-value">1</span></div>
 					<div class="minicart-prd-price prd-price">
 						<div class="price-old">$200.00</div>
@@ -847,16 +847,16 @@
 					</div>
 				</div>
 				<div class="minicart-prd-action">
-					<a href="javascript:void(0)" class="js-product-remove" data-line-number="1"><i class="icon-recycle"></i></a>
+					<a href="#" class="js-product-remove" data-line-number="1"><i class="icon-recycle"></i></a>
 				</div>
 			</div>
 			<div class="minicart-prd row">
 				<div class="minicart-prd-image image-hover-scale-circle col">
-					<a href="javascript:void(0)"><img class="fade-up lazyloaded" src="images/skins/fashion/products/product-16-1.webp" data-src="images/skins/fashion/products/product-16-1.webp" alt=""></a>
+					<a href="#"><img class="fade-up lazyloaded" src="images/skins/fashion/products/product-16-1.webp" data-src="images/skins/fashion/products/product-16-1.webp" alt=""></a>
 				</div>
 				<div class="minicart-prd-info col">
 					<div class="minicart-prd-tag">FOXic</div>
-					<h2 class="minicart-prd-name"><a href="javascript:void(0)">Cascade Casual Shirt</a></h2>
+					<h2 class="minicart-prd-name"><a href="#">Cascade Casual Shirt</a></h2>
 					<div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Quantity:</span><span class="minicart-prd-qty-value">1</span></div>
 					<div class="minicart-prd-price prd-price">
 						<div class="price-old">$200.00</div>
@@ -864,7 +864,7 @@
 					</div>
 				</div>
 				<div class="minicart-prd-action">
-					<a href="javascript:void(0)" class="js-product-remove" data-line-number="2"><i class="icon-recycle"></i></a>
+					<a href="#" class="js-product-remove" data-line-number="2"><i class="icon-recycle"></i></a>
 				</div>
 			</div>
 			<div class="minicart-empty js-minicart-empty d-none">
@@ -877,7 +877,7 @@
 						</svg>
 				</div>
 			</div>
-			<a href="javascript:void(0)" class="minicart-drop-countdown mt-3">
+			<a href="#" class="minicart-drop-countdown mt-3">
 				<div class="countdown-box-full">
 					<div class="row no-gutters align-items-center">
 						<div class="col-auto"><i class="icon-gift icon--giftAnimate"></i></div>
@@ -904,8 +904,8 @@
 				<div class="minicart-drop-total-price col" data-header-cart-total="">$340</div>
 			</div>
 			<div class="minicart-drop-actions">
-				<a href="javascript:void(0)" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
-				<a href="javascript:void(0)" class="btn btn--md"><i class="icon-checkout"></i><span>Check out</span></a>
+				<a href="#" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart Page</span></a>
+				<a href="#" class="btn btn--md"><i class="icon-checkout"></i><span>Check out</span></a>
 			</div>
 			<ul class="payment-link mb-2">
 				<li><i class="icon-amazon-logo"></i></li>
@@ -995,28 +995,28 @@
 						</div>
 						<div class="collapsed-content">
 							<ul>
-								<li>E-mail: <a href="javascript:void(0)">support@mobilehut.com</a></li>
+								<li>E-mail: <a href="#">support@mobilehut.com</a></li>
 								<li>Hours: 10:00 - 18:00, Mon - Fri</li>
 							</ul>
 						</div>
 						<ul class="social-list">
 	<li>
-		<a href="javascript:void(0)" class="icon icon-facebook"></a>
+		<a href="#" class="icon icon-facebook"></a>
 	</li>
 	<li>
-		<a href="javascript:void(0)" class="icon icon-twitter"></a>
+		<a href="#" class="icon icon-twitter"></a>
 	</li>
 	<li>
-		<a href="javascript:void(0)" class="icon icon-google"></a>
+		<a href="#" class="icon icon-google"></a>
 	</li>
 	<li>
-		<a href="javascript:void(0)" class="icon icon-vimeo"></a>
+		<a href="#" class="icon icon-vimeo"></a>
 	</li>
 	<li>
-		<a href="javascript:void(0)" class="icon icon-youtube"></a>
+		<a href="#" class="icon icon-youtube"></a>
 	</li>
 	<li>
-		<a href="javascript:void(0)" class="icon icon-pinterest"></a>
+		<a href="#" class="icon icon-pinterest"></a>
 	</li>
 </ul>
 						<div class="d-lg-none mt-3">
@@ -1035,11 +1035,11 @@
 						</div>
 						<div class="collapsed-content">
 							<ul>
-	<li><a href="javascript:void(0)">About Us</a></li>
-	<li><a href="javascript:void(0)">Contact Us</a></li>
-	<li><a href="javascript:void(0)">Terms &amp; Conditions</a></li>
-	<li><a href="javascript:void(0)">Returns &amp; Exchanges</a></li>
-	<li><a href="javascript:void(0)">Shipping &amp; Delivery</a></li>
+	<li><a href="#">About Us</a></li>
+	<li><a href="#">Contact Us</a></li>
+	<li><a href="#">Terms &amp; Conditions</a></li>
+	<li><a href="#">Returns &amp; Exchanges</a></li>
+	<li><a href="#">Shipping &amp; Delivery</a></li>
 </ul>
 						</div>
 					</div>
@@ -1052,10 +1052,10 @@
 						</div>
 						<div class="collapsed-content">
 							<ul>
-	<li><a href="javascript:void(0)">My Account</a></li>
-	<li><a href="javascript:void(0)">View Cart</a></li>
-	<li><a href="javascript:void(0)">My Wishlist</a></li>
-	<li><a href="javascript:void(0)">Track My Order</a></li>
+	<li><a href="#">My Account</a></li>
+	<li><a href="#">View Cart</a></li>
+	<li><a href="#">My Wishlist</a></li>
+	<li><a href="#">Track My Order</a></li>
 </ul>
 						</div>
 					</div>
@@ -1087,7 +1087,7 @@
 	<div class="footer-bottom footer-bottom--bg">
 		<div class="container">
 			<div class="footer-copyright text-center">
-				<a href="javascript:void(0)">MOBILE HUT</a> &copy;<script>document.write(new Date().getFullYear)</script> copyright
+				<a href="#">MOBILE HUT</a> &copy;<script>document.write(new Date().getFullYear())</script> copyright
 			</div>
 		</div>
 	</div>
@@ -1097,7 +1097,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-auto sticky-addcart_image">
-					<a href="javascript:void(0)">
+					<a href="#">
 						<img src="{{asset('images/product-01-1.webp')}}" alt="">
 					</a>
 				</div>
@@ -1142,20 +1142,20 @@
 				</div>
 				<div class="col popup-addedtocart_info">
 					<div class="row">
-						<a href="javascript:void(0)" class="col-auto popup-addedtocart_image">
+						<a href="#" class="col-auto popup-addedtocart_image">
 							<span class="image-container w-100">
 								<img src="{{asset('images/product-01-1.webp')}}" alt="">
 							</span>
 						</a>
 						<div class="col popup-addedtocart_text">
-							<a href="javascript:void(0)" class="popup-addedtocart_title"></a>
-							<span class="popup-addedtocart_message">Added to <a href="javascript:void(0)" class="underline">Cart</a></span>
+							<a href="#" class="popup-addedtocart_title"></a>
+							<span class="popup-addedtocart_message">Added to <a href="#" class="underline">Cart</a></span>
 							<span class="popup-addedtocart_error_message"></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-auto popup-addedtocart_actions">
-					<span>You can continue</span> <a href="javascript:void(0)" class="btn btn--grey btn--sm js-open-drop" data-panel="#dropdnMinicart"><i class="icon-basket"></i><span>Check Cart</span></a> <span>or</span> <a href="javascript:void(0)" class="btn btn--invert btn--sm"><i class="icon-envelope-1"></i><span>Check out</span></a>
+					<span>You can continue</span> <a href="#" class="btn btn--grey btn--sm js-open-drop" data-panel="#dropdnMinicart"><i class="icon-basket"></i><span>Check Cart</span></a> <span>or</span> <a href="#" class="btn btn--invert btn--sm"><i class="icon-envelope-1"></i><span>Check out</span></a>
 				</div>
 			</div>
 		</div>
@@ -1165,12 +1165,12 @@
 			<div class="row">
 				<div class="popup-selectoptions-close js-popupSelectOptions-close"><i class="icon-close"></i></div>
 				<div class="col-auto sticky-addcart_image sticky-addcart_image--zoom">
-					<a href="javascript:void(0)" data-caption="">
+					<a href="#" data-caption="">
 						<span class="image-container"><img src="#" alt=""></span>
 					</a>
 				</div>
 				<div class="col col-sm-5 col-lg-4 col-xl-5 sticky-addcart_info">
-					<h1 class="sticky-addcart_title"><a href="javascript:void(0)">&nbsp;</a></h1>
+					<h1 class="sticky-addcart_title"><a href="#">&nbsp;</a></h1>
 					<div class="sticky-addcart_price">
 						<span class="sticky-addcart_price--actual"></span>
 						<span class="sticky-addcart_price--old"></span>
@@ -1201,7 +1201,7 @@
 			</div>
 		</div>
 	</div>
-	<a class="back-to-top js-back-to-top compensate-for-scrollbar" href="javascript:void(0)" title="Scroll To Top">
+	<a class="back-to-top js-back-to-top compensate-for-scrollbar" href="#" title="Scroll To Top">
 		<i class="icon icon-angle-up"></i>
 	</a>
 	<div class="loader-horizontal js-loader-horizontal">
@@ -1211,17 +1211,17 @@
 	</div>
 </div>
 <div class="footer-sticky">
-	<div class="payment-notification-wrap js-pn" data-visible-time="3000" data-hidden-time="3000" data-delay="500" data-from="Aberdeen,Bakersfield,Birmingham,Cambridge,Youngstown" data-products="[{&quot;productname&quot;:&quot;Leather Pegged Pants&quot;, &quot;productlink&quot;:&quot;javascript:void(0)&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-01-1.webp')}}&quot;},{&quot;productname&quot;:&quot;Black Fabric Backpack&quot;, &quot;productlink&quot;:&quot;javascript:void(0)&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-28-1.webp')}}&quot;},{&quot;productname&quot;:&quot;Combined Chunky Sneakers&quot;, &quot;productlink&quot;:&quot;javascript:void(0)&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-23-1.webp')}}&quot;}]">
+	<div class="payment-notification-wrap js-pn" data-visible-time="3000" data-hidden-time="3000" data-delay="500" data-from="Aberdeen,Bakersfield,Birmingham,Cambridge,Youngstown" data-products="[{&quot;productname&quot;:&quot;Leather Pegged Pants&quot;, &quot;productlink&quot;:&quot;#&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-01-1.webp')}}&quot;},{&quot;productname&quot;:&quot;Black Fabric Backpack&quot;, &quot;productlink&quot;:&quot;#&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-28-1.webp')}}&quot;},{&quot;productname&quot;:&quot;Combined Chunky Sneakers&quot;, &quot;productlink&quot;:&quot;#&quot;,&quot;productimage&quot;:&quot;{{asset('images/product-23-1.webp')}}&quot;}]">
 		<div class="payment-notification payment-notification--squared" style="transform: translateY(120%); opacity: 0;">
 			<div class="payment-notification-inside">
 				<div class="payment-notification-container">
-					<a href="javascript:void(0)" class="payment-notification-image js-pn-link" title="Black Fabric Backpack">
+					<a href="#" class="payment-notification-image js-pn-link" title="Black Fabric Backpack">
 						<img src="{{asset('images/product-28-1.webp')}}" class="js-pn-image" alt="">
 					</a>
 					<div class="payment-notification-content-wrapper">
 						<div class="payment-notification-content">
 							<div class="payment-notification-text">Someone purchased</div>
-							<a href="javascript:void(0)" class="payment-notification-name js-pn-name js-pn-link" title="Black Fabric Backpack">Black Fabric Backpack</a>
+							<a href="#" class="payment-notification-name js-pn-name js-pn-link" title="Black Fabric Backpack">Black Fabric Backpack</a>
 							<div class="payment-notification-bottom">
 								<div class="payment-notification-when"><span class="js-pn-time">10</span> min ago</div>
 								<div class="payment-notification-from">from <span class="js-pn-from">Cambridge</span></div>
@@ -1252,7 +1252,7 @@
 						<input type="email" name="email" class="form-control form-control--sm" value="" placeholder="Email address">
 					</div>
 					<button type="submit" class="btn w-100">Subscribe</button>
-					<div class="popup-newsletter-info-sm mt-2">By subscribing, you accept the <a href="javascript:void(0)" class="modal-info-link" data-src="#agreementInfo">Terms of Use</a></div>
+					<div class="popup-newsletter-info-sm mt-2">By subscribing, you accept the <a href="#" class="modal-info-link" data-src="#agreementInfo">Terms of Use</a></div>
 				</form>
 			</div>
 		</div>
