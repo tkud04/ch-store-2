@@ -23,7 +23,7 @@
 	<script src="{{asset('js/vendor-special/jquery.min.js')}}"></script>
 	<script src="{{asset('js/vendor-special/jquery.ez-plus.js')}}"></script>
 	<script src="{{asset('js/vendor/vendor.min.js')}}"></script>
-	<script src="{{asset('js/app-html.js')}}"></script>
+	<script src="{{asset('js/app-html.js').'?ver='.rand(23,999)}}"></script>
 	
 	<script src="{{asset('js/helpers.js').'?ver='.rand(23,999)}}"></script>
 			<script src="{{asset('js/mmm.js').'?ver='.rand(23,999)}}"></script>
