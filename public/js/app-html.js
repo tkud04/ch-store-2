@@ -7461,7 +7461,11 @@ function onYouTubeIframeAPIReady() {
 			if (THEME.sidefixed) THEME.sidefixed.reinit();
 			THEME.initialization.scrollOnLoad();
 			THEME.product.postAjaxProduct();
-			$('.slick-initialized').slick('setPosition');
+			/**/
+					 let ssi = $('.slick-initialized');
+					console.log("ssi: ",ssi);
+					/**/
+					ssi.slick('setPosition');
 			THEME.header.stickyHeaderInit('.hdr-content-sticky');
 			THEME.catalog.mobileFilter('.js-filter-col');
 			THEME.catalog.mobileFilterHorizontal('.js-filter-col-horizontal');
