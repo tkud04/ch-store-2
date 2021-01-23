@@ -7527,7 +7527,11 @@ function onYouTubeIframeAPIReady() {
 					THEME.productpagegallery_qw ? THEME.productpagegallery_qw.reinit() : false;
 					if ($('.js-post-prw-adaptive').length) THEME.sections.postWidth('.js-post-prw-adaptive');
 					if ($('.bnslider .video').length) THEME.Video.resizeVideo();
-					$('.slick-initialized').slick('setPosition');
+					/**/
+					 let ssi = $('.slick-initialized');
+					console.log("ssi: ",ssi);
+					/**/
+					ssi.slick('setPosition');
 					$('.js-arrowCenter').each(function () {
 						THEME.sections.arrowCenter($(this), '.slick-arrow', 'img', 100);
 					});
