@@ -41,12 +41,11 @@ class MainController extends Controller {
 		
 		$signals = $this->helpers->signals;
 		
-		
+		$c = $this->helpers->getCategories();
 		$cart = $this->helpers->getCart($user,$gid);
 		$plugins = $this->helpers->getPlugins();
 		
 		/**
-		$c = $this->helpers->getCategories();
 		
 		
 		$na = $this->helpers->getNewArrivals();
@@ -66,44 +65,7 @@ class MainController extends Controller {
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
        **/
 
-    	return view("index",compact(['user','cart','signals','plugins']));
-    }
-	
-	/**
-	 * Show ajax popup view
-	 *
-	 * @return Response
-	 */
-	public function getAjaxPopup(Request $request)
-    {
-		$user = null;
-		if(Auth::check())
-		{
-			$user = Auth::user();
-		}
-		
-		$req = $request->all();
-		
-		if(isset($req['type']))
-		{
-			$t = $req['type'];
-			switch($t)
-			{
-				case "newsletter":
-				  $v = "newsletter-popup";
-				break;
-				
-				default:
-				  return "<h4>Not Found</h4>";
-			}
-			return view($v);
-		}
-		else
-		{
-			return "<h4>Not Found</h4>";
-		}
-
-    	
+    	return view("index",compact(['user','cart','c','signals','plugins']));
     }
 	
 	/**
@@ -887,16 +849,11 @@ class MainController extends Controller {
 			
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		#dd($ads);
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		return view("about",compact(['user','cart','c','ad','signals','plugins']));	
+		return view("about",compact(['user','cart','c','signals','plugins']));	
     }
 
 	/**
