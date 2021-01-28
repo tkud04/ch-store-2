@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>@yield('title') | Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom</title>
+    <title><?php echo $__env->yieldContent('title'); ?> | Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom</title>
 
     <meta name="keywords" content="iphone, android">
     <meta name="description" content="Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom">
@@ -965,6 +965,6 @@
     <script src="vendor/sticky/sticky.min.js"></script>
 	
     <!-- Main JS File -->
-    <script src="{{asset('js/main.js').'?ver='.rand(23,999)}}"></script>
+    <script src="<?php echo e(asset('js/main.js').'?ver='.rand(23,999)); ?>"></script>
 </body>
-</html>
+</html><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/layout.blade.php ENDPATH**/ ?>

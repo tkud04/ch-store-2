@@ -30,12 +30,10 @@ class MainController extends Controller {
 	 */
 	public function getIndex(Request $request)
     {
-		$hasUnpaidOrders = null;
 		$user = null;
 		if(Auth::check())
 		{
 			$user = Auth::user();
-			$hasUnpaidOrders = $this->helpers->checkForUnpaidOrders($user);
 		}
 		
 		$req = $request->all();
@@ -43,9 +41,11 @@ class MainController extends Controller {
 		
 		$signals = $this->helpers->signals;
 		
-		/**
-		$cart = $this->helpers->getCart($user,$gid);
 		
+		$cart = $this->helpers->getCart($user,$gid);
+		$plugins = $this->helpers->getPlugins();
+		
+		/**
 		$c = $this->helpers->getCategories();
 		
 		
@@ -57,7 +57,7 @@ class MainController extends Controller {
 		#dd($na);
 		$ads = $this->helpers->getAds("wide-ad");
 		$banners = $this->helpers->getBanners();
-		$plugins = $this->helpers->getPlugins();
+		
 		
 		#dd($hasUnpaidOrders);
 		
@@ -65,8 +65,45 @@ class MainController extends Controller {
 		shuffle($banners);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
        **/
-		$plugins = []; $banners = []; $cart = []; $ads = []; 
-    	return view("index",compact(['user','cart','banners','hasUnpaidOrders','ads','signals','plugins']));
+
+    	return view("index",compact(['user','cart','signals','plugins']));
+    }
+	
+	/**
+	 * Show ajax popup view
+	 *
+	 * @return Response
+	 */
+	public function getAjaxPopup(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+		
+		if(isset($req['type']))
+		{
+			$t = $req['type'];
+			switch($t)
+			{
+				case "newsletter":
+				  $v = "newsletter-popup";
+				break;
+				
+				default:
+				  return "<h4>Not Found</h4>";
+			}
+			return view($v);
+		}
+		else
+		{
+			return "<h4>Not Found</h4>";
+		}
+
+    	
     }
 	
 	/**
