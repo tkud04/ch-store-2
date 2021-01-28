@@ -37,34 +37,13 @@ class MainController extends Controller {
 		}
 		
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		
+
 		$signals = $this->helpers->signals;
 		
 		$c = $this->helpers->getCategories();
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$plugins = $this->helpers->getPlugins();
 		
-		/**
-		
-		
-		$na = $this->helpers->getNewArrivals();
-		#$na = [];
-		#dd($na);
-		$bs = $this->helpers->getBestSellers();
-		#$bs = [];
-		#dd($na);
-		$ads = $this->helpers->getAds("wide-ad");
-		$banners = $this->helpers->getBanners();
-		
-		
-		#dd($hasUnpaidOrders);
-		
-		shuffle($ads);
-		shuffle($banners);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-       **/
-
     	return view("index",compact(['user','cart','c','signals','plugins']));
     }
 	
@@ -729,16 +708,12 @@ class MainController extends Controller {
 			
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		$ads = $this->helpers->getAds();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		//dd($user);
-		return view("contact",compact(['user','cart','c','ad','signals','plugins']));							 
+		
+		return view("contact",compact(['user','cart','c','signals','plugins']));							 
     }
 	
 	/**

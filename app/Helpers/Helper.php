@@ -633,48 +633,27 @@ $subject = $data['subject'];
            }
 		   
 		   
-		   function getCart($user,$r="")
+		   function getCart($user)
            {
            	$ret = [];
 			$uu = "";		
-			
-			  if(is_null($user))
+     
+              if($user != null)
 			  {
-				$uu = $r;
-			  }
-              else
-			  {
-				$uu = $user->id;
-
-                //check if guest mode has any cart items
-                $guestCart = Carts::where('user_id',$r)->get();
-                //dd($guestCart);
-                if(count($guestCart) > 0)
-				{
-					foreach($guestCart as $gc)
-					{
-						$temp = ['user_id' => $uu,'sku' => $gc->sku,'qty' => $gc->qty];
-						$this->addToCart($temp);
-						$gc->delete();
-					}
-				}				
-			  }
-
-			  $cart = Carts::where('user_id',$uu)->get();
-			  #dd($uu);
-              if($cart != null)
-               {
-               	foreach($cart as $c) 
+			    $cart = Carts::where('user_id',$user->id)->get();
+			    #dd($uu);
+                if($cart != null)
+                 {
+               	   foreach($cart as $c) 
                     {
                     	$temp = [];
-               	     $temp['id'] = $c->id; 
-               	     $temp['user_id'] = $c->user_id; 
+               	        $temp['id'] = $c->id; 
+               	        $temp['user_id'] = $c->user_id; 
                         $temp['product'] = $this->getProduct($c->sku); 
                         $temp['qty'] = $c->qty; 
                         array_push($ret, $temp); 
-                   }
-               }                                 
-              			  
+                    }
+                 }		  
                 return $ret;
            }
            function clearCart($user)
