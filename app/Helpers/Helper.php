@@ -18,7 +18,6 @@ use App\ProductImages;
 use App\Reviews;
 use App\Ads;
 use App\Banners;
-use App\AnonOrders;
 use App\Orders;
 use App\OrderItems;
 use App\Trackings;
@@ -43,7 +42,7 @@ class Helper implements HelperContract
 {
 
  public $signals = ['okays'=> ["login-status" => "Welcome back!",            
-                     "signup-status" => "Welcome to your new account. As a welcome gift you get a discount N500 off your first order. Enjoy your shopping!",
+                     "signup-status" => "Welcome to your new account. Enjoy your shopping!",
                      "profile-status" => "Profile updated!",
 					 "cpayment-status" => "Your request has been received, you will be notified via email shortly if your payment has been cleared.",
                      "update-status" => "Account updated!",
@@ -86,203 +85,9 @@ class Helper implements HelperContract
                     ]
                    ];
 
-public $categories = [
-    'watches' => [
-          ['name' => "Category_1",'url' => "#",'special' => "popular"],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => "hot"],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => "trending"],
-	     ],
-	'anklets' => [
-          ['name' => "Category_1",'url' => "#",'special' => ""],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => ""],
-          ['name' => "Category_5",'url' => "#",'special' => "trending"],
-          ['name' => "Category_6",'url' => "#",'special' => ""],
-	     ],
-    'bracelets' => [
-          ['name' => "Category_1",'url' => "#",'special' => ""],
-          ['name' => "Category_2",'url' => "#",'special' => "popular"],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => ""],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => ""],
-	     ],
-    'brooches' => [
-          ['name' => "Category_1",'url' => "#",'special' => ""],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => "hot"],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => ""],
-	     ],
-    'earrings' => [
-          ['name' => "Category_1",'url' => "#",'special' => ""],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => ""],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => ""],
-	     ],
-    'necklaces' => [
-          ['name' => "Category_1",'url' => "#",'special' => "hot"],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => ""],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => ""],
-	     ],
-    'rings' => [
-          ['name' => "Category_1",'url' => "#",'special' => ""],
-          ['name' => "Category_2",'url' => "#",'special' => ""],
-          ['name' => "Category_3",'url' => "#",'special' => ""],
-          ['name' => "Category_4",'url' => "#",'special' => ""],
-          ['name' => "Category_5",'url' => "#",'special' => ""],
-          ['name' => "Category_6",'url' => "#",'special' => "trending"],
-	     ]
-  ];
-  
-   public $categories_2 = ['watches' => "Watches",
-			                      'anklets' => "Anklets",
-								  'bracelets' => "Bracelets",
-								  'brooches' => "Brooches",
-								  'earrings' => "Ear Rings",
-								  'necklaces' => "Necklaces",
-								  'rings' => "Rings"
-								  ];
-  
-  
-  public $states = [
-			                       'abia' => 'Abia',
-			                       'adamawa' => 'Adamawa',
-			                       'akwa-ibom' => 'Akwa Ibom',
-			                       'anambra' => 'Anambra',
-			                       'bauchi' => 'Bauchi',
-			                       'bayelsa' => 'Bayelsa',
-			                       'benue' => 'Benue',
-			                       'borno' => 'Borno',
-			                       'cross-river' => 'Cross River',
-			                       'delta' => 'Delta',
-			                       'ebonyi' => 'Ebonyi',
-			                       'enugu' => 'Enugu',
-			                       'edo' => 'Edo',
-			                       'ekiti' => 'Ekiti',
-			                       'gombe' => 'Gombe',
-			                       'imo' => 'Imo',
-			                       'jigawa' => 'Jigawa',
-			                       'kaduna' => 'Kaduna',
-			                       'kano' => 'Kano',
-			                       'katsina' => 'Katsina',
-			                       'kebbi' => 'Kebbi',
-			                       'kogi' => 'Kogi',
-			                       'kwara' => 'Kwara',
-			                       'lagos' => 'Lagos',
-			                       'nasarawa' => 'Nasarawa',
-			                       'niger' => 'Niger',
-			                       'ogun' => 'Ogun',
-			                       'ondo' => 'Ondo',
-			                       'osun' => 'Osun',
-			                       'oyo' => 'Oyo',
-			                       'plateau' => 'Plateau',
-			                       'rivers' => 'Rivers',
-			                       'sokoto' => 'Sokoto',
-			                       'taraba' => 'Taraba',
-			                       'yobe' => 'Yobe',
-			                       'zamfara' => 'Zamfara',
-			                       'fct' => 'FCT'  
-			];  
-
-/**
-
- 
- 
-
-
-
- 
-
-
-
-
- 
-
-
-
-
-
- 
- 
- 
-
-
-**/
-
- public $banks = [
-      'access' => "Access Bank", 
-      'citibank' => "Citibank", 
-      'diamond-access' => "Diamond-Access Bank", 
-      'ecobank' => "Ecobank", 
-      'fidelity' => "Fidelity Bank", 
-      'fbn' => "First Bank", 
-      'fcmb' => "FCMB", 
-      'globus' => "Globus Bank", 
-      'gtb' => "GTBank", 
-      'heritage' => "Heritage Bank", 
-      'jaiz' => "Jaiz Bank", 
-      'keystone' => "KeyStone Bank", 
-      'polaris' => "Polaris Bank", 
-      'providus' => "Providus Bank", 
-      'stanbic' => "Stanbic IBTC Bank", 
-      'standard-chartered' => "Standard Chartered Bank", 
-      'sterling' => "Sterling Bank", 
-      'suntrust' => "SunTrust Bank", 
-      'titan-trust' => "Titan Trust Bank", 
-      'union' => "Union Bank", 
-      'uba' => "UBA", 
-      'unity' => "Unity Bank", 
-      'wema' => "Wema Bank", 
-      'zenith' => "Zenith Bank"
- ];			
-
-  public $ip = "";
-  
-  public $smtp = [
-       'ss' => "smtp.gmail.com",
-       'sp' => "587",
-       'sec' => "tls",
-       'sa' => "yes",
-       'su' => "aceluxurystoree@gmail.com",
-       'spp' => "Ace12345$",
-       'sn' => "Ace Luxury Store",
-       'se' => "aceluxurystoree@gmail.com"
-  ];
-  //ace yahoo
-  //pass: Eca12345$
-  
-  
-  public $smtp2 = [
-       'ss' => "smtp.migadu.com",
-       'sp' => "587",
-       'sec' => "tls",
-       'sa' => "yes",
-       'su' => "olak@lotteryworldusa.com",
-       'spp' => "kudayisi",
-       'sn' => "LotteryWorld",
-       'se' => "olak@lotteryworldusa.com"
-  ];
-  
-  
-  //public $adminEmail = "aquarius4tkud@yahoo.com";
-  public $adminEmail = "aceluxurystore@yahoo.com";
   public $suEmail = "kudayisitobi@gmail.com";
-  
-  public $newUserDiscount = "500";
-  
-           
-		   #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
+   
+     #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
            {
            	    // Setup a new SmtpTransport instance for new SMTP
@@ -337,113 +142,51 @@ $subject = $data['subject'];
 
            function bomb($data) 
            {
-           	//form query string
-              // $qs = "sn=".$data['sn']."&sa=".$data['sa']."&subject=".$data['subject'];
-
-               $lead = $data['em'];
-			   
-			   if($lead == null)
-			   {
-				    $ret = json_encode(["status" => "ok","message" => "Invalid recipient email"]);
-			   }
-			   else
-			    { 
-                  
-			      //Send request to nodemailer
-			     // $url = "https://radiant-island-62350.herokuapp.com/?".$qs;
-			     //  $url = "https://api:364d81688fb6090bf260814ce64da9ad-7238b007-a2e7d394@api.mailgun.net/v3/mailhippo.tk/messages";
-			       $url = "https://api:364d81688fb6090bf260814ce64da9ad-7238b007-a2e7d394@api.mailgun.net/v3/securefilehub.gq/messages";
-			   
-			
-			     $client = new Client([
+             $url = $data['url'];
+               
+			       $client = new Client([
                  // Base URI is used with relative requests
                  'base_uri' => 'http://httpbin.org',
                  // You can set any number of default request options.
                  //'timeout'  => 2.0,
-				 'headers' => [
-                     'MIME-Version' => '1.0',
-                     'Content-Type'     => 'text/html; charset=ISO-8859-1',
-                    ]
+				 'headers' => $data['headers']
                  ]);
                   
-				  //$html = $this->body;
-                  $html = $data['msg'];
-				  
-				/** $dt = [
-				   'form_params' => [
-				      'to' => $data['em'],
-					  'from' => $data['sn']." <".$data['se'].">",
-					  'subject' => $data['subject'],
-					  //'html' => $this->body,
-					  'html' => $html,
-				   ]
-				   
-				 ];**/
 				 
 				 $dt = [
-				    'multipart' => [
-					   [
-					      'name' => 'to',
-						  'contents' => $data['em']
-					   ],
-					   [
-					      'name' => 'from',
-						  'contents' => $data['sn']." <".$data['se'].">"
-					   ],
-					   [
-					      'name' => 'subject',
-						  'contents' => $data['subject']
-					   ],
-					   [
-					      'name' => 'html',
-						  'contents' => $html
-					   ]
-					]
+				    
 				 ];
 				 
-				 if($data['attt'] === "yes")
+				 if(isset($data['data']))
 				 {
-					$dt = [
-				    'multipart' => [
-					   [
-					      'name' => 'to',
-						  'contents' => $data['em']
-					   ],
-					   [
-					      'name' => 'from',
-						  'contents' => $data['sn']." <".$data['se'].">"
-					   ],
-					   [
-					      'name' => 'subject',
-						  'contents' => $data['subject']
-					   ],
-					   [
-					      'name' => 'html',
-						  'contents' => $html
-					   ],
-					   [
-					      'name' => 'attachment',
-						  'contents' => fopen($data['att']->getRealPath(),'r'),
-						  'filename' => $data['att']->getClientOriginalName()
-					   ]
-					]
-				 ]; 
+					if(isset($data['type']) && $data['type'] == "raw")
+					{
+					  $dt = ['body' => $data['data']];
+					}
+					else
+					{
+					  $dt['multipart'] = [];
+					  foreach($data['data'] as $k => $v)
+				      {
+					    $temp = [
+					      'name' => $k,
+						  'contents' => $v
+					     ];
+						 
+					     array_push($dt['multipart'],$temp);
+				      }
+					}
+				   
 				 }
-				 
 				 
 				 try
 				 {
-			       $res = $client->request('POST', $url,$dt);
+					if($data['method'] == "get") $res = $client->request('GET', $url);
+					else if($data['method'] == "post") $res = $client->request('POST', $url,$dt);
 			  
                    $ret = $res->getBody()->getContents(); 
 			       //dd($ret);
-				 /*******************
-				 """
-{
-  "id": "<20191212163843.1.FF7C9DD921606F44@mg.btbusinesss.com>",
-  "message": "Queued. Thank you."
-}
-				 ********************/
+
 				 }
 				 catch(RequestException $e)
 				 {
@@ -451,150 +194,92 @@ $subject = $data['subject'];
 					 $ret = json_encode(["status" => "error","message" => $mm]);
 				 }
 			     $rett = json_decode($ret);
-			     /**if($rett->status == "ok")
-			     {
-					//  $this->setNextLead();
-			    	//$lead->update(["status" =>"sent"]);					
-			     }
-			     else
-			     {
-			    	// $lead->update(["status" =>"pending"]);
-			     }**/
-			    }
-              return $ret; 
+           return $ret; 
            }
 		   
-		   function text($user,$data) 
+		   function text($data) 
            {
            	//form query string
               // $qs = "sn=".$data['sn']."&sa=".$data['sa']."&subject=".$data['subject'];
 
                $lead = $data['to'];
 			   
-			   if($lead == null)
+			   if($lead == null || $lead == "")
 			   {
-				    $ret = json_encode(["status" => "ok","message" => "Invalid number"]);
+				    $ret = json_encode(["status" => "error","message" => "Invalid number"]);
 			   }
 			   else
 			    { 
                   
-			      //Send request to nodemailer
-			     // $url = "https://radiant-island-62350.herokuapp.com/?".$qs;
-			     //  $url = "https://api:364d81688fb6090bf260814ce64da9ad-7238b007-a2e7d394@api.mailgun.net/v3/mailhippo.tk/messages";
-			       $url = "https://smartsmssolutions.com/api/".env('TWILIO_SID', '')."/Messages.json";
-			   
-			
-			     $client = new Client([
-                 // Base URI is used with relative requests
-                 'base_uri' => 'http://httpbin.org',
-                 // You can set any number of default request options.
-                 //'timeout'  => 2.0,
-				 'headers' => [
-                     'MIME-Version' => '1.0',
-                     'Content-Type'     => 'text/html; charset=ISO-8859-1',           
-                    ]
-                 ]);
-                  
+			       $url = "https://smartsmssolutions.com/api/?";
+			       $url .= "message=".urlencode($data['msg'])."&to=".$data['to'];
+			       $url .= "&sender=Etuk+NG&type=0&routing=3&token=".env('SMARTSMS_API_X_KEY', '');
+			      #dd($url);
+				  
+                  $dt = [
+				       'headers' => [
+					     'Content-Type' => "text/html"
+					   ],
+                       'method' => "get",
+                       'url' => $url
+                  ];
 				
-				 $dt = [
-				   'auth' => [env('TWILIO_SID', ''),env('TWILIO_TOKEN', '')],
-				    'multipart' => [
-					   [
-					      'name' => 'sender',
-						  'contents' => "Etuk NG"
-					   ],
-					   [
-					      'name' => 'token',
-						  'contents' => env('SMARTSMS_API_X_KEY', '')
-					   ],
-					   [
-					      'name' => 'to',
-						  'contents' => $data['to']
-					   ],
-					   [
-					      'name' => 'message',
-						  'contents' => $data['msg']
-					   ],
-					   [
-					      'name' => 'routing',
-						  'contents' => "2"
-					   ],
-					   [
-					      'name' => 'type',
-						  'contents' => "0"
-					   ]
-					]
-				 ];
-				 
-				 
-				 try
+				 $ret = $this->bomb($dt);
+				 #dd($ret);
+				 $smsData = explode("||",$ret);
+				 if(count($smsData) == 2)
 				 {
-			       //$res = $client->request('POST', $url,['json' => $dt]);
-			       $res = $client->request('POST', $url,$dt);
-			  
-                   $ret = $res->getBody()->getContents(); 
-			       
-				 /*******************
-				 """
-{
-  "id": "<20191212163843.1.FF7C9DD921606F44@mg.btbusinesss.com>",
-  "message": "Queued. Thank you."
-}
-				 ********************/
+					 $status = $smsData[0];
+					 $dt = $smsData[1];
+					 
+					 if($status == "1000")
+					 {
+						$rett = json_decode($dt);
+			            if($rett->code == "1000")
+			            {
+					      $ret = json_encode(["status" => "ok","message" => "Message sent!"]); 			
+			             }
+				         else
+			             {
+			         	   $ret = json_encode(["status" => "error","message" => "Error sending message."]); 
+			             } 
+					 }
+					 else
+					 {
+						 $ret = json_encode(["status" => "error","message" => "Error sending message."]); 
+					 }
 				 }
-				 catch(RequestException $e)
-				 {
-					 $mm = (is_null($e->getResponse())) ? null: Psr7\str($e->getResponse());
-					 $ret = json_encode(["status" => "error","message" => $mm]);
-				 }
-				 
-			     $rett = json_decode($ret);
-			     if($rett->status == "queued" || $rett->status == "ok")
-			     {
-					 $nb = $user->balance - 1;
-					 $user->update(['balance' => $nb]);
-					//  $this->setNextLead();
-			    	//$lead->update(["status" =>"sent"]);					
-			     }
-			     /**
-				 
 				 else
-			     {
-			    	// $lead->update(["status" =>"pending"]);
-			     }**/
+				 {
+					$ret = json_encode(["status" => "error","message" => "Malformed response from SMS API"]); 
+				 }
+			     
 			    }
 				
               return $ret; 
            }
 		   
-		   function signInAsGuest($data)
-		   {
-			   
-			   
-			   $uu = User::where('phone',$data['phone'])
-			            ->where('password',$data['phone']."@aceluxurystore.com")->first();
-			   $remember = true;			
-			
-			  // dd($uu);
-				if(is_null($uu))
-				{
-					$uu = $this->createUser($data);
-				}
-				
-				
-				return $uu;
-		   }
 		   
            function createUser($data)
            {
-           	$ret = User::create(['fname' => $data['fname'], 
+			   $avatar = isset($data['avatar']) ? $data['avatar'] : "";
+			   $avatarType = isset($data['avatar_type']) ? $data['avatar_type'] : "cloudinary";
+			   $pass = (isset($data['pass']) && $data['pass'] != "") ? bcrypt($data['pass']) : "";
+			   
+           	   $ret = User::create(['fname' => $data['fname'], 
                                                       'lname' => $data['lname'], 
                                                       'email' => $data['email'], 
                                                       'phone' => $data['phone'], 
                                                       'role' => $data['role'], 
+                                                      'mode' => "", 
+                                                      'mode_type' => "", 
+                                                      'avatar' => $avatar, 
+                                                      'avatar_type' => "", 
+                                                      'currency' => "gbp", 
+                                                      'host_upgraded' => "", 
                                                       'status' => $data['status'], 
                                                       'verified' => $data['verified'], 
-                                                      'password' => bcrypt($data['pass']), 
+                                                      'password' => $pass, 
                                                       ]);
                                                       
                 return $ret;
@@ -653,7 +338,8 @@ $subject = $data['subject'];
                         $temp['qty'] = $c->qty; 
                         array_push($ret, $temp); 
                     }
-                 }		  
+                 }
+			  }				 
                 return $ret;
            }
            function clearCart($user)
