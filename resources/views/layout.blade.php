@@ -237,13 +237,13 @@
                         </figure>
                     </div>
                     <div class="footer-center">
-                        <p class="copyright">Donald eCommerce © 2020. All Rights Reserved</p>
+                        <p class="copyright">Mobile Buzz &copy; {{date("Y")}}. All Rights Reserved</p>
                     </div>
                     <div class="footer-right">
                         <div class="social-links">
-                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            <a href="javascript:void(0)" class="social-link social-facebook fab fa-facebook-f"></a>
+                            <a href="javascript:void(0)" class="social-link social-twitter fab fa-twitter"></a>
+                            <a href="javascript:void(0)" class="social-link social-linkedin fab fa-linkedin-in"></a>
                         </div>
                     </div>
                 </div>
