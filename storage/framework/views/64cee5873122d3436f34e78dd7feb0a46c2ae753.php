@@ -33,11 +33,21 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
-
+     
+	 	<!--SweetAlert--> 
+    <link href="lib/sweet-alert/sweetalert2.css" rel="stylesheet">
+    <script src="lib/sweet-alert/sweetalert2.js"></script>
+	 
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 	
+		
+<!-- DO NOT EDIT!! start of plugins -->
+<?php $__currentLoopData = $plugins; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <?php echo $p['value']; ?>
 
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!-- DO NOT EDIT!! end of plugins -->
 </head>
 
 <body class="home loaded" style="overflow-x: hidden;">
@@ -231,6 +241,32 @@
              <?php echo $__env->make('page-header',['title' => $title,'img' => asset('images/page-header.jpg')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		 <?php endif; ?>
             <div class="page-content<?php echo e($pcClass); ?>">
+			
+			  <!--------- Session notifications-------------->
+        	<?php
+               $pop = ""; $val = "";
+               
+               if(isset($signals))
+               {
+                  foreach($signals['okays'] as $key => $value)
+                  {
+                    if(session()->has($key))
+                    {
+                  	$pop = $key; $val = session()->get($key);
+                    }
+                 }
+              }
+              
+             ?> 
+
+                 <?php if($pop != "" && $val != ""): ?>
+                   <?php echo $__env->make('session-status',['pop' => $pop, 'val' => $val], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                 <?php endif; ?>
+        	<!--------- Input errors -------------->
+                    <?php if(count($errors) > 0): ?>
+                          <?php echo $__env->make('input-errors', ['errors'=>$errors], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                     <?php endif; ?> 
+			
                 <?php echo $__env->yieldContent('content'); ?>
             </div>
         </main>

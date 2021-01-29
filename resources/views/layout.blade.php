@@ -33,11 +33,20 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
-
+     
+	 	<!--SweetAlert--> 
+    <link href="lib/sweet-alert/sweetalert2.css" rel="stylesheet">
+    <script src="lib/sweet-alert/sweetalert2.js"></script>
+	 
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 	
-
+		
+<!-- DO NOT EDIT!! start of plugins -->
+@foreach($plugins as $p)
+  {!! $p['value'] !!}
+@endforeach
+<!-- DO NOT EDIT!! end of plugins -->
 </head>
 
 <body class="home loaded" style="overflow-x: hidden;">
@@ -231,6 +240,32 @@
              @include('page-header',['title' => $title,'img' => asset('images/page-header.jpg')])
 		 @endif
             <div class="page-content{{$pcClass}}">
+			
+			  <!--------- Session notifications-------------->
+        	<?php
+               $pop = ""; $val = "";
+               
+               if(isset($signals))
+               {
+                  foreach($signals['okays'] as $key => $value)
+                  {
+                    if(session()->has($key))
+                    {
+                  	$pop = $key; $val = session()->get($key);
+                    }
+                 }
+              }
+              
+             ?> 
+
+                 @if($pop != "" && $val != "")
+                   @include('session-status',['pop' => $pop, 'val' => $val])
+                 @endif
+        	<!--------- Input errors -------------->
+                    @if (count($errors) > 0)
+                          @include('input-errors', ['errors'=>$errors])
+                     @endif 
+			
                 @yield('content')
             </div>
         </main>
