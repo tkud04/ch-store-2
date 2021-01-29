@@ -4,7 +4,23 @@ $pcClass = "";
 ?>
 @extends('layout')
 
+
+
+
+
 @section('content')
+
+<?php
+$categories = [
+['name' => "Electronics",'category' => "electronics"],
+['name' => "Accessories &amp; jewellery",'category' => "accessories-jewellery"],
+['name' => "Musical instruments",'category' => "musical-instruments"],
+['name' => "Shoes",'category' => "shoes"],
+['name' => "Fashion",'category' => "fashion"],
+['name' => "Bags",'category' => "bags"],
+['name' => "Underwears",'category' => "underwears"],
+];
+?>
 <div class="container">
                     <div class="row">
                         <aside class="col-lg-3 sidebar sidebar-fixed sticky-sidebar-wrapper">
@@ -16,15 +32,15 @@ $pcClass = "";
                                 <div class="pin-wrapper" style="height: 891px;"><div class="sticky-sidebar pb-6" data-sticky-options="{'top': 0}" style="border-bottom: 0px none rgb(102, 102, 102); width: 280px;">
                                     <div class="widget widget-category">
                                         <ul class="menu vertical-menu category-menu">
-                                            <li><a href="#">Electronics</a></li>
-                                            <li><a href="#">Accessories &amp; jewellery</a></li>
-                                            <li><a href="#">Musical instruments</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Travel &amp; clothing</a></li>
-                                            <li><a href="#">Backpack &amp; fashion bags</a></li>
-                                            <li><a href="#">Lounge &amp; Underwear</a></li>
-                                            <li><a href="#">under $25</a></li>
-                                            <li><a href="#">Buy donald</a></li>
+										   <?php
+										    foreach($categories as $cc)
+											{
+												$cu = url('categories')."?xf=".$cc['category'];
+										   ?>
+                                            <li><a href="{{$cu}}">{!! $cc['name'] !!}</a></li>
+											<?php
+											}
+											?>
                                         </ul>
                                     </div>
                                     <div class="header-search mb-6">
@@ -57,7 +73,7 @@ $pcClass = "";
 
                             <section class="toolbox">
                                 <div class="toolbox-left">
-                                    <h2 class="title title-simple text-left">Electronics</h2>
+                                    <h2 class="title title-simple text-left">Best Sellers</h2>
                                     <p class="show-info">(showing 12 products of 99)</p>
                                 </div>
                                 <div class="toolbox-right">
@@ -414,12 +430,9 @@ $pcClass = "";
                                 <h3 class="widget-title">Sort by<span class="toggle-btn"></span></h3>
                                 <ul class="widget-body filter-items">
                                     <li><a href="#">Default</a></li>
-                                    <li><a href="#">Popularity</a></li>
+                                    <li><a href="#">Likes</a></li>
                                     <li><a href="#">Average rating</a></li>
-                                    <li><a href="#">Latest</a></li>
-                                    <li><a href="#">Sort Forward Price Low</a></li>
-                                    <li><a href="#">Sort Forward Price High</a></li>
-                                    <li><a href="#">Clear Custom Sort</a></li>
+                                    <li><a href="#">Newest</a></li>
                                 </ul>
                             </div>
                             <div class="widget widget-collapsible">
@@ -432,29 +445,16 @@ $pcClass = "";
                                 </ul>
                             </div>
                             <div class="widget widget-collapsible">
-                                <h3 class="widget-title">Filter By Color<span class="toggle-btn"></span></h3>
-                                <ul class="widget-body filter-items">
-                                    <li><a href="#"><span class="color" style="background-color: #003dea"></span>Blue</a></li>
-                                    <li><a href="#"><span class="color" style="background-color: #653b01"></span>Brown</a></li>
-                                    <li><a href="#"><span class="color" style="background-color: #dcdcdc"></span>Gray</a></li>
-                                    <li><a href="#"><span class="color" style="background-color: #4a932b"></span>Green</a></li>
-                                    <li><a href="#"><span class="color" style="background-color: #d26e4b"></span>Orange</a></li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-collapsible">
-                                <h3 class="widget-title">Tags<span class="toggle-btn"></span></h3>
+                                <h3 class="widget-title">Category<span class="toggle-btn"></span></h3>
                                 <div class="widget-body pt-6">
-                                    <a href="#" class="tag">Bag</a>
-                                    <a href="#" class="tag">Classic</a>
-                                    <a href="#" class="tag">Converse</a>
-                                    <a href="#" class="tag">Fit</a>
-                                    <a href="#" class="tag">Green</a>
-                                    <a href="#" class="tag">Jack and Jones</a>
-                                    <a href="#" class="tag">Jeans</a>
-                                    <a href="#" class="tag">Jumper</a>
-                                    <a href="#" class="tag">Leather</a>
-                                    <a href="#" class="tag">Diesel</a>
-                                    <a href="#" class="tag">Man</a>
+								    <?php
+									 foreach($categories as $cc)
+									 {
+									?>
+                                    <a href="#" class="tag">{!! $cc['name'] !!}</a>
+                                    <?php
+									 }
+									?>
                                 </div>
                             </div>
                         </div>
