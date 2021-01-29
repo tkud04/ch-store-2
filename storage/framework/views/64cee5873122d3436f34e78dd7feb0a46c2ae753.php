@@ -34,6 +34,10 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
 
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+	
+
 </head>
 
 <body class="home loaded" style="overflow-x: hidden;">

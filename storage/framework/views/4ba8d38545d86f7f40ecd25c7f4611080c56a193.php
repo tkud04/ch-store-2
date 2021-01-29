@@ -84,7 +84,7 @@ $pcClass = "";
 								<?php endif; ?>
 							</div>
 							<nav class="toolbox toolbox-pagination">
-								<p class="show-info">Showing <span>12 of 56</span> Products</p>
+								<p class="show-info">Showing <span>0 of 0</span> Products</p>
 								<ul class="pagination">
 									<li class="page-item disabled">
 										<a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">

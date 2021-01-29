@@ -120,17 +120,10 @@ class MainController extends Controller {
 			$user = Auth::user();
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$cc = $this->helpers->categories_2;
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		$ads = $this->helpers->getAds();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		
-    	
 		
 		$req = $request->all();
 	    //dd($secure);
@@ -140,16 +133,18 @@ class MainController extends Controller {
          
                  if($validator->fails())
                   {
-					  $uu = "shop?category=necklaces";
+					  $uu = "shop?xf=electronics";
                       return redirect()->intended($uu);
                        
                  }
                 
                  else
                  {
+					 $discounts = [];
+					 /**
 					 $product = $this->helpers->getProduct($req["sku"]);
 					 #dd($product);
-					 $discounts = [];
+					
 					 if(count($product['discounts']) > 0)
 					 {
 						 $amount = $product['pd']['amount'];
@@ -187,6 +182,8 @@ class MainController extends Controller {
 					 $reviews = $this->helpers->getReviews($req["sku"]);
 					 $related = $this->helpers->getProducts();
 					// dd($product);
+					**/
+					$product = []; $reviews = []; $related = [];
 					
 					if(isset($req['type']) && $req['type'] == "json")
 					{
@@ -194,7 +191,7 @@ class MainController extends Controller {
 					}
 					else
 					{
-						return view("product",compact(['user','cart','c','cc','ad','reviews','related','product','discounts','signals','plugins']));
+						return view("product",compact(['user','cart','c','reviews','related','product','discounts','signals','plugins']));
 					}
                     			 
                  }			 
@@ -245,8 +242,9 @@ class MainController extends Controller {
 		    $shipping = $this->helpers->getShippingDetails($user);	
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		
+		/**
+		$cart = $this->helpers->getCart($user);
 		$totals = $this->helpers->getCartTotals($cart);
 		
 
@@ -260,26 +258,24 @@ class MainController extends Controller {
 				
 				
 		   if(count($shipping) > 0) $ss = $shipping[0];
-		$c = $this->helpers->getCategories();
+		
 		$states = $this->helpers->states;
 		$ads = $this->helpers->getAds();
 		$ref = $this->helpers->getRandomString(5);
 						$md = json_encode(['custom_fields' => ['display_name' => "Reference No.",'variable_name' => "ref",'value' => $ref],'type' => "checkout",'notes' => ""]);
 		shuffle($ads);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		$signals = $this->helpers->signals;
-		$plugins = $this->helpers->getPlugins();
+		
 		#dd($user);
 		$secure = (isset($req['ss']) && $req['ss'] == "1") ? false : true;
 
-		if(is_null($user))
-		{
-			return view("anon-checkout",compact(['user','cart','totals','ss','ad','ref','md','states','secure','c','signals','plugins']));		
-		}
-		else
-		{
-			return view("checkout",compact(['user','cart','totals','ss','ad','ref','md','states','secure','c','signals','plugins']));		
-		}
+        **/
+		$c = $this->helpers->getCategories();
+		$signals = $this->helpers->signals;
+		$plugins = $this->helpers->getPlugins();
+		
+		 $totals = []; $ss = []; $ref = ""; 
+			return view("checkout",compact(['user','cart','totals','ss','ref','c','signals','plugins']));		
 								 
     }
 	
@@ -974,26 +970,25 @@ class MainController extends Controller {
 	 */
 	public function getDashboard(Request $request)
     {
+		$user = null;
 		if(Auth::check())
 		{
 			$user = Auth::user();
+		}
 			$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			$orders = $this->helpers->getOrders($user);
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
+			
 		    $signals = $this->helpers->signals;
 			$plugins = $this->helpers->getPlugins();
-		    return view("dashboard",compact(['user','cart','c','ad','orders','signals','plugins']));			
+		    return view("dashboard",compact(['user','cart','c','signals','plugins']));			
+		/**
 		}
 		else
 		{
 			return redirect()->intended('/');
 		}
-		
+		**/
     }
     
 	/**

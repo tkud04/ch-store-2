@@ -1,0 +1,77 @@
+.step-by {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step-by .title.title-step:first-child {
+    margin-left: 0;
+}
+
+.step-by .title.title-step.visited {
+    color: #222;
+}
+
+.step-by .title.title-step.active {
+    color: #26b;
+}
+
+.checkout .title.title-simple {
+    font-weight: 700;
+}
+
+.step-by .title.title-step {
+    font-size: 2rem;
+    text-transform: initial;
+    font-weight: 700;
+    margin-left: 4.8rem;
+    color: #999;
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+    padding: .5rem 0;
+}
+
+.title-simple {
+    display: block;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.6rem;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    color: #222;
+}
+
+.step-by .title.title-step::before {
+    content: '\f054';
+    display: inline-block;
+    position: absolute;
+    left: -2.8rem;
+    top: 52%;
+    line-height: 0;
+    vertical-align: middle;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700;
+    font-size: 1.7rem;
+    background-color: #fff;
+}
+.title-simple::before, .title-simple::after {
+    content: none;
+}
+.title::before {
+    margin-right: 3rem;
+}
+.title::before, .title::after {
+    flex: 1;
+    content: '';
+    height: 2px;
+    background-color: #edeef0;
+}
