@@ -46,33 +46,34 @@
         </div>
     </div>
     <div class="page-wrapper">
-        <h1 class="d-none">Donald - Responsive eCommerce HTML Template</h1>
+        <h1 class="d-none">Mobile Buzz - Your Number 1 Gadgets Store in the UK!</h1>
         <header class="header">
 		 <div class="header-top">
                 <div class="container">
                     <div class="header-left">
-                        <p class="welcome-msg">Welcome to Donald store message or remove it!</p>
+                        <p class="welcome-msg">Welcome to Mobile Buzz!</p>
                     </div>
                     <div class="header-right">
                         <div class="dropdown">
-                            <a href="#currency">USD</a>
+                            <a href="#currency">GBP</a>
                             <ul class="dropdown-box">
                                 <li><a href="#USD">USD</a></li>
                                 <li><a href="#EUR">EUR</a></li>
+                                <li><a href="#GBP">GBP</a></li>
                             </ul>
                         </div>
                         <!-- End DropDown Menu -->
                         <div class="dropdown">
-                            <a href="#language"><img src="images/flags/en.png" alt="USA Flag" class="dropdown-image">ENG</a>
+                            <a href="#language"><img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG</a>
                             <ul class="dropdown-box">
                                 <li>
                                     <a href="#USD">
-                                        <img src="images/flags/en.png" alt="USA Flag" class="dropdown-image">ENG
+                                        <img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#EUR">
-                                        <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FRH
+                                        <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FR
                                     </a>
                                 </li>
                             </ul>
@@ -81,12 +82,12 @@
                         <div class="dropdown dropdown-expanded d-lg-show">
                             <a href="#dropdown">Links</a>
                             <ul class="dropdown-box">
-                                <li><a href="about-us.html">About</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="{{url('about')}}">About</a></li>
+                                <li><a href="{{url('terms')}}">Terms</a></li>
+                                <li><a href="{{url('faq')}}">FAQ</a></li>
+                                <li><a href="{{url('returns')}}">Returns</a></li>
+                                <li><a href="{{url('contact')}}">Contact</a></li>
+                                <li><a href="{{url('privacy')}}">Privacy</a></li>
                             </ul>
                         </div>
                         <!-- End DropDownExpanded Menu -->
@@ -107,24 +108,25 @@
                         <span class="divider d-lg-block"></span>
                         <!-- End Divider -->
                         <div class="dropdown currency-dropdown">
-                            <a href="#currency">USD</a>
+                            <a href="#currency">GBP</a>
                             <ul class="dropdown-box">
                                 <li><a href="#USD">USD</a></li>
                                 <li><a href="#EUR">EUR</a></li>
+                                <li><a href="#GBP">GBP</a></li>
                             </ul>
                         </div>
                         <!-- End DropDown Menu -->
                         <div class="dropdown language-dropdown">
-                            <a href="#language"><img src="images/flags/en.png" alt="USA Flag" class="dropdown-image">ENG</a>
+                            <a href="#language"><img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG</a>
                             <ul class="dropdown-box">
                                 <li>
                                     <a href="#USD">
-                                        <img src="images/flags/en.png" alt="USA Flag" class="dropdown-image">ENG
+                                        <img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#EUR">
-                                        <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FRH
+                                        <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FR
                                     </a>
                                 </li>
                             </ul>
@@ -132,8 +134,10 @@
                         <!-- End DropDown Menu -->
                     </div>
                     <div class="header-center">
-                        <a href="demo18.html" class="logo pt-4 pb-4 mr-0">
-                            <img src="images/logo.png" alt="logo" width="163" height="39">
+                        <a href="{{url('/')}}" class="logo pt-4 pb-4 mr-0">
+                            <span><img src="images/icons/favicon.png" alt="logo" width="48" height="48">
+							MOBILE BUZZ
+							</span>
                         </a>
                         <!-- End Logo -->
                     </div>
@@ -205,7 +209,7 @@
                                 </div>
                                 <!-- End of Cart Total -->
                                 <div class="cart-action">
-                                    <a href="checkout.html" class="btn btn-dark"><span>Checkout</span></a>
+                                    <a href="{{url('checkout')}}" class="btn btn-dark"><span>Checkout</span></a>
                                 </div>
                                 <!-- End of Cart Action -->
                             </div>
@@ -254,15 +258,15 @@
     </div>
     <!-- Sticky Footer -->
     <div class="sticky-footer sticky-content fix-bottom" style="">
-        <a href="demo18.html" class="sticky-link active">
+        <a href="{{url('/')}}" class="sticky-link active">
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
-        <a href="demo18-shop.html" class="sticky-link">
+        <a href="{{url('categories')}}" class="sticky-link">
             <i class="d-icon-volume"></i>
             <span>Categories</span>
         </a>
-        <a href="wishlist.html" class="sticky-link">
+        <a href="#" class="sticky-link">
             <i class="d-icon-heart"></i>
             <span>Wishlist</span>
         </a>
@@ -278,7 +282,7 @@
                 </button>
             </form>
         </div>
-        <a href="account.html" class="sticky-link">
+        <a href="#" class="sticky-link">
             <i class="d-icon-user"></i>
             <span>Account</span>
         </a>
@@ -303,142 +307,14 @@
             <!-- End Search Form -->
             <ul class="mobile-menu mmenu-anim">
                 <li class="active">
-                    <a href="demo18.html">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                 </li>
-                <li>
-                    <a href="#">Categories<span class="toggle-btn"></span></a>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Variations 1
-                            <span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
-                                <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
-                                <li><a href="shop-infinite-scroll.html">Infinite Ajaxscroll</a></li>
-                                <li><a href="shop-horizontal-filter.html">Horizontal Filter</a></li>
-                                <li><a href="shop-navigation-filter.html">Navigation Filter<span class="tip tip-hot">Hot</span></a></li>
-
-                                <li><a href="shop-off-canvas.html">Off-Canvas Filter</a></li>
-                                <li><a href="shop-right-sidebar.html">Right Toggle Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Variations 2
-                            <span class="toggle-btn"></span></a>
-                            <ul>
-
-                                <li><a href="shop-grid-3cols.html">3 Columns Mode<span class="tip tip-new">New</span></a></li>
-                                <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
-                                <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
-                                <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
-                                <li><a href="shop-grid-7cols.html">7 Columns Mode</a></li>
-                                <li><a href="shop-grid-8cols.html">8 Columns Mode</a></li>
-                                <li><a href="shop-list.html">List Mode</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="demo18-product.html">Products<span class="toggle-btn"></span></a>
-                    <ul>
-                        <li>
-                            <a href="#">Product Pages<span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="product-simple.html">Simple Product</a></li>
-                                <li><a href="product.html">Variable Product</a></li>
-                                <li><a href="product-sale.html">Sale Product</a></li>
-                                <li><a href="product-featured.html">Featured &amp; On Sale</a></li>
-
-                                <li><a href="product-left-sidebar.html">With Left Sidebar</a></li>
-                                <li><a href="product-right-sidebar.html">With Right Sidebar</a></li>
-                                <li><a href="product-sticky-cart.html">Add Cart Sticky<span class="tip tip-hot">Hot</span></a></li>
-                                <li><a href="product-tabinside.html">Tab Inside</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Product Layouts<span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="product-grid.html">Grid Images<span class="tip tip-new">New</span></a></li>
-                                <li><a href="product-grid.html">Grid Images<span class="tip tip-new">New</span></a></li>
-                                <li><a href="product-gallery.html">Gallery Type</a></li>
-                                <li><a href="product-full.html">Full Width Layout</a></li>
-                                <li><a href="product-sticky.html">Sticky Info</a></li>
-                                <li><a href="product-masonry.html">Masonry</a></li>
-                                <li><a href="product-horizontal.html">Horizontal Thumb</a></li>
-
-                                <li><a href="#">Build Your Own</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Pages<span class="toggle-btn"></span></a>
-                    <ul>
-                        <li><a href="about-us.html">About</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="account.html">Login</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="error-404.html">Error 404</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Blog<span class="toggle-btn"></span></a>
-                    <ul>
-                        <li><a href="blog-classic.html">Classic</a></li>
-                        <li><a href="blog-listing.html">Listing</a></li>
-                        <li>
-                            <a href="#">Grid<span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="blog-grid-2col.html">Grid 2 columns</a></li>
-                                <li><a href="blog-grid-3col.html">Grid 3 columns</a></li>
-                                <li><a href="blog-grid-4col.html">Grid 4 columns</a></li>
-                                <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Masonry<span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="blog-masonry-2col.html">Masonry 2 columns</a></li>
-                                <li><a href="blog-masonry-3col.html">Masonry 3 columns</a></li>
-                                <li><a href="blog-masonry-4col.html">Masonry 4 columns</a></li>
-                                <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Mask<span class="toggle-btn"></span></a>
-                            <ul>
-                                <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="post-single.html">Single Post</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">ELements<span class="toggle-btn"></span></a>
-                    <ul>
-                        <li><a href="element-products.html">Products</a></li>
-                        <li><a href="element-typography.html">Typography</a></li>
-                        <li><a href="element-titles.html">Titles</a></li>
-                        <li><a href="element-categories.html">Product Category</a></li>
-                        <li><a href="element-buttons.html">Buttons</a></li>
-                        <li><a href="element-accordions.html">Accordions</a></li>
-                        <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
-                        <li><a href="element-tabs.html">Tabs</a></li>
-                        <li><a href="element-testimonials.html">Testimonials</a></li>
-                        <li><a href="element-blog-posts.html">Blog Posts</a></li>
-                        <li><a href="element-instagrams.html">Instagrams</a></li>
-                        <li><a href="element-cta.html">Call to Action</a></li>
-                        <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
-                        <li><a href="element-icons.html">Icons</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Buy Donald!</a></li>
+                <li><a href="{{url('about')}}">About</a></li>
+                <li><a href="{{url('terms')}}">Terms</a></li>
+                <li><a href="{{url('faq')}}">FAQ</a></li>
+                <li><a href="{{url('returns')}}">Returns</a></li>
+                <li><a href="{{url('contact')}}">Contact</a></li>
+                <li><a href="{{url('privacy')}}">Privacy</a></li>
             </ul>
         </div>
     </div>

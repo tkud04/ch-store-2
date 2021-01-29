@@ -52,6 +52,30 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function getBackupIndex(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+
+		$signals = $this->helpers->signals;
+		
+		$c = $this->helpers->getCategories();
+		$cart = $this->helpers->getCart($user);
+		$plugins = $this->helpers->getPlugins();
+		
+    	return view("index.backup",compact(['user','cart','c','signals','plugins']));
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
 	public function getShop(Request $request)
     {
 		$user = null;

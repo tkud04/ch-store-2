@@ -74,7 +74,7 @@ $categories = [
                             <section class="toolbox">
                                 <div class="toolbox-left">
                                     <h2 class="title title-simple text-left">Best Sellers</h2>
-                                    <p class="show-info">(showing 12 products of 99)</p>
+                                    <p class="show-info">(showing 0 products of 0)</p>
                                 </div>
                                 <div class="toolbox-right">
                                     <div class="toolbox-layout">
@@ -102,324 +102,36 @@ $categories = [
                             </section>
                             <section class="product-wrapper mb-8">
                                 <div class="row gutter-xs">
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-1.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-label-group">
-                                                    <label class="product-label label-new">new</label>
-                                                </div>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">iPad 12 inchi</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-2.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Fashion White Tablet</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-3.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-label-group">
-                                                    <label class="product-label label-new">new</label>
-                                                </div>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Sports Watch</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-4.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-label-group">
-                                                    <label class="product-label label-sale">27% off</label>
-                                                </div>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">SmartPhone</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-5.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">XBox Gaming Pad</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-6.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Canon Digital Camera</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-7.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">XP Digital Camera</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-8.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Sony Digital Camera</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-9.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Sony Digital Camera 16x</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-10.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">Black IP Camera</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-11.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">iPhone 7</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
-                                            <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-12.jpg" alt="product" width="280" height="315">
-                                                </a>
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                                </div>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="demo18-product.html">SamSung SmartPhone</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php
+									$bestSellers = []; $topProducts = [];
+									
+									  foreach($bestSellers as $bs)
+									  {
+									?>
+									 
+									<?php
+									  }
+									?>
                                 </div>
                             </section>
-                            <nav class="mb-10 pb-3">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-                                            <i class="d-icon-arrow-left"></i>Prev
-                                        </a>
-                                    </li>
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item-total">of 6</li>
-                                    <li class="page-item">
-                                        <a class="page-link page-link-next" href="#" aria-label="Next">
-                                            Next<i class="d-icon-arrow-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+							<section class="toolbox">
+                                <div class="toolbox-left">
+                                    <h2 class="title title-simple text-left">Top products</h2>
+                                    <p class="show-info">(showing 0 products of 0)</p>
+                                </div>
+                            </section>
+							 <section class="product-wrapper mb-8">
+                                <div class="row gutter-xs">
+                                    <?php
+									  foreach($topProducts as $tp)
+									  {
+									?>
+									 
+									<?php
+									  }
+									?>
+                                </div>
+                            </section>
                         </div>
                     </div>
                     <aside class="right-sidebar shop-sidebar">
