@@ -8,14 +8,12 @@ $pcClass = "";
 <?php $__env->startSection('content'); ?>
 <section class="about-section">
                     <div class="container">
-                        <h2 class="title mb-lg-9">About Donald Store</h2>
+                        <h2 class="title mb-lg-9">Who We Are</h2>
                         <div class="row mb-10">
                             <div class="col-md-6">
                                 <img class="w-100 mb-4 appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{'name':'fadeInLeftShorter'}" src="images/about.jpg" alt="Donald Store" width="587" height="517" style="position: sticky; top: 2rem; animation-duration: 1.2s;">
                             </div>
                             <div class="col-md-6 order-md-first pt-md-5">
-                                <p class="text-uppercase text-grey mb-0">Who we are</p>
-                                <h5 class="lh-1 ls-m">Has long and glorious history</h5>
                                 <p class="font-primary font-weight-semi-bold">Lorem ipsum dolor sit amet, consectetur
                                     adipiscing elit. Morbi ut tellus ante. Nam suscipit urna risus, fermentum commodo
                                     ipsum porta id.</p>

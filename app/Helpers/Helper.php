@@ -528,24 +528,6 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-		   function getProductsByType($t)
-           {
-			   //WORK NEEDS TO BE DONE HERE
-           	$ret = [];
-                 $pds = ProductData::where('id','>','0')->get();
-                 $pds = $pds->sortByDesc('created_at');	
-				 
-              if($pds != null)
-               {
-				  foreach($pds as $p)
-				  {
-					  $pp = $this->getProduct($p->sku);
-					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
-				  }
-               }                         
-                                  
-                return $ret;
-           }
 		   
 		   function getProduct($id)
            {
@@ -886,34 +868,7 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-		   function setIP($ip)
-		   {
-			  $this->ip = $ip;
-		   }
-		   
-		   function getIP()
-		   {
-			   $r = new Request();
-			   $i = $r->ip();
-			   dd("i: ".$i);
-			  return $this->ip;
-		   }
-
-		   function getGuest($ip)
-		   {
-			   $ret = Guests::where('ip',$ip)->first();
-			   
-			   if(is_null($ret))
-			   {
-				   $ret = Guests::create([
-				     'ip' => $ip,
-					 'status' => "ok"
-				   ]);
-			   }
-			   
-			   return $ret;
-		   }
-		   
+		  
 		   function addToCart($data)
            {
 			  
@@ -986,35 +941,7 @@ $subject = $data['subject'];
                 return "ok";
            }
 		   
-		   function getDeliveryFee($u=null,$type="user")
-		   {
-			   $ret = 2000;
-			   $state = "";
-			   
-			   switch($type)
-			   {
-				 case "user":
-				 if(!is_null($u))
-			     {
-				   $shipping = $this->getShippingDetails($u);
-                   $s = $shipping[0];				  
-                   $state = $s['state'];
-			     }
-                 break;
-
-                 case "state":
-				  $state = $u;
-                 break;				 
-			   }
-			   
-			   if($state != null && $state != "")
-			   {
-				 if($state == "ekiti" || $state == "lagos" || $state == "ogun" || $state == "ondo" || $state == "osun" || $state == "oyo") $ret = 1000;   
-			   }
-			   
-			    
-			   return $ret;
-		   }
+		 
 				
           function getCartTotals($cart)
            {
@@ -1077,7 +1004,7 @@ $subject = $data['subject'];
            	$category = Categories::create([
 			   'name' => $data['name'],
 			   'category' => $data['category'],
-			   'special' => $data['special'],
+			   'special' => "",
 			   'status' => $data['status'],
 			]);                          
             return $ret;
@@ -1096,7 +1023,6 @@ $subject = $data['subject'];
 						$temp = [];
 						$temp['name'] = $c->name;
 						$temp['category'] = $c->category;
-						$temp['special'] = $c->special;
 						$temp['status'] = $c->status;
 						array_push($ret,$temp);
                     }

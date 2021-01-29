@@ -85,47 +85,24 @@ class MainController extends Controller {
 			
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		
 		$c = $this->helpers->getCategories();
-		$cc = $this->helpers->categories_2;
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		$ads = $this->helpers->getAds();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		$na = $this->helpers->getNewArrivals();
 		
-                 if(isset($req['type']) || isset($req['category']))
+                 if(isset($req['xf']))
 				 {
-                    if(isset($req['type']))
-                     {
-					     $type = $req['type'];
-					   $products = $this->helpers->getProductsByType($type);
-					   // dd($products);
-					   $samba = $this->helpers->getFriendlyName($type);
-					   
-                       return view("shop",compact(['user','cart','products','c','na','ad','samba','signals','plugins']));
-                       
-                     }
-                
-                    if(isset($req['category']))
-                    {
-					   
-					   $category = $req['category'];
-					   $products = $this->helpers->getProductsByCategory($category);
-					 // dd($products);
-					 $samba = $this->helpers->getFriendlyName($category);
-                       return view("shop",compact(['user','cart','products','c','na','ad','samba','signals','plugins']));			 
-                    }
+					   $fn = $this->helpers->getFriendlyName($req['xf']);
+					   $products = $this->helpers->getProductsByCategory($req['xf']);
+					  return view("shop",compact(['user','cart','products','c','fn','signals','plugins']));			 
 				 }
                  else
 				 {
 					   $products = $this->helpers->getProducts();
 					 // dd($products);
 					 $samba = "Shop";
-                       return view("shop",compact(['user','cart','products','c','na','ad','samba','signals','plugins']));
+                       return view("shop",compact(['user','cart','products','c','signals','plugins']));
 				 }				 
     }
 	
