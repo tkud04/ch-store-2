@@ -11,7 +11,7 @@ $pcClass = "";
 <?php $__env->startSection('content'); ?>
 
 <?php
-$categories = [
+$ccategories = [
 ['name' => "Electronics",'category' => "electronics"],
 ['name' => "Accessories &amp; jewellery",'category' => "accessories-jewellery"],
 ['name' => "Musical instruments",'category' => "musical-instruments"],
@@ -33,7 +33,7 @@ $categories = [
                                     <div class="widget widget-category">
                                         <ul class="menu vertical-menu category-menu">
 										   <?php
-										    foreach($categories as $cc)
+										    foreach($c as $cc)
 											{
 												$cu = url('categories')."?xf=".$cc['category'];
 										   ?>
@@ -160,7 +160,7 @@ $categories = [
                                 <h3 class="widget-title">Category<span class="toggle-btn"></span></h3>
                                 <div class="widget-body pt-6">
 								    <?php
-									 foreach($categories as $cc)
+									 foreach($c as $cc)
 									 {
 									?>
                                     <a href="#" class="tag"><?php echo $cc['name']; ?></a>

@@ -10,12 +10,15 @@ use Illuminate\Http\Request;
 use App\ShippingDetails;
 use App\User;
 use App\Carts;
+use App\Manufacturers;
 use App\Categories;
+use App\CategoryData;
 use App\Products;
 use App\Discounts;
 use App\ProductData;
 use App\ProductImages;
 use App\Reviews;
+use App\Information;
 use App\Ads;
 use App\Banners;
 use App\Orders;
@@ -83,6 +86,208 @@ class Helper implements HelperContract
 					 "invalid-order-status-error" => "We could not find your order.",
                     ]
                    ];
+
+
+  public $countries = [
+'afghanistan' => "Afghanistan",
+'albania' => "Albania",
+'algeria' => "Algeria",
+'andorra' => "Andorra",
+'angola' => "Angola",
+'antigua-barbuda' => "Antigua and Barbuda",
+'argentina' => "Argentina",
+'armenia' => "Armenia",
+'australia' => "Australia",
+'austria' => "Austria",
+'azerbaijan' => "Azerbaijan",
+'bahamas' => "The Bahamas",
+'bahrain' => "Bahrain",
+'bangladesh' => "Bangladesh",
+'barbados' => "Barbados",
+'belarus' => "Belarus",
+'belgium' => "Belgium",
+'belize' => "Belize",
+'benin' => "Benin",
+'bhutan' => "Bhutan",
+'bolivia' => "Bolivia",
+'bosnia' => "Bosnia and Herzegovina",
+'botswana' => "Botswana",
+'brazil' => "Brazil",
+'brunei' => "Brunei",
+'bulgaria' => "Bulgaria",
+'burkina-faso' => "Burkina Faso",
+'burundi' => "Burundi",
+'cambodia' => "Cambodia",
+'cameroon' => "Cameroon",
+'canada' => "Canada",
+'cape-verde' => "Cape Verde",
+'caf' => "Central African Republic",
+'chad' => "Chad",
+'chile' => "Chile",
+'china' => "China",
+'colombia' => "Colombia",
+'comoros' => "Comoros",
+'congo-1' => "Congo, Republic of the",
+'congo-2' => "Congo, Democratic Republic of the",
+'costa-rica' => "Costa Rica",
+'cote-divoire' => "Cote DIvoire",
+'croatia' => "Croatia",
+'cuba' => "Cuba",
+'cyprus' => "Cyprus",
+'czech' => "Czech Republic",
+'denmark' => "Denmark",
+'djibouti' => "Djibouti",
+'dominica' => "Dominica",
+'dominica-2' => "Dominican Republic",
+'timor' => "East Timor (Timor-Leste)",
+'ecuador' => "Ecuador",
+'egypt' => "Egypt",
+'el-salvador' => "El Salvador",
+'eq-guinea' => "Equatorial Guinea",
+'eritrea' => "Eritrea",
+'estonia' => "Estonia",
+'ethiopia' => "Ethiopia",
+'fiji' => "Fiji",
+'finland' => "Finland",
+'france' => "France",
+'gabon' => "Gabon",
+'gambia' => "The Gambia",
+'georgia' => "Georgia",
+'germany' => "Germany",
+'ghana' => "Ghana",
+'greece' => "Greece",
+'grenada' => "Grenada",
+'guatemala' => "Guatemala",
+'guinea' => "Guinea",
+'guinea-bissau' => "Guinea-Bissau",
+'guyana' => "Guyana",
+'haiti' => "Haiti",
+'honduras' => "Honduras",
+'hungary' => "Hungary",
+'iceland' => "Iceland",
+'india' => "India",
+'indonesia' => "Indonesia",
+'iran' => "Iran",
+'iraq' => "Iraq",
+'ireland' => "Ireland",
+'israel' => "Israel",
+'italy' => "Italy",
+'jamaica' => "Jamaica",
+'japan' => "Japan",
+'jordan' => "Jordan",
+'kazakhstan' => "Kazakhstan",
+'kenya' => "Kenya",
+'kiribati' => "Kiribati",
+'nk' => "Korea, North",
+'sk' => "Korea, South",
+'kosovo' => "Kosovo",
+'kuwait' => "Kuwait",
+'kyrgyzstan' => "Kyrgyzstan",
+'laos' => "Laos",
+'latvia' => "Latvia",																																																																																							
+'lebanon' => "Lebanon",
+'lesotho' => "Lesotho",
+'liberia' => "Liberia",
+'libya' => "Libya",
+'liechtenstein' => "Liechtenstein",
+'lithuania' => "Lithuania",
+'luxembourg' => "Luxembourg",
+'macedonia' => "Macedonia",
+'madagascar' => "Madagascar",
+'malawi' => "Malawi",
+'malaysia' => "Malaysia",
+'maldives' => "Maldives",
+'mali' => "Mali",
+'malta' => "Malta",
+'marshall' => "Marshall Islands",
+'mauritania' => "Mauritania",
+'mauritius' => "Mauritius",
+'mexico' => "Mexico",
+'micronesia' => "Micronesia, Federated States of",
+'moldova' => "Moldova",
+'monaco' => "Monaco",
+'mongolia' => "Mongolia",
+'montenegro' => "Montenegro",
+'morocco' => "Morocco",
+'mozambique' => "Mozambique",
+'myanmar' => "Myanmar (Burma)",
+'namibia' => "Namibia",
+'nauru' => "Nauru",
+'nepal' => "Nepal",
+'netherlands' => "Netherlands",
+'nz' => "New Zealand",
+'nicaragua' => "Nicaragua",
+'niger' => "Niger",
+'nigeria' => "Nigeria",
+'norway' => "Norway",
+'oman' => "Oman",
+'pakistan' => "Pakistan",
+'palau' => "Palau",
+'panama' => "Panama",
+'png' => "Papua New Guinea",
+'paraguay' => "Paraguay",
+'peru' => "Peru",
+'philippines' => "Philippines",
+'poland' => "Poland",
+'portugal' => "Portugal",
+'qatar' => "Qatar",
+'romania' => "Romania",
+'russia' => "Russia",
+'rwanda' => "Rwanda",
+'st-kitts' => "Saint Kitts and Nevis",
+'st-lucia' => "Saint Lucia",
+'svg' => "Saint Vincent and the Grenadines",
+'samoa' => "Samoa",
+'san-marino' => "San Marino",
+'sao-tome-principe' => "Sao Tome and Principe",
+'saudi -arabia' => "Saudi Arabia",
+'senegal' => "Senegal",
+'serbia' => "Serbia",
+'seychelles' => "Seychelles",
+'sierra-leone' => "Sierra Leone",
+'singapore' => "Singapore",
+'slovakia' => "Slovakia",
+'slovenia' => "Slovenia",
+'solomon-island' => "Solomon Islands",
+'somalia' => "Somalia",
+'sa' => "South Africa",
+'ss' => "South Sudan",
+'spain' => "Spain",
+'sri-lanka' => "Sri Lanka",
+'sudan' => "Sudan",
+'suriname' => "Suriname",
+'swaziland' => "Swaziland",
+'sweden' => "Sweden",
+'switzerland' => "Switzerland",
+'syria' => "Syria",
+'taiwan' => "Taiwan",
+'tajikistan' => "Tajikistan",
+'tanzania' => "Tanzania",
+'thailand' => "Thailand",
+'togo' => "Togo",
+'tonga' => "Tonga",
+'trinidad-tobago' => "Trinidad and Tobago",
+'tunisia' => "Tunisia",
+'turkey' => "Turkey",
+'turkmenistan' => "Turkmenistan",
+'tuvalu' => "Tuvalu",
+'uganda' => "Uganda",
+'ukraine' => "Ukraine",
+'uae' => "United Arab Emirates",
+'uk' => "United Kingdom",
+'usa' => "United States of America",
+'uruguay' => "Uruguay",
+'uzbekistan' => "Uzbekistan",
+'vanuatu' => "Vanuatu",
+'vatican' => "Vatican City",
+'venezuela' => "Venezuela",
+'vietnam' => "Vietnam",
+'yemen' => "Yemen",
+'zambia' => "Zambia",
+'zimbabwe' => "Zimbabwe"
+];
+
+
 
   public $suEmail = "kudayisitobi@gmail.com";
    
@@ -528,25 +733,91 @@ $subject = $data['subject'];
            }
 		   
 		   
-		   function getProduct($id)
+		  
+		   
+		   function getProduct($id,$imgId=false)
            {
            	$ret = [];
               $product = Products::where('id',$id)
 			                 ->orWhere('sku',$id)->first();
- 
+       
               if($product != null)
                {
+				   #dd($product);
 				  $temp = [];
 				  $temp['id'] = $product->id;
 				  $temp['name'] = $product->name;
 				  $temp['sku'] = $product->sku;
+				  $temp['model'] = $product->model;
+				  $temp['upc'] = $product->upc;
+				  $temp['ean'] = $product->ean;
+				  $temp['jan'] = $product->jan;
+				  $temp['isbn'] = $product->isbn;
+				  $temp['mpn'] = $product->mpn;
 				  $temp['qty'] = $product->qty;
+				  $temp['seo_keywords'] = $product->seo_keywords;
 				  $temp['status'] = $product->status;
-				  $temp['discounts'] = $this->getDiscounts($product->sku);
-				  $temp['pd'] = $this->getProductData($product->sku);
-				  $imgs = $this->getImages($product->sku);
+				  $temp['data'] = $this->getProductData($product->id);
+				  #$temp['discounts'] = $this->getDiscounts($product->sku);
+				  $imgs = $this->getImages($product->id);
+				  if($imgId) $temp['imgs'] = $imgs;
 				  $temp['imggs'] = $this->getCloudinaryImages($imgs);
+				  $temp['date'] = $product->created_at->format("jS F,Y h:i A"); 
 				  $ret = $temp;
+               }                         
+                                                      
+                return $ret;
+           }
+
+		   function getProductData($xf)
+           {
+           	$ret = [];
+              $pd = ProductData::where('product_id',$xf)->first();
+ 
+              if($pd != null)
+               {
+				  $temp = [];
+				  $temp['id'] = $pd->id;
+				  $temp['product_id'] = $pd->product_id;
+				  $temp['amount'] = $pd->amount;
+				  $temp['description'] = $pd->description;
+				  $temp['meta_title'] = $pd->meta_title;
+				  $temp['meta_description'] = $pd->meta_description;
+				  $temp['meta_keywords'] = $pd->meta_keywords;
+				  $temp['location'] = $pd->location;
+				  $temp['min_qty'] = $pd->min_qty;
+				  $temp['tax_class'] = $pd->tax_class;
+				  $temp['shipping'] = $pd->shipping;
+				  $temp['date_available'] = $pd->date_available;
+				  $temp['da'] = Carbon::parse($pd['date_available']);
+				  $temp['length'] = $pd->length;
+				  $temp['width'] = $pd->width;
+				  $temp['height'] = $pd->height;
+				  $temp['category'] = $this->getCategory($pd->category);
+				  $temp['manufacturer'] = $this->getManufacturer($pd->manufacturer);
+				  $ret = $temp;
+               }                         
+                                                      
+                return $ret;
+           }
+		   
+		   function getProductImages($xf)
+           {
+           	$ret = [];
+              $pis = ProductImages::where('product_id',$xf)->get();
+ 
+            
+              if($pis != null)
+               {
+				  foreach($pis as $pi)
+				  {
+				    $temp = [];
+				    $temp['id'] = $pi->id;
+				    $temp['product_id'] = $pi->product_id;
+				    $temp['cover'] = $pi->cover;
+				    $temp['url'] = $pi->url;
+				    array_push($ret,$temp);
+				  }
                }                         
                                                       
                 return $ret;
@@ -628,49 +899,7 @@ $subject = $data['subject'];
 				   return $dsc;
 		   }
 		   
-		   function getProductData($sku)
-           {
-           	$ret = [];
-              $pd = ProductData::where('sku',$sku)->first();
- 
-              if($pd != null)
-               {
-				  $temp = [];
-				  $temp['id'] = $pd->id;
-				  $temp['sku'] = $pd->sku;
-				  $temp['amount'] = $pd->amount;
-				  $temp['description'] = $pd->description;
-				  $temp['in_stock'] = $pd->in_stock;
-				  $temp['category'] = $pd->category;
-				  $ret = $temp;
-               }                         
-                                                      
-                return $ret;
-           }
-
-		   function getProductImages($sku)
-           {
-           	$ret = [];
-              $pis = ProductImages::where('sku',$sku)->get();
- 
-            
-              if($pis != null)
-               {
-				  foreach($pis as $pi)
-				  {
-				    $temp = [];
-				    $temp['id'] = $pi->id;
-				    $temp['sku'] = $pi->sku;
-					$temp['cover'] = $pi->cover;
-				    $temp['url'] = $pi->url;
-				    array_push($ret,$temp);
-				  }
-               }                         
-                                                      
-                return $ret;
-           }
-		   
-		   function isCoverImage($img)
+		   		   function isCoverImage($img)
 		   {
 			   return $img['cover'] == "yes";
 		   }
@@ -678,27 +907,24 @@ $subject = $data['subject'];
 		   function getImage($pi)
            {
        	         $temp = [];
-				 $temp['id'] = $pi['id'];
-				 $temp['sku'] = $pi['sku'];
-			     $temp['cover'] = $pi['cover'];
-				 $temp['url'] = $pi['url'];
+				 $temp['id'] = $pi->id;
+				 $temp['sku'] = $pi->sku;
+			     $temp['cover'] = $pi->cover;
+				 $temp['url'] = $pi->url;
 				 
                 return $temp;
            }
 		   
-		   function getImages($sku)
+		   function getImages($xf)
 		   {
 			   $ret = [];
-			   $records = collect($this->getProductImages($sku));
-			   $s = $sku;
-			   $coverImage = $records->first(function ($value, $key) use($s) {
-                                               return ($value['sku'] == $s) && ($value['cover'] == "yes");
-                                            });
+			   
+			   $coverImage = ProductImages::where('product_id',$xf)
+			                              ->where('cover',"yes")->first();
 										  
-               $otherImages = $records->where('sku',$sku)
-			                          ->where('cover',"!=","yes");
+               $otherImages = ProductImages::where('product_id',$xf)
+			                              ->where('cover',"!=","yes")->get();
 			  
-			  #dd([$coverImage,$otherImages]);
                if($coverImage != null)
 			   {
 				   $temp = $this->getImage($coverImage);
@@ -716,43 +942,71 @@ $subject = $data['subject'];
 			   
 			   return $ret;
 		   }
-		   
-		   function getCloudinaryImages($dt)
-		   {
-			   $ret = [];
-                         
-               if(count($dt) < 1) { $ret = ["img/no-image.png"]; }
-               
-			   else
-			   {
-                   $ird = $dt[0]['url'];
-				   if($ird == "none")
-					{
-					   $ret = ["img/no-image.png"];
-					}
-				   else
-					{
-                       for($x = 0; $x < count($dt); $x++)
-						 {
-							 $ird = $dt[$x]['url'];
-                            $imgg = "https://res.cloudinary.com/dahkzo84h/image/upload/v1585236664/".$ird;
-                            array_push($ret,$imgg); 
-                         }
-					}
-                }
-				
-				return $ret;
-		   }
+
+		  
+		   function setCoverImage($id)
+           {
+              $pi = ProductImages::where('id',$id)->first();
+            
+              if($pi != null)
+               {
+				   $formerPi = ProductImages::where('sku',$pi->sku)
+			              ->where('cover',"yes")->first();
+                   
+				   if($formerPi != null)
+				   {
+					   $formerPi->update(['cover' => "no"]);
+				   }
+				   
+				  $pi->update(['cover' => "yes"]);
+               }                         
+                                                      
+           }
 		   
 		   function getCloudinaryImage($dt)
 		   {
 			   $ret = [];
                   //dd($dt);       
-               if(is_null($dt)) { $ret = "img/no-image.png"; }
+               if(is_null($dt)) { $ret = asset("images/avatar-2.jpg"); }
                
 			   else
 			   {
-				    $ret = "https://res.cloudinary.com/dahkzo84h/image/upload/v1585236664/".$dt;
+				    $ret = "https://res.cloudinary.com/dkrf5ih0l/image/upload/v1585236664/".$dt;
+                }
+				
+				return $ret;
+		   }
+		   
+		   function getCloudinaryImages($dt)
+		   {
+			   $ret = [];
+                 # dd($dt);       
+               if(count($dt) < 1) { $ret = [asset("images/avatar-2.jpg")]; }
+               
+			   else
+			   {
+                   $ird = isset($dt[0]['url']) ? $dt[0]['url'] : $dt[0];
+				   if($ird == "none")
+					{
+					   $imgg = asset("images/avatar-2.jpg");
+					}
+				   else
+					{
+                       for($x = 0; $x < count($dt); $x++)
+						 {
+							 $ird = isset($dt[$x]['url']) ? $dt[$x]['url'] : $dt[$x];
+							 if($ird == "" || $ird == null)
+							 {
+								 $imgg = asset("images/avatar-2.jpg");
+							 }
+							 else
+							 {
+								 $imgg = "https://res.cloudinary.com/dkrf5ih0l/image/upload/v1585236664/".$ird;
+							 }
+                            
+                            array_push($ret,$imgg); 
+                         }
+					}
                 }
 				
 				return $ret;
@@ -770,7 +1024,7 @@ $subject = $data['subject'];
 				  foreach($pds[0] as $p)
 				  {
 					  #dd($p);
-					  $pp = $this->getProduct($p->sku);
+					  $pp = $this->getProduct($p->id);
 					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
 				  }
                }                         
@@ -790,13 +1044,153 @@ $subject = $data['subject'];
 				  foreach($pds[0] as $p)
 				  {
 					  #dd($p);
-					  $pp = $this->getProduct($p->sku);
+					  $pp = $this->getProduct($p->id);
 					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
 				  }
                }                         
                                   
                 return $ret;
            }
+		   
+		   
+		   function getCategories()
+           {
+           	$ret = [];
+           	$categories = Categories::where('id','>','0')->get();
+              // dd($cart);
+			  
+              if($categories != null)
+               {           	
+               	foreach($categories as $c) 
+                    {
+						$temp = $this->getCategory($c->id);
+						array_push($ret,$temp);
+                    }
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   function getCategory($id)
+           {
+           	$ret = [];
+           	$c = Categories::where('id',$id)->first();
+              // dd($cart);
+			  
+              if($c != null)
+               {           	
+						$temp = [];
+						$temp['id'] = $c->id;
+						$temp['name'] = $c->name;
+						$temp['category'] = $c->category;
+						$temp['data'] = $this->getCategoryData($c->id);
+						$temp['image'] = $this->getCloudinaryImages([$c->image]);
+						$temp['parent_id'] = $c->parent_id;
+						$temp['parent'] = $this->getCategory($c->parent_id);
+						$temp['status'] = $c->status;
+						$temp['date'] = $c->created_at->format("jS F, Y"); 
+						$ret = $temp;
+               }                                 
+                                                      
+                return $ret;
+           }
+		   function getCategoryData($id)
+           {
+           	$ret = [];
+           	$c = CategoryData::where('category_id',$id)->first();
+              // dd($cart);
+			  
+              if($c != null)
+               {           	
+						$temp = [];
+						$temp['id'] = $c->id;
+						$temp['category_id'] = $c->category_id;
+						$temp['description'] = $c->description;
+						$temp['meta_title'] = $c->meta_title;
+						$temp['meta_description'] = $c->meta_description;
+						$temp['meta_keywords'] = $c->meta_keywords; 
+						$temp['seo_keywords'] = $c->seo_keywords; 
+						$ret = $temp;
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   
+		    function getManufacturers()
+           {
+           	$ret = [];
+           	$manufacturers = Manufacturers::where('id','>','0')->get();
+              // dd($cart);
+			  
+              if($manufacturers != null)
+               {           	
+               	foreach($manufacturers as $m) 
+                    {
+						$temp = $this->getManufacturer($m->id);
+						array_push($ret,$temp);
+                    }
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   function getManufacturer($id)
+           {
+           	$ret = [];
+           	$m = Manufacturers::where('id',$id)->first();
+              // dd($cart);
+			  
+              if($m != null)
+               {           	
+						$temp = [];
+						$temp['id'] = $m->id;
+						$temp['name'] = $m->name;
+						$temp['image'] = $this->getCloudinaryImages([$m->image]);
+						$temp['date'] = $m->created_at->format("jS F, Y"); 
+						$ret = $temp;
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   function getInformation()
+           {
+           	$ret = [];
+           	$ii = Information::where('id','>','0')->get();
+              // dd($cart);
+			  
+              if($ii != null)
+               {           	
+               	foreach($ii as $i) 
+                    {
+						$temp = $this->getInformationSingle($i->id);
+						array_push($ret,$temp);
+                    }
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   function getInformationSingle($id)
+           {
+           	$ret = [];
+           	$i = Information::where('id',$id)->first();
+              // dd($cart);
+			  
+              if($i != null)
+               {           	
+						$temp = [];
+						$temp['id'] = $i->id;
+						$temp['title'] = $i->title;
+						$temp['content'] = $i->content;
+						$temp['date'] = $i->created_at->format("jS F, Y"); 
+						$ret = $temp;
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
 		   
 		   function createReview($user,$data)
            {
@@ -998,38 +1392,6 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-		   function addCategory($data)
-           {
-           	$category = Categories::create([
-			   'name' => $data['name'],
-			   'category' => $data['category'],
-			   'special' => "",
-			   'status' => $data['status'],
-			]);                          
-            return $ret;
-           }
-		   
-		   function getCategories()
-           {
-           	$ret = [];
-           	$categories = Categories::where('id','>','0')->get();
-              // dd($cart);
-			  
-              if($categories != null)
-               {           	
-               	foreach($categories as $c) 
-                    {
-						$temp = [];
-						$temp['name'] = $c->name;
-						$temp['category'] = $c->category;
-						$temp['status'] = $c->status;
-						array_push($ret,$temp);
-                    }
-                   
-               }                                 
-                                                      
-                return $ret;
-           }	
 		   
 		   function getFriendlyName($n)
            {
@@ -1053,15 +1415,6 @@ $subject = $data['subject'];
 			  return $rett;
            }
 		   
-		   function createAds($data)
-           {
-           	$ret = Ads::create(['img' => $data['img'], 
-                                                      'type' => $data['type'], 
-                                                      'status' => $data['status'] 
-                                                      ]);
-                                                      
-                return $ret;
-           }
 
            function getAds($type="wide-ad")
 		   {
