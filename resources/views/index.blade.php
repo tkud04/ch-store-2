@@ -74,7 +74,7 @@ $ccategories = [
                             <section class="toolbox">
                                 <div class="toolbox-left">
                                     <h2 class="title title-simple text-left">Best Sellers</h2>
-                                    <p class="show-info">(showing 0 products of 0)</p>
+                                    <p class="show-info">(showing {{count($bs)}} of {{count($bs)}} products)</p>
                                 </div>
                                 <div class="toolbox-right">
                                     <div class="toolbox-layout">
@@ -107,30 +107,36 @@ $ccategories = [
 									
 									  foreach($bs as $p)
 									  {
+										  $data = $p['data'];
+										  $imgs = $p['imggs'];
+										  $pc = $data['category'];
+										  $pm = $data['manufacturer'];
+										  $amt = $data['amount'];
+										  $uu = url('product')."?model=".$p['model'];
 									?>
 									 <div class="col-md-4 col-6 mb-4">
                                         <div class="product text-center">
                                             <figure class="product-media">
-                                                <a href="demo18-product.html">
-                                                    <img src="images/pproduct-1.jpg" alt="product" width="280" height="315">
+                                                <a href="{{$uu}}">
+                                                    <img src="{{$imgs[0]}}" alt="product" width="280" height="315">
                                                 </a>
                                                 <div class="product-label-group">
                                                     <label class="product-label label-new">new</label>
                                                 </div>
                                                 <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
                                                 </div>
                                                 <div class="product-action">
-                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                                    <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                                 </div>
                                             </figure>
                                             <div class="product-details">
                                                 <h3 class="product-name">
-                                                    <a href="demo18-product.html">iPad 12 inchi</a>
+                                                    <a href="{{$uu}}">{{$p['name']}}</a>
                                                 </h3>
                                                 <div class="product-price">
-                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                                    <ins class="new-price">&#0163;{{number_format($amt,2)}}</ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
                                                 </div>
                                             </div>
                                         </div>
@@ -143,7 +149,7 @@ $ccategories = [
 							<section class="toolbox">
                                 <div class="toolbox-left">
                                     <h2 class="title title-simple text-left">Top products</h2>
-                                    <p class="show-info">(showing 0 products of 0)</p>
+                                    <p class="show-info">(showing {{count($tp)}} of {{count($tp)}} products)</p>
                                 </div>
                             </section>
 							 <section class="product-wrapper mb-8">
@@ -151,8 +157,40 @@ $ccategories = [
                                     <?php
 									  foreach($tp as $p)
 									  {
+										  $data = $p['data'];
+										  $imgs = $p['imggs'];
+										  $pc = $data['category'];
+										  $pm = $data['manufacturer'];
+										  $amt = $data['amount'];
+										  $uu = url('product')."?model=".$p['model'];
 									?>
-									 
+									 <div class="col-md-4 col-6 mb-4">
+                                        <div class="product text-center">
+                                            <figure class="product-media">
+                                                <a href="{{$uu}}">
+                                                    <img src="{{$imgs[0]}}" alt="product" width="280" height="315">
+                                                </a>
+                                                <div class="product-label-group">
+                                                    <label class="product-label label-new">new</label>
+                                                </div>
+                                                <div class="product-action-vertical">
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details">
+                                                <h3 class="product-name">
+                                                    <a href="{{$uu}}">{{$p['name']}}</a>
+                                                </h3>
+                                                <div class="product-price">
+                                                    <ins class="new-price">&#0163;{{number_format($amt,2)}}</ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 									<?php
 									  }
 									?>

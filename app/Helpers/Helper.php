@@ -1025,10 +1025,10 @@ $subject = $data['subject'];
 				  {
 					  #dd($p);
 					  $pp = $this->getProduct($p->id);
-					  if($pp['qty'] > 0) array_push($ret,$pp);
+					 array_push($ret,$pp);
 				  }
                }                         
-                                  
+                     #dd($ret);             
                 return $ret;
            }
 
