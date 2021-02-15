@@ -1012,30 +1012,10 @@ $subject = $data['subject'];
 				return $ret;
 		   }
 		   
-		   function getNewArrivals()
+		   function getTopProducts()
            {
            	$ret = [];
-              $pdss = ProductData::where('in_stock',"new")->get();
-              $pdss = $pdss->sortByDesc('created_at');	
-			  $pds = $pdss->chunk(24);
-			   #dd($pds);
-              if($pds != null)
-               {
-				  foreach($pds[0] as $p)
-				  {
-					  #dd($p);
-					  $pp = $this->getProduct($p->id);
-					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
-				  }
-               }                         
-                                  
-                return $ret;
-           }
-
-		   function getBestSellers()
-           {
-           	$ret = [];
-              $pdss = ProductData::where('in_stock',"new")->get();
+              $pdss = Products::where('id','>',"0")->get();
               $pdss = $pdss->sortByDesc('created_at');	
 			  $pds = $pdss->chunk(24);
 			  #dd($pds);
@@ -1045,10 +1025,30 @@ $subject = $data['subject'];
 				  {
 					  #dd($p);
 					  $pp = $this->getProduct($p->id);
-					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
+					  if($pp['qty'] > 0) array_push($ret,$pp);
 				  }
                }                         
                                   
+                return $ret;
+           }
+
+		   function getBestSellers()
+           {
+           	$ret = [];
+              $pdss = Products::where('id','>',"0")->get();
+              $pdss = $pdss->sortByDesc('created_at');	
+			  $pds = $pdss->chunk(24);
+			  #dd($pds);
+              if($pds != null)
+               {
+				  foreach($pds[0] as $p)
+				  {
+					  #dd($p);
+					  $pp = $this->getProduct($p->id);
+					 array_push($ret,$pp);
+				  }
+               }                         
+                     #dd($ret);             
                 return $ret;
            }
 		   

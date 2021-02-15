@@ -41,10 +41,14 @@ class MainController extends Controller {
 		$signals = $this->helpers->signals;
 		
 		$c = $this->helpers->getCategories();
+		$m = $this->helpers->getManufacturers();
+		$bs = $this->helpers->getBestSellers();
+		$tp = $this->helpers->getTopProducts();
+		#dd($bs);
 		$cart = $this->helpers->getCart($user);
 		$plugins = $this->helpers->getPlugins();
 		
-    	return view("index",compact(['user','cart','c','signals','plugins']));
+    	return view("index",compact(['user','cart','c','m','tp','bs','signals','plugins']));
     }
 	
 	/**

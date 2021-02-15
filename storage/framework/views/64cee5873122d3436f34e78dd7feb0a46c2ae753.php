@@ -49,7 +49,17 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <!-- DO NOT EDIT!! end of plugins -->
 </head>
-
+ <?php
+	  
+	  if(is_null($user))
+	  {
+		$welcomeText = "Welcome to our online store!";
+	  }
+	  else
+	  {
+		 $welcomeText = "Welcome back, ".$user->fname."!";
+	  }
+	  ?>
 <body class="home loaded" style="overflow-x: hidden;">
     <div class="loading-overlay">
         <div class="bounce-loader">
@@ -156,70 +166,69 @@
                         <!-- End Logo -->
                     </div>
                     <div class="header-right">
-                        <a class="login" href="ajax/login.html">
+                        <a class="login" href="<?php echo e(url('login')); ?>">
                             <i class="d-icon-user"></i>
                             <span>Login</span>
                         </a>
                         <!-- End Login -->
+						<?php
+			             $cc = (isset($cart)) ? count($cart) : 0;
+						 $subtotal = 0;
+		                ?>
                         <span class="divider d-lg-block"></span>
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="cart-toggle">
                                 <span class="cart-label">
                                     <span class="cart-name">My Cart</span>
-                                    <span class="cart-price">$42.00</span>
+                                    <span class="cart-price">&#0163;<?php echo e(number_format($subtotal,2)); ?></span>
                                 </span>
                                 <i class="minicart-icon">
-                                    <span class="cart-count">2</span>
+                                    <span class="cart-count"><?php echo e($cc); ?></span>
                                 </i>
                             </a>
                             <!-- End Cart Toggle -->
                             <div class="dropdown-box">
                                 <div class="product product-cart-header">
-                                    <span class="product-cart-counts">2 items</span>
-                                    <span><a href="cart.html">View cart</a></span>
+                                    <span class="product-cart-counts"><?php echo e($cc); ?> items</span>
+                                    <span><a href="<?php echo e(url('cart')); ?>">View cart</a></span>
                                 </div>
                                 <div class="products scrollable">
+								 <?php
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += $itemAmount;
+									 $imgs = $item['imgs'];
+									 $uu = url('product')."?xf=".$item['id'];
+				                 ?>
                                     <div class="product product-cart">
                                         <div class="product-detail">
-                                            <a href="product.html" class="product-name">Solid Pattern In Fashion Summer Dress</a>
+                                            <a href="<?php echo e($uu); ?>" class="product-name"><?php echo e($item['name']); ?></a>
                                             <div class="price-box">
-                                                <span class="product-quantity">1</span>
-                                                <span class="product-price">$129.00</span>
+                                                <span class="product-quantity"><?php echo e($qty); ?></span>
+                                                <span class="product-price">#0163;<?php echo e(number_format($itemAmount,2)); ?></span>
                                             </div>
                                         </div>
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="images/product-1.jpg" alt="product" width="90" height="90">
+                                                <img src="<?php echo e($imgs[0]); ?>" alt="<?php echo e($item['name']); ?>" width="90" height="90">
                                             </a>
                                             <button class="btn btn-link btn-close">
                                                 <i class="fas fa-times"></i>
                                             </button>
                                         </figure>
                                     </div>
-                                    <!-- End of Cart Product -->
-                                    <div class="product product-cart">
-                                        <div class="product-detail">
-                                            <a href="product.html" class="product-name">Mackintosh Poket Backpack</a>
-                                            <div class="price-box">
-                                                <span class="product-quantity">1</span>
-                                                <span class="product-price">$98.00</span>
-                                            </div>
-                                        </div>
-                                        <figure class="product-media">
-                                            <a href="#">
-                                                <img src="images/product-2.jpg" alt="product" width="90" height="90">
-                                            </a>
-                                            <button class="btn btn-link btn-close">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </figure>
-                                    </div>
+									 <?php
+			                          }
+			                         ?>
                                     <!-- End of Cart Product -->
                                 </div>
                                 <!-- End of Products  -->
                                 <div class="cart-total">
                                     <label>Subtotal:</label>
-                                    <span class="price">$42.00</span>
+                                    <span class="price">&#0163;<?php echo e(number_format($subtotal,2)); ?></span>
                                 </div>
                                 <!-- End of Cart Total -->
                                 <div class="cart-action">

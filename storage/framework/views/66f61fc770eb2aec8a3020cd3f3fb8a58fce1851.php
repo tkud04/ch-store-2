@@ -103,12 +103,38 @@ $ccategories = [
                             <section class="product-wrapper mb-8">
                                 <div class="row gutter-xs">
                                     <?php
-									$bestSellers = []; $topProducts = [];
+									#$bestSellers = []; $topProducts = [];
 									
-									  foreach($bestSellers as $bs)
+									  foreach($bs as $p)
 									  {
 									?>
-									 
+									 <div class="col-md-4 col-6 mb-4">
+                                        <div class="product text-center">
+                                            <figure class="product-media">
+                                                <a href="demo18-product.html">
+                                                    <img src="images/pproduct-1.jpg" alt="product" width="280" height="315">
+                                                </a>
+                                                <div class="product-label-group">
+                                                    <label class="product-label label-new">new</label>
+                                                </div>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details">
+                                                <h3 class="product-name">
+                                                    <a href="demo18-product.html">iPad 12 inchi</a>
+                                                </h3>
+                                                <div class="product-price">
+                                                    <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 									<?php
 									  }
 									?>
@@ -123,7 +149,7 @@ $ccategories = [
 							 <section class="product-wrapper mb-8">
                                 <div class="row gutter-xs">
                                     <?php
-									  foreach($topProducts as $tp)
+									  foreach($tp as $p)
 									  {
 									?>
 									 
