@@ -14,25 +14,21 @@ $pcClass = "";
                                 <img class="w-100 mb-4 appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{'name':'fadeInLeftShorter'}" src="images/about.jpg" alt="Donald Store" width="587" height="517" style="position: sticky; top: 2rem; animation-duration: 1.2s;">
                             </div>
                             <div class="col-md-6 order-md-first pt-md-5">
-                                <p class="font-primary font-weight-semi-bold">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Morbi ut tellus ante. Nam suscipit urna risus, fermentum commodo
-                                    ipsum porta id.</p>
-                                <p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet
-                                    libero id nisi euismod, sed porta est consectetur. Vestibulum auctor felis eget orci
-                                    semper vestibulum. Pellentesque ultricies nibh gravida, accumsan libero luctus,
-                                    molestie nunc.</p>
+                                <div class="mb-8">
+								   {!! $info['content'] !!}
+								</div>
 
                                 <div class="row pl-xl-6 pr-xl-8 mb-6">
                                     <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
-                                        <span class="count-to" data-to="35" data-refresh-interval="50">0</span>
+                                        <span class="count-to" data-to="35" data-refresh-interval="50">35</span>
                                         <h5 class="count-title">Business Year</h5>
                                     </div>
                                     <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
-                                        <span class="count-to" data-to="50" data-refresh-interval="50">0</span>
+                                        <span class="count-to" data-to="50" data-refresh-interval="50">50</span>
                                         <h5 class="count-title">Design Brands</h5>
                                     </div>
                                     <div class="counter text-primary text-center col-sm-4 col-md-12 col-lg-4">
-                                        <span class="count-to" data-to="130" data-refresh-interval="50">0</span>
+                                        <span class="count-to" data-to="130" data-refresh-interval="50">130</span>
                                         <h5 class="count-title">Team Members</h5>
                                     </div>
                                 </div>

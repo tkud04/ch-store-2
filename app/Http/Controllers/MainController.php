@@ -829,7 +829,9 @@ class MainController extends Controller {
 		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		return view("about",compact(['user','cart','c','signals','plugins']));	
+		$info = $this->helpers->getInformationSingle("about");
+		#dd($info);
+		return view("about",compact(['user','cart','info','c','signals','plugins']));	
     }
 
 	/**

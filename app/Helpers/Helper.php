@@ -305,7 +305,13 @@ class Helper implements HelperContract
 												     'voided' => "Voided",
 												   ];
 
-
+public $information_types = [
+											    'about' => "About Us",
+											    'delivery' => "Delivery and Warranty",
+											    'privacy' => "Privacy Policy",
+											    'terms' => "Terms and Conditions",
+											    'sitemap' => "Sitemap",
+											  ];
 
   public $suEmail = "kudayisitobi@gmail.com";
    
@@ -1175,7 +1181,8 @@ $subject = $data['subject'];
 		   function getInformationSingle($id)
            {
            	$ret = [];
-           	$i = Information::where('id',$id)->first();
+           	$i = Information::where('id',$id)
+			                ->orWhere('type',$id)->first();
               // dd($cart);
 			  
               if($i != null)
@@ -1183,6 +1190,7 @@ $subject = $data['subject'];
 						$temp = [];
 						$temp['id'] = $i->id;
 						$temp['title'] = $i->title;
+						$temp['type'] = $i->type;
 						$temp['content'] = $i->content;
 						$temp['date'] = $i->created_at->format("jS F, Y"); 
 						$ret = $temp;
