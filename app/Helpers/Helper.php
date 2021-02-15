@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use Mail;
 use Auth;
 use Illuminate\Http\Request;
-use App\ShippingDetails;
 use App\User;
 use App\Carts;
 use App\Manufacturers;
@@ -19,11 +18,13 @@ use App\ProductData;
 use App\ProductImages;
 use App\Reviews;
 use App\Information;
+use App\PaymentDetails;
+use App\ShippingDetails;
 use App\Ads;
 use App\Banners;
 use App\Orders;
 use App\OrderItems;
-use App\Trackings;
+use App\OrderHistory;
 use App\Wishlists;
 use App\Senders;
 use App\Settings;
@@ -287,6 +288,23 @@ class Helper implements HelperContract
 'zimbabwe' => "Zimbabwe"
 ];
 
+ public $statuses = [
+												     'cancelled' => "Cancelled",
+												     'canceled-reversal' => "Cancelled Reversal",
+												     'chargeback' => "Chargeback",
+												     'completed' => "Completed",
+												     'denied' => "Denied",
+												     'expired' => "Expired",
+												     'failed' => "Failed",
+												     'pending' => "Pending",
+												     'processed' => "Processed",
+												     'processing' => "Processing",
+												     'refunded' => "Refunded",
+												     'reversed' => "Reversed",
+												     'shipped' => "Shipped",
+												     'voided' => "Voided",
+												   ];
+
 
 
   public $suEmail = "kudayisitobi@gmail.com";
@@ -507,19 +525,6 @@ $subject = $data['subject'];
        return $temp;            	   
    }
    
-           function createShippingDetails($data)
-           {
-			   $zip = isset($data['zip']) ? $data['zip'] : "";
-           	$ret = ShippingDetails::create(['user_id' => $data['user_id'],                                                                                                          
-                                                      'company' => $data['company'], 
-                                                      'zipcode' => $zip,                                                      
-                                                      'address' => $data['address'], 
-                                                      'city' => $data['city'], 
-                                                      'state' => $data['state'], 
-                                                      ]);
-                                                      
-                return $ret;
-           }
 		   
 		   
 		   function getCart($user)
@@ -598,25 +603,67 @@ $subject = $data['subject'];
 		   function getShippingDetails($user)
            {
            	$ret = [];
-			$uid = isset($user->id) ? $user->id: $user;
-               $sdd = ShippingDetails::where('user_id',$uid)->get();
+              if($user == null)
+			  {
+				   $sds = ShippingDetails::where('id',">","0")->get();
+				   
+				   $sds = $sds->sortByDesc('created_at');				   
  
-              if($sdd != null)
-               {
-				   foreach($sdd as $sd)
-				   {
-				      $temp = [];
-                   	   $temp['company'] = $sd->company; 
-                       $temp['address'] = $sd->address; 
-                       $temp['city'] = $sd->city;
-                       $temp['state'] = $sd->state; 
-                       $temp['zipcode'] = $sd->zipcode; 
-                       $temp['id'] = $sd->id; 
-                       $temp['date'] = $sd->created_at->format("jS F, Y"); 
-                       array_push($ret,$temp); 
-				   }
-               }                         
+                  if($sds != null)
+                   {
+				      foreach($sds as $a)
+				      {
+					     $aa = $this->getShippingDetail($a->id);
+					     array_push($ret,$aa); 
+				      }
+                   }  
+			  }
+			  else
+			  {
+				 $sds = ShippingDetails::where('user_id',$user->id)->get();
+								   
+				  $sds = $sds->sortByDesc('created_at');				   
+ 
+                  if($sds != null)
+                   {
+				      foreach($sds as $a)
+				      {
+					     $aa = $this->getShippingDetail($a->id);
+					     array_push($ret,$aa); 
+				      }
+                   }  
+			  }
+			                           
                                                       
+                return $ret;
+           }
+
+
+    function getShippingDetail($id,$optionalParams=[])
+           {
+			   $u = isset($optionalParams['user']) ? $optionalParams['user'] : false;
+           	  
+			  $ret = [];
+              $sd = ShippingDetails::where('id',$id)->first();
+ 
+              if($sd != null)
+               {
+				  $temp = [];
+				  $temp['id'] = $sd->id;
+				  $temp['user_id'] = $sd->user_id;
+				  if($u) $temp['u'] = $this->getUser($sd->user_id);
+				  $temp['fname'] = $sd->fname;
+				  $temp['lname'] = $sd->lname;
+				  $temp['company'] = $sd->company;
+				  $temp['address_1'] = $sd->address_1;
+				  $temp['address_2'] = $sd->address_2;
+				  $temp['city'] = $sd->city;
+				  $temp['region'] = $sd->region;
+				  $temp['zip'] = $sd->zip;
+				  $temp['country'] = $sd->country;
+				  $temp['date'] = $sd->created_at->format("jS F, Y h:i A");
+				  $ret = $temp;
+               }                               
                 return $ret;
            }
 		   
@@ -683,57 +730,23 @@ $subject = $data['subject'];
 					
            }		   
 		   
-		     function getProducts($c="all")
+		   function getProducts()
            {
-			   $ret = [];
-			$rr = [];
-              /**
-			  $products = Products::where('qty','>',"0")
-			                       ->where('status',"enabled")->get();
-             **/				
-				#dd($rr);			   
-				
-				$products = Products::cursor()->filter(function ($p) {
-                                                            return ($p->qty > 0 && $p->status == "enabled");
-                                                          });
-				
-				
-				$products = $products->sortByDesc('created_at');				   
-              
-			  
+           	$ret = [];
+              $products = Products::where('id','>',"0")->get();
+              $products = $products->sortByDesc('created_at');
 			  
               if($products != null)
                {
 				  foreach($products as $p)
 				  {
-					     $pp = $this->getProduct($p->id);
-					     array_push($ret,$pp); 
+					  $pp = $this->getProduct($p->id);
+					  array_push($ret,$pp);
 				  }
                }                         
                                                       
                 return $ret;
            }
-		   
-		   function getProductsByCategory($cat)
-           {
-           	$ret = [];
-                 $pds = ProductData::where('category',$cat)->get();
-                 $pds = $pds->sortByDesc('created_at');	
-				 
-              if($pds != null)
-               {
-				  foreach($pds as $p)
-				  {
-					  $pp = $this->getProduct($p->sku);
-					  if($pp['status'] == "enabled" && $pp['qty'] > 0) array_push($ret,$pp);
-				  }
-               }                         
-                                  
-                return $ret;
-           }
-		   
-		   
-		  
 		   
 		   function getProduct($id,$imgId=false)
            {
@@ -821,19 +834,6 @@ $subject = $data['subject'];
                }                         
                                                       
                 return $ret;
-           }
-
-		   function createDiscount($data)
-           {
-			   $type = isset($data['type']) ? $data['type'] : "user";
-
-           	$ret = Discounts::create(['sku' => $data['id'],                                                                                                          
-                                                      'discount_type' => $data['discount_type'], 
-                                                      'discount' => $data['discount'], 
-                                                      'type' => $type, 
-                                                      'status' => $data['status'], 
-                                                      ]);
-			return $ret;
            }
 
 		   function getDiscounts($id,$type="product")
@@ -1117,7 +1117,7 @@ $subject = $data['subject'];
            }
 		   
 		   
-		    function getManufacturers()
+		   function getManufacturers()
            {
            	$ret = [];
            	$manufacturers = Manufacturers::where('id','>','0')->get();
@@ -1633,46 +1633,10 @@ $subject = $data['subject'];
                 return ['status' => "ok",'dt' => $dt];
            }
 		   
-		   function payOnDelivery($user, $md)
-           {	
-              #dd([$user,$md]);		   
-                $dt = [];
-				$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-				
-				if(is_null($user))
-				{
-		            $cart = $this->getCart($user,$gid);
-		            $totals = $this->getCartTotals($cart);
-					#dd($totals);
-					$dt['name'] = $md['name'];
-					$dt['email'] = $md['email'];
-					$dt['phone'] = $md['phone'];
-					$dt['address'] = $md['address'];
-					$dt['city'] = $md['city'];
-					$dt['state'] = $md['state'];
-				}
-				else
-				{
-					$this->updateShippingDetails($user,$md);
-				}
-				
-				$dt['amount'] = $md['amount'] / 100;
-				$dt['courier_id'] = $md['courier'];
-               	$dt['ref'] = isset($md['ref']) ? $md['ref'] : $this->getRandomString(5);
-				$dt['notes'] = isset($md['notes']) ? $md['notes'] : "";
-				$dt['payment_type'] = $md["payment_type"];
-				$dt['type'] = "pod";
-				$dt['status'] = "pod";
-              
-              #create order
-              #dd($dt);
-              $o = $this->addOrder($user,$dt,$gid);
-                return $o;
-           }
-		   
-		   function updateStock($s,$q)
+		
+		   function updateStock($p,$q)
 		   {
-			   $p = Products::where('sku',$s)->first();
+			   $p = Products::where('id',$p)->first();
 			   
 			   if($p != null)
 			   {
@@ -1681,6 +1645,8 @@ $subject = $data['subject'];
 				   if($qty < 0) $qty = 0;
 				   $p->update(['qty' => $qty]);
 			   }
+			   
+			   //update product stock on catalog here
 		   }
 		   
 		   function clearNewUserDiscount($u)
@@ -1699,26 +1665,141 @@ $subject = $data['subject'];
 			  }
 		   }
 
-           function addOrder($user,$data,$gid=null)
+           function getPaymentDetails($user)
            {
-           	#dd($data);
-			   $cart = [];
-			   $gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";  
-           	   $order = $this->createOrder($user, $data);
+           	$ret = [];
+              if($user == null)
+			  {
+				   $pds = PaymentDetails::where('id',">","0")->get();
+				   
+				   $pds = $pds->sortByDesc('created_at');				   
+ 
+                  if($pds != null)
+                   {
+				      foreach($pds as $a)
+				      {
+					     $aa = $this->getPaymentDetail($a->id);
+					     array_push($ret,$aa); 
+				      }
+                   }  
+			  }
+			  else
+			  {
+				 $pds = PaymentDetails::where('user_id',$user->id)->get();
+								   
+				  $pds = $pds->sortByDesc('created_at');				   
+ 
+                  if($pds != null)
+                   {
+				      foreach($pds as $a)
+				      {
+					     $aa = $this->getPaymentDetail($a->id);
+					     array_push($ret,$aa); 
+				      }
+                   }  
+			  }
+			                           
+                                                      
+                return $ret;
+           }
+
+
+    function getPaymentDetail($id,$optionalParams=[])
+           {
+			   $u = isset($optionalParams['user']) ? $optionalParams['user'] : false;
+           	  
+			  $ret = [];
+              $pd = PaymentDetails::where('id',$id)->first();
+ 
+              if($pd != null)
+               {
+				  $temp = [];
+				  $temp['id'] = $pd->id;
+				  $temp['user_id'] = $pd->user_id;
+				  if($u) $temp['u'] = $this->getUser($pd->user_id);
+				  $temp['fname'] = $pd->fname;
+				  $temp['lname'] = $pd->lname;
+				  $temp['company'] = $pd->company;
+				  $temp['address_1'] = $pd->address_1;
+				  $temp['address_2'] = $pd->address_2;
+				  $temp['city'] = $pd->city;
+				  $temp['region'] = $pd->region;
+				  $temp['zip'] = $pd->zip;
+				  $temp['country'] = $pd->country;
+				  $temp['date'] = $pd->created_at->format("jS F, Y h:i A");
+				  $ret = $temp;
+               }                               
+                return $ret;
+           }
+		   
+		    function addOrder($data)
+           {
+			   				/**
+				
+				customer: aoCustomer,
+				amount: 100,
+		 payment_xf: aoPaymentXF,
+		 payment_fname: aoPaymentFname,
+		 payment_lname: aoPaymentLname,
+		 payment_company: aoPaymentCompany,
+		 payment_address_1: aoPaymentAddress1,
+		 payment_address_2: aoPaymentAddress2,
+		 payment_city: aoPaymentCity,
+		 payment_region: aoPaymentRegion,
+		 payment_postcode: aoPaymentPostcode,
+		 payment_country: aoPaymentCountry,
+		 shipping_xf: aoShippingXF,
+		 shipping_fname: aoShippingFname,
+		 shipping_lname: aoShippingLname,
+		 shipping_company: aoShippingCompany,
+		 shipping_address_1: aoShippingAddress1,
+		 shipping_address_2: aoShippingAddress2,
+		 shipping_city: aoShippingCity,
+		 shipping_region: aoShippingRegion,
+		 shipping_postcode: aoShippingPostcode,
+		 shipping_country: aoShippingCountry,
+		 payment_type: aoPaymentType,
+		 shipping_type: aoShippingType,
+		 comment: aoComment,
+		 status: aoStatus,
+		 products: JSON.stringify(orderProducts),
+			**/	
+			   $data['ref'] = "MBZ".$this->getRandomString(5);
+			   $data['user_id'] = $data['customer'];
 			   
-                if($user == null && $gid != null) $cart = $this->getCart($user,$gid);
-			 else $cart = $this->getCart($user);
-			 #dd($cart);
-			 
+			   $pd = $data['payment_xf'];
+			   if($pd == "new")
+			   {
+				   $ppd = $this->createPaymentDetails($data);
+				   $pd = $ppd->id;
+			   }
+			   $data['payment_id'] = $pd;
+			   
+			   $sd = $data['shipping_xf'];
+			   if($sd == "new")
+			   {
+				   $ssd = $this->createShippingDetails($data);
+				   $sd = $ssd->id;
+			   }
+			   $data['shipping_id'] = $sd;
+			   
+           	   $order = $this->createOrder($data);
+			   $cart = json_decode($data['products']);
+			   
                #create order details
                foreach($cart as $c)
                {
-				   $dt = [];
-                   $dt['sku'] = $c['product']['sku'];
-				   $dt['qty'] = $c['qty'];
-				   $dt['order_id'] = $order->id;
-				   if($data["status"] == "paid" || $data["status"] == "pod") $this->updateStock($dt['sku'],$dt['qty']);
-                   $oi = $this->createOrderItems($dt);                    
+				   $p = $this->getProduct($c->p);
+				   
+				   if(count($p) > 0)
+				   {
+					   $dt = [];
+                       $dt['product_id'] = $p['id'];
+				       $dt['qty'] = $c->q;
+				       $dt['order_id'] = $order->id;
+				       $this->updateStock($dt['product_id'],$dt['qty']);
+                       $oi = $this->createOrderItems($dt);
+				   }   
                }
 
                #send transaction email to admin
@@ -1726,55 +1807,29 @@ $subject = $data['subject'];
                
 			   
 			   //clear cart
-			   $this->clearCart($user);
+			   //$this->clearCart($user);
 			   
 			   //if new user, clear discount
-			   $this->clearNewUserDiscount($user);
+			  // $this->clearNewUserDiscount($user);
 			   return $order;
            }
 
-           function createOrder($user, $dt)
+           function createOrder($dt)
 		   {
 			   #dd($dt);
-			   $psref = isset($dt['ps_ref']) ? $dt['ps_ref'] : "";
-			   
-			   if(is_null($user))
-			   {
-				   $gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-				   $anon = AnonOrders::create(['email' => $dt['email'],
-				                     'reference' => $dt['ref'],
-				                     'name' => $dt['name'],
-				                     'phone' => $dt['phone'],
-				                     'address' => $dt['address'],
-				                     'city' => $dt['city'],
-				                     'state' => $dt['state'],
-				             ]);
-				   
-				   $ret = Orders::create(['user_id' => "anon",
+			   //$ref = $this->helpers->getRandomString(5);
+			   $comment = isset($dt['comment']) && $dt['comment'] != null ? $dt['comment'] : "";
+
+				 $ret = Orders::create(['user_id' => $dt['customer'],
 			                          'reference' => $dt['ref'],
-			                          'ps_ref' => $psref,
 			                          'amount' => $dt['amount'],
-			                          'courier_id' => $dt['courier_id'],
-			                          'type' => $dt['type'],
+			                          'payment_id' => $dt['payment_id'],
+			                          'shipping_id' => $dt['shipping_id'],
 			                          'payment_type' => $dt['payment_type'],
-			                          'notes' => $dt['notes'],
-			                          'status' => $dt['status'],
-			                 ]); 
-			   }
-			   
-			   else
-			   {
-				 $ret = Orders::create(['user_id' => $user->id,
-			                          'reference' => $dt['ref'],
-			                          'ps_ref' => $psref,
-			                          'amount' => $dt['amount'],
-			                          'courier_id' => $dt['courier_id'],
-			                          'type' => $dt['type'],
-			                          'payment_type' => $dt['payment_type'],
-			                          'notes' => $dt['notes'],
+			                          'shipping_type' => $dt['shipping_type'],
+			                          'comment' => $comment,
 			                          'status' => $dt['status'],
 			                 ]);   
-			   }
 			   
 			  return $ret;
 		   }
@@ -1782,83 +1837,51 @@ $subject = $data['subject'];
 		   function createOrderItems($dt)
 		   {
 			   $ret = OrderItems::create(['order_id' => $dt['order_id'],
-			                          'sku' => $dt['sku'],
+			                          'product_id' => $dt['product_id'],
 			                          'qty' => $dt['qty']
 			                 ]);
 			  return $ret;
 		   }
 
-           function getOrderTotals($items,$uid=null)
+            function getOrderTotals($items)
            {
-           	$ret = ["subtotal" => 0, "delivery" => 0, "items" => 0,"discount" => 0];
-             # dd($items);
-			  $oid = "";
-			  
+           	$ret = ["subtotal" => 0, "delivery" => 0, "items" => 0];
+              #dd($items);
               if($items != null && count($items) > 0)
-               {      
-                 $oid = $items[0]['order_id'];
-                 $o = Orders::where('id',$oid)->first();	
-				 
+               {    
+		          $oid = $items[0]['order_id'];
+                 $o = Orders::where('id',$oid)->first();		   
                	foreach($items as $i) 
                     {
-						if(count($i['product']) > 0)
+                    	if(count($i['product']) > 0)
                         {
-						$amount = $i['product']['pd']['amount'];
-						$dsc = $this->getDiscountPrices($amount,$i['product']['discounts']);
-						$newAmount = 0;
-						if(count($dsc) > 0)
-			            {
-				          foreach($dsc as $d)
-				          {
-					        if($newAmount < 1)
-					        {
-						      $newAmount = $amount - $d;
-					        }
-					        else
-					        {
-						      $newAmount -= $d;
-					        }
-							$ret['discount'] += $d;
-				          }
-					      $amount = $newAmount;
-			            }
-						$qty = $i['qty'];
-                    	$ret['items'] += $qty;
-						$ret['subtotal'] += ($amount * $qty);	
-                       }
-				  }
-					
-					if($uid == "anon")
-					{
-						
-					}
-					else
-					{
-						$u = User::where('id',$uid)->first();
-						$c = $this->getCourier($o->courier_id);
-						  $ret['delivery'] = $c['price'];
-					}
+						  $amount = $i['product']['data']['amount'];
+						  $qty = $i['qty'];
+                      	$ret['items'] += $qty;
+						  $ret['subtotal'] += ($amount * $qty);
+                       }	
+                    }
                    
-                 
+				   //$c = $this->getCourier($o->courier_id);
+				  // 	$ret['delivery'] = isset($c['price']) ? $c['price'] : "1000";
                   
                }                                 
                                                       
                 return $ret;
            }
 
-           function getOrders($user)
+           function getOrders()
            {
            	$ret = [];
 
-			  $orders = Orders::where('user_id',$user->id)->get();
+			  $orders = Orders::where('id','>',"0")->get();
 			  $orders = $orders->sortByDesc('created_at');
-			  
 			  #dd($uu);
               if($orders != null)
                {
                	  foreach($orders as $o) 
                     {
-                    	$temp = $this->getOrder($o->reference);
+                    	$temp = $this->getOrder($o->id);
                         array_push($ret, $temp); 
                     }
                }                                 
@@ -1872,7 +1895,7 @@ $subject = $data['subject'];
 
 			  $o = Orders::where('id',$ref)
 			                  ->orWhere('reference',$ref)->first();
-			  #dd($o);
+			  #dd($uu);
               if($o != null)
                {
 				  $temp = [];
@@ -1880,41 +1903,21 @@ $subject = $data['subject'];
                   $temp['user_id'] = $o->user_id;
                   $temp['reference'] = $o->reference;
                   $temp['amount'] = $o->amount;
-                  $temp['type'] = $o->type;
-                  $temp['courier_id'] = $o->courier_id;
-				  $c = $this->getCourier($o->courier_id);
-                  $temp['courier'] = $c;
-                  $temp['payment_type'] = $o->payment_type;
-                  $temp['notes'] = $o->notes;
+                  $temp['pd'] = $this->getPaymentDetail($o->payment_id);
+                  $temp['sd'] = $this->getShippingDetail($o->shipping_id);
+				  $temp['payment_type'] = $o->payment_type;
+				  $temp['shipping_type'] = $o->shipping_type;
+                  $temp['comment'] = $o->comment;
                   $temp['status'] = $o->status;
                   $temp['items'] = $this->getOrderItems($o->id);
-                  $temp['totals'] = $this->getOrderTotals($temp['items'],$o->user_id);
-				  if($o->user_id == "anon")
-				  {
-						$anon = $this->getAnonOrder($o->reference,false);
-						
-						$temp['totals']['delivery'] = $c['price'];  
-				  }
-				  
+                  $temp['history'] = $this->getOrderHistory($o->id);
+                  $temp['totals'] = $this->getOrderTotals($temp['items']);
+				  $temp['user'] = $this->getUser($o->user_id);
                   $temp['date'] = $o->created_at->format("jS F, Y");
+                  $temp['updated'] = $o->updated_at->format("jS F, Y");
                   $ret = $temp; 
                }                                 
-              			  
-                return $ret;
-           }
-
-		   function getBuyer($ref)
-           {
-           	$ret = [];
-
-			  $o = Orders::where('id',$ref)
-			                  ->orWhere('reference',$ref)->first();
-			  #dd($uu);
-              if($o != null)
-               { 
-                  $ret = $this->getUser($o['user_id']); 
-               }                                 
-              			  
+              		#dd($ret);	  
                 return $ret;
            }
 
@@ -1932,39 +1935,39 @@ $subject = $data['subject'];
 						$temp = [];
                     	$temp['id'] = $i->id; 
                     	$temp['order_id'] = $i->order_id; 
-                        $temp['product'] = $this->getProduct($i->sku); 
+                    	$temp['product_id'] = $i->product_id; 
+                        $temp['product'] = $this->getProduct($i->product_id); 
                         $temp['qty'] = $i->qty; 
                         array_push($ret, $temp); 
                     }
-               }			   
+               }                                 
               			  
                 return $ret;
            }
+		   
+		   function getOrderHistory($id)
+           {
+           	$ret = [];
 
-          function getTrackings($reference="")
-		   {
-			   $ret = [];
-			   if($reference == "") $trackings = Trackings::where('id','>',"0")->get();
-			   else $trackings = Trackings::where('reference',$reference)->get();
-			   $trackings = $trackings->sortByDesc('created_at');
-			   
-			   if(!is_null($trackings))
-			   {
-				   foreach($trackings as $t)
-				   {
-					   $temp = [];
-					   $temp['id'] = $t->id;
-					   $temp['user_id'] = $t->user_id;
-					   $temp['reference'] = $t->reference;
-					   $temp['description'] = $t->description;
-					   $temp['status'] = $t->status;
-					   $temp['date'] = $t->created_at->format("jS F, Y h:i A");
-					   array_push($ret,$temp);
-				   }
-			   }
-			   
-			   return $ret;
-		   }
+			  $items = OrderHistory::where('order_id',$id)->get();
+			  #dd($uu);
+              if($items != null)
+               {
+               	  foreach($items as $i) 
+                    {
+						$temp = [];
+                    	$temp['id'] = $i->id; 
+                    	$temp['order_id'] = $i->order_id; 
+                    	$temp['status'] = $i->status; 
+                        $temp['notify_customer'] = $i->notify_customer; 
+                        $temp['comment'] = $i->comment; 
+                        $temp['date'] = $i->created_at->format("jS F, Y"); 
+                        array_push($ret, $temp); 
+                    }
+               }                                 
+              			  
+                return $ret;
+           }
 
          function createWishlist($dt)
 		   {
@@ -2151,55 +2154,7 @@ $subject = $data['subject'];
 			   return $ret;
 		   }
 
-    function confirmPayment($u,$data)
-	{
-		$o = $this->getOrder($data['o']);
-		#dd([$u,$data]);
-		//$ret = $this->smtp;
-		$ret = $this->getCurrentSender();
-		$ret['order'] = $o;
-		
-		if(is_null($u))
-		{
-			$ret['user'] = $data['email'];
-			$md = $this->getAnonOrder($data['o']);
-			#dd($md);
-			$shipping = [
-					     'address' => $md['address'],
-					     'city' => $md['city'],
-					     'state' => $md['state'],
-					   ];
-		}
-		else
-		{
-			$ret['user'] = $u->email;
-			 $sd = $this->getShippingDetails($u->id);
-					   $shipping = $sd[0];
-		}
-		$ret['subject'] = "URGENT: Confirm payment for order ".$o['reference'];
-		$ret['acname'] = $data['acname'];
-		$bname =  $data['bname'] == "other" ? $data['bname-other'] : $this->banks[$data['bname']];
-		$ret['bname'] = $bname;
-		$ret['acnum'] = $data['acnum'];
-		$ret['shipping'] = $shipping;
-		
-		try
-		{
-			$ret['em'] = $this->adminEmail;
-		    $this->sendEmailSMTP($ret,"emails.admin-confirm-payment");
-		    $ret['em'] = $this->suEmail;
-		    $this->sendEmailSMTP($ret,"emails.admin-confirm-payment");
-			$s = ['status' => "ok"];
-		}
-		
-		catch(Throwable $e)
-		{
-			#dd($e);
-			$s = ['status' => "error",'message' => "server error"];
-		}
-		
-		return json_encode($s);
-	}		   
+   
 	
 	function testBomb($data)
 	{
@@ -2215,150 +2170,33 @@ $subject = $data['subject'];
 		return json_encode(['status' => "ok"]);
 	}
 	
-	function pdfHeader($ph)
-	{
-		$img = public_path()."/images/logoo.png";
-		$ph->Cell(80);
-		$ph->Image($img,80,10,50);
-		$ph->Ln(55);
-		$ph->SetFont('Arial', 'BU', 18);
-		$ph->SetX(-60);
-        $ph->Cell(0, 10, 'Ace Luxury Store',0,1);
-		$ph->SetFont('Arial', '', 15);
-		$ph->SetX(-125);
-        $ph->Cell(0, 10, '3 Oshikomaiya Close, Demurin Road, Ketu, Lagos',0,1);
-		$ph->SetX(-55);
-        $ph->Cell(0, 10, '(+234) 809 703 9692',0,1);
-		$ph->SetFont('Arial', 'IU', 15);
-		$ph->SetTextColor(0,0,120);
-		$ph->SetX($ph->GetPageWidth() - ($ph->GetStringWidth('support@aceluxurystore.com') + 5));
-        $ph->Cell(0, 10, 'support@aceluxurystore.com',0,1);
-		$ph->Ln(20);
-		$ph->Line(0,$ph->GetY() - 10,$ph->GetPageWidth(),$ph->GetY() - 10);
-	}
-	
-	function pdfFooter($ph)
-	{
-		$ph->SetY(-30);
-		$ph->SetFont('Arial','I',8);
-		$ph->SetTextColor(128);
-		$ph->Cell(0,5,'Page '.$ph->PageNo().'/{nb}',0,0,'C');
-	}
-	
-	function pdfTable($ph, $header, $data)
-   {
-    // Colors, line width and bold font
-    $ph->SetFillColor(141,154,165);
-    $ph->SetTextColor(255);
-    $ph->SetDrawColor(255);
-    $ph->SetLineWidth(.3);
-    $ph->SetFont('','B');
-    // Header
-    $w = array(10, 95, 20, 45);
-    for($i=0;$i<count($header);$i++)
-        $ph->Cell($w[$i],7,$header[$i],1,0,'C',true);
-    $ph->Ln();
-    // Color and font restoration
-    $ph->SetFillColor(224,235,255);
-    $ph->SetTextColor(0);
-    $ph->SetFont('');
-    // Data
-    $fill = false;
-	$x = 0;
-    foreach($data as $i)
-    {
-		++$x;
-		$product = $i['product'];
-		$sku = $product['sku'];
-		$qty = $i['qty'];
-		$pd = $product['pd'];
-		$pu = url('product')."?sku=".$product['sku'];
-		$img = $product['imggs'][0];
-		#dd($img);
-		
-        $ph->Cell($w[0],6,$x,'LR',0,'L',$fill);
-        //$ph->Image($img,$w[1],10,50,50,'png');
-        $ph->Cell($w[1],6,$sku,'LR',0,'L',$fill);
-        $ph->Cell($w[2],6,$qty,'LR',0,'R',$fill);
-        $ph->Cell($w[3],6,"N".number_format($pd['amount'] * $qty,2),'LR',0,'R',$fill);
-        $ph->Ln();
-        $fill = !$fill;
-    }
-    // Closing line
-    $ph->Cell(array_sum($w),0,'','T');
-   }
+	 function getPasswordResetCode($user)
+           {
+           	$u = $user; 
+               
+               if($u != null)
+               {
+               	//We have the user, create the code
+                   $code = bcrypt(rand(125,999999)."rst".$u->id);
+               	$u->update(['reset_code' => $code]);
+               }
+               
+               return $code; 
+           }
+           
+           function verifyPasswordResetCode($code)
+           {
+           	$u = User::where('reset_code',$code)->first();
+               
+               if($u != null)
+               {
+               	//We have the user, delete the code
+               	$u->update(['reset_code' => '']);
+               }
+               
+               return $u; 
+           }
 
-    function outputPDF($data,$fpdf)
-	{	
-	   $dt = $data['data'];
-		switch($data['type'])
-		{
-			case 'test':
-			 $fpdf->AddPage();
-             $fpdf->SetFont('Arial', 'BU', 18);
-			 $fpdf->Cell(80);
-             $fpdf->Cell(20, 10, 'Creating PDF documents from helpers up',0,1,'C');
-			 $fpdf->SetFont('Arial', '', 15);
-             $fpdf->Cell(20, 10, 'Creating PDF documents from helpers');
-			break;
-			
-			case 'test-2':
-			$fpdf->AliasNbPages();
-			 $fpdf->AddPage();
-			 $this->pdfHeader($fpdf);
-			 $fpdf->SetFont('Arial', '', 15);
-			 $fpdf->SetTextColor(0);
-             $fpdf->Cell(20, 10, 'RECEIPT',0,1);
-			 $fpdf->SetFont('Arial', 'B', 18);
-             $fpdf->Cell(20, 10, 'John SNow',0,1);
-			 $fpdf->SetFont('Arial', '', 15);
-             $fpdf->Cell(20, 10, '07054329101',0,1);
-			  $fpdf->SetFont('Arial', 'IU', 15);
-			 $fpdf->SetTextColor(0,0,120);
-             $fpdf->Cell(20, 10, 'myemail@yahoo.com',0,1);
-			 $this->pdfFooter($fpdf);
-			break;
-			
-			case 'receipt':
-			$rows = [
-			 ['1',"item 1 with image","qty 1","amount 1"],
-			 ['2',"item 2 with image","qty 2","amount 2"],
-			 ['3',"item 3 with image","qty 3","amount 3"],
-			 ['4',"item 4 with image","qty 4","amount 4"],
-			];
-			$fpdf->AliasNbPages();
-			 $fpdf->AddPage();
-			 $this->pdfHeader($fpdf);
-			 $fpdf->SetFont('Arial', '', 15);
-			 $fpdf->SetTextColor(0);
-             $fpdf->Cell(20, 10, 'RECEIPT',0,1);
-			 $fpdf->SetFont('Arial', 'B', 18);
-             $fpdf->Cell(20, 10, $dt['name'],0,1);
-			 $fpdf->SetFont('Arial', '', 15);
-             $fpdf->Cell(20, 10,  $dt['phone'],0,1);
-			  $fpdf->SetFont('Arial', 'IU', 15);
-			 $fpdf->SetTextColor(0,0,120);
-             $fpdf->Cell(20, 10,  $dt['email'],0,1);
-			 $fpdf->SetX(-40);
-			 $fpdf->SetFont('Arial', '', 15);
-			 $fpdf->SetTextColor(0);
-             $fpdf->Cell(0, 10, 'STATUS: '.strtoupper($dt['status']),0,1);
-			 $fpdf->SetX(-83);
-			 $fpdf->SetFont('Arial', '', 13);
-			 $fpdf->SetTextColor(150,150,150);
-			 $fpdf->Cell(0, 10, "Receipt generated on: ".$dt['date'],0,1);
-			 $fpdf->SetX(-50);
-			 $fpdf->Cell(0, 10, "Reference #: ".$dt['reference'],0,1);
-			 $fpdf->Ln();
-			 $fpdf->SetX(0);
-			 $this->pdfTable($fpdf,['#','Items','Qty','Total'],$dt['items']);
-			 $this->pdfFooter($fpdf);
-			 
-			break;
-		}
-		
-		$fpdf->Output('D');
-	}
 
     function checkForUnpaidOrders($u)
 	{
@@ -2371,84 +2209,7 @@ $subject = $data['subject'];
 		return $ret > 0;
 	}	
 	
-	 function getAnonOrder($id,$all=true)
-           {
-           	$ret = [];
-			if($all)
-			{
-				$o = AnonOrders::where('reference',$id)
-			            ->orWhere('id',$id)->first();
-						
-               $o2 = Orders::where('reference',$id)
-			            ->orWhere('id',$id)->first();
-						#dd([$o,$o2]);
-              if($o != null || $o2 != null)
-               {
-				   if($o != null)
-				   {
-					 $temp['name'] = $o->name; 
-                       $temp['reference'] = $o->reference; 
-                       //$temp['wallet'] = $this->getWallet($u);
-                       $temp['phone'] = $o->phone; 
-                       $temp['email'] = $o->email; 
-                       $temp['address'] = $o->address; 
-                       $temp['city'] = $o->city; 
-                       $temp['state'] = $o->state; 
-                       $temp['id'] = $o->id; 
-                       #dd($o2);
-                       if($o2 != null) $temp['order'] = $this->getOrder($id);
-                       $temp['date'] = $o->created_at->format("jS F, Y"); 
-                       $ret = $temp;  
-				   }
-				   else if($o2 != null)
-				   {
-					   $u = $this->getUser($o2->user_id);
-					   $sd = $this->getShippingDetails($u['id']);
-					   $shipping = $sd[0];
-					   
-					  if(count($u) > 0)
-					   {
-						 $temp['name'] = $u['fname']." ".$u['lname']; 
-                         $temp['reference'] = $o2->reference;                 
-                         $temp['phone'] = $u['phone']; 
-                         $temp['email'] = $u['email']; 
-                         $temp['address'] = $shipping['address']; 
-                         $temp['city'] = $shipping['city']; 
-                         $temp['state'] = $shipping['state']; 
-                         $temp['id'] = $o2->id; 
-                         $temp['order'] = $this->getOrder($id);
-                         $temp['date'] = $o2->created_at->format("jS F, Y"); 
-                         $ret = $temp;  
-					   }  
-				   }
-                   	 
-               }
-			}
-			
-			else
-			{
-				$o = AnonOrders::where('reference',$id)
-			            ->orWhere('id',$id)->first();
-						
-				if($o != null)
-				   {
-					 $temp['name'] = $o->name; 
-                       $temp['reference'] = $o->reference; 
-                       //$temp['wallet'] = $this->getWallet($u);
-                       $temp['phone'] = $o->phone; 
-                       $temp['email'] = $o->email; 
-                       $temp['address'] = $o->address; 
-                       $temp['city'] = $o->city; 
-                       $temp['state'] = $o->state; 
-                       $temp['id'] = $o->id; 
-                       $temp['date'] = $o->created_at->format("jS F, Y"); 
-                       $ret = $temp;  
-				   }
-			}
-                                         
-                                                      
-                return $ret;
-           }
+	 
 		   
     function isDuplicateUser($data)
 	{
@@ -2573,64 +2334,7 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-  function getCouriers($s)
-   {
-	   $ret = [];
-	   $cvg = "";
-	   
-	   switch($s)
-	   {
-		   case "lagos":
-		     $cvg = "lagos";
-		   break;
-		   
-		   case "ekiti":
-		   case "ogun":
-		   case "oyo":
-		   case "osun":
-		   case "ondo":
-		     $cvg = "sw";
-		   break;
-		   default:
-		     $cvg = "others";
-	   }
-	   
-	   $couriers = Couriers::where('coverage',$cvg)
-	                       ->orWhere('coverage',$s)->get();
-	   
-	   if(!is_null($couriers))
-	   {
-		   foreach($couriers as $c)
-		   {
-		     $temp = $this->getCourier($c->id);
-		     array_push($ret,$temp);
-	       }
-	   }
-	   
-	   return $ret;
-   }
-   
-   function getCourier($id)
-           {
-           	$ret = [];
-               $c = Couriers::where('id',$id)->first();
  
-              if($c != null)
-               {
-                   	$temp['id'] = $c->id;  
-                       $temp['status'] = $c->status; 
-                       $temp['nickname'] = $c->nickname; 
-                       $temp['name'] = $c->name; 
-                       $temp['price'] = $c->price; 
-                       $temp['type'] = $c->type; 
-                       $temp['coverage'] = $c->coverage; 
-                       $temp['date'] = $c->created_at->format("jS F, Y"); 
-                       $temp['updated'] = $c->updated_at->format("jS F, Y"); 
-                       $ret = $temp; 
-               }                          
-                                                      
-                return $ret;
-           }
    
 }
 ?>
