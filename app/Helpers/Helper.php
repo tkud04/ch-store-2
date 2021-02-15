@@ -967,7 +967,7 @@ $subject = $data['subject'];
 		   {
 			   $ret = [];
                   //dd($dt);       
-               if(is_null($dt)) { $ret = asset("images/avatar-2.jpg"); }
+               if(is_null($dt)) { $ret = asset("images/avatar-2.png"); }
                
 			   else
 			   {
@@ -981,14 +981,14 @@ $subject = $data['subject'];
 		   {
 			   $ret = [];
                  # dd($dt);       
-               if(count($dt) < 1) { $ret = [asset("images/avatar-2.jpg")]; }
+               if(count($dt) < 1) { $ret = [asset("images/avatar-2.png")]; }
                
 			   else
 			   {
                    $ird = isset($dt[0]['url']) ? $dt[0]['url'] : $dt[0];
 				   if($ird == "none")
 					{
-					   $imgg = asset("images/avatar-2.jpg");
+					   $imgg = asset("images/avatar-2.png");
 					}
 				   else
 					{
@@ -997,7 +997,7 @@ $subject = $data['subject'];
 							 $ird = isset($dt[$x]['url']) ? $dt[$x]['url'] : $dt[$x];
 							 if($ird == "" || $ird == null)
 							 {
-								 $imgg = asset("images/avatar-2.jpg");
+								 $imgg = asset("images/avatar-2.png");
 							 }
 							 else
 							 {
