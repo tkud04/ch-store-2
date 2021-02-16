@@ -15,7 +15,9 @@ $pcClass = "";
                             </div>
                             <div class="col-md-6 order-md-first pt-md-5">
                                 <div class="mb-8">
+								  @if(count($info) > 0)
 								   {!! $info['content'] !!}
+								  @endif
 								</div>
 
                                 <div class="row pl-xl-6 pr-xl-8 mb-6">

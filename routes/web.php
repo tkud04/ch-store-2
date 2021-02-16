@@ -29,7 +29,9 @@ Route::post('contact', 'MainController@postContact');
 Route::get('search', 'MainController@getSearch');
 Route::get('about', 'MainController@getAbout');
 Route::get('faq', 'MainController@getFAQ');
-Route::get('privacy-policy', 'MainController@getPrivacyPolicy');
+Route::get('terms', 'MainController@getTerms');
+Route::get('delivery', 'MainController@getDeliveryPolicy');
+Route::get('privacy', 'MainController@getPrivacyPolicy');
 Route::get('returns', 'MainController@getReturnPolicy');
 
 Route::get('orders', 'MainController@getOrders');

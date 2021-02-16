@@ -839,6 +839,30 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function getTerms(Request $request)
+    {
+       $user = null;
+		$cart = [];
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		$req = $request->all();
+		$cart = $this->helpers->getCart($user);
+		$c = $this->helpers->getCategories();
+		$signals = $this->helpers->signals;
+		$plugins = $this->helpers->getPlugins();
+		$info = $this->helpers->getInformationSingle("terms");
+		#dd($info);
+		return view("terms",compact(['user','cart','info','c','signals','plugins']));	
+    }
+
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
 	public function getPrivacyPolicy(Request $request)
     {
        $user = null;
@@ -849,15 +873,13 @@ class MainController extends Controller {
 			
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
-		$plugins = $this->helpers->getPlugins();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 		$signals = $this->helpers->signals;
-		return view("privacy-policy",compact(['user','cart','c','ad','signals','plugins']));	
+		$plugins = $this->helpers->getPlugins();
+		$info = $this->helpers->getInformationSingle("privacy");
+		#dd($info);
+		return view("privacy",compact(['user','cart','info','c','signals','plugins']));	
     }
 	
 	/**
@@ -865,7 +887,7 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getReturnPolicy(Request $request)
+	public function getDeliveryPolicy(Request $request)
     {
        $user = null;
 		$cart = [];
@@ -875,15 +897,13 @@ class MainController extends Controller {
 			
 		}
 		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
-		$plugins = $this->helpers->getPlugins();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 		$signals = $this->helpers->signals;
-		return view("return-policy",compact(['user','cart','c','ad','signals','plugins']));	
+		$plugins = $this->helpers->getPlugins();
+		$info = $this->helpers->getInformationSingle("delivery");
+		#dd($info);
+		return view("delivery",compact(['user','cart','info','c','signals','plugins']));	
     }
 	
 	/**

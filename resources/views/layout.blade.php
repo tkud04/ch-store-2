@@ -107,7 +107,7 @@
                             <ul class="dropdown-box">
                                 <li><a href="{{url('about')}}">About</a></li>
                                 <li><a href="{{url('terms')}}">Terms</a></li>
-                                <li><a href="{{url('faq')}}">FAQ</a></li>
+                                <li><a href="{{url('delivery')}}">Delivery</a></li>
                                 <li><a href="{{url('returns')}}">Returns</a></li>
                                 <li><a href="{{url('contact')}}">Contact</a></li>
                                 <li><a href="{{url('privacy')}}">Privacy</a></li>

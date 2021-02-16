@@ -108,7 +108,7 @@
                             <ul class="dropdown-box">
                                 <li><a href="<?php echo e(url('about')); ?>">About</a></li>
                                 <li><a href="<?php echo e(url('terms')); ?>">Terms</a></li>
-                                <li><a href="<?php echo e(url('faq')); ?>">FAQ</a></li>
+                                <li><a href="<?php echo e(url('delivery')); ?>">Delivery</a></li>
                                 <li><a href="<?php echo e(url('returns')); ?>">Returns</a></li>
                                 <li><a href="<?php echo e(url('contact')); ?>">Contact</a></li>
                                 <li><a href="<?php echo e(url('privacy')); ?>">Privacy</a></li>
