@@ -1057,6 +1057,58 @@ class MainController extends Controller {
 			return redirect()->intended('profile');
       
     }
+    
+    /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getPassword(Request $request)
+    {	
+			return redirect()->intended('dashboard');
+		
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function postPassword(Request $request)
+    {
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+        
+        $req = $request->all();
+        //dd($req);
+        
+        $validator = Validator::make($req, [
+                             'pass' => 'required|min:6|confirmed'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         else{
+         	$req["xf"] = $user->id; 
+             $req["password"] = $req['pass']; 
+         	$this->helpers->updatePassword($user, $req);
+	        session()->flash("profile-status","ok");
+			return redirect()->intended('dashboard');
+         }
+
+         	
+      
+    }
 	
 	/**
 	 * Show the application welcome screen to the user.
