@@ -34,6 +34,13 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
      
+	   <script src="vendor/jquery/jquery.min.js"></script>
+	 
+	 	<!-- custom js -->
+	<script src="<?php echo e(asset('js/helpers.js').'?ver='.rand(32,99999)); ?>"></script>
+	<script src="<?php echo e(asset('js/mmm.js').'?ver='.rand(32,99999)); ?>"></script>
+	
+	 
 	 	<!--SweetAlert--> 
     <link href="lib/sweet-alert/sweetalert2.css" rel="stylesheet">
     <script src="lib/sweet-alert/sweetalert2.js"></script>
@@ -71,6 +78,7 @@
     </div>
     <div class="page-wrapper">
         <h1 class="d-none">Mobile Buzz - Your Number 1 Gadgets Store in the UK!</h1>
+		<?php if(!isset($no_header)): ?>
         <header class="header">
 		 <div class="header-top">
                 <div class="container">
@@ -245,6 +253,7 @@
             <!-- End Header Middle -->
         </header>
         <!-- End Header -->
+		<?php endif; ?>
         <main class="main mt-5">
 		 <?php if(isset($ph)): ?>
              <?php echo $__env->make('page-header',['title' => $title,'img' => asset('images/page-header.jpg')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -368,7 +377,7 @@
         </div>
     </div>
         <!-- Plugins JS File -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+  
     <script src="vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 

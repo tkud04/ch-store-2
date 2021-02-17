@@ -33,15 +33,13 @@ class LoginController extends Controller {
 		{
 			return redirect()->intended('dashboard');
 		}
-		$cart = $this->helpers->getCart($user,$request);
+		$req = $request->all();
+		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad.jpg" : $ads[0]['img'];
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		$states = $this->helpers->states;
-		return view("register",compact(['user','cart','c','ad','signals','plugins','states']));
+		#dd($info);
+		return view("register",compact(['user','cart','c','signals','plugins']));	
     }
 	/**
 	 * Show the application welcome screen to the user.
@@ -63,10 +61,12 @@ class LoginController extends Controller {
 			return redirect()->intended('dashboard');
 		}
 		
-		$cart = $this->helpers->getCart($user,$request);
-		$c = $this->helpers->categories;
+		$req = $request->all();
+		$cart = $this->helpers->getCart($user);
+		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
+		#dd($info);
 		return view("login",compact(['user','cart','c','signals','plugins']));	
     }
 
@@ -79,7 +79,7 @@ class LoginController extends Controller {
     public function postLogin(Request $request)
     {
         $req = $request->all();
-        //dd($req);
+        #dd($req);
         
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6',
@@ -96,7 +96,7 @@ class LoginController extends Controller {
          else
          {
          	$remember = true; 
-             $return = isset($req['u']) ? $req['u'] : '/';
+             $return = isset($req['u']) ? $req['u'] : 'dashboard';
              
          	//authenticate this login
             if(Auth::attempt(['email' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember) || Auth::attempt(['phone' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember))
@@ -107,15 +107,13 @@ class LoginController extends Controller {
 				
              #  if($this->helpers->isAdmin($user)){return redirect()->intended('/');}
                #else{
-                  $rex = isset($req['u']) ? $req['u'] : '/';
-                  if($user->verified == "vendor") $rex = "my-store";
-                  return redirect()->back();
+                  return redirect()->intended($return);
               # }
             }
 			
 			else
 			{
-				session()->flash("login-status","error");
+				session()->flash("login-status-error","ok");
 				return redirect()->back();
 			}
          }        
@@ -128,17 +126,14 @@ class LoginController extends Controller {
     public function postRegister(Request $request)
     {
         $req = $request->all();
-       #dd($req);
+       dd($req);
         
         $validator = Validator::make($req, [
-                             'pass' => 'required|min:7|confirmed',
+                             'pass' => 'required|min:6|confirmed',
                              'email' => 'required|email',                            
                              'phone' => 'required|numeric',
                              'fname' => 'required',
-                             'lname' => 'required',
-                             'address' => 'required',
-                             'city' => 'required',
-                             'state' => 'required',
+                             'lname' => 'required'
 							 //'terms' => "required"
          ]);
          
@@ -160,25 +155,27 @@ class LoginController extends Controller {
             
             # dd($isNew);            
 
-            $user =  $this->helpers->createUser($req); 
-			Auth::login($user);
-			$req['user_id'] = $user->id;
-			$req['company'] = "";
-            $shippingDetails =  $this->helpers->createShippingDetails($req); 
+            
 			
 			if($isNew)
 			{
-				$newDiscount = $this->helpers->getSetting('nud');
-				$this->helpers->giveDiscount($user,['type' => "flat", 'amount' => $newDiscount]);
+				$user =  $this->helpers->createUser($req); 
+			    Auth::login($user);
+			    $req['user_id'] = $user->id;
+			    //$shippingDetails =  $this->helpers->createShippingDetails($req); 
+			    
+				//after creating the user, send back to the registration view with a success message
+                #$this->helpers->sendEmail($user->email,'Welcome To Disenado!',['name' => $user->fname, 'id' => $user->id],'emails.welcome','view');
+                session()->flash("signup-status", "ok");
+			    $rex = isset($req['u']) ? $req['u'] : 'dashboard';
+                return redirect()->intended($rex);
 			}
-           // $wallet =  $this->helpers->createWallet($req); 
-           
-                                                    
-             //after creating the user, send back to the registration view with a success message
-             #$this->helpers->sendEmail($user->email,'Welcome To Disenado!',['name' => $user->fname, 'id' => $user->id],'emails.welcome','view');
-             session()->flash("signup-status", "ok");
-			 $rex = isset($req['u']) ? $req['u'] : '/';
-             return redirect()->back();
+			else
+			{
+              session()->flash("duplicate-user-status-error", "ok");
+			  return redirect()->back();
+			}
+             
           }
     }
 

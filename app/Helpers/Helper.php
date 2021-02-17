@@ -65,8 +65,9 @@ class Helper implements HelperContract
 					 "select-bank-status" => "Please select your bank",					 
 					 "no-cart-status" => "Your cart is empty.",
 					 "invalid-order-status" => "We couldn't find your order.",
-                     ],
-                     'errors'=> ["login-status-error" => "Wrong username or password, please try again.",
+					 
+					 //ERRORS
+					 "login-status-error" => "Wrong username or password, please try again.",
 					 "signup-status-error" => "There was a problem creating your account, please try again.",
 					 "profile-status-error" => "There was a problem updating your profile, please try again.",
 					 "update-status-error" => "There was a problem updating the account, please try again.",
@@ -85,7 +86,7 @@ class Helper implements HelperContract
 					 "track-order-status-error" => "Invalid reference number, please try again.",
 					 "no-cart-status-error" => "Your cart is empty.",
 					 "invalid-order-status-error" => "We could not find your order.",
-                    ]
+                     ]
                    ];
 
 

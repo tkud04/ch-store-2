@@ -22,8 +22,8 @@
   ?>                
   
   <script>
-if("{{$pop}}" == "add-to-cart-status"){
-	let x1 = "{{url('shop')}}",x2 = "{{url('checkout')}}";
+if("<?php echo e($pop); ?>" == "add-to-cart-status"){
+	let x1 = "<?php echo e(url('shop')); ?>",x2 = "<?php echo e(url('checkout')); ?>";
 	Swal.fire({
   title: "<strong>Added to cart!</strong>",
   icon: 'info',
@@ -40,8 +40,8 @@ if("{{$pop}}" == "add-to-cart-status"){
   cancelButtonAriaLabel: 'Checkout'
 })
 }
-else if("{{$pop}}" == "payy-bank-status"){
-	let x3 = "{{url('/')}}";
+else if("<?php echo e($pop); ?>" == "payy-bank-status"){
+	let x3 = "<?php echo e(url('/')); ?>";
 	//console.log("vv: ",vv);
 	
 	Swal.fire({
@@ -49,12 +49,12 @@ else if("{{$pop}}" == "payy-bank-status"){
   icon: 'info',
   showCloseButton: true,
   html:
-     "<h4>Payment code<br><em>" + dt.payment_code + "</em></h4><h5 class='text-danger'><b>NOTE: </b>Make sure you include your payment code as reference when making payment.</h5><p class='text-primary'>Bank name: GTBank</p><p class='text-primary'>Account number: 0123456789</p><p class='text-primary'>Amount: &#8358;{{number_format($amount,2)}}</p>"
+     "<h4>Payment code<br><em>" + dt.payment_code + "</em></h4><h5 class='text-danger'><b>NOTE: </b>Make sure you include your payment code as reference when making payment.</h5><p class='text-primary'>Bank name: GTBank</p><p class='text-primary'>Account number: 0123456789</p><p class='text-primary'>Amount: &#8358;<?php echo e(number_format($amount,2)); ?></p>"
 });
 
 }
-else if("{{$pop}}" == "add-to-wishlist-status"){
-	let x1 = "{{url('shop')}}",x2 = "{{url('wishlist')}}";
+else if("<?php echo e($pop); ?>" == "add-to-wishlist-status"){
+	let x1 = "<?php echo e(url('shop')); ?>",x2 = "<?php echo e(url('wishlist')); ?>";
 	Swal.fire({
   title: "<strong>Added to wishlist!</strong>",
   icon: 'info',
@@ -71,8 +71,8 @@ else if("{{$pop}}" == "add-to-wishlist-status"){
   cancelButtonAriaLabel: 'Go to wishlist'
 })
 }
-else if("{{$pop}}" == "add-to-compare-status"){
-	let x1 = "{{url('shop')}}",x2 = "{{url('compare')}}";
+else if("<?php echo e($pop); ?>" == "add-to-compare-status"){
+	let x1 = "<?php echo e(url('shop')); ?>",x2 = "<?php echo e(url('compare')); ?>";
 	Swal.fire({
   title: "<strong>Added to compare list!</strong>",
   icon: 'info',
@@ -91,10 +91,10 @@ else if("{{$pop}}" == "add-to-compare-status"){
 }
 else{
 Swal.fire({
-  icon: '{{$icon}}',
-  title: '{!!$title!!}',
-  text: '{{$signal[$pop]}}',
+  icon: '<?php echo e($icon); ?>',
+  title: '<?php echo $title; ?>',
+  text: '<?php echo e($signal[$pop]); ?>',
 });
 }
 </script>
-	
+	<?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/session-status.blade.php ENDPATH**/ ?>

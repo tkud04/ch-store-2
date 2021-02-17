@@ -1062,6 +1062,7 @@ window.Donald = {};
     Donald.initPopups = function () {
 
         Donald.$body
+		    /**
             // Register Login Popup
             .on('click', 'a.login, .login-link', function (e) {
                 e.preventDefault();
@@ -1086,6 +1087,7 @@ window.Donald = {};
                     }
                 }, 'login');
             })
+			**/
 
             // Register "Play Video" Popup
             .on('click', '.btn-iframe', function (e) {
@@ -1098,6 +1100,7 @@ window.Donald = {};
             });
 
         // Open newsletter Popup after 7.5s in home pages
+		if(!ccndn){
         if (Donald.$body.hasClass('home') && Donald.getCookie('hideNewsletterPopup') !== 'true') {
             setTimeout(function () {
                 Donald.popup({
@@ -1116,6 +1119,7 @@ window.Donald = {};
                 });
             }, 7500);
         }
+		}
     }
 
 	/**

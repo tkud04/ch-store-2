@@ -4,15 +4,16 @@ $ph = true;
 $no_header = true;
 $pcClass = "";
 ?>
-@extends('layout')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 				<div class="container pt-1">
-					<form action="{{url('register')}}" id="register-form" class="form mt-5">
-					{!! csrf_field() !!}
+					<form action="<?php echo e(url('register')); ?>" id="register-form" class="form mt-5">
+					<?php echo csrf_field(); ?>
+
 					
 					<p class="mb-2">
-						Existing user? <a href="{{url('login')}}" class="text-secondary">Sign in</a>
+						Existing user? <a href="<?php echo e(url('login')); ?>" class="text-secondary">Sign in</a>
 					</p>
 					
 									<div class="row">
@@ -37,4 +38,6 @@ $pcClass = "";
 									<button id="register-submit" class="btn btn-primary btn-reveal-right">SUNMIT <i class="d-icon-arrow-right"></i></button>
 								</form>
 				</div>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/register.blade.php ENDPATH**/ ?>
