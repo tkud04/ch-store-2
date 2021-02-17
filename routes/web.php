@@ -52,7 +52,7 @@ Route::post('forgot-password', 'LoginController@postForgotPassword');
 Route::get('reset', 'LoginController@getPasswordReset');
 Route::post('reset', 'LoginController@postPasswordReset');
 
-Route::get('signout', 'LoginController@getLogout');
+Route::get('bye', 'LoginController@getLogout');
 
 Route::get('dashboard', 'MainController@getDashboard');
 Route::get('profile', 'MainController@getProfile');

@@ -174,11 +174,24 @@
                         <!-- End Logo -->
                     </div>
                     <div class="header-right">
+					<?php if($user == null): ?>
                         <a class="login" href="<?php echo e(url('login')); ?>">
                             <i class="d-icon-user"></i>
                             <span>Login</span>
                         </a>
-                        <!-- End Login -->
+						<!-- End Login -->
+					<?php else: ?>
+					    <div class="dropdown cart-dropdown">
+						 <a href="#" class="cart-toggle">
+                                <span class="cart-label">
+                                    <span class="cart-name no-after">Hello, <?php echo e($user->fname); ?></span>
+                                </span>
+                            </a>
+                         <div class="dropdown-box">
+						    <a href="<?php echo e(url('dashboard')); ?>" class="cart-toggle btn btn-dark mb-3">Dashboard</a>
+						    <a href="<?php echo e(url('bye')); ?>" class="cart-toggle btn btn-danger">Logout</a>
+						 </div>
+						</div>
 						<?php
 			             $cc = (isset($cart)) ? count($cart) : 0;
 						 $subtotal = 0;
@@ -246,6 +259,7 @@
                             </div>
                             <!-- End Dropdown Box -->
                         </div>
+						<?php endif; ?>
                     </div>
                 </div>
 
