@@ -1000,7 +1000,7 @@ class MainController extends Controller {
 		if(Auth::check())
 		{
 			$user = Auth::user();
-		}
+		
 			$req = $request->all();
 		$cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
@@ -1008,13 +1008,13 @@ class MainController extends Controller {
 		    $signals = $this->helpers->signals;
 			$plugins = $this->helpers->getPlugins();
 		    return view("dashboard",compact(['user','cart','c','signals','plugins']));			
-		/**
+		
 		}
 		else
 		{
-			return redirect()->intended('/');
+			return redirect()->intended('login');
 		}
-		**/
+		
     }
     
 	/**
