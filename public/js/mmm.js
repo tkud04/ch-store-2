@@ -24,8 +24,8 @@ $(document).ready(function() {
 		  $("#register-submit").click(function(e){            
 		       e.preventDefault();
 			   let valid = true;
-			   let ee = $('#register-email').val(), p = $('#register-pass').val(), p2 = $('#register-pass-2').val(),
-			       fname = $('#register-fname').val(), lname = $('#register-lname').val(), validation = (ee == "" || p == "" || p2 == "" || fname == "" || lname == "");
+			   let ee = $('#register-email').val(), pp = $('#register-phone').val(), p = $('#register-pass').val(), p2 = $('#register-pass-2').val(),
+			       fname = $('#register-fname').val(), lname = $('#register-lname').val(), validation = (ee == "" || pp == "" || p == "" || p2 == "" || fname == "" || lname == "");
 			   
 		       if(validation){
 				 Swal.fire({

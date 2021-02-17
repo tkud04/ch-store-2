@@ -69,6 +69,7 @@ class Helper implements HelperContract
 					 //ERRORS
 					 "login-status-error" => "Wrong username or password, please try again.",
 					 "signup-status-error" => "There was a problem creating your account, please try again.",
+					 "duplicate-user-status-error" => "An account with this email or phone number already exists.",
 					 "profile-status-error" => "There was a problem updating your profile, please try again.",
 					 "update-status-error" => "There was a problem updating the account, please try again.",
 					 "contact-status-error" => "There was a problem sending your message, please try again.",

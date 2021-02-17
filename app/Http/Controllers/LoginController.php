@@ -126,12 +126,11 @@ class LoginController extends Controller {
     public function postRegister(Request $request)
     {
         $req = $request->all();
-       dd($req);
+       #dd($req);
         
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6|confirmed',
                              'email' => 'required|email',                            
-                             'phone' => 'required|numeric',
                              'fname' => 'required',
                              'lname' => 'required'
 							 //'terms' => "required"
@@ -148,17 +147,15 @@ class LoginController extends Controller {
          else
          {
 			 $isNew = !$this->helpers->isDuplicateUser(['email' => $req['email'], 'phone' => $req['phone']]);
-			 
-            $req['role'] = "user";    
-            $req['status'] = "enabled";           
-            $req['verified'] = "yes";           
-            
-            # dd($isNew);            
+			             
+             #dd($isNew);            
 
-            
-			
 			if($isNew)
 			{
+				$req['role'] = "user";    
+                $req['status'] = "enabled";           
+                $req['verified'] = "yes";           
+            
 				$user =  $this->helpers->createUser($req); 
 			    Auth::login($user);
 			    $req['user_id'] = $user->id;
