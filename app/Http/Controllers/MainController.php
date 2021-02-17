@@ -1101,7 +1101,7 @@ class MainController extends Controller {
          else{
          	$req["xf"] = $user->id; 
              $req["password"] = $req['pass']; 
-         	$this->helpers->updatePassword($user, $req);
+         	$this->helpers->updateProfile($user, $req);
 	        session()->flash("profile-status","ok");
 			return redirect()->intended('dashboard');
          }
