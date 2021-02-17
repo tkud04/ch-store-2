@@ -692,6 +692,7 @@ $subject = $data['subject'];
 							if(isset($data['email'])) $ret['email'] =  $data['email'];
 							if(isset($data['phone'])) $ret['phone'] =  $data['phone'];
 							if(isset($data['status'])) $ret['status'] =  $data['status'];
+							if(isset($data['password'])) $ret['password'] =  bcrypt($data['password']);
 							
                         	$u->update($ret);
 										   
