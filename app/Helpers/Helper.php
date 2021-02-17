@@ -686,21 +686,16 @@ $subject = $data['subject'];
                    
                         if($u != null && $user == $u)
                         {
-							$role = $u->role;
-							if(isset($data['role'])) $role = $data['role'];
-							$status = $u->status;
-							if(isset($data['status'])) $role = $data['status'];
+							$ret = [];
+							if(isset($data['fname'])) $ret['fname'] =  $data['fname'];
+							if(isset($data['lname'])) $ret['lname'] =  $data['lname'];
+							if(isset($data['email'])) $ret['email'] =  $data['email'];
+							if(isset($data['phone'])) $ret['phone'] =  $data['phone'];
+							if(isset($data['status'])) $ret['status'] =  $data['status'];
 							
-                        	$u->update(['fname' => $data['fname'],
-                                              'lname' => $data['lname'],
-                                              'email' => $data['email'],
-                                              'phone' => $data['phone'],
-                                              'role' => $role,
-                                              'status' => $status,
-                                              #'verified' => $data['verified'],
-                                           ]);
+                        	$u->update($ret);
 										   
-							$this->updateShippingDetails($user,$data);
+							#$this->updateShippingDetails($user,$data);
                                            
                                            $ret = "ok";
                         }                                    

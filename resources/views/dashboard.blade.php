@@ -49,26 +49,26 @@ $pcClass = "";
 								</p>
 							</div>
 							<div class="tab-pane active in" id="account">
-								<form action="{{url('profile')}}" method="post" class="form">
+								<form action="{{url('profile')}}" id="profile" method="post" class="form">
 									{!! csrf_field() !!}
 									<div class="row">
 										<div class="col-sm-6">
 											<label>First Name <span class="req">*</span></label>
-											<input type="text" class="form-control" name="fname" id="profile-fname" required="">
+											<input type="text" class="form-control" name="fname" value="{{$user->fname}}" id="profile-fname" required="">
 										</div>
 										<div class="col-sm-6">
 											<label>Last Name <span class="req">*</span></label>
-											<input type="text" class="form-control" name="lname" id="profile-lname" required="">
+											<input type="text" class="form-control" name="lname" value="{{$user->lname}}" id="profile-lname" required="">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6">
 									       <label>Email address <span class="req">*</span></label>
-									      <input type="email" class="form-control" name="email" id="profile-email" required="">
+									      <input type="email" class="form-control" value="{{$user->email}}" name="email" id="profile-email" required="">
 			                            </div>
 										<div class="col-sm-6">
 									       <label>Phone number <span class="req">*</span></label>
-									      <input type="number" class="form-control" name="phone" id="profile-phone" required="">
+									      <input type="number" class="form-control" value="{{$user->phone}}" name="phone" id="profile-phone" required="">
 			                            </div>
 									</div>
 

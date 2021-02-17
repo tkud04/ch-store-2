@@ -3,7 +3,8 @@
 
 $(document).ready(function() {
     "use strict";
-
+       
+	   //auth
        $("#login-submit").click(function(e){            
 		       e.preventDefault();
 			   let valid = true;
@@ -47,6 +48,26 @@ $(document).ready(function() {
 			   }
 			   else{
 				   $('#register-form').submit();
+			   }
+             
+		  });
+		  
+		  
+		  //DASHBOARD
+		  $("#profile-submit").click(function(e){            
+		       e.preventDefault();
+			   let valid = true;
+			   let ee = $('#profile-email').val(), pp = $('#profile-phone').val(), 
+			       fname = $('#profile-fname').val(), lname = $('#profile-lname').val(), validation = (ee == "" || pp == "" || fname == "" || lname == "");
+			   
+		       if(validation){
+				 Swal.fire({
+			            icon: 'error',
+                        title: "Please fill all the required fields"
+                 });
+			   }
+			   else{
+				   $('#profile-form').submit();
 			   }
              
 		  });

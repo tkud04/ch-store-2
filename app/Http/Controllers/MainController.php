@@ -1023,39 +1023,8 @@ class MainController extends Controller {
 	 * @return Response
 	 */
 	public function getProfile(Request $request)
-    {
-		if(Auth::check())
-		{
-			$user = Auth::user();
-			$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-			$c = $this->helpers->getCategories();
-		    $signals = $this->helpers->signals;
-			$plugins = $this->helpers->getPlugins();
-		    $states = $this->helpers->states;
-			$account = $this->helpers->getUser($user->email);
-			$shipping = $this->helpers->getShippingDetails($user);
-			$ads = $this->helpers->getAds();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-
-			$ss = ['company' => "",
-			       'address' => "",
-			       'city' => "",
-			       'state' => "",
-			       'zipcode' => "",
-			       'id' => "",
-			       'date' => ""
-			    ];
-				
-		   if(count($shipping) > 0) $ss = $shipping[0];
-		    return view("profile",compact(['user','cart','c','signals','plugins','account','ad','ss','states']));			
-		}
-		else
-		{
-			return redirect()->intended('/');
-		}
+    {	
+			return redirect()->intended('dashboard');
 		
     }
 	
@@ -1079,30 +1048,14 @@ class MainController extends Controller {
         //dd($req);
         
         $validator = Validator::make($req, [
-                             'fname' => 'required',
-                             'lname' => 'required',
-                             'email' => 'required|email',
-                             'phone' => 'required|numeric',
-							 'address' => 'required',
-                             'city' => 'required',
-                             'state' => 'required',
-                             'zip' => 'required|numeric'
+                             'xf' => 'required'
          ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
+
          	$req["xf"] = $user->id; 
          	$this->helpers->updateProfile($user, $req);
 	        session()->flash("profile-status","ok");
 			return redirect()->intended('profile');
-         }        
+      
     }
 	
 	/**

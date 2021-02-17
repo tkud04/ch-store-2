@@ -57,13 +57,15 @@
 <!-- DO NOT EDIT!! end of plugins -->
 </head>
  <?php
-	  
+	  $xu = url('login'); $xt = "Account";
+	
 	  if(is_null($user))
 	  {
 		$welcomeText = "Welcome to our online store!";
 	  }
 	  else
 	  {
+		$xu = url('dashboard'); $xt = "Dashboard";
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
 	  ?>
@@ -338,7 +340,7 @@
             <i class="d-icon-volume"></i>
             <span>Categories</span>
         </a>
-        <a href="#" class="sticky-link">
+        <a href="<?php echo e(url('wishlist')); ?>" class="sticky-link">
             <i class="d-icon-heart"></i>
             <span>Wishlist</span>
         </a>
@@ -349,14 +351,14 @@
             </a>
             <form action="#" class="input-wrapper">
                 <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
-                <button class="btn btn-search" type="submit">
+                <a class="btn btn-search" href="javascript:void(0)">
                     <i class="d-icon-search"></i>
-                </button>
+                </a>
             </form>
         </div>
-        <a href="#" class="sticky-link">
+        <a href="<?php echo e($xu); ?>" class="sticky-link">
             <i class="d-icon-user"></i>
-            <span>Account</span>
+            <span><?php echo e($xt); ?></span>
         </a>
     </div>
     <!-- Scroll Top -->
@@ -403,4 +405,5 @@
     <!-- Main JS File -->
     <script src="<?php echo e(asset('js/main.js').'?ver='.rand(23,999)); ?>"></script>
 </body>
-</html><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/layout.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/layout.blade.php ENDPATH**/ ?>
