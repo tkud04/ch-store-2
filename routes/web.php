@@ -57,6 +57,10 @@ Route::get('bye', 'LoginController@getLogout');
 Route::get('dashboard', 'MainController@getDashboard');
 Route::get('profile', 'MainController@getProfile');
 Route::post('profile', 'MainController@postProfile');
+Route::get('password', 'MainController@getPassword');
+Route::post('password', 'MainController@postPassword');
+Route::get('addresses', 'MainController@getAddresses');
+Route::post('addresses', 'MainController@postAddresses');
 
 Route::post('add-review', 'MainController@postAddReview');
 
