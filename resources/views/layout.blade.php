@@ -56,13 +56,15 @@
 <!-- DO NOT EDIT!! end of plugins -->
 </head>
  <?php
-	  
+	  $xu = url('login'); $xt = "Account";
+	
 	  if(is_null($user))
 	  {
 		$welcomeText = "Welcome to our online store!";
 	  }
 	  else
 	  {
+		$xu = url('dashboard'); $xt = "Dashboard";
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
 	  ?>
