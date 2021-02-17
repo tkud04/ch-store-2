@@ -337,7 +337,7 @@
             <i class="d-icon-volume"></i>
             <span>Categories</span>
         </a>
-        <a href="#" class="sticky-link">
+        <a href="{{url('wishlist')}}" class="sticky-link">
             <i class="d-icon-heart"></i>
             <span>Wishlist</span>
         </a>
@@ -348,14 +348,14 @@
             </a>
             <form action="#" class="input-wrapper">
                 <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
-                <button class="btn btn-search" type="submit">
+                <a class="btn btn-search" href="javascript:void(0)">
                     <i class="d-icon-search"></i>
-                </button>
+                </a>
             </form>
         </div>
-        <a href="#" class="sticky-link">
+        <a href="{{$xu}}" class="sticky-link">
             <i class="d-icon-user"></i>
-            <span>Account</span>
+            <span>{{$xt}}</span>
         </a>
     </div>
     <!-- Scroll Top -->
