@@ -47,6 +47,7 @@ class Helper implements HelperContract
  public $signals = ['okays'=> ["login-status" => "Welcome back!",            
                      "signup-status" => "Welcome to your new account. Enjoy your shopping!",
                      "profile-status" => "Profile updated!",
+                     "address-status" => "Address updated!",
 					 "cpayment-status" => "Your request has been received, you will be notified via email shortly if your payment has been cleared.",
                      "update-status" => "Account updated!",
                      "config-status" => "Config added/updated!",
@@ -71,6 +72,7 @@ class Helper implements HelperContract
 					 "signup-status-error" => "There was a problem creating your account, please try again.",
 					 "duplicate-user-status-error" => "An account with this email or phone number already exists.",
 					 "profile-status-error" => "There was a problem updating your profile, please try again.",
+					 "address-status-error" => "There was a problem updating address, please try again.",
 					 "update-status-error" => "There was a problem updating the account, please try again.",
 					 "contact-status-error" => "There was a problem sending your message, please try again.",
 					 "add-review-status-error" => "There was a problem sending your review, please try again.",
@@ -706,30 +708,22 @@ $subject = $data['subject'];
 
            function updateShippingDetails($user, $data)
            {		
-				$company = isset($data['company']) ? $data['company'] : "";
-				$z = isset($data['zip']) ? $data['zip'] : "";
-				$xf = isset($data['xf']) ? $data['xf'] : $user->id;
 
-				$ss = ShippingDetails::where('user_id', $xf)->first();
+				$ss = ShippingDetails::where('user_id', $user->id)->first();
 				
-				if(is_null($ss))
+				if(!is_null($ss))
 				{
-					$shippingDetails =  ShippingDetails::create(['user_id' => $user->id,                                                                                                          
-                                                      'company' => $company, 
-                                                      'address' => $data['address'],
-                                                     'city' => $data['city'],
-                                                'state' => $data['state'],
-                                              'zipcode' => $z 
-                                                      ]);	
-				}
-				else
-				{
-					$ss->update(['company' => $company, 
-                                                      'address' => $data['address'],
-                                                     'city' => $data['city'],
-                                                'state' => $data['state'],
-                                              'zipcode' => $z 
-                                                      ]);	
+					$ret = [];
+					if(isset($data['fname'])) $ret['fname'] =  $data['fname'];
+					if(isset($data['lname'])) $ret['lname'] =  $data['lname'];
+					if(isset($data['address_1'])) $ret['address_1'] =  $data['address_1'];
+					if(isset($data['address_2'])) $ret['address_2'] =  $data['address_2'];
+					if(isset($data['city'])) $ret['city'] =  $data['city'];
+					if(isset($data['region'])) $ret['region'] =  $data['region'];
+					if(isset($data['zip'])) $ret['zip'] =  $data['zip'];
+					if(isset($data['country'])) $ret['country'] =  $data['country'];
+					
+					$ss->update($ret);
 				}
 					
            }		   
@@ -1737,7 +1731,29 @@ $subject = $data['subject'];
                }                               
                 return $ret;
            }
-		   
+		
+     function updatePaymentDetails($user, $data)
+           {		
+
+				$pp = PaymentDetails::where('user_id', $user->id)->first();
+				
+				if(!is_null($pp))
+				{
+					$ret = [];
+					if(isset($data['fname'])) $ret['fname'] =  $data['fname'];
+					if(isset($data['lname'])) $ret['lname'] =  $data['lname'];
+					if(isset($data['address_1'])) $ret['address_1'] =  $data['address_1'];
+					if(isset($data['address_2'])) $ret['address_2'] =  $data['address_2'];
+					if(isset($data['city'])) $ret['city'] =  $data['city'];
+					if(isset($data['region'])) $ret['region'] =  $data['region'];
+					if(isset($data['zip'])) $ret['zip'] =  $data['zip'];
+					if(isset($data['country'])) $ret['country'] =  $data['country'];
+					
+					$pp->update($ret);
+				}
+					
+           }	
+		
 		    function addOrder($data)
            {
 			   				/**

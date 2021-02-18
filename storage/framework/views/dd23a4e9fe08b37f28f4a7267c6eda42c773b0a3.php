@@ -49,27 +49,27 @@ $pcClass = "";
 								</p>
 							</div>
 							<div class="tab-pane active in" id="account">
-								<form action="<?php echo e(url('profile')); ?>" method="post" class="form">
+								<form action="<?php echo e(url('profile')); ?>" id="profile-form" method="post" class="form">
 									<?php echo csrf_field(); ?>
 
 									<div class="row">
 										<div class="col-sm-6">
 											<label>First Name <span class="req">*</span></label>
-											<input type="text" class="form-control" name="fname" id="profile-fname" required="">
+											<input type="text" class="form-control" name="fname" value="<?php echo e($user->fname); ?>" id="profile-fname" required="">
 										</div>
 										<div class="col-sm-6">
 											<label>Last Name <span class="req">*</span></label>
-											<input type="text" class="form-control" name="lname" id="profile-lname" required="">
+											<input type="text" class="form-control" name="lname" value="<?php echo e($user->lname); ?>" id="profile-lname" required="">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6">
 									       <label>Email address <span class="req">*</span></label>
-									      <input type="email" class="form-control" name="email" id="profile-email" required="">
+									      <input type="email" class="form-control" value="<?php echo e($user->email); ?>" name="email" id="profile-email" required="">
 			                            </div>
 										<div class="col-sm-6">
 									       <label>Phone number <span class="req">*</span></label>
-									      <input type="number" class="form-control" name="phone" id="profile-phone" required="">
+									      <input type="number" class="form-control" value="<?php echo e($user->phone); ?>" name="phone" id="profile-phone" required="">
 			                            </div>
 									</div>
 
@@ -96,10 +96,48 @@ $pcClass = "";
 								<div class="row">
 									<div class="col-lg-12 mb-4">
 									    <div class="table-responsive">
-										 <table class="table">
+										 <table class="table mb-5">
 										  <thead>
 										   <tr>
-										     <td>Payment Addresses</td>
+										      <td><h5 class="card-title">Payment Addresses</h5></td>
+										   </tr>
+										  </thead>
+										  <tbody>
+										  <tr>
+										  <?php
+										   if(count($pd) > 0)
+										   {
+											   foreach($pd as $pdd)
+											   {
+												   $pdu = url('edit-address')."?type=payment&xf=".$pdd['id'];
+										  ?>
+										  <td>
+										   <div class="card card-address">
+											   <div class="card-body">
+												   <p><?php echo e(strtoupper($pdd['fname']." ".$pdd['lname'])); ?><br>
+													   <?php echo e($pdd['company']); ?><br>
+													   <?php echo e($pdd['address_1']); ?><br>
+													   <?php if($pdd['address_2'] != ""): ?> <?php echo e($pdd['address_2']); ?><br><?php endif; ?>
+													   <?php echo e($pdd['city']); ?>, <?php echo e($pdd['zip']); ?><br>
+													   <?php echo e($pdd['region']); ?><br>
+													   <?php echo e($countries[$pdd['country']]); ?><br>
+												   </p>
+												   <a href="<?php echo e($pdu); ?>" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
+											   </div>
+											</div>
+											</td>
+											<?php
+											   }
+										    }
+											?>
+											</tr>
+											</tbody>
+										   </table>
+										   
+										   <table class="table">
+										  <thead>
+										   <tr>
+										     <td><h5 class="card-title">Billing Addresses</h5></td>
 										   </tr>
 										  </thead>
 										  <tbody>
@@ -107,15 +145,15 @@ $pcClass = "";
 										  <td>
 										   <div class="card card-address">
 											   <div class="card-body">
-												   <h5 class="card-title">Billing Address</h5>
+												   
 												   <p>User Name<br>
-													   User Company<br>
+												      User Company<br>
 													   John str<br>
 													   New York, NY 10001<br>
 													   1-234-987-6543<br>
 													   yourmail@mail.com<br>
 												   </p>
-												   <a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i class="far fa-edit"></i></a>
+												   <a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
 											   </div>
 											</div>
 											</td>

@@ -49,7 +49,7 @@ $pcClass = "";
 								</p>
 							</div>
 							<div class="tab-pane active in" id="account">
-								<form action="{{url('profile')}}" id="profile" method="post" class="form">
+								<form action="{{url('profile')}}" id="profile-form" method="post" class="form">
 									{!! csrf_field() !!}
 									<div class="row">
 										<div class="col-sm-6">
@@ -94,10 +94,48 @@ $pcClass = "";
 								<div class="row">
 									<div class="col-lg-12 mb-4">
 									    <div class="table-responsive">
-										 <table class="table">
+										 <table class="table mb-5">
 										  <thead>
 										   <tr>
-										     <td>Payment Addresses</td>
+										      <td><h5 class="card-title">Payment Addresses</h5></td>
+										   </tr>
+										  </thead>
+										  <tbody>
+										  <tr>
+										  <?php
+										   if(count($pd) > 0)
+										   {
+											   foreach($pd as $pdd)
+											   {
+												   $pdu = url('edit-address')."?type=payment&xf=".$pdd['id'];
+										  ?>
+										  <td>
+										   <div class="card card-address">
+											   <div class="card-body">
+												   <p>{{strtoupper($pdd['fname']." ".$pdd['lname'])}}<br>
+													   {{$pdd['company']}}<br>
+													   {{$pdd['address_1']}}<br>
+													   @if($pdd['address_2'] != "") {{$pdd['address_2']}}<br>@endif
+													   {{$pdd['city']}}, {{$pdd['zip']}}<br>
+													   {{$pdd['region']}}<br>
+													   {{$countries[$pdd['country']]}}<br>
+												   </p>
+												   <a href="{{$pdu}}" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
+											   </div>
+											</div>
+											</td>
+											<?php
+											   }
+										    }
+											?>
+											</tr>
+											</tbody>
+										   </table>
+										   
+										   <table class="table">
+										  <thead>
+										   <tr>
+										     <td><h5 class="card-title">Billing Addresses</h5></td>
 										   </tr>
 										  </thead>
 										  <tbody>
@@ -105,15 +143,15 @@ $pcClass = "";
 										  <td>
 										   <div class="card card-address">
 											   <div class="card-body">
-												   <h5 class="card-title">Billing Address</h5>
+												   
 												   <p>User Name<br>
-													   User Company<br>
+												      User Company<br>
 													   John str<br>
 													   New York, NY 10001<br>
 													   1-234-987-6543<br>
 													   yourmail@mail.com<br>
 												   </p>
-												   <a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i class="far fa-edit"></i></a>
+												   <a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
 											   </div>
 											</div>
 											</td>

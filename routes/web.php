@@ -61,6 +61,8 @@ Route::get('password', 'MainController@getPassword');
 Route::post('password', 'MainController@postPassword');
 Route::get('addresses', 'MainController@getAddresses');
 Route::post('addresses', 'MainController@postAddresses');
+Route::get('edit-address', 'MainController@getEditAddress');
+Route::post('edit-address', 'MainController@postEditAddress');
 
 Route::post('add-review', 'MainController@postAddReview');
 

@@ -1004,10 +1004,15 @@ class MainController extends Controller {
 			$req = $request->all();
 		$cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
+			$countries = $this->helpers->countries;
 			
+			$pd = $this->helpers->getPaymentDetails($user);
+			$sd = $this->helpers->getShippingDetails($user);
+			
+			#dd($pd);
 		    $signals = $this->helpers->signals;
 			$plugins = $this->helpers->getPlugins();
-		    return view("dashboard",compact(['user','cart','c','signals','plugins']));			
+		    return view("dashboard",compact(['user','cart','c','countries','sd','pd','signals','plugins']));			
 		
 		}
 		else
@@ -1054,7 +1059,7 @@ class MainController extends Controller {
          	$req["xf"] = $user->id; 
          	$this->helpers->updateProfile($user, $req);
 	        session()->flash("profile-status","ok");
-			return redirect()->intended('profile');
+			return redirect()->intended('dashboard');
       
     }
     
@@ -1103,6 +1108,106 @@ class MainController extends Controller {
              $req["password"] = $req['pass']; 
          	$this->helpers->updateProfile($user, $req);
 	        session()->flash("profile-status","ok");
+			return redirect()->intended('dashboard');
+         }
+
+         	
+      
+    }
+	
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getEditAddress(Request $request)
+    {	
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		
+			$req = $request->all();
+		    $cart = $this->helpers->getCart($user);
+			$c = $this->helpers->getCategories();
+			$countries = $this->helpers->countries;
+			
+			if(isset($req['type']) && isset($req['xf']))
+			{
+				$t = $req['type']; $xf = $req['xf'];
+				$a = [];
+				
+				if($t == "payment")
+				{
+					$a = $this->helpers->getPaymentDetail($xf);
+				}
+				else if($t == "shipping")
+				{
+					$a = $this->helpers->getShippingDetail($xf);
+				}
+				
+				#dd($a);
+		        $signals = $this->helpers->signals;
+			    $plugins = $this->helpers->getPlugins();
+		        return view("edit-address",compact(['user','cart','c','a','countries','signals','plugins']));			
+			}
+			else
+			{
+			  return redirect()->intended('dashboard');	
+			}
+			
+		
+		}
+		else
+		{
+			return redirect()->intended('login');
+		}
+		
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function postEditAddress(Request $request)
+    {
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+        
+        $req = $request->all();
+        //dd($req);
+        
+        $validator = Validator::make($req, [
+                             'type' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         else{
+         	$type = $req['type'];
+			
+			if($type == "payment")
+			{
+				$this->helpers->updatePaymentDetails($user, $req);
+			}
+			else if($type == "shipping")
+			{
+				$this->helpers->updateShippingDetails($user, $req);			
+			}
+            
+	        session()->flash("address-status","ok");
 			return redirect()->intended('dashboard');
          }
 
