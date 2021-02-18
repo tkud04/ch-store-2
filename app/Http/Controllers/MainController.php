@@ -1009,10 +1009,13 @@ class MainController extends Controller {
 			$pd = $this->helpers->getPaymentDetails($user);
 			$sd = $this->helpers->getShippingDetails($user);
 			
-			#dd($pd);
+			$orders = $this->helpers->getOrders($user);
+			
+			#dd($orders);
+		    $statuses = $this->helpers->statuses;
 		    $signals = $this->helpers->signals;
 			$plugins = $this->helpers->getPlugins();
-		    return view("dashboard",compact(['user','cart','c','countries','sd','pd','signals','plugins']));			
+		    return view("dashboard",compact(['user','cart','c','countries','sd','pd','orders','statuses','signals','plugins']));			
 		
 		}
 		else
@@ -1279,7 +1282,7 @@ class MainController extends Controller {
 		    $cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
 			$wishlist = $this->helpers->getWishlist($user);
-			dd($wishlist);
+			#dd($wishlist);
 			 $signals = $this->helpers->signals;
 			    $plugins = $this->helpers->getPlugins();
 		        return view("wishlist",compact(['user','cart','c','a','wishlists','signals','plugins']));	
@@ -1436,10 +1439,6 @@ class MainController extends Controller {
 	
 	
 	
-	
-	
-	
-	
 	/**
 	 * Show the application welcome screen to the user.
 	 *
@@ -1448,89 +1447,26 @@ class MainController extends Controller {
 	public function getOrders(Request $request)
     {
 		$user = null;
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
 		
 		if(Auth::check())
 		{
 			$user = Auth::user();
 		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
 		
-			$req = $request->all();
-		
-		$cart = $this->helpers->getCart($user,$gid);
+		$req = $request->all();
+		    $cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			$orders = is_null($user) ? [] : $this->helpers->getOrders($user);
-			#dd($orders);
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		    $signals = $this->helpers->signals;
-			$plugins = $this->helpers->getPlugins();
-			$wext = isset($req['wext']) ? $req['wext'] : null;
-			$banks = $this->helpers->banks;
-			    $bank = $this->helpers->getCurrentBank();
-		    return view("orders",compact(['user','cart','c','ad','wext','banks','bank','orders','signals','plugins']));			
-		
+			$orders = $this->helpers->getOrders($user);
+			#dd($wishlist);
+			 $signals = $this->helpers->signals;
+			    $plugins = $this->helpers->getPlugins();
+		        return view("orders",compact(['user','cart','c','a','orders','signals','plugins']));	
     }
 	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getAnonOrder(Request $request)
-    {
-		$user = null;
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-			$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			shuffle($ads);
-		    $ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		    $signals = $this->helpers->signals;
-			$plugins = $this->helpers->getPlugins();
-			
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-		}
-		
-        $req = $request->all();
-        #dd($req);
-        
-        $validator = Validator::make($req, [
-                             'ref' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-         	$anon = $this->helpers->getAnonOrder($req['ref']);
-			$orders = [];
-			
-			if(count($anon) > 0)
-			{
-				$orders[0] = $this->helpers->getOrder($anon['reference']);
-				$banks = $this->helpers->banks;
-			    $bank = $this->helpers->getCurrentBank();
-				#dd($c);
-				return view("orders",compact(['user','cart','c','ad','anon','banks','bank','orders','signals','plugins']));		
-			}
-			else
-			{
-				session()->flash("invalid-order-status","error");
-				return redirect()->intended('orders');
-			}
-	       
-			
-         }        
-    }
 	
 	/**
 	 * Show the application welcome screen to the user.

@@ -1,5 +1,5 @@
 <?php
-$title = "My Account";
+$title = "Dashboard";
 $ph = true;
 $pcClass = "";
 ?>
@@ -179,8 +179,49 @@ $pcClass = "";
 								<a href="{{url('shop')}}" class="btn btn-primary">Go Shopping</a>
 							</div>
 							<div class="tab-pane" id="orders">
-								<p class=" b-2">No order has been made yet.</p>
-								<a href="#" class="btn btn-primary">Go Shop</a>
+							  <div class="row">
+								<div class="col-lg-12 mb-4">
+							   <?php
+							    if(count($orders) > 0)
+								{
+									foreach($orders as $o)
+									{
+							   ?>
+								<div class="table-responsive">
+								  <table class="table">
+								    <thead>
+									  <tr>
+									    <th>Order ID</th>
+									    <th>Status</th>
+									    <th>Total</th>
+									    <th>Date added</th>
+									    <th>Date modified</th>
+									  </tr>
+									</thead>
+								    <tbody>
+									 <tr>
+									    <td>{{$o['id']}}</td>
+									    <td><span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span></td>
+									    <td>&#0163;{{number_format($o['amount'],2)}}</td>
+									    <td>{{$o['date']}}</td>
+									    <td>{{$o['updated']}}</td>
+									  </tr>
+									</tbody>
+								  </table>
+								</div>
+								<?php
+									}
+								}
+								else
+								{
+								?>
+								  <p class=" b-2">No order has been made yet.</p>
+								  <a href="{{url('shop')}}" class="btn btn-primary">Go Shop</a>
+								<?php
+								}
+								?>
+							    </div>
+							  </div>
 							</div>
 							<div class="tab-pane" id="downloads">
 								<p class="mb-2">No downloads available yet.</p>
