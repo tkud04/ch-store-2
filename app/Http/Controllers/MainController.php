@@ -1141,13 +1141,17 @@ class MainController extends Controller {
 				if($t == "payment")
 				{
 					$a = $this->helpers->getPaymentDetail($xf);
+					$a['title'] = "Edit Payment Address";
 				}
 				else if($t == "shipping")
 				{
 					$a = $this->helpers->getShippingDetail($xf);
+					$a['title'] = "Edit Shipping Address";
 				}
 				
+				$a['type'] = $t;
 				#dd($a);
+				
 		        $signals = $this->helpers->signals;
 			    $plugins = $this->helpers->getPlugins();
 		        return view("edit-address",compact(['user','cart','c','a','countries','signals','plugins']));			
@@ -1183,7 +1187,7 @@ class MainController extends Controller {
         }
         
         $req = $request->all();
-        //dd($req);
+        #dd($req);
         
         $validator = Validator::make($req, [
                              'type' => 'required'

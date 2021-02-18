@@ -491,6 +491,10 @@ $subject = $data['subject'];
               return $ret; 
            }
 		   
+		   function isConfirmed($x)
+		   {
+			   return (isset($x) && $x != null);
+		   }
 		   
            function createUser($data)
            {
@@ -714,14 +718,14 @@ $subject = $data['subject'];
 				if(!is_null($ss))
 				{
 					$ret = [];
-					if(isset($data['fname'])) $ret['fname'] =  $data['fname'];
-					if(isset($data['lname'])) $ret['lname'] =  $data['lname'];
-					if(isset($data['address_1'])) $ret['address_1'] =  $data['address_1'];
-					if(isset($data['address_2'])) $ret['address_2'] =  $data['address_2'];
-					if(isset($data['city'])) $ret['city'] =  $data['city'];
-					if(isset($data['region'])) $ret['region'] =  $data['region'];
-					if(isset($data['zip'])) $ret['zip'] =  $data['zip'];
-					if(isset($data['country'])) $ret['country'] =  $data['country'];
+					if($this->isConfirmed($data['fname'])) $ret['fname'] =  $data['fname'];
+					if($this->isConfirmed($data['lname'])) $ret['lname'] =  $data['lname'];
+					if($this->isConfirmed($data['address_1'])) $ret['address_1'] =  $data['address_1'];
+					if($this->isConfirmed($data['address_2'])) $ret['address_2'] =  $data['address_2'];
+					if($this->isConfirmed($data['city'])) $ret['city'] =  $data['city'];
+					if($this->isConfirmed($data['region'])) $ret['region'] =  $data['region'];
+					if($this->isConfirmed($data['zip'])) $ret['zip'] =  $data['zip'];
+					if($this->isConfirmed($data['country'])) $ret['country'] =  $data['country'];
 					
 					$ss->update($ret);
 				}
@@ -1740,15 +1744,16 @@ $subject = $data['subject'];
 				if(!is_null($pp))
 				{
 					$ret = [];
-					if(isset($data['fname'])) $ret['fname'] =  $data['fname'];
-					if(isset($data['lname'])) $ret['lname'] =  $data['lname'];
-					if(isset($data['address_1'])) $ret['address_1'] =  $data['address_1'];
-					if(isset($data['address_2'])) $ret['address_2'] =  $data['address_2'];
-					if(isset($data['city'])) $ret['city'] =  $data['city'];
-					if(isset($data['region'])) $ret['region'] =  $data['region'];
-					if(isset($data['zip'])) $ret['zip'] =  $data['zip'];
-					if(isset($data['country'])) $ret['country'] =  $data['country'];
+					if($this->isConfirmed($data['fname'])) $ret['fname'] =  $data['fname'];
+					if($this->isConfirmed($data['lname'])) $ret['lname'] =  $data['lname'];
+					if($this->isConfirmed($data['address_1'])) $ret['address_1'] =  $data['address_1'];
+					if($this->isConfirmed($data['address_2'])) $ret['address_2'] =  $data['address_2'];
+					if($this->isConfirmed($data['city'])) $ret['city'] =  $data['city'];
+					if($this->isConfirmed($data['region'])) $ret['region'] =  $data['region'];
+					if($this->isConfirmed($data['zip'])) $ret['zip'] =  $data['zip'];
+					if($this->isConfirmed($data['country'])) $ret['country'] =  $data['country'];
 					
+					#dd($ret);
 					$pp->update($ret);
 				}
 					

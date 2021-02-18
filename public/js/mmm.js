@@ -56,7 +56,6 @@ $(document).ready(function() {
 		  //DASHBOARD
 		  $("#profile-submit").click(function(e){            
 		       e.preventDefault();
-			   let valid = true;
 			   let ee = $('#profile-email').val(), pp = $('#profile-phone').val(), 
 			       fname = $('#profile-fname').val(), lname = $('#profile-lname').val(), validation = (ee == "" || pp == "" || fname == "" || lname == "");
 			   
@@ -68,6 +67,27 @@ $(document).ready(function() {
 			   }
 			   else{
 				   $('#profile-form').submit();
+			   }
+             
+		  });
+		  
+		  //EDIT ADDRESS
+		  $("#ea-submit").click(function(e){            
+		       e.preventDefault();
+			   let fname = $('#ea-fname').val(), lname = $('#ea-lname').val(),
+			       a1 = $('#ea-address-1').val(), a2 = $('#ea-address-2').val(), 
+			       city = $('#ea-city').val(), region = $('#ea-region').val(), 
+			       country = $('#ea-country').val(), zip = $('#ea-zip').val(), 
+			       validation = (a1 == "" || city == "" || region == "" || country == "none" || fname == "" || lname == "");
+			   
+		       if(validation){
+				 Swal.fire({
+			            icon: 'error',
+                        title: "Please fill all the required fields"
+                 });
+			   }
+			   else{
+				   $('#ea-form').submit();
 			   }
              
 		  });

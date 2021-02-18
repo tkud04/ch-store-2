@@ -137,26 +137,37 @@ $pcClass = "";
 										   <table class="table">
 										  <thead>
 										   <tr>
-										     <td><h5 class="card-title">Billing Addresses</h5></td>
+										     <td><h5 class="card-title">Shipping Addresses</h5></td>
 										   </tr>
 										  </thead>
 										  <tbody>
 										  <tr>
+										  <?php
+										   if(count($sd) > 0)
+										   {
+											   foreach($sd as $sdd)
+											   {
+												   $sdu = url('edit-address')."?type=shipping&xf=".$sdd['id'];
+										  ?>
 										  <td>
 										   <div class="card card-address">
 											   <div class="card-body">
-												   
-												   <p>User Name<br>
-												      User Company<br>
-													   John str<br>
-													   New York, NY 10001<br>
-													   1-234-987-6543<br>
-													   yourmail@mail.com<br>
+												   <p><?php echo e(strtoupper($sdd['fname']." ".$sdd['lname'])); ?><br>
+													   <?php echo e($sdd['company']); ?><br>
+													   <?php echo e($sdd['address_1']); ?><br>
+													   <?php if($sdd['address_2'] != ""): ?> <?php echo e($sdd['address_2']); ?><br><?php endif; ?>
+													   <?php echo e($sdd['city']); ?>, <?php echo e($sdd['zip']); ?><br>
+													   <?php echo e($sdd['region']); ?><br>
+													   <?php echo e($countries[$sdd['country']]); ?><br>
 												   </p>
-												   <a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
+												   <a href="<?php echo e($sdu); ?>" class="btn btn-link btn-secondary btn-underline">Edit <i class="fas fa-edit"></i></a>
 											   </div>
 											</div>
 											</td>
+											<?php
+											   }
+										    }
+											?>
 											</tr>
 											</tbody>
 										   </table>
