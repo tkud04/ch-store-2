@@ -32,7 +32,9 @@
     <link rel="stylesheet" type="text/css" href="vendor/owl-carousel/owl.carousel.min.css">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
+    <!--<link rel="stylesheet" type="text/css" href="css/demo18.min.css">-->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.min.css')}}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
      
 	   <script src="vendor/jquery/jquery.min.js"></script>
 	 
@@ -270,7 +272,7 @@
         <!-- End Header -->
 		@endif
         <main class="main mt-5">
-		 @if(isset($ph))
+		 @if(isset($ph) && $ph)
              @include('page-header',['title' => $title,'img' => asset('images/page-header.jpg')])
 		 @endif
             <div class="page-content{{$pcClass}}">

@@ -32,7 +32,9 @@
     <link rel="stylesheet" type="text/css" href="vendor/owl-carousel/owl.carousel.min.css">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/demo18.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
+    <!--<link rel="stylesheet" type="text/css" href="css/demo18.min.css">-->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/style.min.css')); ?>">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
      
 	   <script src="vendor/jquery/jquery.min.js"></script>
 	 
@@ -271,7 +273,7 @@
         <!-- End Header -->
 		<?php endif; ?>
         <main class="main mt-5">
-		 <?php if(isset($ph)): ?>
+		 <?php if(isset($ph) && $ph): ?>
              <?php echo $__env->make('page-header',['title' => $title,'img' => asset('images/page-header.jpg')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		 <?php endif; ?>
             <div class="page-content<?php echo e($pcClass); ?>">

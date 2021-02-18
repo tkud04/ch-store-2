@@ -119,11 +119,20 @@ class MainController extends Controller {
 		{
 		  $signals = $this->helpers->signals;
 	   	  $category = $this->helpers->getCategory();
-	   	  $products = $this->helpers->getProductsByCategory($req['xf']);
-		  #dd($bs);
-		  $cart = $this->helpers->getCart($user);
-		  $plugins = $this->helpers->getPlugins();
-		  return view("category",compact(['user','cart','category','products','signals','plugins']));	  
+		  dd($category);
+		  if(count($category) > 0)
+		  {
+		     $products = $this->helpers->getProductsByCategory($req['xf']);
+		     #dd($bs);
+		     $cart = $this->helpers->getCart($user);
+		     $plugins = $this->helpers->getPlugins();
+		     return view("category",compact(['user','cart','category','products','signals','plugins']));
+		  }
+		  else
+		  {
+			return redirect()->intended('categories');
+		  }
+	   	  	  
 		}
 		else
 		{

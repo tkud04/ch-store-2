@@ -1,6 +1,6 @@
 <?php
 $title = "Categories";
-$ph = true;
+$ph = false;
 $pcClass = "";
 ?>
 @extends('layout')
@@ -8,36 +8,74 @@ $pcClass = "";
 @section('content')
 <section class="mt-md-10 pt-md-3 mt-9">
                         <h2 class="title">Available Categories</h2>
-                        <div class="row">
 						<?php
 						 if(count($c) > 0)
 						 {
-						   foreach($c as $cc)
-						   {
-							   $cu = url('category')."?xf=".$cc['id']; 
-							   $imgs = $cc['image'];
-							   $parent = $cc['parent'];
-							   $cp = [];
 						?>
-                            <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="category category-default category-absolute">
-                                    <a href="{{$cu}}">
-                                        <figure class="category-media">
-                                            <img src="{{$imgs[0]}}" alt="category" width="280" height="280">
-                                        </figure>
-                                    </a>
-                                    <div class="category-content">
-                                        <h4 class="category-name"><a href="{{$cu}}">{{ucwords($cc['name'])}}</a></h4>
-                                        <span class="category-count">
-                                            <span>{{$cc['product_count']}}</span> Products
-                                        </span>
-                                    </div>
+						
+						<div class="owl-carousel owl-theme owl-loaded owl-drag" data-owl-options="{
+                            'nav': false,
+                            'dots': true,
+                            'items': 4,
+                            'margin':  20,
+                            'loop': false,
+                            'responsive': {
+                                '0': {
+                                    'items': 1 
+                                },
+                                '576': {
+                                    'items': 2
+                                },
+                                '768': {
+                                    'items': 3
+                                },
+                                '992': {
+                                    'items': 4,
+                                    'dots': false
+                                }
+                            }
+                        }">
+                            
+                        <div class="owl-stage-outer">
+						   <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;">
+						     <?php
+							   foreach($c as $cc)
+						       {
+							     $cu = url('category')."?xf=".$cc['id']; 
+							     $imgs = $cc['image'];
+							     $parent = $cc['parent'];
+							     $pc = $cc['product_count'];
+							     $pcText = $pc == 1 ? "Product" : "Products";
+							 ?>
+							 <div class="owl-item active" style="width: 280px; margin-right: 20px;">
+							   <div class="category category-ellipse category-absolute overlay-zoom">
+                                <a href="{{$cu}}">
+                                    <figure class="category-media">
+                                        <img src="{{$imgs[0]}}" alt="category" width="280" height="280">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name"><a href="{{$cu}}">{{ucwords($cc['name'])}}</a></h4>
+                                    <span class="category-count">
+                                        <span>35</span> Products
+                                    </span>
                                 </div>
-                            </div>
-                          <?php
+                               </div>
+							</div>
+							<?php
 						   }
+							?>
+						   </div>
+						</div>
+						<div class="owl-nav disabled">
+						  <button type="button" role="presentation" class="owl-prev"><i class="d-icon-angle-left"></i></button>
+						  <button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button>
+						</div>
+						<div class="owl-dots disabled"></div>
+					</div>
+						 
+                          <?php
 						 }
 						  ?>
-                        </div>
                     </section>
 @stop
