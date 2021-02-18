@@ -35,7 +35,7 @@ $ccategories = [
 										   <?php
 										    foreach($c as $cc)
 											{
-												$cu = url('categories')."?xf=".$cc['category'];
+												$cu = url('category')."?xf=".$cc['category'];
 										   ?>
                                             <li><a href="{{$cu}}">{!! $cc['name'] !!}</a></li>
 											<?php

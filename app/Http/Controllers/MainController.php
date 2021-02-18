@@ -80,34 +80,84 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function getCategories(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+
+		$signals = $this->helpers->signals;
+		
+		$c = $this->helpers->getCategories();
+		#dd($c);
+		$cart = $this->helpers->getCart($user);
+		$plugins = $this->helpers->getPlugins();
+		
+    	return view("categories",compact(['user','cart','c','signals','plugins']));
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getCategory(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+        
+		if(isset($req['xf']))
+		{
+		  $signals = $this->helpers->signals;
+	   	  $category = $this->helpers->getCategory();
+	   	  $products = $this->helpers->getProductsByCategory($req['xf']);
+		  #dd($bs);
+		  $cart = $this->helpers->getCart($user);
+		  $plugins = $this->helpers->getPlugins();
+		  return view("category",compact(['user','cart','category','products','signals','plugins']));	  
+		}
+		else
+		{
+			return redirect()->intended('categories');
+		}
+    
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
 	public function getShop(Request $request)
     {
 		$user = null;
 		if(Auth::check())
 		{
 			$user = Auth::user();
-			
 		}
+		
 		$req = $request->all();
-		$cart = $this->helpers->getCart($user);
+
+		$signals = $this->helpers->signals;
 		
 		$c = $this->helpers->getCategories();
-		$signals = $this->helpers->signals;
+		$m = $this->helpers->getManufacturers();
+		$bs = $this->helpers->getBestSellers();
+		$tp = $this->helpers->getTopProducts();
+		#dd($bs);
+		$cart = $this->helpers->getCart($user);
 		$plugins = $this->helpers->getPlugins();
 		
-                 if(isset($req['xf']))
-				 {
-					   $fn = $this->helpers->getFriendlyName($req['xf']);
-					   $products = $this->helpers->getProductsByCategory($req['xf']);
-					  return view("shop",compact(['user','cart','products','c','fn','signals','plugins']));			 
-				 }
-                 else
-				 {
-					   $products = $this->helpers->getProducts();
-					 // dd($products);
-					 $samba = "Shop";
-                       return view("shop",compact(['user','cart','products','c','signals','plugins']));
-				 }				 
+    	return view("shop",compact(['user','cart','c','m','tp','bs','signals','plugins']));
     }
 	
 	/**

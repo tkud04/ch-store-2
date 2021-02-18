@@ -1,5 +1,5 @@
 <?php
-$title = "My Account";
+$title = "Dashboard";
 $ph = true;
 $pcClass = "";
 ?>
