@@ -732,6 +732,24 @@ $subject = $data['subject'];
 					
            }		   
 		   
+		   function getProductsByCategory($c)
+           {
+           	$ret = [];
+              $pds = ProductData::where('category',$c)->get();
+              $pds = $pds->sortByDesc('created_at');
+			  
+              if($pds != null)
+               {
+				  foreach($pds as $p)
+				  {
+					  $pp = $this->getProduct($p->product_id);
+					  array_push($ret,$pp);
+				  }
+               }                         
+                                                      
+                return $ret;
+           }
+		   
 		   function getProducts()
            {
            	$ret = [];

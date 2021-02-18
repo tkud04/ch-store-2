@@ -57,7 +57,7 @@ $pcClass = "";
                                 <div class="category-content">
                                     <h4 class="category-name"><a href="<?php echo e($cu); ?>"><?php echo e(ucwords($cc['name'])); ?></a></h4>
                                     <span class="category-count">
-                                        <span>35</span> Products
+                                        <span><?php echo e($pc); ?></span> Products
                                     </span>
                                 </div>
                                </div>

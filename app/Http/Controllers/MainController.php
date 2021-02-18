@@ -117,13 +117,14 @@ class MainController extends Controller {
         
 		if(isset($req['xf']))
 		{
+			$xf = $req['xf'];
 		  $signals = $this->helpers->signals;
-	   	  $category = $this->helpers->getCategory();
-		  dd($category);
+	   	  $category = $this->helpers->getCategory($xf);
+		  #dd($category);
 		  if(count($category) > 0)
 		  {
-		     $products = $this->helpers->getProductsByCategory($req['xf']);
-		     #dd($bs);
+		     $products = $this->helpers->getProductsByCategory($xf);
+		     dd($products);
 		     $cart = $this->helpers->getCart($user);
 		     $plugins = $this->helpers->getPlugins();
 		     return view("category",compact(['user','cart','category','products','signals','plugins']));
