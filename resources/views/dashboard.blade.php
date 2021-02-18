@@ -89,7 +89,7 @@ $pcClass = "";
 								</form>
 							</div>
 							<div class="tab-pane" id="address">
-								<p class="mb-2">The following addresses will be used on the checkout page by default.
+								<p class="mb-2">The following addresses will be used on the checkout page.
 								</p>
 								<div class="row">
 									<div class="col-lg-12 mb-4">
@@ -176,7 +176,7 @@ $pcClass = "";
 							
 							<div class="tab-pane" id="wishlist">
 								<p class=" b-2">No items in your wishlist yet.</p>
-								<a href="#" class="btn btn-primary">Go Shop</a>
+								<a href="{{url('shop')}}" class="btn btn-primary">Go Shopping</a>
 							</div>
 							<div class="tab-pane" id="orders">
 								<p class=" b-2">No order has been made yet.</p>

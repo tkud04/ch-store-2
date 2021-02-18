@@ -13,6 +13,6 @@ class Wishlists extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'sku'
+        'user_id', 'product_id'
     ];
 }

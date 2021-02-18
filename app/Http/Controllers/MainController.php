@@ -1214,10 +1214,231 @@ class MainController extends Controller {
 	        session()->flash("address-status","ok");
 			return redirect()->intended('dashboard');
          }
-
-         	
-      
     }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getAddToWishlist(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+		
+       $req = $request->all();
+		
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->intended('/');
+         }
+         else
+         {
+			 $req['user_id'] = $user->id;
+			 $req['product_id'] = $req['xf'];
+         	$this->helpers->createWishlist($req);
+	        session()->flash("add-to-wishlist-status","ok");
+			return redirect()->back();
+         }        
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getWishlist(Request $request)
+    {
+		$user = null;
+		
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+		
+		$req = $request->all();
+		    $cart = $this->helpers->getCart($user);
+			$c = $this->helpers->getCategories();
+			$wishlist = $this->helpers->getWishlist($user);
+			dd($wishlist);
+			 $signals = $this->helpers->signals;
+			    $plugins = $this->helpers->getPlugins();
+		        return view("wishlist",compact(['user','cart','c','a','wishlists','signals','plugins']));	
+		
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getRemoveFromWishlist(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();	
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+        
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         { 
+			$req['user_id'] = $user->id;
+			$req['product_id'] = $req['xf'];
+         	$this->helpers->removeFromWishlist($req);
+	        session()->flash("remove-from-wishlist-status","ok");
+			return redirect()->intended('wishlist');
+         }       
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getAddToCompare(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		
+		$req = $request->all();
+		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
+		$cart = $this->helpers->getCart($user,$gid);
+        
+        
+        $validator = Validator::make($req, [
+                             'sku' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         {
+			 $req['user_id'] = is_null($user) ? $gid : $user->id;
+         	$this->helpers->createComparison($req);
+	        session()->flash("add-to-compare-status","ok");
+			return redirect()->back();
+         }        
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getCompare(Request $request)
+    {
+		$user = null;
+		
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		$req = $request->all();
+		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
+		$cart = $this->helpers->getCart($user,$gid);
+			$c = $this->helpers->getCategories();
+			$ads = $this->helpers->getAds();
+			$compares = $this->helpers->getComparisons($user,$gid);
+
+		shuffle($ads);
+		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
+		    $signals = $this->helpers->signals;
+			$plugins = $this->helpers->getPlugins();
+		    return view("compare",compact(['user','cart','c','ad','compares','signals','plugins']));			
+		
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getRemoveFromCompare(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		
+        $req = $request->all();
+		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
+        
+        $validator = Validator::make($req, [
+                             'sku' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         {
+			$req['user_id'] = is_null($user) ? $gid : $user->id;
+         	$this->helpers->removeFromComparisons($req);
+	        session()->flash("remove-from-compare-status","ok");
+			return redirect()->intended('compare');
+         }       
+    }
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Show the application welcome screen to the user.
@@ -1496,223 +1717,7 @@ class MainController extends Controller {
          }       
     }
 	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getAddToWishlist(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-       $req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-        //dd($req);
-        $ret = [];
-		
-        $validator = Validator::make($req, [
-                             'sku' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-			 //$ret = ['status' => "error", 'message' => "Validation"];
-         }
-         
-         else
-         {
-			 $req['user_id'] = is_null($user) ? $gid : $user->id;
-         	$this->helpers->createWishlist($req);
-	        session()->flash("add-to-wishlist-status","ok");
-			return redirect()->back();
-         }        
-    }
 	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function getWishlist(Request $request)
-    {
-		$user = null;
-		
-		if(Auth::check())
-		{
-			$user = Auth::user();
-		}
-		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-			$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			$wishlist = $this->helpers->getWishlist($user,$gid);
-
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		    $signals = $this->helpers->signals;
-			$plugins = $this->helpers->getPlugins();
-		    return view("wishlist",compact(['user','cart','c','ad','wishlist','signals','plugins']));			
-		
-    }
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getRemoveFromWishlist(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-       $req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-        
-        $validator = Validator::make($req, [
-                             'sku' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 
-			$req['user_id'] = is_null($user) ? $gid : $user->id;
-         	$this->helpers->removeFromWishlist($req);
-	        session()->flash("remove-from-wishlist-status","ok");
-			return redirect()->intended('wishlist');
-         }       
-    }
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getAddToCompare(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-        
-        
-        $validator = Validator::make($req, [
-                             'sku' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 $req['user_id'] = is_null($user) ? $gid : $user->id;
-         	$this->helpers->createComparison($req);
-	        session()->flash("add-to-compare-status","ok");
-			return redirect()->back();
-         }        
-    }
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function getCompare(Request $request)
-    {
-		$user = null;
-		
-		if(Auth::check())
-		{
-			$user = Auth::user();
-		}
-		$req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		$cart = $this->helpers->getCart($user,$gid);
-			$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			$compares = $this->helpers->getComparisons($user,$gid);
-
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		    $signals = $this->helpers->signals;
-			$plugins = $this->helpers->getPlugins();
-		    return view("compare",compact(['user','cart','c','ad','compares','signals','plugins']));			
-		
-    }
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getRemoveFromCompare(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-        $req = $request->all();
-		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-        
-        $validator = Validator::make($req, [
-                             'sku' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			$req['user_id'] = is_null($user) ? $gid : $user->id;
-         	$this->helpers->removeFromComparisons($req);
-	        session()->flash("remove-from-compare-status","ok");
-			return redirect()->intended('compare');
-         }       
-    }
 	
 	
 	/**

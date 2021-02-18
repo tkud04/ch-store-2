@@ -2001,12 +2001,12 @@ $subject = $data['subject'];
 			   $ret = null;
 			   
 			   $w = Wishlists::where('user_id',$dt['user_id'])
-			                        ->where('sku',$dt['sku'])->first();
+			                        ->where('product_id',$dt['product_id'])->first();
 			   
 			   if(is_null($w))
 			   {
 				 $ret = Wishlists::create(['user_id' => $dt['user_id'],
-			                          'sku' => $dt['sku']
+			                          'product_id' => $dt['product_id']
 			                 ]);
 			   }
 			   
@@ -2014,45 +2014,25 @@ $subject = $data['subject'];
 			  return $ret;
 		   }		   
 
-       function getWishlist($user,$r)
+       function getWishlist($user)
 		   {
 			   $ret = [];
-			   $uu = null;
 			   
-			   if(is_null($user))
+			   if($user != null)
 			   {
-				   $uu = $r;
-			   }
-			   else
-			   {
-				   $uu = $user->id;
-				 //check if guest mode has any wishlist items
-                $guestWishlists = Wishlists::where('user_id',$r)->get();
-                //dd($guestCart);
-                if(count($guestWishlists) > 0)
-				{
-					foreach($guestWishlists as $gw)
-					{
-						$temp = ['user_id' => $uu,'sku' => $gw->sku];
-						$this->createWishlist($temp);
-						$gw->delete();
-					}
-				}  
-			   }
+			     $wishlist = Wishlists::where('user_id',$user->id)->get();
 			   
-			   
-			   $wishlist = Wishlists::where('user_id',$uu)->get();
-			   
-			   if(!is_null($wishlist))
-			   {
+			     if(!is_null($wishlist))
+			     {
 				   foreach($wishlist as $w)
 				   {
 					   $temp = [];
 					   $temp['id'] = $w->id;
-					   $temp['product'] = $this->getProduct($w->sku);
+					   $temp['product'] = $this->getProduct($w->product_id);
 					   $temp['date'] = $w->created_at->format("jS F, Y h:i A");
 					   array_push($ret,$temp);
 				   }
+			     }
 			   }
 			   //dd($ret);
 			   return $ret;
@@ -2062,7 +2042,7 @@ $subject = $data['subject'];
 		   {
 			   $ret = [];
 			   $w = Wishlists::where('user_id',$dt['user_id'])
-			                        ->where('sku',$dt['sku'])->first();
+			                        ->where('product_id',$dt['product_id'])->first();
 			   
 			   if(!is_null($w))
 			   {
