@@ -192,12 +192,12 @@ class MainController extends Controller {
 		$req = $request->all();
 	    //dd($secure);
 		$validator = Validator::make($req, [
-                             'sku' => 'required'
+                             'xf' => 'required'
                    ]);
          
                  if($validator->fails())
                   {
-					  $uu = "shop?xf=electronics";
+					  $uu = "categories";
                       return redirect()->intended($uu);
                        
                  }
@@ -205,49 +205,15 @@ class MainController extends Controller {
                  else
                  {
 					 $discounts = [];
-					 /**
-					 $product = $this->helpers->getProduct($req["sku"]);
-					 #dd($product);
-					
-					 if(count($product['discounts']) > 0)
-					 {
-						 $amount = $product['pd']['amount'];
-						 
-						 foreach($product['discounts'] as $d)
-						 {
-							 $temp = [];
-							 $val = $d['discount'];
-							 
-							 switch($d['type'])
-							 {
-								 case "general":
-								   $temp['name'] = "ACE discount: <b>".$val."%</b>";
-								 break;
-								 
-								 case "single":
-								   $temp['name'] = $product['sku']." discount: <b>&#8358;".$val."</b>";
-								 break;
-							 }
-							 switch($d['discount_type'])
-							 {
-								 case "percentage":
-								   $temp['discount'] = floor(($val / 100) * $amount);
-								 break;
-								 
-								 case "flat":
-								   $temp['discount'] = $val;
-								 break;
-							 }
-							 
-							 array_push($discounts,$temp);
-						 }
-					 }
-					 #dd($discounts);
-					 $reviews = $this->helpers->getReviews($req["sku"]);
-					 $related = $this->helpers->getProducts();
+
+					 $product = $this->helpers->getProduct($req["xf"]);
+					 dd($product);
+
+					 //$reviews = $this->helpers->getReviews($["model"]);
+					 //$related = $this->helpers->getProducts();
 					// dd($product);
-					**/
-					$product = []; $reviews = []; $related = [];
+
+				   $reviews = []; $related = [];
 					
 					if(isset($req['type']) && $req['type'] == "json")
 					{
@@ -255,7 +221,7 @@ class MainController extends Controller {
 					}
 					else
 					{
-						return view("product",compact(['user','cart','c','reviews','related','product','discounts','signals','plugins']));
+						return view("product",compact(['user','cart','c','reviews','related','product','signals','plugins']));
 					}
                     			 
                  }			 

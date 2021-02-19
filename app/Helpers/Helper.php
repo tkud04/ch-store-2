@@ -772,7 +772,7 @@ $subject = $data['subject'];
            {
            	$ret = [];
               $product = Products::where('id',$id)
-			                 ->orWhere('sku',$id)->first();
+			                 ->orWhere('model',$id)->first();
        
               if($product != null)
                {
