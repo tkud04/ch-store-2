@@ -58,21 +58,18 @@ $pcClass = "";
 								</div>
 								<div class="product-thumbs-wrap">
 									<div class="product-thumbs">
-										<div class="product-thumb active">
-											<img src="images/product/product-1-109x122.jpg" alt="product thumbnail" width="109" height="122">
+									    <?php
+                                         for($i = 0; $i < count($imggs); $i++)
+									     {
+										   $ii = $imggs[$i];
+										   $ss = $i == 0 ? " active" : "";
+                                        ?>	
+										<div class="product-thumb<?php echo e($ss); ?>">
+											<img src="<?php echo e($ii); ?>" alt="product thumbnail" width="109" height="122">
 										</div>
-										<div class="product-thumb">
-											<img src="images/product/product-2-109x122.jpg" alt="product thumbnail" width="109" height="122">
-										</div>
-										<div class="product-thumb">
-											<img src="images/product/product-3-109x122.jpg" alt="product thumbnail" width="109" height="122">
-										</div>
-										<div class="product-thumb">
-											<img src="images/product/product-4-109x122.jpg" alt="product thumbnail" width="109" height="122">
-										</div>
-										<div class="product-thumb">
-											<img src="images/product/product-5-109x122.jpg" alt="product thumbnail" width="109" height="122">
-										</div>
+										<?php
+									     }
+									    ?>
 									</div>
 									<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
 									<button class="thumb-down"><i class="fas fa-chevron-right"></i></button>
@@ -83,39 +80,19 @@ $pcClass = "";
 							<div class="product-details">
 								<div class="product-navigation">
 									<ul class="breadcrumb breadcrumb-lg">
-										<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
-										<li><a href="#" class="active">Products</a></li>
+										<li><a href="<?php echo e(url('/')); ?>"><i class="d-icon-home"></i></a></li>
+										<li><a href="javascript:void(0)" class="active"><?php echo e($displayName); ?></a></li>
 										<li>Detail</li>
 									</ul>
-
-									<ul class="product-nav">
-										<li class="product-nav-prev">
-											<a href="#">
-												<i class="d-icon-arrow-left"></i> Prev
-												<span class="product-nav-popup">
-													<img src="images/product/product-thumb-prev.jpg" alt="product thumbnail" width="110" height="123">
-													<span class="product-name">Sed egtas Dnte Comfort</span>
-												</span>
-											</a>
-										</li>
-										<li class="product-nav-next">
-											<a href="#">
-												Next <i class="d-icon-arrow-right"></i>
-												<span class="product-nav-popup">
-													<img src="images/product/product-thumb-next.jpg" alt="product thumbnail" width="110" height="123">
-													<span class="product-name">Sed egtas Dnte Comfort</span>
-												</span>
-											</a>
-										</li>
-									</ul>
 								</div>
 
-								<h1 class="product-name">Women's Brown Leather Backpacks</h1>
+								<h1 class="product-name"><?php echo e($displayName); ?></h1>
 								<div class="product-meta">
-									SKU: <span class="product-sku">12345670</span>
-									BRAND: <span class="product-brand">The Northland</span>
+									Model #: <span class="product-sku"><?php echo e($model); ?></span>
+									SKU: <span class="product-sku"><?php echo e($product['sku']); ?></span>
+									Manufacturer: <span class="product-brand"><a href="javascript:void(0)"><?php echo e($manufacturer['name']); ?></a></span>
 								</div>
-								<div class="product-price">$139.00</div>
+								<div class="product-price">&#0163;<?php echo e($amount); ?></div>
 								<div class="ratings-container">
 									<div class="ratings-full">
 										<span class="ratings" style="width:80%"></span>
@@ -123,10 +100,7 @@ $pcClass = "";
 									</div>
 									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 6 reviews )</a>
 								</div>
-								<p class="product-short-desc">Sed egestas, ante et vulputate volutpat, eros pede semper
-									est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus
-									adipiscing. Sed lectus te et vulputate aucibus adipiscing. Sed lectus. us
-									adipiscing. Sed lectus.</p>
+								<p class="product-short-desc"><?php echo $description; ?></p>
 
 								<hr class="product-divider">
 
@@ -138,8 +112,8 @@ $pcClass = "";
 											<input class="quantity form-control" type="number" min="1" max="1000000">
 											<button class="quantity-plus d-icon-plus"></button>
 										</div>
-										<button class="btn-product btn-cart"><i class="d-icon-bag"></i>Add To
-											Cart</button>
+										<a href="javascript:void(0)" id="product-add-to-cart-btn" class="btn-product btn-cart"><i class="d-icon-bag"></i>Add To
+											Cart</a>
 									</div>
 								</div>
 
@@ -152,11 +126,9 @@ $pcClass = "";
 										<a href="#" class="social-link social-vimeo fab fa-vimeo-v"></a>
 									</div>
 									<div class="product-action">
-										<a href="#" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To
+										<a href="javascript:void(0)" onclick="addToWishlist({xf: '<?php echo e($product['id']); ?>')" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To
 											Wishlist</a>
 										<span class="divider"></span>
-										<a href="#" class="btn-product btn-compare"><i class="d-icon-random"></i>Add To
-											Compare</a>
 									</div>
 								</div>
 							</div>
@@ -180,24 +152,7 @@ $pcClass = "";
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active in" id="product-tab-description">
-								<p>Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id
-									engmin rae sitf amet odio vulputate eleifend in in tortor. Sellus massa, tristique
-									it amet cond coim vel, faci lisis rae Facilisis quis sapien. Praesent id enim sit
-									amet odio vulputatefi.</p>
-								<ul class="list-type-check ml-2 font-secondary">
-									<li>Praesent id enim sit amet.</li>
-									<li>Tdio vulputate eleifend in in tortor. ellus massa.Dristique sitiismonec.</li>
-									<li>Massa ristique sit amet condim vel, facilisis quimequistiqutiqu amet condim.
-									</li>
-									<li>Dilisis Facilisis quis sapien. Praesent id enim sit amet</li>
-								</ul>
-								<p>Praesent id enim sit amet odio vulputate eleifend in in tortor. Sellus massa,
-									tristique sitiismonec tellus massa, tristique sit amet condim vel, facilisis
-									quimequistiqutiqu amet condim vel, facilisis Facilisis quis sapien. Praesent id enim
-									sit amet odio vulputate odio vulputate eleifend in in tortor. Sellus massa,
-									tristique sitiismonec tellus massa, tristique sit ametcdimel,facilisis
-									quimequistiqutiqu amet condim vel, facilisis Facilisis quis sapien. Praesent id enim
-									sit amet odio vulputate</p>
+								<p><?php echo $description; ?></p>
 							</div>
 							<div class="tab-pane" id="product-tab-additional">
 								<ul class="list-none">
