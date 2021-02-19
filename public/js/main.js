@@ -2736,7 +2736,7 @@ window.Donald = {};
                 })
         },
         initProductsQuickview: function () {
-            Donald.$body.on('click', '.btn-quickview', function (e) {
+            Donald.$body.on('click', '.btn-quickvieww', function (e) {
                 e.preventDefault();
                 Donald.popup({
                     items: {

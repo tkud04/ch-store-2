@@ -330,6 +330,63 @@
             </div>
         </footer>
         <!-- End Footer -->
+		
+		<!-- Log In Modal -->
+			<div class="modal fade" id="qv" tabindex="-1" role="dialog" aria-labelledby="registermodal">
+				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+					<div class="modal-content" id="registermodal">
+						<span class="mod-close" data-dismiss="modal"><i class="ti-close"></i></span>
+						<div class="modal-body">
+							<h4 class="modal-header-title">Log <span class="theme-cl">In</span></h4>
+							<div class="login-form">
+								<form id="l-form">
+								   <input id="tk-login" type="hidden" value="{{csrf_token()}}">
+									<div class="form-group">
+										<label>User Name</label>
+										<div class="input-with-icon">
+											<input type="text" id="l-id" class="form-control" placeholder="Email or phone number">
+										</div>
+										<span class="text-danger text-bold input-error" id="l-id-error">This field is required</span>
+									</div>
+									
+									<div class="form-group">
+										<label>Password</label>
+										<div class="input-with-icon">
+											<input type="password" id="l-pass" class="form-control" placeholder="*******">
+										</div>
+										<span class="text-danger text-bold input-error" id="l-pass-error">This field is required</span>
+									</div>
+									
+									<div class="form-group">
+										<button type="submit" id="login-submit" class="btn btn-md full-width pop-login">Submit</button>
+										<h4 class="text-primary" id="login-loading">Signing you in.. <img alt="Loading.." src="{{asset('img/loading.gif')}}"></h4>
+										<h4 class="text-primary" id="login-finish"><b>Signin successful!</b><p class='text-primary'>Redirecting..</p></h4>
+									</div>
+								
+								</form>
+							</div>
+							<div class="modal-divider"><span>Or login via</span></div>
+							<div class="social-login mb-3">
+							<?php
+							$fbLogin = url('oauth')."?type=facebook";
+							$twLogin = url('oauth')."?type=twitter";
+							$gLogin = url('oauth')."?type=google";
+							?>
+								<ul>
+									<li><a href="{{$fbLogin}}" class="btn connect-fb"><i class="ti-facebook"></i>Facebook</a></li>
+									<li><a href="{{$twLogin}}" class="btn connect-twitter"><i class="ti-twitter"></i>Twitter</a></li>
+									<li><a href="{{$gLogin}}" class="btn connect-google"><i class="ti-google"></i>Google</a></li>
+								</ul>
+							</div>
+							<div class="text-center">
+								<p class="mt-5"><a href="{{url('forgot-password')}}" class="link">Forgot password?</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+		
     </div>
     <!-- Sticky Footer -->
     <div class="sticky-footer sticky-content fix-bottom" style="">
