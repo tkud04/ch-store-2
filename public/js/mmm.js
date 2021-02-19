@@ -91,5 +91,13 @@ $(document).ready(function() {
 			   }
              
 		  });
+		  
+		  //PRODUCTS
+		  $("#per-page").change(function(e) {
+       // e.preventDefault();
+       perPage = $('#per-page').val();
+	   if(perPage == "none") perPage = 12;
+	   showPage(1);
+    });
 	
 });

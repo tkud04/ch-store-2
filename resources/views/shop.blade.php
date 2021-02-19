@@ -36,8 +36,8 @@ $pcClass = "";
 										</select>
 									</div>
 									<div class="toolbox-item toolbox-layout">
-										<a href="shop-list.html" class="d-icon-mode-list btn-layout"></a>
-										<a href="shop.html" class="d-icon-mode-grid btn-layout active"></a>
+										<a href="javascript:void(0)" id="list" class="d-icon-mode-list btn-layout"></a>
+										<a href="javascript:void(0)" id="grid" class="d-icon-mode-grid btn-layout active"></a>
 									</div>
 								</div>
 							</nav>
