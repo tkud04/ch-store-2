@@ -41,7 +41,7 @@ $pcClass = "";
 						     <?php
 							   foreach($c as $cc)
 						       {
-							     $cu = url('category')."?xf=".$cc['id']; 
+							     $cu = url('category')."?xf=".$cc['category']; 
 							     $imgs = $cc['image'];
 							     $parent = $cc['parent'];
 							     $pc = $cc['product_count'];
