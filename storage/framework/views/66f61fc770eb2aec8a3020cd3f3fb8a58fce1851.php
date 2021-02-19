@@ -30,19 +30,53 @@ $ccategories = [
                             <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
                             <div class="sidebar-content">
                                 <div class="pin-wrapper" style="height: 891px;"><div class="sticky-sidebar pb-6" data-sticky-options="{'top': 0}" style="border-bottom: 0px none rgb(102, 102, 102); width: 280px;">
-                                    <div class="widget widget-category">
-                                        <ul class="menu vertical-menu category-menu">
-										   <?php
+                                    <div class="widget widget-collapsible">
+										<h3 class="widget-title">All Categories<span class="toggle-btn"></span><span class="toggle-btn"></span></h3>
+										<ul class="widget-body filter-items search-ul">
+										  <?php
+										  $cccc = [];
+										  
 										    foreach($c as $cc)
 											{
+												if(!in_array($cc['id'],$cccc))
+												{
 												$cu = url('category')."?xf=".$cc['category'];
+												$children = $cc['children'];
+												
+												if(count($children) == 0)
+												{
+													
 										   ?>
-                                            <li><a href="<?php echo e($cu); ?>"><?php echo $cc['name']; ?></a></li>
-											<?php
+											<li><a href="<?php echo e($cu); ?>"><?php echo $cc['name']; ?></a></li>
+										   <?php
+												}
+												else if(count($children) > 0)
+												{
+													
+										  ?>
+                                           <li class="with-ul show">
+												<a href="<?php echo e($cu); ?>"><?php echo $cc['name']; ?><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-down"></i></a>
+												<ul style="display: block">
+												   <?php
+												    foreach($children as $c2)
+													{
+													  $cu2 = url('category')."?xf=".$c2['category'];
+												   ?>
+													<li><a href="<?php echo e($cu2); ?>"><?php echo $c2['name']; ?></a></li>
+													<?php
+													 array_push($cccc,$c2['id']);
+													}
+													?>
+												</ul>
+											</li>
+                                           <?php										   
+												}
+											  }
+											  array_push($cccc,$cc['id']);
 											}
-											?>
-                                        </ul>
-                                    </div>
+										   ?>
+										</ul>
+									</div>
                                     <div class="header-search mb-6">
                                         <form action="#" class="input-wrapper">
                                             <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">

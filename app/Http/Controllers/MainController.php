@@ -40,11 +40,11 @@ class MainController extends Controller {
 
 		$signals = $this->helpers->signals;
 		
-		$c = $this->helpers->getCategories();
+		$c = $this->helpers->getCategories(['children' => true]);
 		$m = $this->helpers->getManufacturers();
 		$bs = $this->helpers->getBestSellers();
 		$tp = $this->helpers->getTopProducts();
-		#dd($bs);
+		#dd($c);
 		$cart = $this->helpers->getCart($user);
 		$plugins = $this->helpers->getPlugins();
 		
@@ -207,7 +207,7 @@ class MainController extends Controller {
 					 $discounts = [];
 
 					 $product = $this->helpers->getProduct($req["xf"]);
-					 dd($product);
+					 #dd($product);
 
 					 //$reviews = $this->helpers->getReviews($["model"]);
 					 //$related = $this->helpers->getProducts();

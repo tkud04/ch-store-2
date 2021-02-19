@@ -1073,10 +1073,28 @@ $subject = $data['subject'];
            }
 		   
 		   
-		   function getCategories()
+		   function getCategories($optionalParams=[])
            {
            	$ret = [];
            	$categories = Categories::where('id','>','0')->get();
+              // dd($cart);
+			  
+              if($categories != null)
+               {           	
+               	foreach($categories as $c) 
+                    {
+						$temp = $this->getCategory($c->id,$optionalParams);
+						array_push($ret,$temp);
+                    }
+               }                                 
+                                                      
+                return $ret;
+           }
+		   
+		   function getCategoryChildren($xf)
+           {
+           	$ret = [];
+           	$categories = Categories::where('parent_id',$xf)->get();
               // dd($cart);
 			  
               if($categories != null)
@@ -1091,13 +1109,13 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-		   function getCategory($id)
+		   function getCategory($id,$optionalParams=[])
            {
            	$ret = [];
            	$c = Categories::where('id',$id)
 			               ->orWhere('category',"$id")->first();
-              // dd($cart);
-			  
+               #dd($optionalParams);
+			  $children = isset($optionalParams["children"]) && $optionalParams['children'];
               if($c != null)
                {           	
 						$temp = [];
@@ -1109,6 +1127,7 @@ $subject = $data['subject'];
 						$temp['parent_id'] = $c->parent_id;
 						$temp['product_count'] = ProductData::where('category',$c->id)->count();
 						$temp['parent'] = $this->getCategory($c->parent_id);
+						if($children) $temp['children'] = $this->getCategoryChildren($c->id);
 						$temp['status'] = $c->status;
 						$temp['date'] = $c->created_at->format("jS F, Y"); 
 						$ret = $temp;
