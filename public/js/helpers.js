@@ -54,7 +54,7 @@ const showPage = (p) => {
 												<a href="javascript:void(0)">${p.category}</a>
 											</div>
 											<h3 class="product-name">
-												<a href="${nnn}">${nnn}</a>
+												<a href="${p.uu}">${nnn}</a>
 											</h3>
 											<div class="product-price">
 												<ins class="new-price">&#0163;${p.amount}</ins>
