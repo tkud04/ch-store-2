@@ -35,30 +35,29 @@ const showPage = (p) => {
 				    <div class="product-wrap">
 									<div class="product shadow-media">
 										<figure class="product-media">
-											<a href="product.html">
-												<img src="images/shop/1.jpg" alt="product" width="280" height="315">
+											<a href="${p.uu}">
+												<img src="${imggs[0]}" alt="${nnn}" width="280" height="315">
 											</a>
 											<div class="product-label-group">
 												<label class="product-label label-new">new</label>
 											</div>
 											<div class="product-action-vertical">
-												<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+												<a href="javascript:void(0)" onclick="addToCart({xf: ${p.id},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
 											</div>
 											<div class="product-action">
-												<a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-													View</a>
+												<a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
 											</div>
 										</figure>
 										<div class="product-details">
-											<a href="#" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+											<a href="javascript:void(0)" onclick="addToWishlist({xf: ${p.id}})" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
 											<div class="product-cat">
-												<a href="shop-grid-3col.html">categories</a>
+												<a href="javascript:void(0)">${p.category}</a>
 											</div>
 											<h3 class="product-name">
-												<a href="product.html">Coast Pool Comfort Jacket</a>
+												<a href="${nnn}">${nnn}</a>
 											</h3>
 											<div class="product-price">
-												<ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+												<ins class="new-price">&#0163;${p.amount}</ins>
 											</div>
 											<div class="ratings-container">
 												<div class="ratings-full">

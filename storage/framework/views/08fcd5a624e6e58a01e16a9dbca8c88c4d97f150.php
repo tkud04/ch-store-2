@@ -113,6 +113,7 @@ $(document).ready(() => {
 			   wu: "<?php echo e($wu); ?>",
 			   pd: ppd,
 			   amount: "<?php echo e($amount); ?>",
+			   category: "<?php echo e($category['name']); ?>",
 			   imggs: imggs,
 		   };
 		   products.push(temp);

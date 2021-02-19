@@ -113,6 +113,7 @@ $(document).ready(() => {
 			   wu: "{{$wu}}",
 			   pd: ppd,
 			   amount: "{{$amount}}",
+			   category: "{{$category['name']}}",
 			   imggs: imggs,
 		   };
 		   products.push(temp);
