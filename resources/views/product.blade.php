@@ -89,7 +89,7 @@ $pcClass = "";
 								<h1 class="product-name">{{$displayName}}</h1>
 								<div class="product-meta">
 									Model #: <span class="product-sku">{{$model}}</span>
-									SKU: <span class="product-sku">{{$product['sku']}}</span>
+									@if($product['sku'] != "") SKU: <span class="product-sku">{{$product['sku']}}</span> @endif
 									Manufacturer: <span class="product-brand"><a href="javascript:void(0)">{{$manufacturer['name']}}</a></span>
 								</div>
 								<div class="product-price">&#0163;{{$amount}}</div>
@@ -121,9 +121,9 @@ $pcClass = "";
 
 								<div class="product-footer">
 									<div class="social-links">
-										<a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-										<a href="#" class="social-link social-twitter fab fa-twitter"></a>
-										<a href="#" class="social-link social-vimeo fab fa-vimeo-v"></a>
+										<a href="javascript:void(0)" class="social-link social-facebook fab fa-facebook-f"></a>
+										<a href="javascript:void(0)" class="social-link social-twitter fab fa-twitter"></a>
+										<a href="javascript:void(0)" class="social-link social-vimeo fab fa-vimeo-v"></a>
 									</div>
 									<div class="product-action">
 										<a href="javascript:void(0)" onclick="addToWishlist({xf: '{{$product['id']}}')" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To
@@ -147,7 +147,7 @@ $pcClass = "";
 								<a class="nav-link" href="#product-tab-shipping-returns">Shipping &amp; Returns</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#product-tab-reviews">Reviews (8)</a>
+								<a class="nav-link" href="#product-tab-reviews">Reviews (0)</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -200,6 +200,12 @@ $pcClass = "";
 									receipt. For full details of how to make a return, please view our <br><a href="#" class="text-primary">Returns information</a></p>
 							</div>
 							<div class="tab-pane " id="product-tab-reviews">
+							 <?php
+							  $reviews = [];
+							  
+							  if(count($reviews) > 0)
+							  {
+							 ?>
 								<div class="d-flex align-items-center mb-5">
 									<h4 class="mb-0 mr-2">Average Rating:</h4>
 									<div class="ratings-container average-rating mb-0">
@@ -313,10 +319,18 @@ $pcClass = "";
 									</form>
 								</div>
 								<!-- End Reply -->
+								<?php
+										}
+								?>
 							</div>
 						</div>
 					</div>
-
+                    
+					<?php
+					 $related = [];
+					 if(count($related) > 0)
+					 {
+					?>
 					<section>
 						<h2 class="title">Our Featured</h2>
 
@@ -481,5 +495,8 @@ $pcClass = "";
 								</div>
 							</div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div></div>
 					</section>
+					<?php
+					 }
+					?>
 				</div>
 @stop

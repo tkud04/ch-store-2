@@ -89,7 +89,7 @@ $pcClass = "";
 								<h1 class="product-name"><?php echo e($displayName); ?></h1>
 								<div class="product-meta">
 									Model #: <span class="product-sku"><?php echo e($model); ?></span>
-									SKU: <span class="product-sku"><?php echo e($product['sku']); ?></span>
+									<?php if($product['sku'] != ""): ?> SKU: <span class="product-sku"><?php echo e($product['sku']); ?></span> <?php endif; ?>
 									Manufacturer: <span class="product-brand"><a href="javascript:void(0)"><?php echo e($manufacturer['name']); ?></a></span>
 								</div>
 								<div class="product-price">&#0163;<?php echo e($amount); ?></div>
@@ -121,9 +121,9 @@ $pcClass = "";
 
 								<div class="product-footer">
 									<div class="social-links">
-										<a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-										<a href="#" class="social-link social-twitter fab fa-twitter"></a>
-										<a href="#" class="social-link social-vimeo fab fa-vimeo-v"></a>
+										<a href="javascript:void(0)" class="social-link social-facebook fab fa-facebook-f"></a>
+										<a href="javascript:void(0)" class="social-link social-twitter fab fa-twitter"></a>
+										<a href="javascript:void(0)" class="social-link social-vimeo fab fa-vimeo-v"></a>
 									</div>
 									<div class="product-action">
 										<a href="javascript:void(0)" onclick="addToWishlist({xf: '<?php echo e($product['id']); ?>')" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To
@@ -147,7 +147,7 @@ $pcClass = "";
 								<a class="nav-link" href="#product-tab-shipping-returns">Shipping &amp; Returns</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#product-tab-reviews">Reviews (8)</a>
+								<a class="nav-link" href="#product-tab-reviews">Reviews (0)</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -156,27 +156,39 @@ $pcClass = "";
 							</div>
 							<div class="tab-pane" id="product-tab-additional">
 								<ul class="list-none">
-									<li><label>Color:</label>
-										<p>Black, Brown, Coffee</p>
+									<li>
+										<p><label>Model number:</label> <?php echo e($model); ?></p>
 									</li>
-									<li><label>Style:</label>
-										<p>Vintage</p>
+									<?php if($product['sku'] != ""): ?>
+									<li>
+										<p><label>SKU:</label> <?php echo e($product['sku']); ?></p>
 									</li>
-									<li><label>Material:</label>
-										<p>PU, Faux Leather</p>
+									<?php endif; ?>
+                                    <?php if($product['mpn'] != ""): ?>
+									<li>
+										<p><label>MPN:</label> <?php echo e($product['mpn']); ?></p>
 									</li>
-									<li><label>Closure Type:</label>
-										<p>Hasp</p>
+									<?php endif; ?>
+									<?php if($product['upc'] != ""): ?>
+									<li>
+										<p><label>UPC:</label> <?php echo e($product['upc']); ?></p>
 									</li>
-									<li><label>Bags Structure:</label>
-										<p>Cell phone Pocket, Zipper Pouch</p>
+									<?php endif; ?>
+									<?php if($product['ean'] != ""): ?>
+									<li>
+										<p><label>EAN:</label> <?php echo e($product['ean']); ?></p>
 									</li>
-									<li><label>Size:</label>
-										<p>L</p>
+									<?php endif; ?>
+									<?php if($product['jan'] != ""): ?>
+									<li>
+										<p><label>JAN:</label> <?php echo e($product['jan']); ?></p>
 									</li>
-									<li><label>Capacity:</label>
-										<p>15.6 Inch Laptop</p>
+									<?php endif; ?>
+									<?php if($product['isbn'] != ""): ?>
+									<li>
+										<p><label>ISBN:</label> <?php echo e($product['isbn']); ?></p>
 									</li>
+									<?php endif; ?>
 								</ul>
 							</div>
 							<div class="tab-pane " id="product-tab-shipping-returns">
@@ -188,6 +200,12 @@ $pcClass = "";
 									receipt. For full details of how to make a return, please view our <br><a href="#" class="text-primary">Returns information</a></p>
 							</div>
 							<div class="tab-pane " id="product-tab-reviews">
+							 <?php
+							  $reviews = [];
+							  
+							  if(count($reviews) > 0)
+							  {
+							 ?>
 								<div class="d-flex align-items-center mb-5">
 									<h4 class="mb-0 mr-2">Average Rating:</h4>
 									<div class="ratings-container average-rating mb-0">
@@ -301,10 +319,18 @@ $pcClass = "";
 									</form>
 								</div>
 								<!-- End Reply -->
+								<?php
+										}
+								?>
 							</div>
 						</div>
 					</div>
-
+                    
+					<?php
+					 $related = [];
+					 if(count($related) > 0)
+					 {
+					?>
 					<section>
 						<h2 class="title">Our Featured</h2>
 
@@ -469,6 +495,9 @@ $pcClass = "";
 								</div>
 							</div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div></div>
 					</section>
+					<?php
+					 }
+					?>
 				</div>
 <?php $__env->stopSection(); ?>
 
