@@ -164,7 +164,31 @@ $pcClass = "";
 										<p><label>SKU:</label> {{$product['sku']}}</p>
 									</li>
 									@endif
-									
+                                    @if($product['mpn'] != "")
+									<li>
+										<p><label>MPN:</label> {{$product['mpn']}}</p>
+									</li>
+									@endif
+									@if($product['upc'] != "")
+									<li>
+										<p><label>UPC:</label> {{$product['upc']}}</p>
+									</li>
+									@endif
+									@if($product['ean'] != "")
+									<li>
+										<p><label>EAN:</label> {{$product['ean']}}</p>
+									</li>
+									@endif
+									@if($product['jan'] != "")
+									<li>
+										<p><label>JAN:</label> {{$product['jan']}}</p>
+									</li>
+									@endif
+									@if($product['isbn'] != "")
+									<li>
+										<p><label>ISBN:</label> {{$product['isbn']}}</p>
+									</li>
+									@endif
 								</ul>
 							</div>
 							<div class="tab-pane " id="product-tab-shipping-returns">
