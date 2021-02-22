@@ -156,27 +156,15 @@ $pcClass = "";
 							</div>
 							<div class="tab-pane" id="product-tab-additional">
 								<ul class="list-none">
-									<li><label>Color:</label>
-										<p>Black, Brown, Coffee</p>
+									<li>
+										<p><label>Model number:</label> {{$model}}</p>
 									</li>
-									<li><label>Style:</label>
-										<p>Vintage</p>
+									@if($product['sku'] != "')
+									<li>
+										<p><label>SKU:</label> {{$product['sku']}}</p>
 									</li>
-									<li><label>Material:</label>
-										<p>PU, Faux Leather</p>
-									</li>
-									<li><label>Closure Type:</label>
-										<p>Hasp</p>
-									</li>
-									<li><label>Bags Structure:</label>
-										<p>Cell phone Pocket, Zipper Pouch</p>
-									</li>
-									<li><label>Size:</label>
-										<p>L</p>
-									</li>
-									<li><label>Capacity:</label>
-										<p>15.6 Inch Laptop</p>
-									</li>
+									@endif
+									
 								</ul>
 							</div>
 							<div class="tab-pane " id="product-tab-shipping-returns">
