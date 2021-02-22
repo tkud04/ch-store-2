@@ -159,7 +159,7 @@ $pcClass = "";
 									<li>
 										<p><label>Model number:</label> {{$model}}</p>
 									</li>
-									@if($product['sku'] != "')
+									@if($product['sku'] != "")
 									<li>
 										<p><label>SKU:</label> {{$product['sku']}}</p>
 									</li>
