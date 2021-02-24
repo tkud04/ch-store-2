@@ -2532,7 +2532,7 @@ $subject = $data['subject'];
 			   return $ret;
 		   }
 		   
-		   function contact2($data)
+		   function contact6($data)
 		   {
 			  #dd($data);
 			   $ret = $this->getCurrentSender();
