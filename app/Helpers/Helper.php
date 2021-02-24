@@ -2425,7 +2425,7 @@ $subject = $data['subject'];
 	            }
 
 
- function contact($req)
+ function contact2($req)
 		   {
 			 try
 			 {
