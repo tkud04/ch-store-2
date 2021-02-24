@@ -382,7 +382,7 @@ $subject = $data['subject'];
                  'base_uri' => 'http://httpbin.org',
                  // You can set any number of default request options.
                  //'timeout'  => 2.0,
-				 'headers' => $data['headers']
+				 'headers' => isset($data['headers']) && count($data['headers']) > 0 ? $data['headers'] : []
                  ]);
                   
 				 
@@ -390,11 +390,15 @@ $subject = $data['subject'];
 				    
 				 ];
 				 
+				 if(isset($data['auth']))
+				 {
+					 $dt['auth'] = $data['auth'];
+				 }
 				 if(isset($data['data']))
 				 {
 					if(isset($data['type']) && $data['type'] == "raw")
 					{
-					  $dt = ['body' => $data['data']];
+					  $dt['body'] = $data['data'];
 					}
 					else
 					{
@@ -414,10 +418,8 @@ $subject = $data['subject'];
 				 
 				 try
 				 {
-					if($data['method'] == "get") $res = $client->request('GET', $url);
-					else if($data['method'] == "post") $res = $client->request('POST', $url,$dt);
-			  
-                   $ret = $res->getBody()->getContents(); 
+					$res = $client->request(strtoupper($data['method']),$url,$dt);
+					$ret = $res->getBody()->getContents(); 
 			       //dd($ret);
 
 				 }
