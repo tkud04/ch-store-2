@@ -2419,7 +2419,7 @@ $subject = $data['subject'];
 	                {
                             $temp = []; 
 	                    	$temp['id'] = $d->id; 
-	                    	$temp['message'] = json_decode($d->message); 
+	                    	$temp['message'] = $d->message; 
 	                        $temp['date'] = $d->created_at->format("jS F, Y h:i A"); 
 	                        $ret = $temp; 
 	                }                          
