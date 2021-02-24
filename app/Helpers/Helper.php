@@ -31,6 +31,7 @@ use App\Settings;
 use App\Plugins;
 use App\Couriers;
 use App\Comparisons;
+use App\Debugs;
 use \Swift_Mailer;
 use \Swift_SmtpTransport;
 use \Cloudinary\Api;
