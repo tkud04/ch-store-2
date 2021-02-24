@@ -2003,6 +2003,87 @@ class MainController extends Controller {
 	}
 	
 	
+	 /**
+	 * Show the Contact Us page.
+	 *
+	 * @return Response
+	 */
+	public function getMcHook(Request $request)
+    {
+		$user = null;
+       
+	    if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		$req = $request->all();
+		dd($req);
+    }
+	
+	/* Show the Contact Us page.
+	 *
+	 * @return Response
+	 */
+	public function getDebugs(Request $request)
+    {
+		$user = null;
+       
+	    if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		$debugs = $this->helpers->getDebugs();
+		dd($debugs);
+    }
+	
+	
+	/**
+	 * Handle add review.
+	 *
+	 * @return Response
+	 */
+	public function postMcHook(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+
+		$req = $request->all();
+       #dd($req);
+	    
+		
+		       $ret = $this->helpers->handleMcHook($req);
+		dd($ret);
+			 session()->flash("contact-status","ok");
+			   $uu = "/";
+			   return redirect()->intended($uu);		
+    }
+	
+	/**
+	 * Handle add review.
+	 *
+	 * @return Response
+	 */
+	public function getMcDebug(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+
+		$req = $request->all();
+       #dd($req);
+	    
+		
+		       $ret = $this->helpers->mcDebug($req);
+		dd($ret);	
+    }
+
+	
+	
 	 /****************
     POST Redirects
     ****************/

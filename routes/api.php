@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('mc-hook', 'MainController@getMcHook');
+Route::post('mc-hook', 'MainController@postMcHook');
+Route::get('debugs', 'MainController@getDebugs');
+Route::get('debug', 'MainController@getMcDebug');

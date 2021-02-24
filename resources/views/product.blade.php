@@ -358,7 +358,14 @@ $pcClass = "";
 							
 							
 							
-						<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;"><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product shadow-media">
+						<div class="owl-stage-outer">
+						  <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;">
+						    <?php
+							 foreach($related as $p)
+							 {
+							?>
+						    <div class="owl-item active" style="width: 280px; margin-right: 20px;">
+							  <div class="product shadow-media">
 								<figure class="product-media">
 									<a href="product.html">
 										<img src="images/product/featured1.jpg" alt="product" width="280" height="315">
@@ -393,107 +400,15 @@ $pcClass = "";
 											)</a>
 									</div>
 								</div>
-							</div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product shadow-media">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="images/product/featured2.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<a href="#" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">categories</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Mackintosh Poket Backpack</a>
-									</h3>
-									<div class="product-price">
-										<span class="price">$35.00</span>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:100%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product shadow-media">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="images/product/featured3.jpg" alt="product" width="280" height="315">
-									</a>
-
-									<div class="product-label-group">
-										<label class="product-label label-sale">27% off</label>
-									</div>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<a href="#" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">categories</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Women's Fashion T Shirt</a>
-									</h3>
-									<div class="product-price">
-										<span class="price">$19.00</span>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:100%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product shadow-media">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="images/product/featured4.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<a href="#" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">categories</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Fashion Training Sneaker</a>
-									</h3>
-									<div class="product-price">
-										<ins class="new-price">$98.00</ins><del class="old-price">$210.00</del>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:100%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div></div>
+							  </div>
+							</div>
+							<?php
+					         }
+							?>
+						   </div>
+						 </div>
+						 <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div>
+					  </div>
 					</section>
 					<?php
 					 }

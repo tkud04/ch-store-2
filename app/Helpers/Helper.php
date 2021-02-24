@@ -2380,7 +2380,225 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
+ function createDebug($data)
+	              {
+	   			   #dd($data);
+	   			 $ret = null;
+			 
+			 
+	   				 $ret = Debugs::create(['message' => $data]);
+	   			  return $ret;
+	              }
+				  
+				  function getDebugs()
+	            {
+	            	$ret = [];
+	                $debugs = Debugs::where('id','>',"0")->get();
  
-   
+	               if($debugs != null)
+	                {
+						foreach($debugs as $d)
+	   		            {
+                            $temp = $this->getDebug($d->id);
+	   		                array_push($ret,$temp);
+						}
+	                }                          
+                                                      
+	                 return $ret;
+	            }
+				
+				function getDebug($id)
+	            {
+	            	$ret = [];
+	                $d = Debugs::where('id',$id)->first();
+ 
+	               if($d != null)
+	                {
+                            $temp = []; 
+	                    	$temp['id'] = $d->id; 
+	                    	$temp['message'] = $d->message; 
+	                        $temp['date'] = $d->created_at->format("jS F, Y h:i A"); 
+	                        $ret = $temp; 
+	                }                          
+                                                      
+	                 return $ret;
+	            }
+
+
+ function contact($req)
+		   {
+			 try
+			 {
+			   //First get the list
+			   $rr = [
+			   'auth' => [
+			     "tysonmcrichards",env('MAILCHIMP_API_KEY')
+			   ],
+                 'data' => [],
+                 //'url' => "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/ping",
+                'url' => "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/campaigns",
+                 'method' => "get"
+               ];
+			   
+				   $leads = [];
+				   $name = explode(' ',$req['name']);
+					  $fname = $name[0]; $lname = isset($name[1]) ? $name[1] : "";
+					  
+
+					 //First, create campaign
+					 $rr['headers'] = ['Content-Type' => "application/json"];
+					$rr['data'] = json_encode([
+					     'type' => "plaintext",
+				         'recipients' => [
+						   'list_id' => env('MAILCHIMP_LIST_ID')
+						 ],
+						 'settings' => [
+						   'subject_line' => "New message from ".$fname.": ".$req['subject'],
+						   'from_name' => "FAFM CPA",
+						   'reply_to' => "tysonmcrichards@gmail.com"
+						 ]
+				     ]);
+                     $rr['url'] = "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/campaigns/";
+                     $rr['method'] = "post";
+                     $rr['type'] = "raw";
+			         $rett = $this->bomb($rr);
+			         $ret = json_decode($rett);
+			         dd($ret);
+					 
+					 if($ret != null)
+					 {
+						 $campaign_id = $ret->id;
+						 
+						 //Next, set campaign content
+						  $rr['headers'] = ['Content-Type' => "application/json"];
+                         $rr['data'] = json_encode(['plain_text' => $req['message']]);
+                     $rr['url'] = "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/campaigns/".$campaign_id."/content";
+                     $rr['method'] = "put";
+                     $rr['type'] = "raw";
+			         $rett = $this->bomb($rr);
+			         $ret = json_decode($rett);
+					#dd($ret);
+						 
+						 if($ret != null)
+						 {
+							//Finally send campaign
+						    $rr['headers'] = [];
+                            $rr['data'] = "{}";
+                            $rr['url'] = "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/campaigns/".$campaign_id."/actions/send";
+                            $rr['method'] = "post";
+                            # $rr['type'] = "raw";
+			                $rett = $this->bomb($rr);
+			                $ret = json_decode($rett);
+					        #dd($ret);
+							
+							if($ret != null)
+							{
+								//remove campaign here
+							}
+						 }
+						 
+					 }
+			   #}
+			   
+			 }
+             catch(Throwable $e)
+			 {
+				 dd($e);
+			 }			 
+			  
+			   
+		   }
+		   
+		   function mcDebug($req)
+		   {
+			   /**
+			   curl -X GET \
+  'https://server.api.mailchimp.com/3.0/lists/{list_id}?fields=<SOME_ARRAY_VALUE>&exclude_fields=<SOME_ARRAY_VALUE>' \
+  -H 'authorization: Basic <USERNAME:PASSWORD>'
+			   **/
+			   $rr = [
+			   'auth' => [
+			     "tysonmcrichards",env('MAILCHIMP_API_KEY')
+			   ],
+                 'data' => [],
+                 //'url' => "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/ping",
+                'url' => "https://".env('MAILCHIMP_SERVER').".api.mailchimp.com/3.0/lists/".env('MAILCHIMP_LIST_ID')."/members",
+                 'method' => "get"
+               ];
+			  
+		       
+			   $rett = $this->bomb($rr);
+			   $ret = json_decode($rett);
+			   return $ret;
+		   }
+		   
+		   function contact2($data)
+		   {
+			  #dd($data);
+			   $ret = $this->getCurrentSender();
+			   $ret['data'] = $data;
+    		   $ret['subject'] = $data['name'].": ".$data['subject'];	
+		       
+			   /**
+			   try
+		       {
+			     $ret['em'] = $this->suEmail;
+		         $this->sendEmailSMTP($ret,"emails.contact");
+                 $xx = $this->getPhoneAndEmail();						
+				$em = $xx['email'];
+				
+				 if($em != "")
+				 {
+				   $ret['em'] = $em;
+		           $this->sendEmailSMTP($ret,"emails.contact"); 
+				 }
+
+				 
+		       }
+			   **/
+			   $m = $this->createDebug(json_encode($data));	 
+			     $s = "ok";
+		
+		       return $s;
+		   }	
+		   
+		   function handleMcHook($data)
+		   {
+			       // Get the webhook events from the request body. We know
+			       // every event will be an inbound event, because we're
+			       // only using this endpoint for inbound email.
+			       /**
+				   $mandrill_events = $data->body;
+			       $inboundEvents = $mandrill_events->inboundEvents;
+                   $results = [];
+				   
+				   if($inboundEvents != null)
+				   {
+			          foreach ($inboundEvents as $inboundEvent) {
+			             $msg = $inboundEvent->msg;
+			             $from = $msg->from_email;
+			             $subject = $msg->subject;
+			             $text = $msg->text;
+                         
+						 $temp = [
+							 'name' => "MailChimp Webhook",
+						     'email' => "kudayisitobi@gmail.com",
+							 'subject' => $from.": ".$subject,
+							 'message' => $text
+						 ];
+			             array_push($results,$temp);
+							 $this->contact2($temp);
+			          }
+			       }
+				   **/
+				   $results = "ok";
+				     $m = $this->createDebug(json_encode($data));	 
+				   return $results;
+		   }
+				
+ 
+
+
+ 
 }
 ?>
