@@ -1672,7 +1672,7 @@ class MainController extends Controller {
 		$cart = $this->helpers->getCart($user);
         
         $validator = Validator::make($req, [
-                             'sku' => 'required'
+                             'xf' => 'required'
          ]);
          
          if($validator->fails())
@@ -1684,7 +1684,7 @@ class MainController extends Controller {
          
          else
          {
-			 $req['user_id'] = is_null($user) ? $gid : $user->id;
+			 $req['user_id'] = $user->id;
          	$this->helpers->removeFromCart($req);
 	        session()->flash("remove-from-cart-status","ok");
 			return redirect()->intended('cart');

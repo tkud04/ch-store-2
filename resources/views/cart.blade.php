@@ -21,24 +21,38 @@ $pcClass = "";
 									</tr>
 								</thead>
 								<tbody>
+								<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+									 $imgs = $item['imggs'];
+									 $uu = url('product')."?xf=".$item['id'];
+									 $ru = url('remove-from-cart')."?xf=".$xf;
+				                 ?>
 									<tr>
 										<td class="product-thumbnail">
 											<figure>
 												<a href="product-simple.html">
-													<img src="images/products/product15.jpg" width="100" height="100" alt="product">
+													<img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
 												</a>
-												<a href="#" class="product-remove" title="Remove this product">
+												<a href="{{$ru}}" class="product-remove" title="Remove this product">
 													<i class="fas fa-times"></i>
 												</a>
 											</figure>
 										</td>
 										<td class="product-name">
 											<div class="product-name-section">
-												<a href="product-simple.html">Solid pattern in fashion summer dress</a>
+												<a href="{{$uu}}">{{$item['name']}}</a>
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount">$129.99</span>
+											<span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span>
 										</td>
 										<td class="product-quantity">
 											<div class="input-group">
@@ -48,70 +62,13 @@ $pcClass = "";
 											</div>
 										</td>
 										<td class="product-price">
-											<span class="amount">$129.99</span>
+											<span class="amount">&#0163;{{number_format($itemAmount,2)}}</span>
 										</td>
 									</tr>
-									<tr>
-										<td class="product-thumbnail">
-											<figure>
-												<a href="product-simple.html">
-													<img src="images/products/product16.jpg" width="100" height="100" alt="product">
-												</a>
-												<a href="#" class="product-remove" title="Remove this product">
-													<i class="fas fa-times"></i>
-												</a>
-											</figure>
+									<?php
+								   }
+									?>
 									
-										</td>
-										<td class="product-name">
-											<div class="product-name-section">
-												<a href="product-simple.html">Mackintosh Poket backpack</a>
-											</div>
-										</td>
-										<td class="product-subtotal">
-											<span class="amount">$98.00</span>
-										</td>
-										<td class="product-quantity">
-											<div class="input-group">
-												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control" type="number" min="1" max="1000000">
-												<button class="quantity-plus d-icon-plus"></button>
-											</div>
-										</td>
-										<td class="product-price">
-											<span class="amount">$98.00</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="product-thumbnail">
-											<figure>
-												<a href="product-simple.html">
-													<img src="images/products/product17.jpg" width="100" height="100" alt="product">
-												</a>
-												<a href="#" class="product-remove" title="Remove this product">
-													<i class="fas fa-times"></i>
-												</a>
-											</figure>
-										</td>
-										<td class="product-name">
-											<div class="product-name-section">
-												<a href="product-simple.html">Fashionable Overnight Bag</a>
-											</div>
-										</td>
-										<td class="product-subtotal">
-											<span class="amount">$199.00</span>
-										</td>
-										<td class="product-quantity">
-											<div class="input-group">
-												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control" type="number" min="1" max="1000000">
-												<button class="quantity-plus d-icon-plus"></button>
-											</div>
-										</td>
-										<td class="product-price">
-											<span class="amount">$199.00</span>
-										</td>
-									</tr>
 								</tbody>
 							</table>
 							<div class="cart-actions mb-6 pt-6">
@@ -119,7 +76,7 @@ $pcClass = "";
 									<input type="text" name="coupon_code" class="input-text form-control" id="coupon_code" value="" placeholder="Coupon code">
 									<button type="submit" class="btn btn-md">Apply Coupon</button>
 								</div>
-								<button type="submit" class="btn btn-md btn-icon-left"><i class="d-icon-refresh"></i>Update Cart</button>
+								<a href="javascript:void(0)" class="btn btn-md btn-icon-left"><i class="d-icon-refresh"></i>Update Cart</a>
 							</div>
 						</div>
 						<aside class="col-lg-4 sticky-sidebar-wrapper">
@@ -132,7 +89,7 @@ $pcClass = "";
 												<h4 class="summary-subtitle">Subtotal</h4>
 											</td>
 											<td>
-												<p class="summary-subtotal-price">$426.99</p>
+												<p class="summary-subtotal-price">&#0163;{{number_format($subtotal,2)}}</p>
 											</td>												
 										</tr>
 										<tr class="sumnary-shipping shipping-row-last">
@@ -141,21 +98,9 @@ $pcClass = "";
 												<ul>
 													<li>
 														<div class="custom-radio">
-															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="">
+															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="checked">
 															<label class="custom-control-label" for="free-shipping">Free
 																Shipping</label>
-														</div>
-													</li>
-													<li>
-														<div class="custom-radio">
-															<input type="radio" id="standard_shipping" name="shipping" class="custom-control-input">
-															<label class="custom-control-label" for="standard_shipping">Standard</label>
-														</div>
-													</li>
-													<li>
-														<div class="custom-radio">
-															<input type="radio" id="express_shipping" name="shipping" class="custom-control-input">
-															<label class="custom-control-label" for="express_shipping">Express</label>
 														</div>
 													</li>
 												</ul>

@@ -1354,13 +1354,10 @@ $subject = $data['subject'];
 		   
 		    function updateCart($dt)
            {
-			  # dd($dt);
-           	   $userId = $dt['user_id'];
-			 $ret = "error";
-			 
-			 $c = Carts::where('user_id',$userId)
-			           ->where('sku',$dt['sku'])->first();
-             $p = Products::where('sku',$dt['sku'])->first();
+			  Carts::where('product_id', $dt['xf'])
+			              ->where('user_id', $data['user_id'])->first();
+						  
+             $p = Products::where('id',$dt['xf'])->first();
 			 
 			if($c != null && $p != null && $p->qty >= $dt['qty'])
 			{
@@ -1372,19 +1369,14 @@ $subject = $data['subject'];
            }	
            function removeFromCart($data)
            {
-           	#$ret = ["subtotal" => 0, "delivery" => 0, "total" => 0];
-               $userId = $data['user_id'];
-			   $cc = Carts::where('user_id', $userId)->get();
+           	   $cc = Carts::where('product_id', $data['xf'])
+			              ->where('user_id', $data['user_id'])->first();
+			$ret = "error";
 			
-			if(!is_null($cc))
+			if($cc != null)
 			{
-			  foreach($cc as $c)
-                            {
-                            	if($c->sku == $data['sku'] || $c->id == $data['sku']){$c->delete(); break; }
-                            }
-            }
-			                         
-                                                      
+			  $cc->delete();
+            }                                         
                 return "ok";
            }
 		   

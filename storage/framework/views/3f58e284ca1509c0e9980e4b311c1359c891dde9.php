@@ -11,8 +11,16 @@ $pcClass = "";
 					<form action="#" class="form">
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
-								<h3 class="title title-simple text-left">Billing Details</h3>
-								<div class="row">
+							
+							<h3 class="title title-simple text-left">Your Details</h3>
+							
+							<div class="accordion accordion-simple">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#collapse1-1" class="collapse">Billing Details</a>
+                                        </div>
+                                        <div id="collapse1-1" class="card-body expanded">
+                                           <div class="row">
 									<div class="col-xs-6">
 										<label>First Name *</label>
 										<input type="text" class="form-control" name="first-name" required="">
@@ -49,21 +57,38 @@ $pcClass = "";
 										<input type="text" class="form-control" name="phone" required="">
 									</div>
 								</div>
-								<label>Email address *</label>
-								<input type="text" class="form-control" name="email-address" required="">
-								<div class="form-checkbox mt-8">
-									<input type="checkbox" class="custom-checkbox" id="create-account" name="create-account">
-									<label class="form-control-label" for="create-account">Create an account?</label>
+								
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#collapse1-2" class="expand">Shipping Details</a>
+                                        </div>
+                                        <div class="card-body collapsed" id="collapse1-2">
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                                elit. Donec odio.<br>
+                                                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+                                                Suspendisse<br>
+                                                urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
+                                                justo eget<br>
+                                                felis facilisis fermentum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#collapse1-3" class="expand">Additional Information</a>
+                                        </div>
+                                        <div id="collapse1-3" class="card-body collapsed">
+                                            <label>Order Notes (optional)</label>
+							               	<textarea class="form-control" cols="30" rows="6" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+							
+                                        </div>
+                                    </div>
+                                </div>
+							
+							
+								
 								</div>
-								<div class="form-checkbox mb-6">
-									<input type="checkbox" class="custom-checkbox" id="different-address" name="different-address">
-									<label class="form-control-label" for="different-address">Ship to a different
-										address?</label>
-								</div>
-								<h3 class="title title-simple text-left mb-3">Additional information</h3>
-								<label>Order Notes (optional)</label>
-								<textarea class="form-control" cols="30" rows="6" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-							</div>
 							<aside class="col-lg-5 sticky-sidebar-wrapper">
 								<div class="pin-wrapper" style="height: 1038px;"><div class="sticky-sidebar" data-sticky-options="{'bottom': 50}" style="border-bottom: 0px none rgb(102, 102, 102); width: 474.141px;">
 									<h3 class="title title-simple text-left">Your Order</h3>
