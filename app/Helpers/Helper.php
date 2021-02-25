@@ -77,7 +77,9 @@ class Helper implements HelperContract
 					 "update-status-error" => "There was a problem updating the account, please try again.",
 					 "contact-status-error" => "There was a problem sending your message, please try again.",
 					 "add-review-status-error" => "There was a problem sending your review, please try again.",
-					 "add-to-cart-status-error" => "Stock not sufficient.",
+					 "auth-status-error" => "You must be signed in to do that.",
+					 "insufficient-stock-status-error" => "Stock not sufficient.",
+					 "add-to-cart-status-error" => "There was a problem adding to cart!",
 					 "update-cart-status-error" => "Stock not sufficient.",
 					 "remove-from-cart-status-error" => "There was a problem removing this product from your cart, please try again.",
 					 "subscribe-status-error" => "There was a problem subscribing, please try again.",
@@ -560,8 +562,9 @@ $subject = $data['subject'];
                     	$temp = [];
                	        $temp['id'] = $c->id; 
                	        $temp['user_id'] = $c->user_id; 
-                        $temp['product'] = $this->getProduct($c->sku); 
+                        $temp['product'] = $this->getProduct($c->id); 
                         $temp['qty'] = $c->qty; 
+						
                         array_push($ret, $temp); 
                     }
                  }
@@ -1312,22 +1315,23 @@ $subject = $data['subject'];
            {
 			  
 			 $userId = $data['user_id'];
+			 $xf = $data['xf'];
 			 $ret = "error";
 			 
 			 $c = Carts::where('user_id',$userId)
-			           ->where('sku',$data['sku'])->first();
+			           ->where('product_id',$xf)->first();
 
-			 $p = Products::where('sku',$data['sku'])->first();
-
-			 if(!is_null($p))
+			 $p = Products::where('id',$xf)->first();
+             #dd($p);
+			 if($p != null)
 			 {
 				if($data['qty'] <= $p->qty)
 				{
 					
-			      if(is_null($c))
+			      if($c == null)
 			      {
 				     $c = Carts::create(['user_id' => $userId, 
-                                                      'sku' => $data['sku'], 
+                                                      'product_id' => $xf, 
                                                       'qty' => $data['qty']
                                                       ]); 
 													  
@@ -1339,6 +1343,10 @@ $subject = $data['subject'];
 				  #dd($c);
 				  $ret = "ok";
 			    }
+				else
+				{
+					$ret = "insufficient-stock";
+				}
 			 }
 			 
                 return $ret;
@@ -1386,14 +1394,16 @@ $subject = $data['subject'];
            {
            	$ret = ["subtotal" => 0, "delivery" => 0, "items" => 0];
 			  $userId = null;
-			  
+			  #dd($cart);
               if($cart != null && count($cart) > 0)
                {           	
                	foreach($cart as $c) 
                     {
-						if(is_null($userId)) $userId = $c['user_id'];
-						$amount = $c['product']['pd']['amount'];
-						$discounts = $c['product']['discounts'];
+						//if(is_null($userId)) $userId = $c['user_id'];
+						$p = $c['product'];
+						$pd = $p['data'];
+						$amount = $pd['amount'];
+						$discounts = [];
 						#dd($discounts);
 						$dsc = $this->getDiscountPrices($amount,$discounts);
 						
@@ -1419,20 +1429,6 @@ $subject = $data['subject'];
                         $ret['discounts'] = $dsc;					
                     }
 					
-					$userDiscounts = $this->getDiscounts($userId,"user");
-					#dd($userDiscounts);
-					$ua = 0; $una = 0;
-
-					$dsc = $this->getDiscountPrices($ret['subtotal'],$userDiscounts);
-					#dd($dsc);
-					if(count($dsc) > 0)
-				          {
-					        $ret['subtotal'] -= $dsc[0];
-				          }
-					
-                   $u = User::where('id',$userId)->first();
-                   $ret['delivery'] = $this->getDeliveryFee($u);
-                  
                }                                 
                    #dd($ret);                                  
                 return $ret;
@@ -2600,7 +2596,23 @@ $subject = $data['subject'];
 		   }
 				
  
-
+         function getPhoneAndEmail()
+		 {
+			 $p = $this->getSetting("phone");
+			 $e = $this->getSetting("email");
+			 $ret = ['phone' => "",'email' => ""];
+			 
+			 if(count($p) > 0)
+			 {
+				 $ret['phone'] = $p['value'];
+			 }
+			 if(count($e) > 0)
+			 {
+				 $ret['email'] = $e['value'];
+			 }
+			 
+			 return $ret;
+		 }
 
  
 }

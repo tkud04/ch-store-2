@@ -134,15 +134,13 @@
             <div class="header-middle has-center">
                 <div class="container">
                     <div class="header-left">
-                        <a href="#" class="mobile-menu-toggle">
+                        <a href="#" class="mobile-menu-toggle" style="margin-right: 15px;">
                             <i class="d-icon-bars2"></i>
                         </a>
                         <!-- End Mobile Menu Toggle -->
-                        <a href="tel:#" class="call"><span class="text-uppercase font-weight-semi-bold ls-l">Need
-                                Help?</span><strong class="text-primary">(123) 456-7890</strong></a>
-                        <!-- End Call -->
+                       
                         <span class="divider d-lg-block"></span>
-                        <!-- End Divider -->
+                        <!-- End Divider --
                         <div class="dropdown currency-dropdown">
                             <a href="#currency">GBP</a>
                             <ul class="dropdown-box">
@@ -163,11 +161,20 @@
                                 <li>
                                     <a href="#EUR">
                                         <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FR
-                                    </a>
+								</a>
                                 </li>
                             </ul>
                         </div>
+						<?php
+						 $tel = "#"; $call = "(123) 456 908";
+						 if(isset($pe['phone']) && $pe['phone'] != null)
+						 {
+							 $tel = $pe['phone']; $call = $tel;
+						 }
+						?>
                         <!-- End DropDown Menu -->
+						 <a href="tel:<?php echo e($tel); ?>" class="call"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary"><?php echo e($call); ?></strong></a>
+                        <!-- End Call -->
                     </div>
                     <div class="header-center">
                         <a href="<?php echo e(url('/')); ?>" class="logo pt-4 pb-4 mr-0">
@@ -202,6 +209,18 @@
 		                ?>
                         <span class="divider d-lg-block"></span>
                         <div class="dropdown cart-dropdown">
+						<?php
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									  $subtotal += ($itemAmount * $qty);
+				                 ?>
+								 
+						<?php
+								   }
+						?>
                             <a href="#" class="cart-toggle">
                                 <span class="cart-label">
                                     <span class="cart-name">My Cart</span>
@@ -219,13 +238,14 @@
                                 </div>
                                 <div class="products scrollable">
 								 <?php
+								   $subtotal = 0;
 				                   for($a = 0; $a < $cc; $a++)
 				                   {
 					                 $item = $cart[$a]['product'];
 					                 $qty = $cart[$a]['qty'];
 					                 $itemAmount = $item['data']['amount'];
-									 $subtotal += $itemAmount;
-									 $imgs = $item['imgs'];
+									 $subtotal += ($itemAmount * $qty);
+									 $imgs = $item['imggs'];
 									 $uu = url('product')."?xf=".$item['id'];
 				                 ?>
                                     <div class="product product-cart">
@@ -233,7 +253,7 @@
                                             <a href="<?php echo e($uu); ?>" class="product-name"><?php echo e($item['name']); ?></a>
                                             <div class="price-box">
                                                 <span class="product-quantity"><?php echo e($qty); ?></span>
-                                                <span class="product-price">#0163;<?php echo e(number_format($itemAmount,2)); ?></span>
+                                                <span class="product-price">&#0163;<?php echo e(number_format($itemAmount,2)); ?></span>
                                             </div>
                                         </div>
                                         <figure class="product-media">

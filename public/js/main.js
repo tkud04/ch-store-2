@@ -1565,7 +1565,7 @@ window.Donald = {};
         var initCartAction = function (self) {
 
             // Product Single's Add To Cart Button
-            self.$wrapper.on('click', '.btn-cart', function (e) {
+            self.$wrapper.on('click', '.bttn-cart', function (e) {
                 e.preventDefault();
 
                 var $product = self.$wrapper,

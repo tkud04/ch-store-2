@@ -91,6 +91,7 @@ $(document).ready(function() {
 			   }
              
 		  });
+
 		  
 		  //PRODUCTS
 		  $("#per-page").change(function(e) {
@@ -99,5 +100,23 @@ $(document).ready(function() {
 	   if(perPage == "none") perPage = 12;
 	   showPage(1);
     });
+	
+	 //ADD TO CART 
+		  $("#product-add-to-cart-btn").click(function(e){            
+		       e.preventDefault();
+			   let xf = $('#product-xf').val(), qty = $('#product-qty').val(),
+			       validation = (xf == "" || qty == "" || parseInt(qty) < 1);
+			   
+		       if(validation){
+				 Swal.fire({
+			            icon: 'error',
+                        title: "Please enter the quantity"
+                 });
+			   }
+			   else{
+				   window.location = `add-to-cart?xf=${xf}&qty=${qty}`;
+			   }
+             
+		  });
 	
 });
