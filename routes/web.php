@@ -14,6 +14,8 @@
 Route::get('/', 'MainController@getIndex');
 Route::get('categories', 'MainController@getCategories');
 Route::get('category', 'MainController@getCategory');
+Route::get('manufacturers', 'MainController@getManufacturers');
+Route::get('manufacturer', 'MainController@getManufacturer');
 Route::get('shop', 'MainController@getShop');
 Route::get('new-arrivals', 'MainController@getNewArrivals');
 Route::get('best-sellers', 'MainController@getBestSellers');
