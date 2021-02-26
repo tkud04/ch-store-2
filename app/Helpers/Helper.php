@@ -1372,7 +1372,7 @@ $subject = $data['subject'];
            	   $cc = Carts::where('product_id', $data['xf'])
 			              ->where('user_id', $data['user_id'])->first();
 			$ret = "error";
-			
+			#dd($cc);
 			if($cc != null)
 			{
 			  $cc->delete();

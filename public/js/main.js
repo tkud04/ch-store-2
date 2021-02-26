@@ -2104,9 +2104,11 @@ window.Donald = {};
         function QuantityInput($el) {
             return this.init($el);
         }
+		let qx = 1, qx2 = $('.quantity').attr('data-val');
+		if(qx2) qx = qx2;
         QuantityInput.min = 1;
         QuantityInput.max = 1000000;
-        QuantityInput.value = 1;
+        QuantityInput.value = qx;
         QuantityInput.prototype.init = function ($el) {
             var self = this;
 
