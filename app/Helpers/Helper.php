@@ -1392,7 +1392,7 @@ $subject = $data['subject'];
            {
            	$ret = ["subtotal" => 0, "delivery" => 0, "items" => 0];
 			  $userId = null;
-			  #dd($cart);
+			  dd($cart);
               if($cart != null && count($cart) > 0)
                {           	
                	foreach($cart as $c) 
