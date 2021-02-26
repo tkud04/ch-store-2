@@ -1552,7 +1552,7 @@ class MainController extends Controller {
 		
 		$cart = $this->helpers->getCart($user);
         $req = $request->all();
-        dd($req);
+        #dd($req);
         
         $validator = Validator::make($req, [
                              'xf' => 'required|numeric',
@@ -1600,7 +1600,7 @@ class MainController extends Controller {
 			session()->flash("auth-status-error","ok");
 			redirect()->intended('/');
 		} 
-		
+		dd($user);
 		session()->flash("auth-status-error","ok");
 			redirect()->intended('/');
     }
