@@ -1586,12 +1586,12 @@ class MainController extends Controller {
 			elseif($ret == "error")
 			{
 				session()->flash("add-to-cart-status-error","ok");
-				return redirect()->back();
+				return redirect()->intended('/');
 			}
 			elseif($ret == "insufficient-stock")
 			{
 				session()->flash("insufficient-stock-status-error","ok");
-				return redirect()->back();
+				return redirect()->intended('/');
 			}
          }       
       }
