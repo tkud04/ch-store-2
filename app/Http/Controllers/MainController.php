@@ -1590,12 +1590,12 @@ class MainController extends Controller {
 			}
 			elseif($ret == "error")
 			{
-				session()->flash("add-to-cart-status-error",$ret);
+				session()->flash("add-to-cart-status-error","ok");
 				return redirect()->back();
 			}
 			elseif($ret == "insufficient-stock")
 			{
-				session()->flash("insufficient-stock-status-error",$ret);
+				session()->flash("insufficient-stock-status-error","ok");
 				return redirect()->back();
 			}
          }        
