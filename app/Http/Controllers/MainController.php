@@ -1600,9 +1600,12 @@ class MainController extends Controller {
 			session()->flash("auth-status-error","ok");
 			redirect()->intended('/');
 		} 
-		dd($user);
+		
+       if($user == null)
+       {
 		session()->flash("auth-status-error","ok");
 			redirect()->intended('/');
+	   }
     }
 	
 	/**
