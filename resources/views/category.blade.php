@@ -12,6 +12,10 @@ $pcClass = "";
 let page = 1, productsLength = 0, products = [], perPage = 12;
 
 		  <?php
+		  $pc = count($products);
+		  $pcText = $pc == 1 ? "Product" : "Products";
+		  $page1 = $pc < 12 ? $pc : 12;
+		  
 		  if(count($products) > 0)
 		  {
 		   foreach($products as $n)
@@ -129,7 +133,8 @@ $(document).ready(() => {
 								
 							</div>
 							<nav class="toolbox toolbox-pagination">
-								<p class="show-info">Showing <span>12 of 56</span> Products</p>
+								<p class="show-info">Showing <span>{{$page1}} of {{$pc}}</span> {{$pcText}}</p>
+								@if($pc > 1)
 								<ul class="pagination">
 									<li class="page-item disabled">
 										<a class="page-link page-link-prev"href="javascript:void(0)" onclick="showPreviousPage();" aria-label="Previous" tabindex="-1" aria-disabled="true">
@@ -145,6 +150,7 @@ $(document).ready(() => {
 										</a>
 									</li>
 								</ul>
+								@endif
 							</nav>
 					 </div>
 							@else

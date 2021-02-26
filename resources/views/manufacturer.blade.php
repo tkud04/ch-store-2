@@ -134,6 +134,7 @@ $(document).ready(() => {
 							</div>
 							<nav class="toolbox toolbox-pagination">
 								<p class="show-info">Showing <span>{{$page1}} of {{$pc}}</span> {{$pcText}}</p>
+								@if($pc > 1)
 								<ul class="pagination">
 									<li class="page-item disabled">
 										<a class="page-link page-link-prev"href="javascript:void(0)" onclick="showPreviousPage();" aria-label="Previous" tabindex="-1" aria-disabled="true">
@@ -149,6 +150,7 @@ $(document).ready(() => {
 										</a>
 									</li>
 								</ul>
+								@endif
 							</nav>
 					 </div>
 							@else

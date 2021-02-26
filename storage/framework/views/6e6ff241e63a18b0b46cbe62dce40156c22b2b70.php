@@ -82,7 +82,7 @@
 													<button type="submit" class="btn btn-sm btn-primary">Filter</button>
 
 													<div class="filter-price-text">Price:
-														<span class="filter-price-range">$18 - $35</span>
+														<span class="filter-price-range">$1 - $100000</span>
 													</div>
 												</div>
 											</form><!-- End Filter Price Form -->
