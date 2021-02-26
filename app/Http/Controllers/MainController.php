@@ -142,6 +142,76 @@ class MainController extends Controller {
 		}
     
     }
+    
+    /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getManufacturers(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+
+		$signals = $this->helpers->signals;
+		
+		$m = $this->helpers->getManufacturers();
+		#dd($m);
+		$cart = $this->helpers->getCart($user);
+		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
+		
+    	return view("categories",compact(['user','cart','m','pe','signals','plugins']));
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getManufacturer(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		
+		$req = $request->all();
+        
+		if(isset($req['xf']))
+		{
+			$xf = $req['xf'];
+		  $signals = $this->helpers->signals;
+	   	  $manufacturer = $this->helpers->getManufacturer($xf);
+	      
+		  #dd($category);
+		  if(count($manufacturer) > 0)
+		  {
+		     $products = $this->helpers->getProductsByManufacturer($xf);
+		     #dd($products);
+		     $m = $this->helpers->getManufacturers();
+		  $c = $this->helpers->getCategories(['children' => true]);
+		     $cart = $this->helpers->getCart($user);
+		     $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
+		     return view("manufacturer",compact(['user','cart','c','manufacturer','m','products','pe','signals','plugins']));
+		  }
+		  else
+		  {
+			return redirect()->intended('manufacturers');
+		  }
+	   	  	  
+		}
+		else
+		{
+			return redirect()->intended('manufacturers');
+		}
+    
+    }
 	
 	/**
 	 * Show the application welcome screen to the user.
