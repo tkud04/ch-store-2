@@ -1550,7 +1550,7 @@ class MainController extends Controller {
 		}
 		else
 		{
-			session()->flash("auth-status-error",$ret);
+			session()->flash("auth-status-error","ok");
 			redirect()->intended('/');
 		}
 		$req = $request->all();
