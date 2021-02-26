@@ -1,17 +1,21 @@
 <?php
-$title = $category['name'];
+$title = $manufacturer['name'];
 $ph = false;
 $pcClass = "";
 ?>
+@extends('layout')
 
-
-<?php $__env->startSection('content'); ?>
+@section('content')
 
 
 <script>
 let page = 1, productsLength = 0, products = [], perPage = 12;
 
 		  <?php
+		  $pc = count($products);
+		  $pcText = $pc == 1 ? "Product" : "Products";
+		  $page1 = $pc < 12 ? $pc : 12;
+		  
 		  if(count($products) > 0)
 		  {
 		   foreach($products as $n)
@@ -40,27 +44,27 @@ let page = 1, productsLength = 0, products = [], perPage = 12;
 			   $imggs = $n['imggs'];
 			    
 		  ?>
-		   ppd = "<?php echo e(json_encode($pd,JSON_HEX_APOS|JSON_HEX_QUOT)); ?>";
+		   ppd = "{{json_encode($pd,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
 		  ppd = ppd.replace(/&quot;/g, '\"');
 		  
-		  imggs = "<?php echo e(json_encode($imggs,JSON_HEX_APOS|JSON_HEX_QUOT)); ?>";
+		  imggs = "{{json_encode($imggs,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
 		  imggs = imggs.replace(/&quot;/g, '\"');
 		   temp = {
-			   id: "<?php echo e($id); ?>",
-			   name: "<?php echo e($name); ?>",
-			   sku: "<?php echo e($sku); ?>",
-			   model: "<?php echo e($model); ?>",
-			   upc: "<?php echo e($upc); ?>",
-			   ean: "<?php echo e($ean); ?>",
-			   jan: "<?php echo e($jan); ?>",
-			   isbn: "<?php echo e($isbn); ?>",
-			   mpn: "<?php echo e($mpn); ?>",
-			   uu: "<?php echo e($uu); ?>",
-			   cu: "<?php echo e($cu); ?>",
-			   wu: "<?php echo e($wu); ?>",
+			   id: "{{$id}}",
+			   name: "{{$name}}",
+			   sku: "{{$sku}}",
+			   model: "{{$model}}",
+			   upc: "{{$upc}}",
+			   ean: "{{$ean}}",
+			   jan: "{{$jan}}",
+			   isbn: "{{$isbn}}",
+			   mpn: "{{$mpn}}",
+			   uu: "{{$uu}}",
+			   cu: "{{$cu}}",
+			   wu: "{{$wu}}",
 			   pd: ppd,
-			   amount: "<?php echo e($amount); ?>",
-			   category: "<?php echo e($category['name']); ?>",
+			   amount: "{{$amount}}",
+			   category: "{{$category['name']}}",
 			   imggs: imggs,
 		   };
 		   products.push(temp);
@@ -82,13 +86,13 @@ $(document).ready(() => {
 </script>
 <div class="container">
 <div class="row main-content-wrap gutter-lg">
-						<?php echo $__env->make('shop-sidebar',['c' => $c,'m' => $m], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+						@include('shop-sidebar',['c' => $c,'m' => $m])
 						<div class="col-lg-9 main-content">
 							<div class="shop-banner-default banner" style="background-image: url('images/shop/banner.jpg'); background-color: #f2f2f3;">
 								<div class="banner-content">
 									<h4 class="banner-subtitle mb-2  text-body text-uppercase ls-m font-weight-normal">
 										Mobile Buzz</h4>
-									<h1 class="banner-title font-weight-normal text-uppercase"><strong class="ls-m"><?php echo e($title); ?></strong></h1>
+									<h1 class="banner-title font-weight-normal text-uppercase"><strong class="ls-m">{{$title}}</strong></h1>
 									<p class="font-primary lh-1 ls-m mb-0">Simple and Fresh ShopStyle</p>
 								</div>
 							</div>
@@ -123,13 +127,13 @@ $(document).ready(() => {
 									</div>
 								</div>
 							</nav>
-						<?php if(count($products) > 0): ?>	 
+						@if(count($products) > 0)	 
 			          <div id="pagination-row">
 							<div class="row cols-2 cols-sm-3 product-wrapper" id="products">
 								
 							</div>
 							<nav class="toolbox toolbox-pagination">
-								<p class="show-info">Showing <span>12 of 56</span> Products</p>
+								<p class="show-info">Showing <span>{{$page1}} of {{$pc}}</span> {{$pcText}}</p>
 								<ul class="pagination">
 									<li class="page-item disabled">
 										<a class="page-link page-link-prev"href="javascript:void(0)" onclick="showPreviousPage();" aria-label="Previous" tabindex="-1" aria-disabled="true">
@@ -147,14 +151,12 @@ $(document).ready(() => {
 								</ul>
 							</nav>
 					 </div>
-							<?php else: ?>
+							@else
 							  <div class="row cols-2 cols-sm-3 product-wrapper">
-								<h3>No products in this category</h3>
+								<h3>No products from this manufacturer</h3>
 							</div>
-							<?php endif; ?>
+							@endif
 						</div>
 					</div>
 				</div>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/category.blade.php ENDPATH**/ ?>
+@stop

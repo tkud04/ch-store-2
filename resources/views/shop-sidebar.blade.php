@@ -8,7 +8,7 @@
 										<h3 class="widget-title">All Categories<span class="toggle-btn"></span><span class="toggle-btn"></span></h3>
 										<ul class="widget-body filter-items search-ul">
 										  <?php
-										  $cccc = [];
+										  $cccc = []; $mmmm = [];
 										  
 										    foreach($c as $cc)
 											{
@@ -52,6 +52,27 @@
 										</ul>
 									</div>
 									<div class="widget widget-collapsible">
+										<h3 class="widget-title">All Manufacturers<span class="toggle-btn"></span><span class="toggle-btn"></span></h3>
+										<ul class="widget-body filter-items search-ul">
+										  <?php
+										 
+										    foreach($m as $mm)
+											{
+												if(!in_array($mm['id'],$mmmm))
+												{
+												$mu = url('manufacturer')."?xf=".$mm['id'];
+												
+													
+										   ?>
+											<li><a href="{{$mu}}">{!! $mm['name'] !!}</a></li>										  
+                                           <?php										   
+												}
+											  array_push($mmmm,$mm['id']);
+											}
+										   ?>
+										</ul>
+									</div>
+									<div class="widget widget-collapsible">
 										<h3 class="widget-title">Price<span class="toggle-btn"></span></h3>
 										<div class="widget-body">
 											<form action="#">
@@ -61,7 +82,7 @@
 													<button type="submit" class="btn btn-sm btn-primary">Filter</button>
 
 													<div class="filter-price-text">Price:
-														<span class="filter-price-range">$18 - $35</span>
+														<span class="filter-price-range">$1 - $100000</span>
 													</div>
 												</div>
 											</form><!-- End Filter Price Form -->

@@ -82,7 +82,7 @@ $(document).ready(() => {
 </script>
 <div class="container">
 <div class="row main-content-wrap gutter-lg">
-						@include('shop-sidebar',['c' => $c])
+						@include('shop-sidebar',['c' => $c,'m' => $m])
 						<div class="col-lg-9 main-content">
 							<div class="shop-banner-default banner" style="background-image: url('images/shop/banner.jpg'); background-color: #f2f2f3;">
 								<div class="banner-content">

@@ -57,7 +57,7 @@ $pcClass = "";
                                 <div class="category-content">
                                     <h4 class="category-name"><a href="{{$cu}}">{{ucwords($cc['name'])}}</a></h4>
                                     <span class="category-count">
-                                        <span>{{$pc}}</span> Products
+                                        <span>{{$pc}}</span> {{$pcText}}
                                     </span>
                                 </div>
                                </div>

@@ -1,5 +1,5 @@
 <?php
-$title = $category['name'];
+$title = $manufacturer['name'];
 $ph = false;
 $pcClass = "";
 ?>
@@ -12,6 +12,10 @@ $pcClass = "";
 let page = 1, productsLength = 0, products = [], perPage = 12;
 
 		  <?php
+		  $pc = count($products);
+		  $pcText = $pc == 1 ? "Product" : "Products";
+		  $page1 = $pc < 12 ? $pc : 12;
+		  
 		  if(count($products) > 0)
 		  {
 		   foreach($products as $n)
@@ -129,7 +133,7 @@ $(document).ready(() => {
 								
 							</div>
 							<nav class="toolbox toolbox-pagination">
-								<p class="show-info">Showing <span>12 of 56</span> Products</p>
+								<p class="show-info">Showing <span><?php echo e($page1); ?> of <?php echo e($pc); ?></span> <?php echo e($pcText); ?></p>
 								<ul class="pagination">
 									<li class="page-item disabled">
 										<a class="page-link page-link-prev"href="javascript:void(0)" onclick="showPreviousPage();" aria-label="Previous" tabindex="-1" aria-disabled="true">
@@ -149,7 +153,7 @@ $(document).ready(() => {
 					 </div>
 							<?php else: ?>
 							  <div class="row cols-2 cols-sm-3 product-wrapper">
-								<h3>No products in this category</h3>
+								<h3>No products from this manufacturer</h3>
 							</div>
 							<?php endif; ?>
 						</div>
@@ -157,4 +161,4 @@ $(document).ready(() => {
 				</div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/category.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/manufacturer.blade.php ENDPATH**/ ?>

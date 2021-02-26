@@ -761,6 +761,30 @@ $subject = $data['subject'];
                                                       
                 return $ret;
            }
+
+		   function getProductsByManufacturer($m)
+           {
+           	$ret = [];
+			  $mm = Manufacturers::where('id',$m)->first();
+              
+			  if($mm != null)
+			  {
+			    $pds = ProductData::where('manufacturer',$mm->id)->get();
+                $pds = $pds->sortByDesc('created_at');
+			  
+			    #dd($pds);
+                if($pds != null)
+                 {
+				    foreach($pds as $p)
+				    {
+					    $pp = $this->getProduct($p->product_id);
+					    array_push($ret,$pp);
+				    }
+                 }
+			  }				 
+                                                      
+                return $ret;
+           }
 		   
 		   function getProducts()
            {
@@ -1200,6 +1224,7 @@ $subject = $data['subject'];
 						$temp['id'] = $m->id;
 						$temp['name'] = $m->name;
 						$temp['image'] = $this->getCloudinaryImages([$m->image]);
+						$temp['product_count'] = ProductData::where('manufacturer',$m->id)->count();
 						$temp['date'] = $m->created_at->format("jS F, Y"); 
 						$ret = $temp;
                }                                 

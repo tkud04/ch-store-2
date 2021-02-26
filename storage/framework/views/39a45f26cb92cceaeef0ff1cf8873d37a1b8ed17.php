@@ -1,5 +1,5 @@
 <?php
-$title = "Categories";
+$title = "Manufacturers";
 $ph = false;
 $pcClass = "";
 ?>
@@ -7,7 +7,7 @@ $pcClass = "";
 
 <?php $__env->startSection('content'); ?>
 <section class="mt-md-10 pt-md-3 mt-9">
-                        <h2 class="title">Available Categories</h2>
+                        <h2 class="title">Available Manufacturers</h2>
 						<?php
 						 if(count($c) > 0)
 						 {
@@ -39,12 +39,12 @@ $pcClass = "";
                         <div class="owl-stage-outer">
 						   <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;">
 						     <?php
-							   foreach($c as $cc)
+							   foreach($m as $mm)
 						       {
-							     $cu = url('category')."?xf=".$cc['category']; 
-							     $imgs = $cc['image'];
-							     $parent = $cc['parent'];
-							     $pc = $cc['product_count'];
+							     $cu = url('manufacturer')."?xf=".$mm['id']; 
+							     $imgs = $mm['image'];
+							    # $parent = $mm['parent'];
+							     $pc = $mm['product_count'];
 							     $pcText = $pc == 1 ? "Product" : "Products";
 							 ?>
 							 <div class="owl-item active" style="width: 280px; margin-right: 20px;">
@@ -55,7 +55,7 @@ $pcClass = "";
                                     </figure>
                                 </a>
                                 <div class="category-content">
-                                    <h4 class="category-name"><a href="<?php echo e($cu); ?>"><?php echo e(ucwords($cc['name'])); ?></a></h4>
+                                    <h4 class="category-name"><a href="<?php echo e($cu); ?>"><?php echo e(ucwords($mm['name'])); ?></a></h4>
                                     <span class="category-count">
                                         <span><?php echo e($pc); ?></span> <?php echo e($pcText); ?>
 
@@ -81,4 +81,4 @@ $pcClass = "";
                     </section>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/categories.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/manufacturers.blade.php ENDPATH**/ ?>

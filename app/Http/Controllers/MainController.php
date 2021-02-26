@@ -127,8 +127,9 @@ class MainController extends Controller {
 		     $products = $this->helpers->getProductsByCategory($xf);
 		     #dd($products);
 		     $cart = $this->helpers->getCart($user);
+			 $m = $this->helpers->getManufacturers();
 		     $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		     return view("category",compact(['user','cart','c','category','products','pe','signals','plugins']));
+		     return view("category",compact(['user','cart','c','m','category','products','pe','signals','plugins']));
 		  }
 		  else
 		  {
@@ -161,11 +162,12 @@ class MainController extends Controller {
 		$signals = $this->helpers->signals;
 		
 		$m = $this->helpers->getManufacturers();
+		$c = $this->helpers->getCategories(['children' => true]);
 		#dd($m);
 		$cart = $this->helpers->getCart($user);
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
-    	return view("categories",compact(['user','cart','m','pe','signals','plugins']));
+    	return view("manufacturers",compact(['user','cart','m','c','pe','signals','plugins']));
     }
 	
 	/**
