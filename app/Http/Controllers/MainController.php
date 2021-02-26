@@ -120,6 +120,7 @@ class MainController extends Controller {
 			$xf = $req['xf'];
 		  $signals = $this->helpers->signals;
 	   	  $category = $this->helpers->getCategory($xf);
+		  $c = $this->helpers->getCategories(['children' => true]);
 		  #dd($category);
 		  if(count($category) > 0)
 		  {
@@ -127,7 +128,7 @@ class MainController extends Controller {
 		     #dd($products);
 		     $cart = $this->helpers->getCart($user);
 		     $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		     return view("category",compact(['user','cart','category','products','pe','signals','plugins']));
+		     return view("category",compact(['user','cart','c','category','products','pe','signals','plugins']));
 		  }
 		  else
 		  {

@@ -9,17 +9,80 @@ $pcClass = "";
 
 
 <script>
-let productsLength = 0;
+let page = 1, productsLength = 0, products = [], perPage = 12;
+
+		  <?php
+		  if(count($products) > 0)
+		  {
+		   foreach($products as $n)
+		   {
+			   $id = $n['id'];
+			   $sku = $n['sku'];
+			   $model = $n['model'];
+			   $name = $n['name'];
+			   $upc = $n['upc'];
+			   $ean = $n['ean'];
+			   $jan = $n['jan'];
+			   $isbn = $n['isbn'];
+			   $mpn = $n['mpn'];
+			   $qty = $n['qty'];
+			   $pd = $n['data'];
+			   $imgs = $n['imggs'];
+			   $displayName = $name == "" ? $model : $name;
+			   $uu = url('product')."?xf=".$model;
+			   $cu = url('add-to-cart')."?xf=".$model."&qty=1";
+			   $wu = url('add-to-wishlist')."?xf=".$model;
+			   //$ccu = url('add-to-compare')."?sku=".$sku;
+			   $description = $pd['description'];
+			   $category = $pd['category'];
+			   $manufacturer = $pd['manufacturer'];
+			   $amount = $pd['amount'];
+			   $imggs = $n['imggs'];
+			    
+		  ?>
+		   ppd = "{{json_encode($pd,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
+		  ppd = ppd.replace(/&quot;/g, '\"');
+		  
+		  imggs = "{{json_encode($imggs,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
+		  imggs = imggs.replace(/&quot;/g, '\"');
+		   temp = {
+			   id: "{{$id}}",
+			   name: "{{$name}}",
+			   sku: "{{$sku}}",
+			   model: "{{$model}}",
+			   upc: "{{$upc}}",
+			   ean: "{{$ean}}",
+			   jan: "{{$jan}}",
+			   isbn: "{{$isbn}}",
+			   mpn: "{{$mpn}}",
+			   uu: "{{$uu}}",
+			   cu: "{{$cu}}",
+			   wu: "{{$wu}}",
+			   pd: ppd,
+			   amount: "{{$amount}}",
+			   category: "{{$category['name']}}",
+			   imggs: imggs,
+		   };
+		   products.push(temp);
+		   <?php
+			}
+		  }
+			?>
+
+
 $(document).ready(() => {
   console.log("products: ",products);
    productsLength = products.length;
   showPage(1);
 });
+		  </script>
+
+
 
 </script>
 <div class="container">
 <div class="row main-content-wrap gutter-lg">
-						@include('shop-sidebar')
+						@include('shop-sidebar',['c' => $c])
 						<div class="col-lg-9 main-content">
 							<div class="shop-banner-default banner" style="background-image: url('images/shop/banner.jpg'); background-color: #f2f2f3;">
 								<div class="banner-content">
@@ -60,67 +123,7 @@ $(document).ready(() => {
 									</div>
 								</div>
 							</nav>
-							  @if(count($products) > 0)
-							  <script>
-					  let page = 1, perPage = 12;
-					   let products = [];
-					  </script>
-		  <?php
-		   foreach($products as $n)
-		   {
-			   $id = $n['id'];
-			   $sku = $n['sku'];
-			   $model = $n['model'];
-			   $name = $n['name'];
-			   $upc = $n['upc'];
-			   $ean = $n['ean'];
-			   $jan = $n['jan'];
-			   $isbn = $n['isbn'];
-			   $mpn = $n['mpn'];
-			   $qty = $n['qty'];
-			   $pd = $n['data'];
-			   $imgs = $n['imggs'];
-			   $displayName = $name == "" ? $model : $name;
-			   $uu = url('product')."?xf=".$model;
-			   $cu = url('add-to-cart')."?xf=".$model."&qty=1";
-			   $wu = url('add-to-wishlist')."?xf=".$model;
-			   //$ccu = url('add-to-compare')."?sku=".$sku;
-			   $description = $pd['description'];
-			   $category = $pd['category'];
-			   $manufacturer = $pd['manufacturer'];
-			   $amount = $pd['amount'];
-			   $imggs = $n['imggs'];
-			    
-		  ?>
-		  <script>
-		   ppd = "{{json_encode($pd,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
-		  ppd = ppd.replace(/&quot;/g, '\"');
-		  
-		  imggs = "{{json_encode($imggs,JSON_HEX_APOS|JSON_HEX_QUOT) }}";
-		  imggs = imggs.replace(/&quot;/g, '\"');
-		   temp = {
-			   id: "{{$id}}",
-			   name: "{{$name}}",
-			   sku: "{{$sku}}",
-			   model: "{{$model}}",
-			   upc: "{{$upc}}",
-			   ean: "{{$ean}}",
-			   jan: "{{$jan}}",
-			   isbn: "{{$isbn}}",
-			   mpn: "{{$mpn}}",
-			   uu: "{{$uu}}",
-			   cu: "{{$cu}}",
-			   wu: "{{$wu}}",
-			   pd: ppd,
-			   amount: "{{$amount}}",
-			   category: "{{$category['name']}}",
-			   imggs: imggs,
-		   };
-		   products.push(temp);
-		  </script>
-		  <?php
-			}
-			?>
+						@if(count($products) > 0)	 
 			          <div id="pagination-row">
 							<div class="row cols-2 cols-sm-3 product-wrapper" id="products">
 								

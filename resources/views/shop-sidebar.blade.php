@@ -5,43 +5,50 @@
 							<div class="sidebar-content">
 								<div class="pin-wrapper" style="height: 1182.88px;"><div class="sticky-sidebar" style="border-bottom: 0px none rgb(102, 102, 102); width: 272.5px;">
 									<div class="widget widget-collapsible">
-										<h3 class="widget-title">All Categories<span class="toggle-btn"></span></h3>
+										<h3 class="widget-title">All Categories<span class="toggle-btn"></span><span class="toggle-btn"></span></h3>
 										<ul class="widget-body filter-items search-ul">
-											<li><a href="javascript:void(0)">Bags</a></li>
-											<li><a href="javascript:void(0)">Sport Shorts</a></li>
-											<li class="with-ul show">
-												<a href="javascript:void(0)">Clothing<i class="fas fa-chevron-down"></i></a>
+										  <?php
+										  $cccc = [];
+										  
+										    foreach($c as $cc)
+											{
+												if(!in_array($cc['id'],$cccc))
+												{
+												$cu = url('category')."?xf=".$cc['category'];
+												$children = $cc['children'];
+												
+												if(count($children) == 0)
+												{
+													
+										   ?>
+											<li><a href="{{$cu}}">{!! $cc['name'] !!}</a></li>
+										   <?php
+												}
+												else if(count($children) > 0)
+												{
+													
+										  ?>
+                                           <li class="with-ul show">
+												<a href="{{$cu}}">{!! $cc['name'] !!}<i class="fas fa-chevron-down"></i><i class="fas fa-chevron-down"></i></a>
 												<ul style="display: block">
-													<li><a href="javascript:void(0)">Summer sale</a></li>
-													<li><a href="javascript:void(0)">Shirts</a></li>
-													<li><a href="javascript:void(0)">Trunks</a></li>
+												   <?php
+												    foreach($children as $c2)
+													{
+													  $cu2 = url('category')."?xf=".$c2['category'];
+												   ?>
+													<li><a href="{{$cu2}}">{!! $c2['name'] !!}</a></li>
+													<?php
+													 array_push($cccc,$c2['id']);
+													}
+													?>
 												</ul>
 											</li>
-											<li><a href="javascript:void(0)">Shoes</a></li>
-											<li class="with-ul">
-												<a href="javascript:void(0)">Sweaters<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="javascript:void(0)">T-Shirts</a></li>
-													<li><a href="javascript:void(0)">Dress</a></li>
-													<li><a href="javascript:void(0)">Blouse</a></li>
-												</ul>
-											</li>
-											<li class="with-ul">
-												<a href="javascript:void(0)">Uncategorized<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="javascript:void(0)">Trousers</a></li>
-													<li><a href="javascript:void(0)">Jacket</a></li>
-													<li><a href="javascript:void(0)">Caps</a></li>
-												</ul>
-											</li>
-											<li class="with-ul">
-												<a href="javascript:void(0)">Women<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="javascript:void(0)">Summer sales</a></li>
-													<li><a href="javascript:void(0)">Shirts</a></li>
-													<li><a href="javascript:void(0)">Trunks</a></li>
-												</ul>
-											</li>
+                                           <?php										   
+												}
+											  }
+											  array_push($cccc,$cc['id']);
+											}
+										   ?>
 										</ul>
 									</div>
 									<div class="widget widget-collapsible">
