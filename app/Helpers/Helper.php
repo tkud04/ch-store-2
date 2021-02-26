@@ -562,7 +562,7 @@ $subject = $data['subject'];
                     	$temp = [];
                	        $temp['id'] = $c->id; 
                	        $temp['user_id'] = $c->user_id; 
-                        $temp['product'] = $this->getProduct($c->id); 
+                        $temp['product'] = $this->getProduct($c->product_id); 
                         $temp['qty'] = $c->qty; 
 						
                         array_push($ret, $temp); 
