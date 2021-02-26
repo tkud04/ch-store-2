@@ -1547,12 +1547,7 @@ class MainController extends Controller {
 		{
 			$user = Auth::user();
 			
-		}
-		else
-		{
-			session()->flash("auth-status-error","ok");
-			redirect()->intended('/');
-		}
+		
 		$req = $request->all();
 		
 		$cart = $this->helpers->getCart($user);
@@ -1598,7 +1593,13 @@ class MainController extends Controller {
 				session()->flash("insufficient-stock-status-error","ok");
 				return redirect()->back();
 			}
-         }        
+         }       
+      }
+		else
+		{
+			session()->flash("auth-status-error","ok");
+			redirect()->intended('/');
+		} 
     }
 	
 	/**
