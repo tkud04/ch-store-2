@@ -74,45 +74,25 @@
 									</div>
 									<div class="widget widget-collapsible">
 										<h3 class="widget-title">Price<span class="toggle-btn"></span></h3>
-										<div class="widget-body">
-											<form action="#">
-												<div class="filter-price-slider noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-connects"><div class="noUi-connect" style="transform: translate(0%, 0px) scale(1, 1);"></div></div><div class="noUi-origin" style="transform: translate(-100%, 0px); z-index: 5;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="100.0" aria-valuenow="0.0" aria-valuetext="18.00"></div></div><div class="noUi-origin" style="transform: translate(0%, 0px); z-index: 4;"><div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="100.0" aria-valuenow="100.0" aria-valuetext="35.00"></div></div></div></div>
-
-												<div class="filter-actions">
-													<button type="submit" class="btn btn-sm btn-primary">Filter</button>
-
-													<div class="filter-price-text">Price:
-														<span class="filter-price-range">$1 - $100000</span>
-													</div>
-												</div>
-											</form><!-- End Filter Price Form -->
-										</div>
+										<ul class="widget-body filter-items">
+											<li><input type="text" class="ssb-input" id="ssb-price-from" placeholder="Min price"></li>
+											<li><input type="text" class="ssb-input" id="ssb-price-to" placeholder="Max price"></li>											
+										</ul>
 									</div>
 									<div class="widget widget-collapsible">
 										<h3 class="widget-title">Size<span class="toggle-btn"></span></h3>
 										<ul class="widget-body filter-items">
-											<li><a href="javascript:void(0)">Small<span>(2)</span></a></li>
-											<li><a href="javascript:void(0)">Medium<span>(1)</span></a></li>
-											<li><a href="javascript:void(0)">Large<span>(9)</span></a></li>
-											<li><a href="javascript:void(0)">Extra Large<span>(1)</span></a></li>
+											<li><input type="text" class="ssb-input" id="ssb-size-length" placeholder="Length"></li>
+											<li><input type="text" class="ssb-input" id="ssb-size-width" placeholder="Width"></li>	
+											<li><input type="text" class="ssb-input" id="ssb-size-height" placeholder="Height"></li>	
 										</ul>
 									</div>
 									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Color<span class="toggle-btn"></span></h3>
-										<ul class="widget-body filter-items">
-											<li><a href="javascript:void(0)">Black<span>(2)</span></a></li>
-											<li><a href="javascript:void(0)">Blue<span>(1)</span></a></li>
-											<li><a href="javascript:void(0)">Green<span>(9)</span></a></li>
-										</ul>
+										<div class="filter-actions">
+										<button id="ssb-btn" class="btn btn-sm btn-primary">Search</button>
 									</div>
-									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Brands<span class="toggle-btn"></span></h3>
-										<ul class="widget-body filter-items">
-											<li><a href="javascript:void(0)">Black<span>(2)</span></a></li>
-											<li><a href="javascript:void(0)">Blue<span>(1)</span></a></li>
-											<li><a href="javascript:void(0)">Green<span>(9)</span></a></li>
-										</ul>
 									</div>
+									
 								</div></div>
 							</div>
 						</aside>

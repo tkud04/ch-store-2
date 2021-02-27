@@ -745,7 +745,18 @@ $subject = $data['subject'];
               
 			  if($cc != null)
 			  {
-			    $pds = ProductData::where('category',$cc->id)->get();
+				  #dd($cc);
+				  $ids = [$cc->id];
+				  $children = Categories::where('parent_id',$cc->id)->get();
+				  
+				  if($children != null)
+				  {
+					  foreach($children as $child)
+					  {
+						  array_push($ids,$child->id);
+					  }
+				  }
+			    $pds = ProductData::whereIn('category',$ids)->get();
                 $pds = $pds->sortByDesc('created_at');
 			  
 			    #dd($pds);

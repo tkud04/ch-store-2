@@ -48,7 +48,7 @@
     <script src="lib/sweet-alert/sweetalert2.js"></script>
 	 
     <!-- Custom CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css').'?ver='.rand(32,99999)}}">
 	
 		
 <!-- DO NOT EDIT!! start of plugins -->

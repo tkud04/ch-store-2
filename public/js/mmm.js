@@ -135,5 +135,22 @@ $(document).ready(function() {
 			   }
              
 		  });
+		  $("#ssb-btn").click(function(e){            
+		       e.preventDefault();
+			   let l = $('#ssb-size-length').val(), w = $('#ssb-size-width').val(), h = $('#ssb-size-height').val(),
+			       min = $('#ssb-price-from').val(), max = $('#ssb-price-to').val(),
+			       validation = (l == "" || w == "" || h == "" || min == "" || max == "" || parseInt(min) < 1 || parseInt(max) < 1);
+			   
+		       if(validation){
+				 Swal.fire({
+			            icon: 'error',
+                        title: "Please fill in the required fields"
+                 });
+			   }
+			   else{
+				   window.location = `search?l=${l}&w=${w}&h=${h}&min=${min}&max=${max}`;
+			   }
+             
+		  });
 	
 });
