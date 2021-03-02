@@ -1173,8 +1173,14 @@ $subject = $data['subject'];
 		   function getCategory($id,$optionalParams=[])
            {
            	$ret = [];
-           	$c = Categories::where('id',$id)
-			               ->orWhere('category',"$id")->first();
+               if(isset($optionalParams["category"]) && $optionalParams['category'])
+               {
+           	$c = Categories::where('category',$id)->first();
+			   }
+			  else
+			   {
+           	$c = Categories::where('id',$id)->first();
+			   }
                #dd($optionalParams);
 			  $children = isset($optionalParams["children"]) && $optionalParams['children'];
               if($c != null)
