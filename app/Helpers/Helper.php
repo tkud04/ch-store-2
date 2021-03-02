@@ -1163,8 +1163,14 @@ $subject = $data['subject'];
               // dd($cart);
 			  
               if($p != null)
-               {           	             	
-					$ret = $this->getCategory($p->id);
+               {       
+                   $temp = [];
+						$temp['id'] = $p->id;
+						$temp['name'] = $p->name;
+						$temp['category'] = $p->category;
+						$temp['data'] = $this->getCategoryData($p->id);
+						$temp['image'] = $this->getCloudinaryImages([$p->image]);    	             	
+					$ret = $temp;
                }                                 
                                                       
                 return $ret;
