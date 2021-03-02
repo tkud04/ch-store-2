@@ -40,7 +40,7 @@ class MainController extends Controller {
 
 		$signals = $this->helpers->signals;
 		
-		$c = $this->helpers->getCategories(['children' => true,'category' => true]);
+		$c = $this->helpers->getCategories(['children' => true,'id' => true]);
 		$m = $this->helpers->getManufacturers();
 		$bs = $this->helpers->getBestSellers();
 		$tp = $this->helpers->getTopProducts();
