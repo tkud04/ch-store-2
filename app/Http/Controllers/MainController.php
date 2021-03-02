@@ -44,7 +44,7 @@ class MainController extends Controller {
 		$m = $this->helpers->getManufacturers();
 		$bs = $this->helpers->getBestSellers();
 		$tp = $this->helpers->getTopProducts();
-		dd($c);
+		#dd($c);
 		$cart = $this->helpers->getCart($user);
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
