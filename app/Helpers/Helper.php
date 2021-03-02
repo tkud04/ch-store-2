@@ -1164,7 +1164,7 @@ $subject = $data['subject'];
 			  
               if($p != null)
                {           	             	
-					$ret = $this->getCategory($c->id);
+					$ret = $this->getCategory($p->id);
                }                                 
                                                       
                 return $ret;
