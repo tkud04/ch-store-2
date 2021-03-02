@@ -1159,7 +1159,7 @@ $subject = $data['subject'];
            function getCategoryParent($c)
            {
            	$ret = [];
-           	$p = Categories::where('id',$c->parent_id)->first();
+           	$p = Categories::where('id',(int)$c->parent_id)->first();
               // dd($cart);
 			  
               if($p != null)
