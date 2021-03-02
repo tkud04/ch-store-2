@@ -1155,6 +1155,20 @@ $subject = $data['subject'];
                                                       
                 return $ret;
            }
+           
+           function getCategoryParent($c)
+           {
+           	$ret = [];
+           	$p = Categories::where('id',$c->parent_id)->first();
+              // dd($cart);
+			  
+              if($p != null)
+               {           	             	
+					$ret = $this->getCategory($c->id);
+               }                                 
+                                                      
+                return $ret;
+           }
 		   
 		   function getCategory($id,$optionalParams=[])
            {
@@ -1173,7 +1187,7 @@ $subject = $data['subject'];
 						$temp['image'] = $this->getCloudinaryImages([$c->image]);
 						$temp['parent_id'] = $c->parent_id;
 						$temp['product_count'] = ProductData::where('category',$c->id)->count();
-						$temp['parent'] = $this->getCategory($c->parent_id);
+						$temp['parent'] = $this->getCategoryParent($c);
 						if($children) $temp['children'] = $this->getCategoryChildren($c->id);
 						$temp['status'] = $c->status;
 						$temp['date'] = $c->created_at->format("jS F, Y"); 
