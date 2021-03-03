@@ -119,8 +119,33 @@ $(document).ready(function() {
              
 		  });
 		  
+		  $(".product-qty").change(function(e){            
+		       e.preventDefault();
+			   
+			      console.log(`xf: ${xf}, qty: ${qty}`);
+             
+		  });
+		  
 		  $("#update-cart-btn").click(function(e){            
 		       e.preventDefault();
+			   
+			   let items = $('.product-qty');
+			   
+			   
+			   for(let ii = 0; ii < items.length; ii++){
+				   let i = items[ii], xf = $(i).attr('data-xf'), qty = $(i).attr('data-val');
+				   
+				   let c = cart.find(x => x.xf == xf);
+				   
+				   if(c){
+					 c.qty = qty;  
+				   }else{
+					   cart.push({xf: xf, qty: qty});
+				   }
+				   
+			   }
+			   console.log(cart);
+			   /**
 			   let xf = $('#product-xf').val(), qty = $('#product-qty').val(),
 			       validation = (xf == "" || qty == "" || parseInt(qty) < 1);
 			   
@@ -131,10 +156,12 @@ $(document).ready(function() {
                  });
 			   }
 			   else{
-				   window.location = `add-to-cart?xf=${xf}&qty=${qty}`;
+				  // window.location = `update-cart?xf=${xf}&qty=${qty}`;
 			   }
+			   **/
              
 		  });
+		  
 		  $("#ssb-btn").click(function(e){            
 		       e.preventDefault();
 			   let l = $('#ssb-size-length').val(), w = $('#ssb-size-width').val(), h = $('#ssb-size-height').val(),

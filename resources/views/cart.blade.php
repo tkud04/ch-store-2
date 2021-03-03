@@ -6,11 +6,16 @@ $pcClass = "";
 @extends('layout')
 
 @section('content')
+
+
+<script>
+let cart = [];
+</script>
 				@include('checkout-header',['number' => 1])
 				<div class="container mt-8 mb-4">
 					<div class="row gutter-lg">
 						<div class="col-lg-8 col-md-12">
-							<table class="shop-table cart-table mt-2">
+							<table id="cart-table" class="shop-table cart-table mt-2">
 								<thead>
 									<tr>
 										<th><span>Product</span></th>
@@ -35,6 +40,9 @@ $pcClass = "";
 									 $uu = url('product')."?xf=".$xf;
 									 $ru = url('remove-from-cart')."?xf=".$xf;
 				                 ?>
+								   <script>
+								    // cart.push({xf: "{{$qty}}",qty: "{{$qty}}"});
+								   </script>
 									<tr>
 										<td class="product-thumbnail">
 											<figure>
@@ -57,7 +65,7 @@ $pcClass = "";
 										<td class="product-quantity">
 											<div class="input-group">
 												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control" type="number" data-val="{{$qty}}" min="1" max="1000000">
+												<input class="quantity form-control product-qty" type="number" data-val="{{$qty}}" data-xf="{{$xf}}" min="1" max="1000000">
 												<button class="quantity-plus d-icon-plus"></button>
 											</div>
 										</td>
