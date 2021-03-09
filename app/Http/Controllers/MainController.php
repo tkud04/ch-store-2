@@ -342,12 +342,17 @@ class MainController extends Controller {
 		if(Auth::check())
 		{
 			$user = Auth::user();
+			$cart = $this->helpers->getCart($user);
 		    $shipping = $this->helpers->getShippingDetails($user);	
+		}
+		else
+		{
+			return redirect()->intended('/');
 		}
 		$req = $request->all();
 		
 		/**
-		$cart = $this->helpers->getCart($user);
+		
 		$totals = $this->helpers->getCartTotals($cart);
 		
 
@@ -1003,6 +1008,30 @@ class MainController extends Controller {
 		$info = $this->helpers->getInformationSingle("delivery");
 		#dd($info);
 		return view("delivery",compact(['user','cart','info','c','pe','signals','plugins']));	
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getReturnPolicy(Request $request)
+    {
+       $user = null;
+		$cart = [];
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		$req = $request->all();
+		$cart = $this->helpers->getCart($user);
+		$c = $this->helpers->getCategories();
+		$signals = $this->helpers->signals;
+		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
+		$info = $this->helpers->getInformationSingle("returns");
+		#dd($info);
+		return view("returns",compact(['user','cart','info','c','pe','signals','plugins']));	
     }
 	
 	/**

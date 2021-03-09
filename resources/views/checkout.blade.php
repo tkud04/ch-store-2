@@ -96,28 +96,37 @@ $pcClass = "";
 										<table class="order-table">
 											<thead>
 												<tr>
-													<th>Product</th>
+													<th>Items</th>
 													<th></th>
 												</tr>
 											</thead>
 											<tbody>
+											<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+									 $imgs = $item['imggs'];
+									 $uu = url('product')."?xf=".$xf;
+									 $ru = url('remove-from-cart')."?xf=".$xf;
+				                 ?>
 												<tr>
-													<td class="product-name">Beige knitted shoes <strong class="product-quantity">×&nbsp;1</strong></td>
-													<td class="product-total">$84.00</td>
+													<td class="product-name">{{$item['name']}} <strong class="product-quantity">×&nbsp;{{$qty}}</strong></td>
+													<td class="product-total">&#0163;{{number_format($itemAmount * $qty,2)}}</td>
 												</tr>
-												<tr>
-													<td class="product-name">Beige knitted shoes <strong class="product-quantity">×&nbsp;1</strong></td>
-													<td class="product-total">$76.00</td>
-												</tr>
-												<tr>
-													<td class="product-name">Beige knitted shoes <strong class="product-quantity">×&nbsp;1</strong></td>
-													<td class="product-total">$76.00</td>
-												</tr>
+												<?php
+								   }
+									?>
 												<tr class="summary-subtotal">
 													<td>
 														<h4 class="summary-subtitle">Subtotal</h4>
 													</td>
-													<td class="summary-subtotal-price">$220.00
+													<td class="summary-subtotal-price">&#0163;{{number_format($subtotal,2)}}
 													</td>												
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
@@ -125,24 +134,12 @@ $pcClass = "";
 														<h4 class="summary-subtitle">Shipping</h4>
 														<ul>
 															<li>
-																<div class="custom-radio">
-																	<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="">
-																	<label class="custom-control-label" for="free-shipping">Free
-																		Shipping</label>
-																</div>
-															</li>
-															<li>
-																<div class="custom-radio">
-																	<input type="radio" id="standard_shipping" name="shipping" class="custom-control-input">
-																	<label class="custom-control-label" for="standard_shipping">Standard</label>
-																</div>
-															</li>
-															<li>
-																<div class="custom-radio">
-																	<input type="radio" id="express_shipping" name="shipping" class="custom-control-input">
-																	<label class="custom-control-label" for="express_shipping">Express</label>
-																</div>
-															</li>
+														<div class="custom-radio">
+															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="checked">
+															<label class="custom-control-label" for="free-shipping">Free
+																Shipping</label>
+														</div>
+													</li>
 														</ul>
 													</td>
 												</tr>
@@ -151,7 +148,7 @@ $pcClass = "";
 														<h4 class="summary-subtitle">Total</h4>
 													</td>
 													<td>
-														<p class="summary-total-price">$220.00</p>
+														<p class="summary-total-price">&#0163;{{number_format($subtotal,2)}}</p>
 													</td>												
 												</tr>
 											</tbody>
