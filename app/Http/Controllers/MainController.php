@@ -121,7 +121,7 @@ class MainController extends Controller {
 		  $signals = $this->helpers->signals;
 	   	  $category = $this->helpers->getCategory($xf);
 		  $c = $this->helpers->getCategories(['children' => true]);
-		  #dd($category);
+		  dd($category);
 		  if(count($category) > 0)
 		  {
 		     $products = $this->helpers->getProductsByCategory($xf);
