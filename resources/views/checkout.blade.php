@@ -6,6 +6,47 @@ $pcClass = "";
 @extends('layout')
 
 @section('content')
+<script>
+let pd = [], sd = [], ppd = null;
+
+$(document).ready(() => {
+
+@if(count($pd) > 0)
+  @foreach($pd as $p)
+   pd.push({
+	  xf: "{{$p['id']}}",
+	  fname: "{{$p['fname']}}",
+	  lname: "{{$p['lname']}}",
+	  company: "{{$p['company']}}",
+	  address_1: "{{$p['address_1']}}",
+	  address_2: "{{$p['address_2']}}",
+	  city: "{{$p['city']}}",
+	  region: "{{$p['region']}}",
+	  zip: "{{$p['zip']}}",
+	  country: "{{$p['country']}}",
+   });
+  @endforeach
+@endif
+
+@if(count($sd) > 0)
+  @foreach($sd as $p)
+   sd.push({
+	  xf: "{{$p['id']}}",
+	  fname: "{{$p['fname']}}",
+	  lname: "{{$p['lname']}}",
+	  company: "{{$p['company']}}",
+	  address_1: "{{$p['address_1']}}",
+	  address_2: "{{$p['address_2']}}",
+	  city: "{{$p['city']}}",
+	  region: "{{$p['region']}}",
+	  zip: "{{$p['zip']}}",
+	  country: "{{$p['country']}}",
+   });
+  @endforeach
+@endif
+
+});
+</script>
 				@include('checkout-header',['number' => 2])
 				<div class="container mt-8">
 					<form action="#" class="form">
@@ -21,6 +62,22 @@ $pcClass = "";
                                         </div>
                                         <div id="collapse1-1" class="card-body expanded">
                                            <div class="row">
+									<div class="col-xs-12">
+									  <select class="form-control" id="checkout-pd" name="pd">
+									    <option value="none">Add new billing detail</option>
+										<?php
+										 if(count($pd) > 0)
+										 {
+											 foreach($pd as $p)
+											 {
+										?>
+									    <option value="{{$p['id']}}">{{$p['address_1'].", ".$p['city'].", ".strtoupper($p['country'])}}</option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+									</div>
 									<div class="col-xs-6">
 										<label>First Name *</label>
 										<input type="text" class="form-control" name="first-name" required="">
@@ -154,7 +211,7 @@ $pcClass = "";
 											</tbody>
 										</table>
 										<div class="payment accordion radio-type">
-											<h4 class="summary-subtitle">Payment Methods</h4>
+											<h4 class="summary-subtitle">Payment Method: <a href="javascript:void(0)" class="btn btn-sm btn-success" id="checkout-pm">NONE</a></h4>
 											<div class="card">
 												<div class="card-header">
 													<a href="#collapse1" class="collapse">Direct bank transfer
@@ -164,36 +221,27 @@ $pcClass = "";
 													<div class="card-body">
 														Make your payment directly into our bank account. Please use
 														your Order ID as the payment reference. Your order will not be
-														shipped until the funds have cleared in our account.
+														shipped until the funds have cleared in our account.<br>
+														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('direct')">Select</a>
 													</div>
 												</div>
 											</div>
+											
 											<div class="card">
 												<div class="card-header">
-													<a href="#collapse2" class="expand">Check payments</a>
-												</div>
-												<div id="collapse2" class="collapsed">
-													<div class="card-body">
-														Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-														Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-													</div>
-												</div>
-											</div>
-											<div class="card">
-												<div class="card-header">
-													<a href="#collapse4" class="expand">PayPal</a>
+													<a href="#collapse4" class="expand">Pay online</a>
 												</div>
 												<div id="collapse4" class="collapsed">
 													<div class="card-body">
-														Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra
-														non, semper suscipit, posuere a, pede. Donec nec justo eget
-														felis facilisis fermentum.
+														You will be redirected to our secure online payment gateway to make payment and complete your order.<br>
+														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
 													</div>
 												</div>
 											</div>
 										</div>
+										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-										<button type="submit" class="btn btn-dark btn-order">Place Order</button>
+										<a href="javascript:void(0)" class="btn btn-dark btn-order">Place Order</a>
 									</div>
 								</div></div>
 							</aside>

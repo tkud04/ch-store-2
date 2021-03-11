@@ -6,6 +6,47 @@ $pcClass = "";
 
 
 <?php $__env->startSection('content'); ?>
+<script>
+let pd = [], sd = [], ppd = null;
+
+$(document).ready(() => {
+
+<?php if(count($pd) > 0): ?>
+  <?php $__currentLoopData = $pd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+   pd.push({
+	  xf: "<?php echo e($p['id']); ?>",
+	  fname: "<?php echo e($p['fname']); ?>",
+	  lname: "<?php echo e($p['lname']); ?>",
+	  company: "<?php echo e($p['company']); ?>",
+	  address_1: "<?php echo e($p['address_1']); ?>",
+	  address_2: "<?php echo e($p['address_2']); ?>",
+	  city: "<?php echo e($p['city']); ?>",
+	  region: "<?php echo e($p['region']); ?>",
+	  zip: "<?php echo e($p['zip']); ?>",
+	  country: "<?php echo e($p['country']); ?>",
+   });
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
+
+<?php if(count($sd) > 0): ?>
+  <?php $__currentLoopData = $sd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+   sd.push({
+	  xf: "<?php echo e($p['id']); ?>",
+	  fname: "<?php echo e($p['fname']); ?>",
+	  lname: "<?php echo e($p['lname']); ?>",
+	  company: "<?php echo e($p['company']); ?>",
+	  address_1: "<?php echo e($p['address_1']); ?>",
+	  address_2: "<?php echo e($p['address_2']); ?>",
+	  city: "<?php echo e($p['city']); ?>",
+	  region: "<?php echo e($p['region']); ?>",
+	  zip: "<?php echo e($p['zip']); ?>",
+	  country: "<?php echo e($p['country']); ?>",
+   });
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
+
+});
+</script>
 				<?php echo $__env->make('checkout-header',['number' => 2], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				<div class="container mt-8">
 					<form action="#" class="form">
@@ -21,6 +62,22 @@ $pcClass = "";
                                         </div>
                                         <div id="collapse1-1" class="card-body expanded">
                                            <div class="row">
+									<div class="col-xs-12">
+									  <select class="form-control" id="checkout-pd" name="pd">
+									    <option value="none">Add new billing detail</option>
+										<?php
+										 if(count($pd) > 0)
+										 {
+											 foreach($pd as $p)
+											 {
+										?>
+									    <option value="<?php echo e($p['id']); ?>"><?php echo e($p['address_1'].", ".$p['city'].", ".strtoupper($p['country'])); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+									</div>
 									<div class="col-xs-6">
 										<label>First Name *</label>
 										<input type="text" class="form-control" name="first-name" required="">
@@ -155,7 +212,7 @@ $pcClass = "";
 											</tbody>
 										</table>
 										<div class="payment accordion radio-type">
-											<h4 class="summary-subtitle">Payment Methods</h4>
+											<h4 class="summary-subtitle">Payment Method: <a href="javascript:void(0)" class="btn btn-sm btn-success" id="checkout-pm">NONE</a></h4>
 											<div class="card">
 												<div class="card-header">
 													<a href="#collapse1" class="collapse">Direct bank transfer
@@ -165,36 +222,27 @@ $pcClass = "";
 													<div class="card-body">
 														Make your payment directly into our bank account. Please use
 														your Order ID as the payment reference. Your order will not be
-														shipped until the funds have cleared in our account.
+														shipped until the funds have cleared in our account.<br>
+														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('direct')">Select</a>
 													</div>
 												</div>
 											</div>
+											
 											<div class="card">
 												<div class="card-header">
-													<a href="#collapse2" class="expand">Check payments</a>
-												</div>
-												<div id="collapse2" class="collapsed">
-													<div class="card-body">
-														Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-														Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-													</div>
-												</div>
-											</div>
-											<div class="card">
-												<div class="card-header">
-													<a href="#collapse4" class="expand">PayPal</a>
+													<a href="#collapse4" class="expand">Pay online</a>
 												</div>
 												<div id="collapse4" class="collapsed">
 													<div class="card-body">
-														Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra
-														non, semper suscipit, posuere a, pede. Donec nec justo eget
-														felis facilisis fermentum.
+														You will be redirected to our secure online payment gateway to make payment and complete your order.<br>
+														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
 													</div>
 												</div>
 											</div>
 										</div>
+										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-										<button type="submit" class="btn btn-dark btn-order">Place Order</button>
+										<a href="javascript:void(0)" class="btn btn-dark btn-order">Place Order</a>
 									</div>
 								</div></div>
 							</aside>

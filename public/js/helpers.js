@@ -234,3 +234,12 @@ const populateQV = dt =>{
      //  document.querySelector("#qv-gallery").innerHTML = hh;
       //  document.querySelector("#qv-details").innerHTML = hd;
 }
+
+const setPM = ppm => {
+	let rt = "NONE";
+	pm = ppm;
+	if(pm == "direct") rt = "DIRECT BANK TRANSFER";
+	else if(pm == "online") rt = "PAY ONLINE";
+	
+	$('#checkout-pm').html(rt);
+}

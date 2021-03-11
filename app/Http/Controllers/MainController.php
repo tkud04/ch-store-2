@@ -351,39 +351,18 @@ class MainController extends Controller {
 		}
 		$req = $request->all();
 		
-		/**
 		
-		$totals = $this->helpers->getCartTotals($cart);
-		
-
-			$ss = ['company' => "",
-			       'address' => "",
-			       'city' => "",
-			       'state' => "",
-			       'id' => "",
-			       'date' => ""
-			    ];
-				
-				
-		   if(count($shipping) > 0) $ss = $shipping[0];
-		
-		$states = $this->helpers->states;
-		$ads = $this->helpers->getAds();
-		$ref = $this->helpers->getRandomString(5);
-						$md = json_encode(['custom_fields' => ['display_name' => "Reference No.",'variable_name' => "ref",'value' => $ref],'type' => "checkout",'notes' => ""]);
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		
-		#dd($user);
-		$secure = (isset($req['ss']) && $req['ss'] == "1") ? false : true;
-
-        **/
 		$c = $this->helpers->getCategories();
-		$signals = $this->helpers->signals;
-		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
+		$pd = $this->helpers->getPaymentDetails($user);
+		$sd = $this->helpers->getShippingDetails($user);
+		
+		$signals = $this->helpers->signals;
+		$pe = $this->helpers->getPhoneAndEmail();
+		$plugins = $this->helpers->getPlugins();
+		#dd($sd);
 		 $totals = []; $ss = []; $ref = ""; 
-			return view("checkout",compact(['user','cart','totals','ss','ref','c','pe','signals','plugins']));		
+			return view("checkout",compact(['user','cart','totals','pd','sd','c','pe','signals','plugins']));		
 								 
     }
 	
