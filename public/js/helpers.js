@@ -243,3 +243,67 @@ const setPM = ppm => {
 	
 	$('#checkout-pm').html(rt);
 }
+
+const showPD = xf => {
+	let pdVals = null, newPD = {
+		xf: "",
+	  fname: "",
+	  lname: "",
+	  company: "",
+	  address_1: "",
+	  address_2: "",
+	  city: "",
+	  region: "",
+	  zip: "",
+	  country: "none"
+	};
+	
+	if(xf == "none"){
+		pdVals = newPD;
+	}
+	else{
+		pdVals = pd.find(p => p.xf == xf);
+	}
+	
+	$('#pd-fname').val(pdVals.fname);
+	$('#pd-lname').val(pdVals.lname);
+	$('#pd-company').val(pdVals.company);
+	$('#pd-address-1').val(pdVals.address_1);
+	$('#pd-address-2').val(pdVals.address_2);
+	$('#pd-city').val(pdVals.city);
+	$('#pd-region').val(pdVals.region);
+	$('#pd-zip').val(pdVals.zip);
+	$('#pd-country').val(pdVals.country);
+}
+
+const showSD = xf => {
+	let sdVals = null, newSD = {
+		xf: "",
+	  fname: "",
+	  lname: "",
+	  company: "",
+	  address_1: "",
+	  address_2: "",
+	  city: "",
+	  region: "",
+	  zip: "",
+	  country: "none"
+	};
+	
+	if(xf == "none"){
+		sdVals = newSD;
+	}
+	else{
+		sdVals = sd.find(p => p.xf == xf);
+	}
+	
+	$('#sd-fname').val(sdVals.fname);
+	$('#sd-lname').val(sdVals.lname);
+	$('#sd-company').val(sdVals.company);
+	$('#sd-address-1').val(sdVals.address_1);
+	$('#sd-address-2').val(sdVals.address_2);
+	$('#sd-city').val(sdVals.city);
+	$('#sd-region').val(sdVals.region);
+	$('#sd-zip').val(sdVals.zip);
+	$('#sd-country').val(sdVals.country);
+}

@@ -179,5 +179,16 @@ $(document).ready(function() {
 			   }
              
 		  });
+		  
+		   $("#checkout-pd").change(function(e) {
+               e.preventDefault();
+              let ppd = $('#checkout-pd').val();
+			  showPD(ppd);
+           });
+		   $("#checkout-sd").change(function(e) {
+               e.preventDefault();
+              let ssd = $('#checkout-sd').val();
+			  showSD(ssd);
+           });
 	
 });

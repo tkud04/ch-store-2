@@ -364,9 +364,9 @@
             <i class="d-icon-volume"></i>
             <span>Categories</span>
         </a>
-        <a href="<?php echo e(url('wishlist')); ?>" class="sticky-link">
-            <i class="d-icon-heart"></i>
-            <span>Wishlist</span>
+        <a href="<?php echo e(url('cart')); ?>" class="sticky-link">
+            <i class="d-icon-cart"></i>
+            <span>Cart(<?php echo e(count($cart)); ?>)</span>
         </a>
         <div class="header-search hs-toggle dir-up">
             <a href="#" class="search-toggle sticky-link">

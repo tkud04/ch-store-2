@@ -357,12 +357,13 @@ class MainController extends Controller {
 		$pd = $this->helpers->getPaymentDetails($user);
 		$sd = $this->helpers->getShippingDetails($user);
 		
+		$countries = $this->helpers->countries;
 		$signals = $this->helpers->signals;
 		$pe = $this->helpers->getPhoneAndEmail();
 		$plugins = $this->helpers->getPlugins();
 		#dd($sd);
 		 $totals = []; $ss = []; $ref = ""; 
-			return view("checkout",compact(['user','cart','totals','pd','sd','c','pe','signals','plugins']));		
+			return view("checkout",compact(['user','cart','totals','countries','pd','sd','c','pe','signals','plugins']));		
 								 
     }
 	

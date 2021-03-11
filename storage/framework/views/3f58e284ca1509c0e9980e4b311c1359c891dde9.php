@@ -80,38 +80,47 @@ $(document).ready(() => {
 									</div>
 									<div class="col-xs-6">
 										<label>First Name *</label>
-										<input type="text" class="form-control" name="first-name" required="">
+										<input type="text" class="form-control" id="pd-fname" name="pd-fname" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>Last Name *</label>
-										<input type="text" class="form-control" name="last-name" required="">
+										<input type="text" class="form-control" id="pd-lname" name="pd-lname" required="">
 									</div>
 								</div>
 								<label>Company Name(Optional)</label>
-								<input type="text" class="form-control" name="company-name" required="">
+								<input type="text" class="form-control" id="pd-company" name="pd-company" required="">
 								<label>Country / Region *</label>
-								<input type="text" class="form-control" name="country" required="">
+								<select class="form-control" id="pd-country" name="pd-country">
+									    <option value="none">Select country</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="<?php echo e($k); ?>"><?php echo e($v); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" name="address1" required="" placeholder="House number and Street name">
-								<input type="text" class="form-control" name="address2" required="" placeholder="Appartments, suite, unit etc ...">
+								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="House number and Street name">
+								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" name="city" required="">
+										<input type="text" class="form-control" id="pd-city" name="pd-city" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>State / County *</label>
-										<input type="text" class="form-control" name="state" required="">
+										<input type="text" class="form-control" id="pd-region" name="pd-region" required="">
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-xs-6">
+									<div class="col-xs-12">
 										<label>Postcode / ZIP *</label>
-										<input type="text" class="form-control" name="postcode" required="">
-									</div>
-									<div class="col-xs-6">
-										<label>Phone *</label>
-										<input type="text" class="form-control" name="phone" required="">
+										<input type="text" class="form-control" id="pd-zip" name="pd-zip" required="">
 									</div>
 								</div>
 								
@@ -122,13 +131,68 @@ $(document).ready(() => {
                                             <a href="#collapse1-2" class="expand">Shipping Details</a>
                                         </div>
                                         <div class="card-body collapsed" id="collapse1-2">
-                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Donec odio.<br>
-                                                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                                Suspendisse<br>
-                                                urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec
-                                                justo eget<br>
-                                                felis facilisis fermentum.</p>
+                                             <div class="row">
+									<div class="col-xs-12">
+									  <select class="form-control" id="checkout-sd" name="sd">
+									    <option value="none">Add new shipping detail</option>
+										<?php
+										 if(count($sd) > 0)
+										 {
+											 foreach($sd as $s)
+											 {
+										?>
+									    <option value="<?php echo e($s['id']); ?>"><?php echo e($s['address_1'].", ".$s['city'].", ".strtoupper($s['country'])); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+									</div>
+									<div class="col-xs-6">
+										<label>First Name *</label>
+										<input type="text" class="form-control" id="sd-fname" name="sd-fname" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>Last Name *</label>
+										<input type="text" class="form-control" id="sd-lname" name="sd-lname" required="">
+									</div>
+								</div>
+								<label>Company Name(Optional)</label>
+								<input type="text" class="form-control" id="sd-company" name="sd-company" required="">
+								<label>Country / Region *</label>
+								<select class="form-control" id="sd-country" name="sd-country">
+									    <option value="none">Select country</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="<?php echo e($k); ?>"><?php echo e($v); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+								<label>Street Address *</label>
+								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="House number and Street name">
+								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
+								<div class="row">
+									<div class="col-xs-6">
+										<label>Town / City *</label>
+										<input type="text" class="form-control" id="sd-city" name="sd-city" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>State / County *</label>
+										<input type="text" class="form-control" id="sd-region" name="sd-region" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Postcode / ZIP *</label>
+										<input type="text" class="form-control" id="sd-zip" name="sd-zip" required="">
+									</div>
+								</div>
                                         </div>
                                     </div>
                                     <div class="card">
