@@ -190,5 +190,30 @@ $(document).ready(function() {
               let ssd = $('#checkout-sd').val();
 			  showSD(ssd);
            });
+		   
+		    $("#checkout-btn").click(function(e){            
+		       e.preventDefault();
+			   let ppd = $('#checkout-pd').val(), ssd = $('#checkout-sd').val();
+			   let pdValidation = true, sdValidation = true;
+			   
+			   let validation = (pm == "none" || (ppd == "none" && pdValidation) || (ssd == "none" && sdValidation));
+			       console.log("validation: ",validation);
+		       if(validation){
+				   let s2 = "";
+				   
+				   if(ppd == "none" && pdValidation) s2 = "Fill in required billing details";
+				   if(ssd == "none" && sdValidation) s2 = "Fill in required shipping details";
+				   if(pm == "none") s2 = "Select a payment method";
+				   
+				 Swal.fire({
+			            icon: 'error',
+                        title: s2
+                 });
+			   }
+			   else{
+				  // $('#checkout-form').submit();
+			   }
+             
+		  });
 	
 });

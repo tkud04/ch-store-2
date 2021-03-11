@@ -7,7 +7,7 @@ $pcClass = "";
 
 <?php $__env->startSection('content'); ?>
 <script>
-let pd = [], sd = [], ppd = null;
+let pd = [], sd = [], ppd = null, pm = "none";
 
 $(document).ready(() => {
 
@@ -49,7 +49,9 @@ $(document).ready(() => {
 </script>
 				<?php echo $__env->make('checkout-header',['number' => 2], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				<div class="container mt-8">
-					<form action="#" class="form">
+					<form action="<?php echo e(url('checkout')); ?>" method="post" id="checkout-form" class="form">
+						<?php echo csrf_field(); ?>
+
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
 							
@@ -201,7 +203,7 @@ $(document).ready(() => {
                                         </div>
                                         <div id="collapse1-3" class="card-body collapsed">
                                             <label>Order Notes (optional)</label>
-							               	<textarea class="form-control" cols="30" rows="6" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+							               	<textarea class="form-control" cols="30" rows="6" id="notes" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
 							
                                         </div>
                                     </div>
@@ -306,7 +308,7 @@ $(document).ready(() => {
 										</div>
 										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-										<a href="javascript:void(0)" class="btn btn-dark btn-order">Place Order</a>
+										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Place Order</a>
 									</div>
 								</div></div>
 							</aside>

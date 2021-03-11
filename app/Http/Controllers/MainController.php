@@ -375,17 +375,7 @@ class MainController extends Controller {
     public function postCheckout(Request $request)
     {
 		$user = null;
-		$rules = [
-                             'email' => 'required|email',
-                             'name' => 'required',
-                             'phone' => 'required|numeric',
-                             'address' => 'required',
-                             'state' => 'required',
-							 'courier' => 'required',
-                             'city' => 'required',
-                             'terms' => 'accepted'
-         ];
-		 
+		
     	if(Auth::check())
 		{
 			$user = Auth::user();
@@ -402,9 +392,15 @@ class MainController extends Controller {
                              'terms' => 'accepted'
          ];
 		}
+		else
+		{
+			session::flash("auth-status-error","ok");
+			return redirect()->intended('/');
+		}
+		
         $req = $request->all();
-		$req['zip'] = "";
-       #dd($req);
+		
+       dd($req);
         
         $validator = Validator::make($req, $rules);
          
