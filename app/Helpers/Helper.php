@@ -765,7 +765,7 @@ $subject = $data['subject'];
 				    foreach($pds as $p)
 				    {
 					    $pp = $this->getProduct($p->product_id);
-					    array_push($ret,$pp);
+					    if(count($pp) > 0)  array_push($ret,$pp);
 				    }
                  }
 			  }				 
@@ -789,7 +789,7 @@ $subject = $data['subject'];
 				    foreach($pds as $p)
 				    {
 					    $pp = $this->getProduct($p->product_id);
-					    array_push($ret,$pp);
+					    if(count($pp) > 0)  array_push($ret,$pp);
 				    }
                  }
 			  }				 
@@ -809,7 +809,7 @@ $subject = $data['subject'];
 				  foreach($products as $p)
 				  {
 					  $pp = $this->getProduct($p->id);
-					  array_push($ret,$pp);
+					 if(count($pp) > 0)  array_push($ret,$pp);
 				  }
                }                         
                                                       
@@ -1093,7 +1093,7 @@ $subject = $data['subject'];
 				  {
 					  #dd($p);
 					  $pp = $this->getProduct($p->id);
-					 array_push($ret,$pp);
+					 if(count($pp) > 0)  array_push($ret,$pp);
 				  }
                }                         
                      #dd($ret);             
@@ -1113,7 +1113,7 @@ $subject = $data['subject'];
 				  {
 					  #dd($p);
 					  $pp = $this->getProduct($p->id);
-					 array_push($ret,$pp);
+					 if(count($pp) > 0)  array_push($ret,$pp);
 				  }
                }                         
                      #dd($ret);             
