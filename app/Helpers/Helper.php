@@ -800,7 +800,8 @@ $subject = $data['subject'];
 		   function getProducts()
            {
            	$ret = [];
-              $products = Products::where('id','>',"0")->get();
+              $products = Products::where('id','>',"0")
+                                            ->where('status',"enabled")->get();
               $products = $products->sortByDesc('created_at');
 			  
               if($products != null)
@@ -818,10 +819,10 @@ $subject = $data['subject'];
 		   function getProduct($id,$imgId=false)
            {
            	$ret = [];
-              $product = Products::where('id',$id)
+              $product = Products::where('id',$id)                           
 			                 ->orWhere('model',$id)->first();
        
-              if($product != null)
+              if($product != null && $product->status == "enabled")
                {
 				   #dd($product);
 				  $temp = [];
