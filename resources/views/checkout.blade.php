@@ -107,8 +107,8 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="House number and Street name">
-								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
+								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
@@ -177,8 +177,8 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="House number and Street name">
-								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
+								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
