@@ -218,7 +218,7 @@ $(document).ready(function() {
                  });
 			   }
 			   else{
-				  // $('#checkout-form').submit();
+				   $('#checkout-form').submit();
 			   }
              
 		  });
