@@ -200,8 +200,8 @@ $(document).ready(function() {
 			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val(),
                notes = $('#notes').val();
                
-			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_address_2 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
-                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_address_2 == "" || sd_city == "" || sd_region == "" || sd_zip == "");
+			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
+                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == "");
 			   
 			   let validation = (pm == "none" || (ppd == "none" && pdValidation) || (ssd == "none" && sdValidation));
 			       console.log("validation: ",validation);
