@@ -380,16 +380,8 @@ class MainController extends Controller {
 		{
 			$user = Auth::user();
 			$rules = [
-                             'email' => 'required|email',
-                             'amount' => 'required|numeric',
-                             'fname' => 'required',
-                             'lname' => 'required',
-                             'phone' => 'required|numeric',
-                             'address' => 'required',
-                             'state' => 'required',
-                             'courier' => 'required',
-                             'city' => 'required',
-                             'terms' => 'accepted'
+                             'pd' => 'required',
+                             'sd' => 'required'                        
          ];
 		}
 		else
@@ -414,129 +406,9 @@ class MainController extends Controller {
          else
          {
 			 #dd($req);
-			 if($req['amount'] < 1)
-			 {
-				 $err = "error";
-				 session()->flash("no-cart-status",$err);
-				 return redirect()->back();
-			 }
-			 else
-			 {
-				if(isset($req['pod-bank']) && $req['pod-bank'] == "yes")
-			    {
-				  $req['payment_type'] = "bank";
-				  $ret = $this->helpers->checkout($user,$req,"pod");
-				  $o = [];
-				  #dd($ret);
-				  //We have the user, notify the customer and admin
-				  //$rett = $this->helpers->smtp;
-				  $rett = $this->helpers->getCurrentSender();
-				  if(is_null($user))
-				  {
-					  $u = $this->helpers->getAnonOrder($ret->reference);
-					  $shipping = [
-					     'address' => $req['address'],
-					     'city' => $req['city'],
-					     'state' => $req['state'],
-					   ];
-					  $name = $req['name'];
-					  $view = "emails.anon-new-order-pod";
-				  }
-				  else
-				  {
-					  $u = $this->helpers->getUser($user->id);
-					  $sd = $this->helpers->getShippingDetails($user->id);
-					  $shipping = $sd[0];
-					  $name = $user->fname." ".$user->lname;
-					  $view = "emails.new-order-pod";
-				  }
-				
-				  $rett['order'] = $this->helpers->getOrder($ret->reference);
-				  $o = $rett['order'];
-				  #dd([$rett['order'],$o]);
-				  $rett['u'] = $u;
-				  $rett['subject'] = "URGENT: Confirm your payment for order ".$ret->reference;
-		          $rett['em'] = $u['email'];
-				  $rett['name'] = $name;
-				  $rett['shipping'] = $shipping;
-				  $rett['payment_type'] = "bank";
-		          $this->helpers->sendEmailSMTP($rett,$view);
-				  
-				  $rett['subject'] = "URGENT: Bank payment request (part payment) for order ".$o['reference']." via POD";
-				  $rett['user'] = $u['email'];
-				  $rett['phone'] = $u['phone'];
-				  $rett['em'] = $this->helpers->adminEmail;
-				  $this->helpers->sendEmailSMTP($rett,"emails.admin-bank-alert");
-				  $rett['em'] = $this->helpers->suEmail;
-				  $this->helpers->sendEmailSMTP($rett,"emails.admin-bank-alert");
-				}
-				
-				else
-				{
-					$ret = $this->helpers->checkout($user,$req,"bank");
-				    $o = [];
-				    #dd($ret);
-				    //We have the user, notify the customer and admin
-				    //$rett = $this->helpers->smtp;
-			        $rett = $this->helpers->getCurrentSender();
-				   
-				    if(is_null($user))
-				    {
-					   $u = $this->helpers->getAnonOrder($ret->reference);
-					   $shipping = [
-					     'address' => $req['address'],
-					     'city' => $req['city'],
-					     'state' => $req['state'],
-					   ];
-					   $name = $req['name'];
-					   $view = "emails.anon-new-order-bank";
-				    }
-				    else
-				    {
-					   $u = $this->helpers->getUser($user->id);
-					   $sd = $this->helpers->getShippingDetails($user->id);
-					   $shipping = $sd[0];
-					   $name = $user->fname." ".$user->lname;
-					   $view = "emails.new-order-bank";
-				    }
-				
-				    $rett['order'] = $this->helpers->getOrder($ret->reference);
-				    $o = $rett['order'];
-				    #dd([$rett['order'],$o]);
-				    $rett['u'] = $u;
-				    $rett['subject'] = "URGENT: Confirm your payment for order ".$ret->reference;
-		            $rett['em'] = $u['email'];
-					$rett['name'] = $name;
-				    $rett['shipping'] = $shipping;
-					$rett['payment_type'] = "bank";
-		            $this->helpers->sendEmailSMTP($rett,$view);
-					
-					$rett['subject'] = "URGENT: Bank payment request for order ".$o['reference'];
-				    $rett['user'] = $u['email'];
-				    $rett['phone'] = $u['phone'];
-				    $rett['em'] = $this->helpers->adminEmail;
-				    $this->helpers->sendEmailSMTP($rett,"emails.admin-bank-alert");
-				    $rett['em'] = $this->helpers->suEmail;
-				    $this->helpers->sendEmailSMTP($rett,"emails.admin-bank-alert");
-				}
-				
-				 
-				 
-		        // $uu = url('confirm-payment')."?oid=".$ret->reference;
-			     //return redirect()->intended($uu);
-				 
-		$cart = $this->helpers->getCart($user);
-		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
-		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		$signals = $this->helpers->signals;
-			
-			return view("bps",compact(['user','cart','c','o','ad','pe','signals','plugins']));
-			 }
-         	
-          
+			 $this->helpers->checkout($user,$req);	 
+             session()->flash("checkout-status","ok");
+		     return redirect()->intended('orders');        
          }        
     }
 	
