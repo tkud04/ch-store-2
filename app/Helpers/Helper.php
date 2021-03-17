@@ -1682,16 +1682,18 @@ $subject = $data['subject'];
 				
 				if($pd == "none")
 				{
+					$company = isset($dt['pd-company']) && $dt['pd-company'] != null ? $dt['pd-company'] : "";
+			        $a2 = isset($dt['pd-address-2']) && $dt['pd-address-2'] != null ? $dt['pd-address-2'] : "";
 					$dt['payment_xf'] = "new";
-					$dt['pd-fname'] = $md['pd-fname'];
-					$dt['pd-lname'] = $md['pd-lname'];
-					$dt['pd-company'] = $md['pd-company'];
-					$dt['pd-address_1'] = $md['pd-address_1'];
-					$dt['pd-address_2'] = $md['pd-address_2'];
-					$dt['pd-city'] = $md['pd-city'];
-					$dt['pd-region'] = $md['pd-region'];
-					$dt['pd-zip'] = $md['pd-zip'];
-					$dt['pd-country'] = $md['pd-country'];
+					$dt['payment_fname'] = $md['pd-fname'];
+					$dt['payment_lname'] = $md['pd-lname'];
+					$dt['payment_company'] = $company;
+					$dt['payment_address_1'] = $md['pd-address-1'];
+					$dt['payment_address_2'] = $a2;
+					$dt['payment_city'] = $md['pd-city'];
+					$dt['payment_region'] = $md['pd-region'];
+					$dt['payment_postcode'] = $md['pd-zip'];
+					$dt['payment_country'] = $md['pd-country'];
 				}
 				else
 				{
@@ -1700,16 +1702,18 @@ $subject = $data['subject'];
 				
 				if($sd == "none")
 				{
+					$company = isset($dt['sd-company']) && $dt['company'] != null ? $dt['sd-company'] : "";
+			        $a2 = isset($dt['sd-address-2']) && $dt['sd-address-2'] != null ? $dt['sd-address-2'] : "";
 					$dt['shipping_xf'] = "new";
-					$dt['sd-fname'] = $md['sd-fname'];
-					$dt['sd-lname'] = $md['sd-lname'];
-					$dt['sd-company'] = $md['sd-company'];
-					$dt['sd-address_1'] = $md['sd-address_1'];
-					$dt['sd-address_2'] = $md['sd-address_2'];
-					$dt['sd-city'] = $md['sd-city'];
-					$dt['sd-region'] = $md['sd-region'];
-					$dt['sd-zip'] = $md['sd-zip'];
-					$dt['sd-country'] = $md['sd-country'];
+					$dt['shipping_fname'] = $md['sd-fname'];
+					$dt['shipping_lname'] = $md['sd-lname'];
+					$dt['shipping_company'] = $company;
+					$dt['shipping_address_1'] = $md['sd-address-1'];
+					$dt['shipping_address_2'] = $a2;
+					$dt['shipping_city'] = $md['sd-city'];
+					$dt['shipping_region'] = $md['sd-region'];
+					$dt['shipping_postcode'] = $md['sd-zip'];
+					$dt['shipping_country'] = $md['sd-country'];
 				}
 				else
 				{
@@ -1802,6 +1806,56 @@ $subject = $data['subject'];
 			     }
 			  }
 		   }
+		
+		  function createShippingDetails($data)
+           {
+			  $company = isset($dt['company']) && $dt['company'] != null ? $dt['company'] : "";
+			   $a2 = isset($dt['address_2']) && $dt['address_2'] != null ? $dt['address_2'] : "";
+			   
+           	$ret = ShippingDetails::create(['user_id' => $data['user_id'], 
+                                                      'fname' => $data['shipping_fname'],                                                       
+                                                      'lname' => $data['shipping_lname'],                                                    
+                                                      'company' => $company,                                                      
+                                                      'address_1' => $data['shipping_address_1'],                                                      
+                                                      'address_2' => $a2,                                                 
+                                                      'city' => $data['shipping_city'],                                                     
+                                                      'region' => $data['shipping_region'],                                                     
+                                                      'zip' => $data['shipping_postcode'],                                                     
+                                                      'country' => $data['shipping_country'],                                                     
+                                                      ]);
+                              
+                return $ret;
+           }
+           
+           function removeShippingDetails($data)
+           {
+			  $sd = ShippingDetails::where(['user_id' => $data['xf']])->first();
+
+               if($sd != null)
+			   {
+				   $sd->delete();
+			   }		           
+           }
+           
+           function createPaymentDetails($data)
+           {
+			   $company = isset($dt['payment_company']) && $dt['payment_company'] != null ? $dt['payment_company'] : "";
+			   $a2 = isset($dt['payment_address_2']) && $dt['payment_address_2'] != null ? $dt['payment_address_2'] : "";
+			   
+           	$ret = PaymentDetails::create(['user_id' => $data['user_id'], 
+                                                      'fname' => $data['payment_fname'],                                                       
+                                                      'lname' => $data['payment_lname'],                                                    
+                                                      'company' => $company,                                                      
+                                                      'address_1' => $data['payment_address_1'],                                                      
+                                                      'address_2' => $a2,                                                 
+                                                      'city' => $data['payment_city'],                                                     
+                                                      'region' => $data['payment_region'],                                                     
+                                                      'zip' => $data['payment_postcode'],                                                     
+                                                      'country' => $data['payment_country'],                                                     
+                                                      ]);
+                              
+                return $ret;
+           }
 
            function getPaymentDetails($user)
            {
@@ -1892,6 +1946,16 @@ $subject = $data['subject'];
 				}
 					
            }	
+           
+           function removePaymentDetails($data)
+           {
+			  $pd = PaymentDetails::where(['user_id' => $data['xf']])->first();
+
+               if($pd != null)
+			   {
+				   $pd->delete();
+			   }		           
+           }
 		
 		    function addOrder($user,$data)
            {
