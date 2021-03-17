@@ -51,7 +51,7 @@ $(document).ready(() => {
 				<div class="container mt-8">
 					<form action="{{url('checkout')}}" method="post" id="checkout-form" class="form">
 						{!! csrf_field() !!}
-						<input type="hidden" id="pm" value="">
+						<input type="hidden" id="pm" name="pm" value="">
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
 							
