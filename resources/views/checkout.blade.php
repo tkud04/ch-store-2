@@ -165,6 +165,7 @@ $(document).ready(() => {
 								<label>Country / Region *</label>
 								<select class="form-control" id="sd-country" name="sd-country">
 									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
 										<?php
 										 if(count($countries) > 0)
 										 {
