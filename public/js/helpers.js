@@ -242,6 +242,7 @@ const setPM = ppm => {
 	else if(pm == "online") rt = "PAY ONLINE";
 	
 	$('#checkout-pm').html(rt);
+	$('#pm').val(rt);
 }
 
 const showPD = xf => {
