@@ -1612,11 +1612,12 @@ $subject = $data['subject'];
 			   return $ret;
 		   }
 
-           function checkout($u,$data,$type="paystack")
+           function checkout($u,$data)
 		   {
-			  //dd($data);
+			  dd($data);
 			   $ret = [];
-			   
+			   $type = $data['pm'];
+			
 			   switch($type)
 			   {
 			      case "bank":
