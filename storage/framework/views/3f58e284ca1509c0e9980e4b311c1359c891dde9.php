@@ -52,6 +52,7 @@ $(document).ready(() => {
 					<form action="<?php echo e(url('checkout')); ?>" method="post" id="checkout-form" class="form">
 						<?php echo csrf_field(); ?>
 
+						<input type="hidden" id="pm" name="pm" value="">
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
 							
@@ -94,6 +95,7 @@ $(document).ready(() => {
 								<label>Country / Region *</label>
 								<select class="form-control" id="pd-country" name="pd-country">
 									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
 										<?php
 										 if(count($countries) > 0)
 										 {
@@ -107,8 +109,8 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="House number and Street name">
-								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
+								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
@@ -164,6 +166,7 @@ $(document).ready(() => {
 								<label>Country / Region *</label>
 								<select class="form-control" id="sd-country" name="sd-country">
 									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
 										<?php
 										 if(count($countries) > 0)
 										 {
@@ -177,8 +180,8 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="House number and Street name">
-								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Appartments, suite, unit etc ...">
+								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>

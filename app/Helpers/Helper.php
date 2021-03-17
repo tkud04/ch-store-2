@@ -565,7 +565,11 @@ $subject = $data['subject'];
                         $temp['product'] = $this->getProduct($c->product_id); 
                         $temp['qty'] = $c->qty; 
 						
-                        array_push($ret, $temp); 
+						if(count($temp['product']) > 0)
+						{
+							array_push($ret, $temp);
+						}
+                         
                     }
                  }
 			  }				 
@@ -1662,10 +1666,10 @@ $subject = $data['subject'];
            function payWithBank($user, $md)
            {	
              # dd([$user,$md]);		   
-                $dt = []; $pd ="none"; $sd ="none";
+                $dt = []; $pd = $md['pd']; $sd = $md['sd'];
 				$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
 				
-		        $cart = $this->getCart($user,$gid);
+		        $cart = $this->getCart($user);
 		        $cc = (isset($cart)) ? count($cart) : 0;
 								   $subtotal = 0;
 				                   for($a = 0; $a < $cc; $a++)
@@ -1676,17 +1680,52 @@ $subject = $data['subject'];
 									 $subtotal += ($itemAmount * $qty); 
 				                  }
 				
+				if($pd == "none")
+				{
+					$dt['payment_xf'] = "new";
+					$dt['pd-fname'] = $md['pd-fname'];
+					$dt['pd-lname'] = $md['pd-lname'];
+					$dt['pd-company'] = $md['pd-company'];
+					$dt['pd-address_1'] = $md['pd-address_1'];
+					$dt['pd-address_2'] = $md['pd-address_2'];
+					$dt['pd-city'] = $md['pd-city'];
+					$dt['pd-region'] = $md['pd-region'];
+					$dt['pd-zip'] = $md['pd-zip'];
+					$dt['pd-country'] = $md['pd-country'];
+				}
+				else
+				{
+					$dt['payment_xf'] = $pd;
+				}
+				
+				if($sd == "none")
+				{
+					$dt['shipping_xf'] = "new";
+					$dt['sd-fname'] = $md['sd-fname'];
+					$dt['sd-lname'] = $md['sd-lname'];
+					$dt['sd-company'] = $md['sd-company'];
+					$dt['sd-address_1'] = $md['sd-address_1'];
+					$dt['sd-address_2'] = $md['sd-address_2'];
+					$dt['sd-city'] = $md['sd-city'];
+					$dt['sd-region'] = $md['sd-region'];
+					$dt['sd-zip'] = $md['sd-zip'];
+					$dt['sd-country'] = $md['sd-country'];
+				}
+				else
+				{
+					$dt['shipping_xf'] = $sd;
+				}
+				
 				$dt['amount'] = $subtotal;
-				$dt['payment_id'] = $pd;
-				$dt['shipping_id'] = $sd;
+				
                	$dt['ref'] = $this->getRandomString(5);
-				$dt['notes'] = isset($md['notes']) ? $md['notes'] : "";
+				$dt['comment'] = isset($md['notes']) ? $md['notes'] : "";
 				$dt['payment_type'] = "bank";
-				$dt['type'] = "bank";
-				$dt['status'] = "unpaid";
+				$dt['shipping_type'] = "free";
+				$dt['status'] = "pending";
               
               #create order
-              dd($dt);
+              #dd($dt);
               $o = $this->addOrder($user,$dt,$gid);
                 return $o;
            }
@@ -1854,7 +1893,7 @@ $subject = $data['subject'];
 					
            }	
 		
-		    function addOrder($data)
+		    function addOrder($user,$data)
            {
 			   				/**
 				
@@ -1886,8 +1925,8 @@ $subject = $data['subject'];
 		 status: aoStatus,
 		 products: JSON.stringify(orderProducts),
 			**/	
-			   $data['ref'] = "MBZ".$this->getRandomString(5);
-			   $data['user_id'] = $data['customer'];
+			   $data['ref'] = "MBZ".$data['ref'];
+			   $data['user_id'] = $user->id;
 			   
 			   $pd = $data['payment_xf'];
 			   if($pd == "new")
@@ -1905,19 +1944,19 @@ $subject = $data['subject'];
 			   }
 			   $data['shipping_id'] = $sd;
 			   
+			   
            	   $order = $this->createOrder($data);
-			   $cart = json_decode($data['products']);
+			  $cart = $this->getCart($user);
 			   
                #create order details
                foreach($cart as $c)
                {
-				   $p = $this->getProduct($c->p);
-				   
+				   $p = $c['product'];
 				   if(count($p) > 0)
 				   {
 					   $dt = [];
                        $dt['product_id'] = $p['id'];
-				       $dt['qty'] = $c->q;
+				       $dt['qty'] = $p['qty'];
 				       $dt['order_id'] = $order->id;
 				       $this->updateStock($dt['product_id'],$dt['qty']);
                        $oi = $this->createOrderItems($dt);
@@ -1929,7 +1968,7 @@ $subject = $data['subject'];
                
 			   
 			   //clear cart
-			   //$this->clearCart($user);
+			   $this->clearCart($user);
 			   
 			   //if new user, clear discount
 			  // $this->clearNewUserDiscount($user);
@@ -1942,7 +1981,7 @@ $subject = $data['subject'];
 			   //$ref = $this->helpers->getRandomString(5);
 			   $comment = isset($dt['comment']) && $dt['comment'] != null ? $dt['comment'] : "";
 
-				 $ret = Orders::create(['user_id' => $dt['customer'],
+				 $ret = Orders::create(['user_id' => $dt['user_id'],
 			                          'reference' => $dt['ref'],
 			                          'amount' => $dt['amount'],
 			                          'payment_id' => $dt['payment_id'],

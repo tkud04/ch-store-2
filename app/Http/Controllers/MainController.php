@@ -43,9 +43,9 @@ class MainController extends Controller {
 		$c = $this->helpers->getCategories(['children' => true,'id' => true]);
 		$m = $this->helpers->getManufacturers();
 		$bs = $this->helpers->getBestSellers();
-		$tp = $this->helpers->getTopProducts();
-		#dd($c);
+		$tp = $this->helpers->getTopProducts();		
 		$cart = $this->helpers->getCart($user);
+	    #dd($cart);
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
     	return view("index",compact(['user','cart','c','m','tp','bs','pe','signals','plugins']));
@@ -412,139 +412,7 @@ class MainController extends Controller {
          }        
     }
 	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function getPOD(Request $request)
-    {
-        return redirect()->intended('checkout');
-    }
 	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function postPOD(Request $request)
-    {
-		$user = null;
-		$rules = [
-                             'email' => 'required|email',
-                             'name' => 'required',
-                             'phone' => 'required|numeric',
-							 'courier' => 'required',
-                             'address' => 'required',
-                             'state' => 'required',
-                             'city' => 'required',
-                             'terms' => 'accepted'
-         ];
-		 
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			$rules = [
-                             'email' => 'required|email',
-                             'amount' => 'required|numeric',
-                             'fname' => 'required',
-                             'lname' => 'required',
-                             'phone' => 'required|numeric',
-							 'courier' => 'required',
-                             'address' => 'required',
-                             'state' => 'required',
-                             'city' => 'required',
-                             'terms' => 'accepted'
-         ];
-		}
-        $req = $request->all();
-		$req['zip'] = "";
-        #dd($req);
-        
-        $validator = Validator::make($req, $rules);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 #dd($req);
-			 if($req['amount'] < 1)
-			 {
-				 $err = "error";
-				 session()->flash("no-cart-status",$err);
-				 return redirect()->back();
-			 }
-			 else
-			 {
-				 $ret = $this->helpers->checkout($user,$req,"pod");
-				 $o = [];
-				 #dd($ret);
-				 //We have the user, notify the customer and admin
-				//$rett = $this->helpers->smtp;
-				$rett = $this->helpers->getCurrentSender();
-				if(is_null($user))
-				{
-					$u = $this->helpers->getAnonOrder($ret->reference);
-					$shipping = [
-					     'address' => $req['address'],
-					     'city' => $req['city'],
-					     'state' => $req['state'],
-					   ];
-					   $name = $req['name'];
-					$view = "emails.anon-new-order-pod";
-				}
-				else
-				{
-					$u = $this->helpers->getUser($user->id);
-					$name = $user->fname." ".$user->lname;
-					 $sd = $this->helpers->getShippingDetails($user->id);
-					 $shipping = $sd[0];
-					$view = "emails.new-order-pod";
-				}
-				
-				$rett['order'] = $this->helpers->getOrder($ret->reference);
-				$o = $rett['order'];
-				#dd([$rett['order'],$o]);
-				$rett['u'] = $u;
-				$rett['subject'] = "Your order has been placed via POD. Reference#: ".$ret->reference;
-				$rett['name'] = $name;
-		        $rett['em'] = $u['email'];
-				$rett['shipping'] = $shipping;
-		        $this->helpers->sendEmailSMTP($rett,$view);
-				
-				#$ret = $this->helpers->smtp;
-				$rett['order'] = $o;
-				$rett['user'] =$u['email'];
-				$rett['phone'] =$u['phone'];
-		        $rett['subject'] = "URGENT: Customer placed an order via POD. Reference #".$o['reference'];
-		        $rett['shipping'] = $shipping;
-		        $rett['em'] = $this->helpers->adminEmail;
-		        $this->helpers->sendEmailSMTP($rett,"emails.admin-payment-alert");
-				$ret['em'] = $this->helpers->suEmail;
-		        $this->helpers->sendEmailSMTP($rett,"emails.admin-payment-alert");
-				 
-		        // $uu = url('confirm-payment')."?oid=".$ret->reference;
-			     //return redirect()->intended($uu);
-				 
-		$cart = $this->helpers->getCart($user);
-		$c = $this->helpers->getCategories();
-		$ads = $this->helpers->getAds();
-		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		shuffle($ads);
-		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-		$signals = $this->helpers->signals;
-			
-			return view("podpps",compact(['user','cart','c','o','ad','pe','signals','plugins']));
-			 }
-         	
-          
-         }        
-    }
 	
 	/**
 	 * Show the application welcome screen to the user.
@@ -1437,7 +1305,7 @@ class MainController extends Controller {
 		    $cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
 			$orders = $this->helpers->getOrders($user);
-			#dd($wishlist);
+			dd($orders);
 			 $signals = $this->helpers->signals;
 			    $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		        return view("orders",compact(['user','cart','c','a','orders','pe','signals','plugins']));	
