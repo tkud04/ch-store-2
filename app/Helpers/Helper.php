@@ -1614,17 +1614,17 @@ $subject = $data['subject'];
 
            function checkout($u,$data)
 		   {
-			  dd($data);
+			  #dd($data);
 			   $ret = [];
 			   $type = $data['pm'];
 			
 			   switch($type)
 			   {
-			      case "bank":
+			      case "direct":
                  	$ret = $this->payWithBank($u, $data);
                   break;
-				  case "paystack":
-                 	$ret = $this->payWithPayStack($u, $data);
+				  case "online":
+                 #	$ret = $this->payWithPayStack($u, $data);
                   break;
 				  case "pod":
                  	$ret = $this->payOnDelivery($u, $data);
@@ -1662,28 +1662,23 @@ $subject = $data['subject'];
            function payWithBank($user, $md)
            {	
              # dd([$user,$md]);		   
-                $dt = [];
+                $dt = []; $pd ="none"; $sd ="none";
 				$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
 				
-				if(is_null($user))
-				{
-		            $cart = $this->getCart($user,$gid);
-		            $totals = $this->getCartTotals($cart);
-					
-					$dt['name'] = $md['name'];
-					$dt['email'] = $md['email'];
-					$dt['phone'] = $md['phone'];
-					$dt['address'] = $md['address'];
-					$dt['city'] = $md['city'];
-					$dt['state'] = $md['state'];
-				}
-				else
-				{
-					$this->updateShippingDetails($user,$md);
-				}
+		        $cart = $this->getCart($user,$gid);
+		        $cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty); 
+				                  }
 				
-				$dt['amount'] = $md['amount'] / 100;
-				$dt['courier_id'] = $md['courier'];
+				$dt['amount'] = $subtotal;
+				$dt['payment_id'] = $pd;
+				$dt['shipping_id'] = $sd;
                	$dt['ref'] = $this->getRandomString(5);
 				$dt['notes'] = isset($md['notes']) ? $md['notes'] : "";
 				$dt['payment_type'] = "bank";
@@ -1691,7 +1686,7 @@ $subject = $data['subject'];
 				$dt['status'] = "unpaid";
               
               #create order
-              #dd($dt);
+              dd($dt);
               $o = $this->addOrder($user,$dt,$gid);
                 return $o;
            }
