@@ -188,7 +188,7 @@ $pcClass = "";
 									{
 							   ?>
 								<div class="table-responsive">
-								  <table class="table">
+								  <table class="table etuk-table">
 								    <thead>
 									  <tr>
 									    <th>Order ID</th>
