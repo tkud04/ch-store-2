@@ -364,7 +364,7 @@
             <span>Categories</span>
         </a>
         <a href="{{url('cart')}}" class="sticky-link">
-            <i class="d-icon-cart"></i>
+            <i class="d-icon-bag"></i>
             <span>Cart({{count($cart)}})</span>
         </a>
         <div class="header-search hs-toggle dir-up">
