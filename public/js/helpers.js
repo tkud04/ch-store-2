@@ -236,13 +236,25 @@ const populateQV = dt =>{
 }
 
 const setPM = ppm => {
-	let rt = "NONE";
-	pm = ppm;
-	if(pm == "direct") rt = "DIRECT BANK TRANSFER";
-	else if(pm == "online") rt = "PAY ONLINE";
+	let rt = "NONE", show = true, pm = ppm;
 	
-	$('#checkout-pm').html(rt);
-	$('#pm').val(pm);
+	if(pm == "direct"){
+		rt = "DIRECT BANK TRANSFER";
+	} 
+	else if(pm == "online"){
+		rt = "PAY ONLINE";
+		show = false;
+		Swal.fire({
+			 icon: 'error',
+             title: "Online payment is currently not available."
+        });
+	} 
+	
+	if(show){
+	  $('#checkout-pm').html(rt);
+	  $('#pm').val(pm);
+	}
+	
 }
 
 const showPD = xf => {
