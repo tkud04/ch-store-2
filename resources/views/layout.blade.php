@@ -50,7 +50,10 @@
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css').'?ver='.rand(32,99999)}}">
 	
-		
+	@yield('styles')
+	@yield('scripts')
+
+	
 <!-- DO NOT EDIT!! start of plugins -->
 @foreach($plugins as $p)
   {!! $p['value'] !!}
