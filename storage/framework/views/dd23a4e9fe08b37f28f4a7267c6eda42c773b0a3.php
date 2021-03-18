@@ -5,6 +5,24 @@ $pcClass = "";
 ?>
 
 
+<?php $__env->startSection('scripts'); ?>
+  <!-- DataTables CSS -->
+  <link href="<?php echo e(asset('lib/datatables/css/buttons.bootstrap.min.css')); ?>" rel="stylesheet" /> 
+  <link href="<?php echo e(asset('lib/datatables/css/buttons.dataTables.min.css')); ?>" rel="stylesheet" /> 
+  <link href="<?php echo e(asset('lib/datatables/css/dataTables.bootstrap.min.css')); ?>" rel="stylesheet" /> 
+  
+      <!-- DataTables js -->
+       <script src="<?php echo e(asset('lib/datatables/js/datatables.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('lib/datatables/js/datatables-init.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 				<div class="container pt-1">
 					<div class="tab tab-vertical">
@@ -183,36 +201,79 @@ $pcClass = "";
 							<div class="tab-pane" id="orders">
 							  <div class="row">
 								<div class="col-lg-12 mb-4">
+								
 							   <?php
 							    if(count($orders) > 0)
 								{
-									foreach($orders as $o)
-									{
 							   ?>
-								<div class="table-responsive">
-								  <table class="table">
+							   
+								 <table class="shop-table wishlist-table mt-2 mb-5">
 								    <thead>
 									  <tr>
-									    <th>Order ID</th>
-									    <th>Status</th>
-									    <th>Total</th>
-									    <th>Date added</th>
-									    <th>Date modified</th>
+										<th>Details</th>
+								        <th class="product-price"><span>Total</span></th>
+								        <th class="product-stock-status"><span>Status</span></th>
+								        <th class="product-add-to-cart"></th>
 									  </tr>
 									</thead>
+							   <?php
+									foreach($orders as $o)
+									{
+										$items = $o['items'];
+										$ou = url('order')."?xf=".$o['reference'];
+							   ?>
+								
 								    <tbody>
 									 <tr>
-									    <td><?php echo e($o['id']); ?></td>
-									    <td><span class="badge badge-success"><?php echo e(strtoupper($statuses[$o['status']])); ?></span></td>
-									    <td>&#0163;<?php echo e(number_format($o['amount'],2)); ?></td>
-									    <td><?php echo e($o['date']); ?></td>
-									    <td><?php echo e($o['updated']); ?></td>
+									    <td class="product-name">
+										    <p class="mb-2">Reference: <b class="badge badge-success"><?php echo e($o['reference']); ?></b></p>
+										    <p class="mb-2">Date: <?php echo e($o['date']); ?></p>
+										   <?php
+										    for($x = 0; $x < count($items); $x++)
+											{
+												$i = $items[$x];
+												$op = $i['product'];
+												$pname = "Removed product"; $pmodel = "REMOVED";
+												$imggs = [asset('images/avatar-2.png')]; $uu = "javascript:void(0)";
+												
+												if(count($op) > 0)
+												{
+													$pname = $op["name"]; $pmodel = $op["model"];
+												    $imggs = $op['imggs']; $uu = url('product')."?xf=".$pmodel;
+												}
+												
+												
+										   ?>
+										   <div class="mb-2">
+										   <a href="<?php echo e($uu); ?>" class="mb-2">
+										     <figure>
+											  <img src="<?php echo e($imggs[0]); ?>" width="60" height="60" alt="<?php echo e($pname); ?>">
+										     </figure>
+									       </a>
+									       <a href="<?php echo e($uu); ?>"><?php echo e($pname); ?></a> <b class="badge badge-success">x<?php echo e($i['qty']); ?></b>
+										   </div>
+										   <?php
+									        }
+										   ?>
+								        </td>
+								<td class="product-price">
+									<span class="amount">&#0163;<?php echo e(number_format($o['amount'],2)); ?></span>
+								</td>
+								<td class="product-stock-status">
+									<span class="badge badge-success"><?php echo e(strtoupper($statuses[$o['status']])); ?></span>
+								</td>
+								<td class="product-add-to-cart">
+									<a href="<?php echo e($ou); ?>" class="btn-product"><span>VIEW</span></a>
+								</td>
 									  </tr>
 									</tbody>
-								  </table>
-								</div>
+								
 								<?php
 									}
+								?>
+								  </table>
+								  <a href="<?php echo e(url('orders')); ?>" class="btn-product"><span>VIEW MORE</span></a>
+								<?php
 								}
 								else
 								{

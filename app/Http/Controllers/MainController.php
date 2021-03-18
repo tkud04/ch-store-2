@@ -856,6 +856,7 @@ class MainController extends Controller {
 			$orders = $this->helpers->getOrders($user);
 			
 			#dd($orders);
+			
 		    $statuses = $this->helpers->statuses;
 		    $signals = $this->helpers->signals;
 			$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
@@ -1129,7 +1130,7 @@ class MainController extends Controller {
 			#dd($wishlist);
 			 $signals = $this->helpers->signals;
 			    $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		        return view("wishlist",compact(['user','cart','c','a','wishlists','pe','signals','plugins']));	
+		        return view("wishlist",compact(['user','cart','c','wishlist','signals','plugins']));	
 		
     }
 	
@@ -1305,10 +1306,55 @@ class MainController extends Controller {
 		    $cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
 			$orders = $this->helpers->getOrders($user);
-			dd($orders);
+			#dd($orders);
 			 $signals = $this->helpers->signals;
-			    $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-		        return view("orders",compact(['user','cart','c','a','orders','pe','signals','plugins']));	
+			   $statuses = $this->helpers->statuses;
+			   $plugins = $this->helpers->getPlugins();
+		        return view("orders",compact(['user','cart','c','orders','statuses','signals','plugins']));	
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getOrder(Request $request)
+    {	    
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+		
+       $req = $request->all();
+		
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             return redirect()->intended('orders');
+         }
+         else
+         {
+			$cart = $this->helpers->getCart($user);
+			$c = $this->helpers->getCategories();
+			$order = $this->helpers->getOrder($req['xf']);
+			dd($order);
+			 $signals = $this->helpers->signals;
+			   $statuses = $this->helpers->statuses;
+			   $plugins = $this->helpers->getPlugins();
+		        return view("order",compact(['user','cart','c','order','statuses','signals','plugins']));	
+		
+         }        
     }
 	
 	

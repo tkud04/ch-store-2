@@ -199,36 +199,79 @@ $pcClass = "";
 							<div class="tab-pane" id="orders">
 							  <div class="row">
 								<div class="col-lg-12 mb-4">
+								
 							   <?php
 							    if(count($orders) > 0)
 								{
-									foreach($orders as $o)
-									{
 							   ?>
-								<div class="table-responsive">
-								  <table class="table etuk-table">
+							   
+								 <table class="shop-table wishlist-table mt-2 mb-5">
 								    <thead>
 									  <tr>
-									    <th>Order ID</th>
-									    <th>Status</th>
-									    <th>Total</th>
-									    <th>Date added</th>
-									    <th>Date modified</th>
+										<th>Details</th>
+								        <th class="product-price"><span>Total</span></th>
+								        <th class="product-stock-status"><span>Status</span></th>
+								        <th class="product-add-to-cart"></th>
 									  </tr>
 									</thead>
+							   <?php
+									foreach($orders as $o)
+									{
+										$items = $o['items'];
+										$ou = url('order')."?xf=".$o['reference'];
+							   ?>
+								
 								    <tbody>
 									 <tr>
-									    <td>{{$o['id']}}</td>
-									    <td><span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span></td>
-									    <td>&#0163;{{number_format($o['amount'],2)}}</td>
-									    <td>{{$o['date']}}</td>
-									    <td>{{$o['updated']}}</td>
+									    <td class="product-name">
+										    <p class="mb-2">Reference: <b class="badge badge-success">{{$o['reference']}}</b></p>
+										    <p class="mb-2">Date: {{$o['date']}}</p>
+										   <?php
+										    for($x = 0; $x < count($items); $x++)
+											{
+												$i = $items[$x];
+												$op = $i['product'];
+												$pname = "Removed product"; $pmodel = "REMOVED";
+												$imggs = [asset('images/avatar-2.png')]; $uu = "javascript:void(0)";
+												
+												if(count($op) > 0)
+												{
+													$pname = $op["name"]; $pmodel = $op["model"];
+												    $imggs = $op['imggs']; $uu = url('product')."?xf=".$pmodel;
+												}
+												
+												
+										   ?>
+										   <div class="mb-2">
+										   <a href="{{$uu}}" class="mb-2">
+										     <figure>
+											  <img src="{{$imggs[0]}}" width="60" height="60" alt="{{$pname}}">
+										     </figure>
+									       </a>
+									       <a href="{{$uu}}">{{$pname}}</a> <b class="badge badge-success">x{{$i['qty']}}</b>
+										   </div>
+										   <?php
+									        }
+										   ?>
+								        </td>
+								<td class="product-price">
+									<span class="amount">&#0163;{{number_format($o['amount'],2)}}</span>
+								</td>
+								<td class="product-stock-status">
+									<span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span>
+								</td>
+								<td class="product-add-to-cart">
+									<a href="{{$ou}}" class="btn-product"><span>VIEW</span></a>
+								</td>
 									  </tr>
 									</tbody>
-								  </table>
-								</div>
+								
 								<?php
 									}
+								?>
+								  </table>
+								  <a href="{{url('orders')}}" class="btn-product"><span>VIEW MORE</span></a>
+								<?php
 								}
 								else
 								{

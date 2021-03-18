@@ -50,7 +50,10 @@
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/custom.css').'?ver='.rand(32,99999)); ?>">
 	
-		
+	<?php echo $__env->yieldContent('styles'); ?>
+	<?php echo $__env->yieldContent('scripts'); ?>
+
+	
 <!-- DO NOT EDIT!! start of plugins -->
 <?php $__currentLoopData = $plugins; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   <?php echo $p['value']; ?>
@@ -365,7 +368,7 @@
             <span>Categories</span>
         </a>
         <a href="<?php echo e(url('cart')); ?>" class="sticky-link">
-            <i class="d-icon-cart"></i>
+            <i class="d-icon-bag"></i>
             <span>Cart(<?php echo e(count($cart)); ?>)</span>
         </a>
         <div class="header-search hs-toggle dir-up">
