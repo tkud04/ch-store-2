@@ -13,25 +13,12 @@ let xf = "", products = [], pCover = "none", tkOrderHistory = "{{csrf_token()}}"
   
 
 $(document).ready(() => {
-	hideElem(["#eo-loading"]);
 	
-	 @foreach($products as $p)
-	  products.push({
-		  id: "{{$p['id']}}", 
-		  name: "{{$p['name']}}", 
-		  model: "{{$p['model']}}", 
-		  qty: "{{$p['qty']}}", 
-		  amount: "{{$p['data']['amount']}}"
-		  });
- @endforeach
- 
  @foreach($o['items'] as $i)
 	  orderProducts.push({p: {{$i['product_id']}}, q: {{$i['qty']}}});
 	  @endforeach
 	  
-	  refreshProducts({type: "normal", target: "#order-products", t: 'order'});
-		   refreshProducts({type: "review", target: "#order-products-review", t: 'order'});
-		   refreshProducts({type: "review", target: "#order-products-2", t: 'order'});
+	  refreshProducts({type: "normal", target: "#order-products-2", t: 'order'});  
 });
 </script>
 <?php
@@ -45,7 +32,6 @@ $shipping_method = "Free Shipping";
 
 $pu = url('invoice')."?xf=".$o['id'];
 $su = url('shipping-list')."?xf=".$o['id'];
-$eu = url('order')."?xf=".$o['id']."&type=edit";
 ?>
 
 
@@ -54,8 +40,7 @@ $eu = url('order')."?xf=".$o['id']."&type=edit";
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
 	    <div class="text-right" id="ap-submit">
 	      <a href="{{$pu}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Invoice"><i class="fas fa-print"></i></a>
-	      <a href="{{$su}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Shipping List"><i class="fas fa-truck"></i></a>
-	      <a href="{{$eu}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-edit"></i></a>
+	      <a href="{{$su}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Shipping List"><i class="fas fa-truck"></i></a>      
 	      <a href="{{url('orders')}}" class="btn btn-primary"><i class="fas fa-reply"></i></a>
 	    </div>
 	  </div>
