@@ -1,9 +1,17 @@
 <?php
 $title = "Order #".$o['reference'];
-$ph = true;
-$pcClass = "";
+$subtitle = "View information on this order.";
 ?>
+
 @extends('layout')
+
+@section('title',$title)
+
+
+@section('page-header')
+@include('page-header',['title' => $title,'subtitle' => $subtitle])
+@stop
+
 
 @section('content')
 <script>
@@ -13,14 +21,28 @@ let xf = "", products = [], pCover = "none", tkOrderHistory = "{{csrf_token()}}"
   
 
 $(document).ready(() => {
+	hideElem(["#eo-loading"]);
 	
+	 @foreach($products as $p)
+	  products.push({
+		  id: "{{$p['id']}}", 
+		  name: "{{$p['name']}}", 
+		  model: "{{$p['model']}}", 
+		  qty: "{{$p['qty']}}", 
+		  amount: "{{$p['data']['amount']}}"
+		  });
+ @endforeach
+ 
  @foreach($o['items'] as $i)
 	  orderProducts.push({p: {{$i['product_id']}}, q: {{$i['qty']}}});
 	  @endforeach
 	  
-	  refreshProducts({type: "normal", target: "#order-products-2", t: 'order'});  
+	  refreshProducts({type: "normal", target: "#order-products", t: 'order'});
+		   refreshProducts({type: "review", target: "#order-products-review", t: 'order'});
+		   refreshProducts({type: "review", target: "#order-products-2", t: 'order'});
 });
 </script>
+
 <?php
 $pd = $o['pd'];
 $sd = $o['sd'];
@@ -32,20 +54,20 @@ $shipping_method = "Free Shipping";
 
 $pu = url('invoice')."?xf=".$o['id'];
 $su = url('shipping-list')."?xf=".$o['id'];
-?>
+$eu = url('order')."?xf=".$o['id']."&type=edit";
+?>I
 
-
-				<div class="container pt-1">
-					<div class="row">
+<div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
 	    <div class="text-right" id="ap-submit">
 	      <a href="{{$pu}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Invoice"><i class="fas fa-print"></i></a>
-	      <a href="{{$su}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Shipping List"><i class="fas fa-truck"></i></a>      
+	      <a href="{{$su}}" target="_blank" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print Shipping List"><i class="fas fa-truck"></i></a>
+	      <a href="{{$eu}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-edit"></i></a>
 	      <a href="{{url('orders')}}" class="btn btn-primary"><i class="fas fa-reply"></i></a>
 	    </div>
 	  </div>
       
-	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 col-6 mb-3">
 	    <div class="card">
            <div class="card-body">
                 <h3 class="card-title"><i class="fas fa-user"></i> Order Details</h3>
@@ -67,7 +89,7 @@ $su = url('shipping-list')."?xf=".$o['id'];
            </ul>
         </div>
 	  </div>
-	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 col-6 mb-3">
 	    <div class="card">
            <div class="card-body">
                 <h3 class="card-title"><i class="fas fa-user"></i> Customer Details</h3>
@@ -89,7 +111,7 @@ $su = url('shipping-list')."?xf=".$o['id'];
            </ul>
         </div>
 	  </div>
-	  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12  col-6 mb-3">
+	  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-3">
 	    <div class="card">
            <div class="card-body">
                 <h3 class="card-title"><i class="fas fa-user"></i> Order #{{$o['reference']}}</h3>
@@ -318,5 +340,4 @@ $su = url('shipping-list')."?xf=".$o['id'];
                                 </div>
                             </div>
       </div>
-				</div>
 @stop
