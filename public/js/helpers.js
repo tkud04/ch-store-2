@@ -1,3 +1,33 @@
+const showElem = (name) => {
+	let names = [];
+	
+	if(Array.isArray(name)){
+	  names = name;
+	}
+	else{
+		names.push(name);
+	}
+	
+	for(let i = 0; i < names.length; i++){
+		$(names[i]).fadeIn();
+	}
+}
+
+const hideElem = (name) => {
+	let names = [];
+	
+	if(Array.isArray(name)){
+	  names = name;
+	}
+	else{
+		names.push(name);
+	}
+	
+	for(let i = 0; i < names.length; i++){
+		$(names[i]).hide();
+	}
+}
+
 const showPage = (p) => {
 	//console.log("arr length: ",productsLength);
 	//console.log("show per page: ",perPage);
@@ -329,7 +359,16 @@ const refreshProducts = dt => {
 	//new vals
 	for(let i = 0; i < orderProducts.length; i++){
 		let op = orderProducts[i], p = products.find(pp => pp.id == op.p);
-        //console.log(`p at : ${i}`,p);	
+        //console.log(`p at : ${i}`,p);
+        if(typeof p == 'undefined'){
+			p = {
+				id: 0,
+				name: "Removed product",
+				model: "DEL36455",
+				qty: 0,
+				amount: 0,
+			}
+		}		
         let ss = parseInt(p.amount) * parseInt(op.q);
 		s += ss; t = s;
      //draw
