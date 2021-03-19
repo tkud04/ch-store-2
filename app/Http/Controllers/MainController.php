@@ -1347,12 +1347,12 @@ class MainController extends Controller {
          {
 			$cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
-			$order = $this->helpers->getOrder($req['xf']);
-			dd($order);
+			$o = $this->helpers->getOrder($req['xf']);
+			#dd($o);
 			 $signals = $this->helpers->signals;
 			   $statuses = $this->helpers->statuses;
 			   $plugins = $this->helpers->getPlugins();
-		        return view("order",compact(['user','cart','c','order','statuses','signals','plugins']));	
+		        return view("order",compact(['user','cart','c','o','statuses','signals','plugins']));	
 		
          }        
     }
