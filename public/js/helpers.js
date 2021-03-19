@@ -320,3 +320,52 @@ const showSD = xf => {
 	$('#sd-zip').val(sdVals.zip);
 	$('#sd-country').val(sdVals.country);
 }
+
+const refreshProducts = dt => {
+	let html = ``, hh = ``,s = 0, t = 0;
+	//clear 
+	$(`${dt.target}`).html("");
+	
+	//new vals
+	for(let i = 0; i < orderProducts.length; i++){
+		let op = orderProducts[i], p = products.find(pp => pp.id == op.p);
+        //console.log(`p at : ${i}`,p);	
+        let ss = parseInt(p.amount) * parseInt(op.q);
+		s += ss; t = s;
+     //draw
+      	
+        if(dt.type == "normal"){
+			hh = `<tr>
+		          <td>${p.name}</td>
+		          <td>${p.model}</td>
+		          <td>${op.q}</td>
+		          <td>&#0163;${p.amount}</td>
+		          <td>&#0163;${ss}</td>
+		          <td><a href="javascript:void(0)" onclick="removeProduct({p: ${op.p},q: ${op.q},t: '${dt.t}'})" class="btn btn-danger"><i class="fas fa-minus"></i></a></td>
+				 </tr>`;
+		}
+		else if(dt.type == "review"){
+			hh = `<tr>
+		          <td>${p.name}</td>
+		          <td>${p.model}</td>
+		          <td>${op.q}</td>
+		          <td>&#0163;${p.amount}</td>
+		          <td>&#0163;${ss}</td>
+		          </tr>`;
+		}
+		 html += hh;
+	}
+	
+	if(dt.type == "review"){
+		hh = `<tr>
+		          <td colspan="4" class="text-right">Subtotal</td>
+		          <td>&#0163;${s}</td>
+		          </tr>
+				  <tr>
+		          <td colspan="4" class="text-right">Total</td>
+		          <td>&#0163;<span id="${dt.t}-total">${t}</span></td>
+		          </tr>`;
+		html += hh;
+	}
+     	$(`${dt.target}`).html(html);
+}
