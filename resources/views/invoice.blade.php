@@ -1,8 +1,8 @@
 <?php
-$title = "Order #".$o['reference'];
-$ph = true;
-$pcClass = "";
+$title = "Invoice";
+$blank = true;
 ?>
+
 
 @extends('layout')
 

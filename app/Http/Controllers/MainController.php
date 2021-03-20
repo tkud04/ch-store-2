@@ -1359,6 +1359,97 @@ class MainController extends Controller {
          }        
     }
 	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getInvoice(Request $request)
+    {	    
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+		
+       $req = $request->all();
+		
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             return redirect()->intended('orders');
+         }
+         else
+         {
+			$cart = $this->helpers->getCart($user);
+			$c = $this->helpers->getCategories();
+			$o = $this->helpers->getOrder($req['xf']);
+			$products = $this->helpers->getProducts();
+			$countries = $this->helpers->countries;
+			#dd($o);
+			 $signals = $this->helpers->signals;
+			   $statuses = $this->helpers->statuses;
+			   $plugins = $this->helpers->getPlugins();
+		        return view("invoice",compact(['user','cart','c','o','countries','statuses','signals','plugins']));	
+		
+         }        
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getShippingList(Request $request)
+    {	    
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		else
+        {
+        	return redirect()->intended('login?return=dashboard');
+        }
+		
+       $req = $request->all();
+		
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             return redirect()->intended('orders');
+         }
+         else
+         {
+			$cart = $this->helpers->getCart($user);
+			$c = $this->helpers->getCategories();
+			$o = $this->helpers->getOrder($req['xf']);
+			$countries = $this->helpers->countries;
+			#dd($o);
+			 $signals = $this->helpers->signals;
+			   $statuses = $this->helpers->statuses;
+			   $plugins = $this->helpers->getPlugins();
+		        return view("shipping-list",compact(['user','cart','c','o','countries','statuses','signals','plugins']));	
+		
+         }        
+    }
+	
 	
 	/**
 	 * Show the application welcome screen to the user.

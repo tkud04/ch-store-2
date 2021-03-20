@@ -39,9 +39,9 @@ Route::get('returns', 'MainController@getReturnPolicy');
 
 Route::get('orders', 'MainController@getOrders');
 Route::get('order', 'MainController@getOrder');
-#Route::post('anon-order', 'MainController@postAnonOrder');
-Route::get('receipt', 'MainController@getReceipt');
+Route::get('invoice', 'MainController@getInvoice');
 Route::get('shipping-list', 'MainController@getShippingList');
+
 Route::get('track', 'MainController@getTrack');
 Route::get('confirm-payment', 'MainController@getConfirmPayment');
 Route::post('confirm-payment', 'MainController@postConfirmPayment');

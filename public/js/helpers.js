@@ -398,11 +398,11 @@ const refreshProducts = dt => {
 	if(dt.type == "review"){
 		hh = `<tr>
 		          <td colspan="4" class="text-right">Subtotal</td>
-		          <td>&#0163;${s}</td>
+		          <td><span class="ml-5">&#0163;${s}</span></td>
 		          </tr>
 				  <tr>
 		          <td colspan="4" class="text-right">Total</td>
-		          <td>&#0163;<span id="${dt.t}-total">${t}</span></td>
+		          <td><span class="ml-5">&#0163;<span id="${dt.t}-total">${t}</span></span></td>
 		          </tr>`;
 		html += hh;
 	}

@@ -91,3 +91,8 @@
     padding: 1rem 0 1rem 28px !important;
 	padding-left: 2px !important;
 }
+
+td{
+	padding: 5px;
+	text-align: center !important;
+}
