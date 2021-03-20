@@ -1400,7 +1400,7 @@ class MainController extends Controller {
 			 $signals = $this->helpers->signals;
 			   $statuses = $this->helpers->statuses;
 			   $plugins = $this->helpers->getPlugins();
-		        return view("invoice",compact(['user','cart','c','o','countries','statuses','signals','plugins']));	
+		        return view("invoice",compact(['user','cart','c','o','products','countries','statuses','signals','plugins']));	
 		
          }        
     }
@@ -1442,10 +1442,11 @@ class MainController extends Controller {
 			$o = $this->helpers->getOrder($req['xf']);
 			$countries = $this->helpers->countries;
 			#dd($o);
+			$products = $this->helpers->getProducts();
 			 $signals = $this->helpers->signals;
 			   $statuses = $this->helpers->statuses;
 			   $plugins = $this->helpers->getPlugins();
-		        return view("shipping-list",compact(['user','cart','c','o','countries','statuses','signals','plugins']));	
+		        return view("shipping-list",compact(['user','cart','c','o','products','countries','statuses','signals','plugins']));	
 		
          }        
     }

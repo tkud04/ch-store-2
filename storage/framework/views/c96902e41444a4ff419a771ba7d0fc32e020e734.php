@@ -48,8 +48,8 @@ $cname = $customer['fname']." ".$customer['lname'];
 $payment_method = "Credit Card/Debit Card";
 $shipping_method = "Free Shipping";
 
-$pu = url('invoice')."?xf=".$o['id'];
-$su = url('shipping-list')."?xf=".$o['id'];
+$pu = url('invoice')."?xf=".$o['reference'];
+$su = url('shipping-list')."?xf=".$o['reference'];
 $eu = url('order')."?xf=".$o['id']."&type=edit";
 ?>I
 

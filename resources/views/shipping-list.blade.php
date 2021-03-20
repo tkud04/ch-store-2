@@ -1,5 +1,5 @@
 <?php
-$title = "Invoice";
+$title = "Shipping List";
 $no_header = true;
 $pcClass = "";
 ?>

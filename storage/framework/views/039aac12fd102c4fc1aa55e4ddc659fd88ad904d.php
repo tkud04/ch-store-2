@@ -1,18 +1,18 @@
 <?php
-$title = "Invoice";
+$title = "Shipping List";
 $no_header = true;
 $pcClass = "";
 ?>
 
 
-@extends('layout')
-
-@section('title',$title)
 
 
-@section('content')
+<?php $__env->startSection('title',$title); ?>
+
+
+<?php $__env->startSection('content'); ?>
 <script>
-let xf = "", products = [], pCover = "none", tkOrderHistory = "{{csrf_token()}}",
+let xf = "", products = [], pCover = "none", tkOrderHistory = "<?php echo e(csrf_token()); ?>",
     orderProducts = [], eoPaymentXF = "new", eoShippingXF = "new";
 
   
@@ -20,19 +20,19 @@ let xf = "", products = [], pCover = "none", tkOrderHistory = "{{csrf_token()}}"
 $(document).ready(() => {
 	hideElem(["#eo-loading"]);
 	
-	 @foreach($products as $p)
+	 <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	  products.push({
-		  id: "{{$p['id']}}", 
-		  name: "{{$p['name']}}", 
-		  model: "{{$p['model']}}", 
-		  qty: "{{$p['qty']}}", 
-		  amount: "{{$p['data']['amount']}}"
+		  id: "<?php echo e($p['id']); ?>", 
+		  name: "<?php echo e($p['name']); ?>", 
+		  model: "<?php echo e($p['model']); ?>", 
+		  qty: "<?php echo e($p['qty']); ?>", 
+		  amount: "<?php echo e($p['data']['amount']); ?>"
 		  });
- @endforeach
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  
- @foreach($o['items'] as $i)
-	  orderProducts.push({p: {{$i['product_id']}}, q: {{$i['qty']}}});
-	  @endforeach
+ <?php $__currentLoopData = $o['items']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	  orderProducts.push({p: <?php echo e($i['product_id']); ?>, q: <?php echo e($i['qty']); ?>});
+	  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	  
 	  refreshProducts({type: "normal", target: "#order-products", t: 'order'});
 		   refreshProducts({type: "review", target: "#order-products-review", t: 'order'});
@@ -64,15 +64,18 @@ $shipping_method = "Free Shipping";
 		   
                 <li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Date added"><i class="fas fa-calendar"></i> </span>
-				  {{$o['date']}}
+				  <?php echo e($o['date']); ?>
+
 				</li>
 				<li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Payment method"><i class="fas fa-credit-card"></i> </span>
-				  {{$payment_method}}
+				  <?php echo e($payment_method); ?>
+
 				</li>
 				<li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Shipping method"><i class="fas fa-truck"></i> </span>
-				  {{$shipping_method}}
+				  <?php echo e($shipping_method); ?>
+
 				</li>
            </ul>
         </div>
@@ -86,15 +89,18 @@ $shipping_method = "Free Shipping";
 		   
                 <li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Customer name"><i class="fas fa-user"></i> </span>
-				  {{ucwords($cname)}}
+				  <?php echo e(ucwords($cname)); ?>
+
 				</li>
 				<li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Customer email"><i class="fas fa-envelope"></i> </span>
-				  {{ucwords($customer['email'])}}
+				  <?php echo e(ucwords($customer['email'])); ?>
+
 				</li>
 				<li class="list-group-item">
 				  <span class="badge badge-primary p-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Customer phone number"><i class="fas fa-phone"></i> </span>
-				  {{ucwords($customer['phone'])}}
+				  <?php echo e(ucwords($customer['phone'])); ?>
+
 				</li>
            </ul>
         </div>
@@ -102,7 +108,7 @@ $shipping_method = "Free Shipping";
 	  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 mb-3">
 	    <div class="card">
            <div class="card-body">
-                <h3 class="card-title"><i class="fas fa-user"></i> Order #{{$o['reference']}}</h3>
+                <h3 class="card-title"><i class="fas fa-user"></i> Order #<?php echo e($o['reference']); ?></h3>
 				<div class="table-responsive mb-5">
 				  <table class="table table-striped table-bordered first etuk-table">
                                               <thead>
@@ -117,20 +123,20 @@ $shipping_method = "Free Shipping";
 											  ?>
 											   <tr>
 											     <td>
-											      {{strtoupper($cname)}}<br>
-											      {{strtoupper($pd['address_1'])}}<br>
-											      @if($pd['address_2'] != ""){{strtoupper($pd['address_2'])}}<br>@endif
-											      {{strtoupper($pd['city'])." ".$pd['zip']}}<br>
-											      {{strtoupper($pd['region'])}}<br>
-											      {{ucwords($countries[$pd['country']])}}<br>
+											      <?php echo e(strtoupper($cname)); ?><br>
+											      <?php echo e(strtoupper($pd['address_1'])); ?><br>
+											      <?php if($pd['address_2'] != ""): ?><?php echo e(strtoupper($pd['address_2'])); ?><br><?php endif; ?>
+											      <?php echo e(strtoupper($pd['city'])." ".$pd['zip']); ?><br>
+											      <?php echo e(strtoupper($pd['region'])); ?><br>
+											      <?php echo e(ucwords($countries[$pd['country']])); ?><br>
 											      </td>
 												  <td>
-											      {{strtoupper($cname)}}<br>
-											      {{strtoupper($sd['address_1'])}}<br>
-											      @if($pd['address_2'] != ""){{strtoupper($sd['address_2'])}}<br>@endif
-											      {{strtoupper($sd['city'])." ".$sd['zip']}}<br>
-											      {{strtoupper($sd['region'])}}<br>
-											      {{ucwords($countries[$sd['country']])}}<br>
+											      <?php echo e(strtoupper($cname)); ?><br>
+											      <?php echo e(strtoupper($sd['address_1'])); ?><br>
+											      <?php if($pd['address_2'] != ""): ?><?php echo e(strtoupper($sd['address_2'])); ?><br><?php endif; ?>
+											      <?php echo e(strtoupper($sd['city'])." ".$sd['zip']); ?><br>
+											      <?php echo e(strtoupper($sd['region'])); ?><br>
+											      <?php echo e(ucwords($countries[$sd['country']])); ?><br>
 											      </td>											  
 											   </tr>
 											  <?php
@@ -165,4 +171,6 @@ $shipping_method = "Free Shipping";
 		</div>
 	  </div>
       </div>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/shipping-list.blade.php ENDPATH**/ ?>

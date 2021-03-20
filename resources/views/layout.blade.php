@@ -83,8 +83,9 @@
         </div>
     </div>
     <div class="page-wrapper">
-        <h1 class="d-none">Mobile Buzz - Your Number 1 Gadgets Store in the UK!</h1>
+       
 		@if(!isset($no_header))
+		 <h1 class="d-none">Mobile Buzz - Your Number 1 Gadgets Store in the UK!</h1>
         <header class="header">
 		 <div class="header-top">
                 <div class="container">
