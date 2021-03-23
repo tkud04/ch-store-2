@@ -125,7 +125,7 @@ class MainController extends Controller {
 		  if(count($category) > 0)
 		  {
 		     $products = $this->helpers->getProductsByCategory($xf);
-		     dd($products);
+		     #dd($products);
 		     $cart = $this->helpers->getCart($user);
 			 $m = $this->helpers->getManufacturers();
 		     $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
