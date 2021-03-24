@@ -57,7 +57,9 @@ const showPage = (p) => {
 			nnn = `${p.name.substr(0,12)}..`;
 		}
 		let nn = p.name == "" ? p.model : nnn, imggs = JSON.parse(p.imggs),
-		    ppd = p.pd.replace(/(?:\r\n|\r|\n)/g, '<br>'), pd = JSON.parse(ppd),
+		    ppd = p.pd.replace(/(?:\r\n|\r|\n)/g, '<br>');
+			console.log('ppd: ', ppd);
+			let pd = JSON.parse(ppd);
 		    description = `${pd.description}`,
 			aa = {
 				   cid: p.id,

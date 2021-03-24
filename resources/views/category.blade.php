@@ -77,7 +77,7 @@ let page = 1, productsLength = 0, products = [], perPage = 12;
 $(document).ready(() => {
   console.log("products: ",products);
    productsLength = products.length;
-   alert(`products length: ${productsLength}`);
+  // alert(`products length: ${productsLength}`);
   showPage(1);
 });
 		  </script>
