@@ -56,8 +56,8 @@ const showPage = (p) => {
 		if(p.name.length > 12){
 			nnn = `${p.name.substr(0,12)}..`;
 		}
-		let nn = p.name == "" ? p.model : nnn, imggs = JSON.parse(p.imggs),
-		    ppd = p.pd.replace(/(?:\r\n|\r|\n)/g, '<br>');
+		let nn = p.name == "" ? p.model : nnn, imggs = JSON.parse(p.imggs);
+		    //ppd = p.pd.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			//console.log('ppd: ', ppd);
 			//let pd = JSON.parse(ppd);
 		   // description = `${pd.description}`,
