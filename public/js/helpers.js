@@ -58,15 +58,15 @@ const showPage = (p) => {
 		}
 		let nn = p.name == "" ? p.model : nnn, imggs = JSON.parse(p.imggs),
 		    ppd = p.pd.replace(/(?:\r\n|\r|\n)/g, '<br>');
-			console.log('ppd: ', ppd);
-			let pd = JSON.parse(ppd);
-		    description = `${pd.description}`,
+			//console.log('ppd: ', ppd);
+			//let pd = JSON.parse(ppd);
+		   // description = `${pd.description}`,
 			aa = {
 				   cid: p.id,
 				   name: p.name,
 				   imggs: imggs,
-				   description: description,
-				   amount: pd.amount,
+				  // description: description,
+				   amount: p.amount,
 				   
 		    }, aaa = JSON.stringify(aa);
  	        
@@ -103,7 +103,7 @@ const showPage = (p) => {
 													<span class="ratings" style="width:100%"></span>
 													<span class="tooltiptext tooltip-top"></span>
 												</div>
-												<a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a>
+												<a href="{{$uu}}" class="rating-reviews">( 0 reviews )</a>
 											</div>
 										</div>
 									</div>

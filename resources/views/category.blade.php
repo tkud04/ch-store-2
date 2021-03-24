@@ -62,7 +62,7 @@ let page = 1, productsLength = 0, products = [], perPage = 12;
 			   uu: "{{$uu}}",
 			   cu: "{{$cu}}",
 			   wu: "{{$wu}}",
-			   pd: ppd,
+			  // pd: ppd,
 			   amount: "{{$amount}}",
 			   category: "{{$category['name']}}",
 			   imggs: imggs,
