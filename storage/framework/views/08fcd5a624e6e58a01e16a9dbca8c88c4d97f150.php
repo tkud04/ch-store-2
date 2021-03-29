@@ -62,7 +62,7 @@ let page = 1, productsLength = 0, products = [], perPage = 12;
 			   uu: "<?php echo e($uu); ?>",
 			   cu: "<?php echo e($cu); ?>",
 			   wu: "<?php echo e($wu); ?>",
-			   pd: ppd,
+			  // pd: ppd,
 			   amount: "<?php echo e($amount); ?>",
 			   category: "<?php echo e($category['name']); ?>",
 			   imggs: imggs,
@@ -77,6 +77,7 @@ let page = 1, productsLength = 0, products = [], perPage = 12;
 $(document).ready(() => {
   console.log("products: ",products);
    productsLength = products.length;
+  // alert(`products length: ${productsLength}`);
   showPage(1);
 });
 		  </script>

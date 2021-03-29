@@ -2130,7 +2130,8 @@ window.Donald = {};
             self.max || ($el.attr('max', self.max = QuantityInput.max))
 
             // Add DOM elements and event listeners
-            self.$value = $el.val(self.value = QuantityInput.value);
+			//console.log($el.val());
+            self.$value = $el.val();
 
             self.$minus = $el.prev()
                 .on('mousedown', function (e) {
@@ -2167,6 +2168,7 @@ window.Donald = {};
             var self = this;
             self.value = self.$value.val();
             self.value < self.max && self.$value.val(++self.value);
+			
 			self.increaseTimer = Donald.requestTimeout(function () {
                 self.speed = 1;
                 self.increaseTimer = Donald.requestInterval(function () {
