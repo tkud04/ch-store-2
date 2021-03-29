@@ -410,3 +410,9 @@ const refreshProducts = dt => {
 	}
      	$(`${dt.target}`).html(html);
 }
+
+const addToCart = dt => {
+	if(typeof dt.xf !== 'undefined'){
+	   window.location = `add-to-cart?xf=${dt.xf}&qty=1`;
+	}
+}

@@ -2167,7 +2167,7 @@ window.Donald = {};
             var self = this;
             self.value = self.$value.val();
             self.value < self.max && self.$value.val(++self.value);
-            self.increaseTimer = Donald.requestTimeout(function () {
+			self.increaseTimer = Donald.requestTimeout(function () {
                 self.speed = 1;
                 self.increaseTimer = Donald.requestInterval(function () {
                     self.$value.val(self.value = Math.min(self.value + Math.floor(self.speed *= 1.05), self.max));

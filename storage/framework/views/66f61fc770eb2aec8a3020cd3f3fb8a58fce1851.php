@@ -146,6 +146,7 @@ $ccategories = [
 										  $pc = $data['category'];
 										  $pm = $data['manufacturer'];
 										  $amt = $data['amount'];
+										  $xf = $p['id'];
 										  $uu = url('product')."?xf=".$p['model'];
 									?>
 									 <div class="col-md-4 col-6 mb-4">
@@ -158,8 +159,8 @@ $ccategories = [
                                                     <label class="product-label label-new">new</label>
                                                 </div>
                                                 <div class="product-action-vertical">
-                                                    <a href="javascript:void(0)" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                                    <a href="javascript:void(0)" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-cart" onclick="addToCart({xf: '<?php echo e($xf); ?>'})" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                                    <a href="javascript:void(0)" class="btn-product-icon btn-wishlist" onclick="addToWishlist({xf: '<?php echo e($xf); ?>'})" title="Add to wishlist"><i class="d-icon-heart"></i></a>
                                                 </div>
                                                 <div class="product-action">
                                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>

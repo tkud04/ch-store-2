@@ -65,7 +65,7 @@ let cart = [];
 										<td class="product-quantity">
 											<div class="input-group">
 												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control product-qty" type="number" data-val="<?php echo e($qty); ?>" data-xf="<?php echo e($xf); ?>" min="1" max="1000000">
+												<input class="quantity form-control product-qty" type="number" value="<?php echo e($qty); ?>" data-val="<?php echo e($qty); ?>" data-xf="<?php echo e($xf); ?>" min="1" max="1000000">
 												<button class="quantity-plus d-icon-plus"></button>
 											</div>
 										</td>

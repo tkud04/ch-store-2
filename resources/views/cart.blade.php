@@ -65,7 +65,7 @@ let cart = [];
 										<td class="product-quantity">
 											<div class="input-group">
 												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control product-qty" type="number" data-val="{{$qty}}" data-xf="{{$xf}}" min="1" max="1000000">
+												<input class="quantity form-control product-qty" type="number" value="{{$qty}}" data-val="{{$qty}}" data-xf="{{$xf}}" min="1" max="1000000">
 												<button class="quantity-plus d-icon-plus"></button>
 											</div>
 										</td>

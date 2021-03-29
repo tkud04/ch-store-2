@@ -1425,21 +1425,39 @@ $subject = $data['subject'];
                 return $ret;
            }
 		   
-		    function updateCart($dt)
+		   function updateCart($data)
            {
-			  Carts::where('product_id', $dt['xf'])
-			              ->where('user_id', $data['user_id'])->first();
+			   $ret = "error";
+			   $userId = $data['user_id'];
+			   $dt = $data['dt'];
+			  # dd($dt);
+			  
+			   if(count($dt) > 0)
+			   {
+				  foreach($dt as $cc)
+				  {
+					  $c = Carts::where('product_id', $cc->xf)
+			            ->where('user_id', $userId)->first();
 						  
-             $p = Products::where('id',$dt['xf'])->first();
-			 
-			if($c != null && $p != null && $p->qty >= $dt['qty'])
-			{
-                $c->update(['qty' => $dt['qty']]);				
-				$ret = "ok";
-			}        
-                                                      
+                      $p = Products::where('id',$cc->xf)->first();
+					  
+			          /** dd([
+					    'cc' => $cc,
+					    'c' => $c,
+					    'p' => $p
+					   ]);
+					   **/
+					   
+			          if($c != null && $p != null && $p->qty >= $cc->qty)
+			          {
+                        $c->update(['qty' => $cc->qty]);				
+				      }        
+				  }
+				   $ret = "ok";
+			   }                                    
                 return $ret;
-           }	
+           }
+		   
            function removeFromCart($data)
            {
            	   $cc = Carts::where('product_id', $data['xf'])

@@ -133,9 +133,9 @@ $(document).ready(function() {
 			   
 			   
 			   for(let ii = 0; ii < items.length; ii++){
-				   let i = items[ii], xf = $(i).attr('data-xf'), qty = $(i).attr('data-val');
-				   
-				   let c = cart.find(x => x.xf == xf);
+				   let i = items[ii], xf = $(i).attr('data-xf'), qty = i.value; // qty = $(i).attr('data-val');
+				  
+				  let c = cart.find(x => x.xf == xf);
 				   
 				   if(c){
 					 c.qty = qty;  
@@ -144,10 +144,9 @@ $(document).ready(function() {
 				   }
 				   
 			   }
-			   console.log(cart);
-			   /**
-			   let xf = $('#product-xf').val(), qty = $('#product-qty').val(),
-			       validation = (xf == "" || qty == "" || parseInt(qty) < 1);
+			  // console.log(cart);
+			  
+			   let validation = (cart.length < 1);
 			   
 		       if(validation){
 				 Swal.fire({
@@ -156,9 +155,8 @@ $(document).ready(function() {
                  });
 			   }
 			   else{
-				  // window.location = `update-cart?xf=${xf}&qty=${qty}`;
+				   window.location = `update-cart?dt=${JSON.stringify(cart)}`;
 			   }
-			   **/
              
 		  });
 		  

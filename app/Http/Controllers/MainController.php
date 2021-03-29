@@ -1573,15 +1573,20 @@ class MainController extends Controller {
 			$user = Auth::user();
 			
 		}
+		else
+		{
+			session()->flash("auth-status-error","ok");
+			return redirect()->intended('/');
+		} 
+		
 		$req = $request->all();
 		
 		$cart = $this->helpers->getCart($user);
         $req = $request->all();
-        #dd($gid);
+        #dd($req);
         
         $validator = Validator::make($req, [
-                             'sku' => 'required',
-                             'qty' => 'required|numeric'
+                             'dt' => 'required'
          ]);
          
          if($validator->fails())
@@ -1593,8 +1598,11 @@ class MainController extends Controller {
          
          else
          {
-			$req['user_id'] = is_null($user) ? $gid : $user->id;
-         	$ret = $this->helpers->updateCart($req);
+			 $dt = [
+			    'dt' => json_decode($req['dt']),
+				'user_id' => $user->id
+			 ];
+			$ret = $this->helpers->updateCart($dt);
 			//dd($ret);
 			session()->flash("update-cart-status",$ret);
 			
