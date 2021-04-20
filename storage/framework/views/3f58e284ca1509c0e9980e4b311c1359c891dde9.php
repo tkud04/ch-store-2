@@ -45,16 +45,15 @@ $(document).ready(() => {
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
 
- hideElem(['#card-2']);
+ hideElem(['#card-2','#checkout-loading']);
  showElem(['#card-1']);
 });
 </script>
 				<?php echo $__env->make('checkout-header',['number' => 2], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				<div class="container mt-8">
 					<form action="<?php echo e(url('checkout')); ?>" method="post" class="form">
-						<?php echo csrf_field(); ?>
-
-						<input type="hidden" id="pm" name="pm" value="">
+						<input type="hidden" id="tk" value="<?php echo e(csrf_token()); ?>">
+						<input type="hidden" id="pm" name="pm" value="none">
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
 							
@@ -85,17 +84,17 @@ $(document).ready(() => {
 									</div>
 									<div class="col-xs-6">
 										<label>First Name *</label>
-										<input type="text" class="form-control" id="pd-fname" name="pd-fname" required="">
+										<input type="text" class="form-control bd" id="pd-fname" name="pd-fname" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>Last Name *</label>
-										<input type="text" class="form-control" id="pd-lname" name="pd-lname" required="">
+										<input type="text" class="form-control bd" id="pd-lname" name="pd-lname" required="">
 									</div>
 								</div>
 								<label>Company Name(Optional)</label>
-								<input type="text" class="form-control" id="pd-company" name="pd-company" required="">
+								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
 								<label>Country / Region *</label>
-								<select class="form-control" id="pd-country" name="pd-country">
+								<select class="form-control bd" id="pd-country" name="pd-country">
 									    <option value="none">Select country</option>
 									    <option value="uk">United Kingdom</option>
 										<?php
@@ -111,22 +110,22 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
-								<input type="text" class="form-control" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
+								<input type="text" class="form-control bd" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control bd" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" id="pd-city" name="pd-city" required="">
+										<input type="text" class="form-control bd" id="pd-city" name="pd-city" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>State / County *</label>
-										<input type="text" class="form-control" id="pd-region" name="pd-region" required="">
+										<input type="text" class="form-control bd" id="pd-region" name="pd-region" required="">
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
 										<label>Postcode / ZIP *</label>
-										<input type="text" class="form-control" id="pd-zip" name="pd-zip" required="">
+										<input type="text" class="form-control bd" id="pd-zip" name="pd-zip" required="">
 									</div>
 								</div>
 								
@@ -139,7 +138,7 @@ $(document).ready(() => {
                                         <div class="card-body collapsed" id="collapse1-2">
                                              <div class="row">
 									<div class="col-xs-12">
-									  <select class="form-control" id="checkout-sd" name="sd">
+									  <select class="form-control sd" id="checkout-sd" name="sd">
 									    <option value="none">Add new shipping detail</option>
 										<?php
 										 if(count($sd) > 0)
@@ -156,17 +155,17 @@ $(document).ready(() => {
 									</div>
 									<div class="col-xs-6">
 										<label>First Name *</label>
-										<input type="text" class="form-control" id="sd-fname" name="sd-fname" required="">
+										<input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>Last Name *</label>
-										<input type="text" class="form-control" id="sd-lname" name="sd-lname" required="">
+										<input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
 									</div>
 								</div>
 								<label>Company Name(Optional)</label>
-								<input type="text" class="form-control" id="sd-company" name="sd-company" required="">
+								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
 								<label>Country / Region *</label>
-								<select class="form-control" id="sd-country" name="sd-country">
+								<select class="form-control sd" id="sd-country" name="sd-country">
 									    <option value="none">Select country</option>
 									    <option value="uk">United Kingdom</option>
 										<?php
@@ -182,22 +181,22 @@ $(document).ready(() => {
 										?>
 									  </select>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
-								<input type="text" class="form-control" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
+								<input type="text" class="form-control sd" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control sd" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" id="sd-city" name="sd-city" required="">
+										<input type="text" class="form-control sd" id="sd-city" name="sd-city" required="">
 									</div>
 									<div class="col-xs-6">
 										<label>State / County *</label>
-										<input type="text" class="form-control" id="sd-region" name="sd-region" required="">
+										<input type="text" class="form-control sd" id="sd-region" name="sd-region" required="">
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
 										<label>Postcode / ZIP *</label>
-										<input type="text" class="form-control" id="sd-zip" name="sd-zip" required="">
+										<input type="text" class="form-control sd" id="sd-zip" name="sd-zip" required="">
 									</div>
 								</div>
                                         </div>
@@ -362,6 +361,9 @@ $(document).ready(() => {
 										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
 										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Place Order</a>
+										<p id="checkout-loading">
+											Processing <img src="images/loading.gif" alt="" style="width: 100px; height: 100px">
+                                        </p>
 									</div>
 								</div></div>
 							</aside>

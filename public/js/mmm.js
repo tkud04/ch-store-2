@@ -189,12 +189,33 @@ $(document).ready(function() {
 		  
 		   $("#checkout-pd").change(function(e) {
                e.preventDefault();
-              let ppd = $('#checkout-pd').val();
+              let ppd = $('#checkout-pd').val(), edh = null;
+			  
+			   if(ppd == "none"){
+				  edh = false;
+			  }
+			  else{
+				 edh = true;
+			  }
+			  
+              $('.bd').prop("readonly", edh );
+			  
 			  showPD(ppd);
            });
+		   
 		   $("#checkout-sd").change(function(e) {
                e.preventDefault();
-              let ssd = $('#checkout-sd').val();
+              let ssd = $('#checkout-sd').val(), edh = null;
+			  
+			  if(ssd == "none"){
+				  edh = false;
+			  }
+			  else{
+				 edh = true;
+			  }
+			  
+              $('.sd').prop("readonly", edh );
+			  
 			  showSD(ssd);
            });
 		   

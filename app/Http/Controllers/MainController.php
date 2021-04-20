@@ -375,19 +375,19 @@ class MainController extends Controller {
     public function postCheckout(Request $request)
     {
 		$user = null;
-		
+		$ret = ['status' => "error", 'message' => "nothing happened"];
     	if(Auth::check())
 		{
 			$user = Auth::user();
 			$rules = [
-                             'pd' => 'required',
-                             'sd' => 'required'                        
+                             'ppd' => 'required',
+                             'ssd' => 'required',                       
+                             'pm' => 'required',                       
          ];
 		}
 		else
 		{
-			session::flash("auth-status-error","ok");
-			return redirect()->intended('/');
+			$ret['message'] = "auth";
 		}
 		
         $req = $request->all();
@@ -398,17 +398,18 @@ class MainController extends Controller {
          
          if($validator->fails())
          {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
+             $ret['message'] = "validation";
          }
          
          else
          {
+			 $ret = ['status' => "error", 'message' => "nothing happened"];
+			 /**
 			 #dd($req);
 			 $this->helpers->checkout($user,$req);	 
              session()->flash("checkout-status","ok");
-		     return redirect()->intended('orders');        
+		     return redirect()->intended('orders'); 
+            **/			 
          }        
     }
 	
