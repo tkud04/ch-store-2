@@ -45,14 +45,14 @@ $(document).ready(() => {
   @endforeach
 @endif
 
- hideElem(['#card-2']);
+ hideElem(['#card-2','#checkout-loading']);
  showElem(['#card-1']);
 });
 </script>
 				@include('checkout-header',['number' => 2])
 				<div class="container mt-8">
 					<form action="{{url('checkout')}}" method="post" class="form">
-						{!! csrf_field() !!}
+						<input type="hidden" id="tk" value="{{ csrf_field() }}">
 						<input type="hidden" id="pm" name="pm" value="">
 						<div class="row gutter-lg">
 							<div class="col-lg-7 mb-6">
@@ -360,6 +360,9 @@ $(document).ready(() => {
 										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
 										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Place Order</a>
+										<p id="checkout-loading">
+											Processing <img src="images/loading.gif" alt="" style="width: 100px; height: 100px">
+                                        </p>
 									</div>
 								</div></div>
 							</aside>
