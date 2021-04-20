@@ -177,6 +177,14 @@ $(document).ready(function() {
 			   }
              
 		  });
+
+		  $("#card-2-back").click(function(e){            
+		       e.preventDefault();
+			   setPM('none');
+			   hideElem(['#card-2']);
+               showElem(['#card-1']);
+             
+		  });
 		  
 		   $("#checkout-pd").change(function(e) {
                e.preventDefault();

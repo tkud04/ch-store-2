@@ -275,11 +275,15 @@ const setPM = ppm => {
 	} 
 	else if(pm == "online"){
 		rt = "PAY ONLINE";
-		show = false;
+		//show = false;
+		/**
 		Swal.fire({
 			 icon: 'error',
              title: "Online payment is currently not available."
         });
+		**/
+		hideElem(['#card-1']);
+		showElem(['#card-2']);
 	} 
 	
 	if(show){

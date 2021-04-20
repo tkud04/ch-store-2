@@ -45,11 +45,13 @@ $(document).ready(() => {
   @endforeach
 @endif
 
+ hideElem(['#card-2']);
+ showElem(['#card-1']);
 });
 </script>
 				@include('checkout-header',['number' => 2])
 				<div class="container mt-8">
-					<form action="{{url('checkout')}}" method="post" id="checkout-form" class="form">
+					<form action="{{url('checkout')}}" method="post" class="form">
 						{!! csrf_field() !!}
 						<input type="hidden" id="pm" name="pm" value="">
 						<div class="row gutter-lg">
@@ -302,22 +304,22 @@ $(document).ready(() => {
 												<div id="collapse4" class="collapsed">
 													<div class="card-body">
 														<div id="card-1">
-														  You will be redirected to our secure online payment gateway to make payment and complete your order.<br>
+														  Our secure online payment gateway will process your payment and complete your order.<br>
 														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
 														</div>
 														<div id="card-2">
 														  <div class="row">
 									                         <div class="col-xs-12">
 										                       <label>Full name*</label>
-										                       <input type="text" id="card-2-name" placeholder="Full name">
+										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
 														     </div>
 														     <div class="col-xs-8">
 										                       <label>Card number*</label>
-										                       <input type="text" id="card-2-number" placeholder="Full name">
+										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
 														     </div>
 														    <div class="col-xs-4">
 										                       <label>CVV*</label>
-										                       <input type="text" id="card-2-cvv" placeholder="Full name">
+										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
 														     </div>
 														    <div class="col-xs-6">
 										                       <label>Expiry Month*</label>
@@ -339,17 +341,18 @@ $(document).ready(() => {
 										                       <select class="form-control" id="card-2-yeae">
 											                     <option value="none">Select year</option>
 											                      <?php
-											                        $years = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-											                       foreach($years as $y)
+											                        $y = date("Y");
+											                       for($i=$y; $i < $y + 10; $i++)
                                                                    {
                                                                   ?>
-                                                                  	<option value="{{$y}}">{{ucwords($y)}}</option>
+                                                                  	<option value="{{$i}}">{{$i}}</option>
                                                                   <?php      	
                                                                    }
 											                      ?>
 											                   </select>
 														     </div>
 													      </div>
+														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" id="card-2-back">Cancel</a>
 													    </div>
 												    </div>
 											</div>
