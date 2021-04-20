@@ -301,10 +301,57 @@ $(document).ready(() => {
 												</div>
 												<div id="collapse4" class="collapsed">
 													<div class="card-body">
-														You will be redirected to our secure online payment gateway to make payment and complete your order.<br>
-														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
-													</div>
-												</div>
+														<div id="card-1">
+														  You will be redirected to our secure online payment gateway to make payment and complete your order.<br>
+														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
+														</div>
+														<div id="card-2">
+														  <div class="row">
+									                         <div class="col-xs-12">
+										                       <label>Full name*</label>
+										                       <input type="text" id="card-2-name" placeholder="Full name">
+														     </div>
+														     <div class="col-xs-8">
+										                       <label>Card number*</label>
+										                       <input type="text" id="card-2-number" placeholder="Full name">
+														     </div>
+														    <div class="col-xs-4">
+										                       <label>CVV*</label>
+										                       <input type="text" id="card-2-cvv" placeholder="Full name">
+														     </div>
+														    <div class="col-xs-6">
+										                       <label>Expiry Month*</label>
+										                       <select class="form-control" id="card-2-month">
+											                     <option value="none">Select month</option>
+											                      <?php
+											                        $months = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+											                       foreach($months as $m)
+                                                                   {
+                                                                  ?>
+                                                                  	<option value="{{$m}}">{{ucwords($m)}}</option>
+                                                                  <?php      	
+                                                                   }
+											                      ?>
+											                   </select>
+														     </div>
+														     <div class="col-xs-6">
+										                       <label>Expiry Year*</label>
+										                       <select class="form-control" id="card-2-yeae">
+											                     <option value="none">Select year</option>
+											                      <?php
+											                        $years = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+											                       foreach($years as $y)
+                                                                   {
+                                                                  ?>
+                                                                  	<option value="{{$y}}">{{ucwords($y)}}</option>
+                                                                  <?php      	
+                                                                   }
+											                      ?>
+											                   </select>
+														     </div>
+													      </div>
+													    </div>
+												    </div>
 											</div>
 										</div>
 										<h4 class="mt-3">Info</h4>
