@@ -446,9 +446,8 @@ const checkout = (dt) => {
 	   .then(response => {
 		   console.log(response);
 		   if(response.status === 200){
-			   //console.log(response);
-			   
 			   return response.json();
+			  // return response.text();
 		   }
 		   else{
 			   return {status: "error", message: "Technical error"};
@@ -463,38 +462,9 @@ const checkout = (dt) => {
                 showElem(['#checkout-btn']);
 	   })
 	   .then(res => {
-		   console.log(res);
-          
-          Swal.fire({
-			     icon: 'info',
-                 title: JSON.stringify(res)         
-               });
-          
-          
+		   //console.log(res);
+		   
 		   if(res.status == "ok"){
-			/**
-              $('#r').append(`<p class="text-success">Message sent to <em>${ll[ctr]}</em></p>`);
-			  
-			  setTimeout(function(){
-		       //console.log("data sent: " + dt);
-		      ++ctr; 
-		      if(ctr < ll.length){
-				  send(dt);
-			  }
-			  else{
-				  hideElem(['#send-loading']);
-				  Swal.fire({
-			     icon: 'success',
-                 title: "Task finished!"
-               }).then((result) => {
-               if (result.value) {                 
-			     window.location = `/`;
-                }
-              });
-			  window.location = `/`;
-			  }
-		      },5000);
-			  **/
 		   }
 		   else if(res.status == "error"){
 			   let hh = ``;

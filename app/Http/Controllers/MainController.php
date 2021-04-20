@@ -390,11 +390,14 @@ class MainController extends Controller {
 			$ret['message'] = "auth";
 		}
 		
-        $req = $request->all();
-		
+		 $req = $request->all();
+		 
+		if(isset($req['dt']))
+        {
+		 $reqq = json_decode($req['dt'],true);
       # dd($req);
         
-        $validator = Validator::make($req, $rules);
+        $validator = Validator::make($reqq, $rules);
          
          if($validator->fails())
          {
@@ -403,14 +406,15 @@ class MainController extends Controller {
          
          else
          {
-			 $ret = ['status' => "error", 'message' => "nothing happened"];
-			 /**
-			 #dd($req);
-			 $this->helpers->checkout($user,$req);	 
-             session()->flash("checkout-status","ok");
-		     return redirect()->intended('orders'); 
-            **/			 
-         }        
+			 $this->helpers->checkout($user,$reqq);
+			 $ret = ['status' => "ok"];	 
+         }  
+		}
+		else
+		 {
+             $ret['message'] = "validation";
+         }
+         return json_encode($ret); 		 
     }
 	
 	

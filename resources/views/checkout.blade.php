@@ -361,7 +361,7 @@ $(document).ready(() => {
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
 										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Place Order</a>
 										<p id="checkout-loading">
-											Processing <img src="images/loading.gif" alt="" style="width: 100px; height: 100px">
+											Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
                                         </p>
 									</div>
 								</div></div>
