@@ -1638,22 +1638,8 @@ $subject = $data['subject'];
 		   {
 			  #dd($data);
 			   $ret = [];
-			   $type = $data['pm'];
-			
-			   switch($type)
-			   {
-			      case "direct":
-                 	$ret = $this->payWithBank($u, $data);
-                  break;
-				  case "online":
-                 #	$ret = $this->payWithPayStack($u, $data);
-                  break;
-				  case "pod":
-                 	$ret = $this->payOnDelivery($u, $data);
-                  break;
-			   }
-			   
-			   return $ret;
+			   $ret = $this->processCheckout($u, $data);
+			   return ['status' => "ok",'reference' => $ret->reference];
 		   }
 		   
 		   function getRandomString($length_of_string) 
@@ -1681,10 +1667,10 @@ $subject = $data['subject'];
 			   return $ret;
 		   }
 
-           function payWithBank($user, $md)
+           function processCheckout($user, $md)
            {	
              # dd([$user,$md]);		   
-                $dt = []; $pd = $md['pd']; $sd = $md['sd'];
+                $dt = []; $pd = $md['ppd']; $sd = $md['ssd'];
 				$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
 				
 		        $cart = $this->getCart($user);
@@ -1742,7 +1728,7 @@ $subject = $data['subject'];
 				
                	$dt['ref'] = $this->getRandomString(5);
 				$dt['comment'] = isset($md['notes']) ? $md['notes'] : "";
-				$dt['payment_type'] = "bank";
+				$dt['payment_type'] = $md['pm'];
 				$dt['shipping_type'] = "free";
 				$dt['status'] = "pending";
               
@@ -1752,46 +1738,7 @@ $subject = $data['subject'];
                 return $o;
            }
 		   
-		   function payWithPayStack($user, $payStackResponse)
-           { 
-              $md = $payStackResponse['metadata'];
-			  #dd($md);
-              $amount = $payStackResponse['amount'] / 100;
-              $psref = $payStackResponse['reference'];
-              $ref = $md['ref'];
-              $type = $md['type'];
-              $dt = [];
-              
-              if($type == "checkout"){
-               	$dt['amount'] = $amount;
-				$dt['ref'] = $ref;
-				$dt['notes'] = isset($md['notes']) ? $md['notes'] : "";
-				$dt['courier_id'] = $md['courier'];
-				$dt['payment_type'] = "card";
-				$dt['ps_ref'] = $psref;
-				$dt['type'] = "card";
-				$dt['status'] = "paid";
-				
-				if(is_null($user))
-				{
-					$dt['name'] = $md['name'];
-					$dt['email'] = $md['email'];
-					$dt['phone'] = $md['phone'];
-					$dt['address'] = $md['address'];
-					$dt['city'] = $md['city'];
-					$dt['state'] = $md['state'];
-				}
-				else
-				{
-					$this->updateShippingDetails($user,$md);
-				}
-              }
-              
-              #create order
-
-              $this->addOrder($user,$dt);
-                return ['status' => "ok",'dt' => $dt];
-           }
+		   
 		   
 		
 		   function updateStock($p,$q)
@@ -2011,7 +1958,7 @@ $subject = $data['subject'];
 			   $data['user_id'] = $user->id;
 			   
 			   $pd = $data['payment_xf'];
-			   if($pd == "new")
+			   if($pd == "none")
 			   {
 				   $ppd = $this->createPaymentDetails($data);
 				   $pd = $ppd->id;
@@ -2019,7 +1966,7 @@ $subject = $data['subject'];
 			   $data['payment_id'] = $pd;
 			   
 			   $sd = $data['shipping_xf'];
-			   if($sd == "new")
+			   if($sd == "none")
 			   {
 				   $ssd = $this->createShippingDetails($data);
 				   $sd = $ssd->id;

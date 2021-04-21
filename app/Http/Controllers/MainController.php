@@ -406,8 +406,7 @@ class MainController extends Controller {
          
          else
          {
-			 $this->helpers->checkout($user,$reqq);
-			 $ret = ['status' => "ok"];	 
+			 $ret = $this->helpers->checkout($user,$reqq);
          }  
 		}
 		else

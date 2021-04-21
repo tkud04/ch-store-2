@@ -463,11 +463,21 @@ const checkout = (dt) => {
 	   })
 	   .then(res => {
 		   //console.log(res);
-		   
+		   let hh = ``, hh2 = ``;
 		   if(res.status == "ok"){
+			   hh = `Payment declined for order ${res.reference}`;
+			   hh2 = `You order <b>${res.reference}</b> was created successfully but your payment could not be processed.`;
+			   
+			    Swal.fire({
+			     icon: 'error',
+                 title: hh,
+                 html: hh2
+               });
+               
+              hideElem(['#checkout-loading']);			  
+			  showElem(['#checkout-btn']);
 		   }
 		   else if(res.status == "error"){
-			   let hh = ``;
 			   if(res.message == "validation"){
 				 hh = `Please fill all required fields and try again.`;  
 			   }
