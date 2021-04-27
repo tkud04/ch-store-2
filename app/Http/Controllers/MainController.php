@@ -48,7 +48,7 @@ class MainController extends Controller {
 	    #dd($cart);
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
-    	return view("index",compact(['user','cart','c','m','tp','bs','pe','signals','plugins']));
+    	return view("index-2",compact(['user','cart','c','m','tp','bs','pe','signals','plugins']));
     }
 	
 	/**
