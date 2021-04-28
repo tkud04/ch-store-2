@@ -168,7 +168,8 @@ $ccategories = [
                                             </figure>
                                             <div class="product-details">
                                                 <h3 class="product-name">
-                                                    <a href="{{$uu}}" itemprop="name">{{$p['name']}}</a>
+												   <meta itemprop="name" content="{{$p['name']}}">
+                                                    <a href="{{$uu}}">{{$p['name']}}</a>
                                                 </h3>
                                                 <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 												 <meta itemprop="priceCurrency" content="GBP"/>
