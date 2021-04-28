@@ -171,6 +171,7 @@ $ccategories = [
                                                     <a href="{{$uu}}" itemprop="name">{{$p['name']}}</a>
                                                 </h3>
                                                 <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+												 <meta itemprop="priceCurrency" content="GBP"/>
                                                     <ins class="new-price">&#0163;<span itemprop="price">{{number_format($amt,2)}}</span></ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
                                                 </div>
                                             </div>

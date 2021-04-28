@@ -94,7 +94,10 @@ $pcClass = "";
 									@if($product['sku'] != "") SKU: <span class="product-sku">{{$product['sku']}}</span> @endif
 									Manufacturer: <span class="product-brand"><a href="javascript:void(0)">{{$manufacturer['name']}}</a></span>
 								</div>
-								<div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">&#0163;<span itemprop="price">{{$amount}}</span></div>
+								<div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+								   &#0163;<span itemprop="price">{{$amount}}</span>
+								   <meta itemprop="priceCurrency" content="GBP"/>
+								 </div>
 								<div class="ratings-container">
 									<div class="ratings-full">
 										<span class="ratings" style="width:80%"></span>
