@@ -26,7 +26,7 @@ $pcClass = "";
 ?>
 <div class="container">
 <input type="hidden" id="product-xf" value="{{$id}}">
-					<div class="product product-single row mb-4">
+					<div class="product product-single row mb-4" itemscope itemtype="http://schema.org/Product">
 						<div class="col-md-6">
 							<div class="product-gallery pg-vertical">
 								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner owl-loaded owl-drag">
@@ -38,10 +38,11 @@ $pcClass = "";
 									 {
 										$ii = $imggs[$i];
 										$ss = $i == 0 ? " active" : "";
+										$ss2 = $i == 0 ? " itemprop='image'" : "";
                                     ?>								    
 									<div class="owl-item active{{$ss}}" style="width: 461px;">
 									   <figure class="product-image">
-										<img src="{{$ii}}" data-zoom-image="{{$ii}}" alt="{{$displayName}}" width="800" height="900">
+										<img src="{{$ii}}" data-zoom-image="{{$ii}}" alt="{{$displayName}}" width="800" height="900" {{$ss2}}>
 									    <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0px;top:0px;height:519.109px;width:461px;">
 										  <div class="zoomWindowContainer" style="width: 400px;">
 										    <div style="z-index: 999; overflow: hidden; margin-left: 0px; margin-top: 0px; background-position: 0px 0px; width: 461px; height: 519.109px; float: left; display: none; cursor: crosshair; border: 0px solid rgb(136, 136, 136); background-repeat: no-repeat; position: absolute; background-image: url(&quot;{{$ii}}&quot;); top: 0px; left: 0px;" class="zoomWindow">&nbsp;</div>
@@ -87,13 +88,13 @@ $pcClass = "";
 									</ul>
 								</div>
 
-								<h1 class="product-name">{{$displayName}}</h1>
+								<h1 class="product-name" itemprop="name">{{$displayName}}</h1>
 								<div class="product-meta">
 									Model #: <span class="product-sku">{{$model}}</span>
 									@if($product['sku'] != "") SKU: <span class="product-sku">{{$product['sku']}}</span> @endif
 									Manufacturer: <span class="product-brand"><a href="javascript:void(0)">{{$manufacturer['name']}}</a></span>
 								</div>
-								<div class="product-price">&#0163;{{$amount}}</div>
+								<div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">&#0163;<span itemprop="price">{{$amount}}</span></div>
 								<div class="ratings-container">
 									<div class="ratings-full">
 										<span class="ratings" style="width:80%"></span>
@@ -101,7 +102,7 @@ $pcClass = "";
 									</div>
 									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 6 reviews )</a>
 								</div>
-								<p class="product-short-desc">{!! $description !!}</p>
+								<p class="product-short-desc"  itemprop="description">{!! $description !!}</p>
 
 								<hr class="product-divider">
 

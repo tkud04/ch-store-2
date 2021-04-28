@@ -150,10 +150,10 @@ $ccategories = [
 										  $uu = url('product')."?xf=".$p['model'];
 									?>
 									 <div class="col-md-4 col-6 mb-4">
-                                        <div class="product text-center">
+                                        <div class="product text-center" itemscope itemtype="http://schema.org/Product">
                                             <figure class="product-media">
                                                 <a href="{{$uu}}">
-                                                    <img src="{{$imgs[0]}}" alt="product" width="280" height="315">
+                                                    <img src="{{$imgs[0]}}" alt="product" width="280" height="315" itemprop='image'>
                                                 </a>
                                                 <div class="product-label-group">
                                                     <label class="product-label label-new">new</label>
@@ -168,10 +168,10 @@ $ccategories = [
                                             </figure>
                                             <div class="product-details">
                                                 <h3 class="product-name">
-                                                    <a href="{{$uu}}">{{$p['name']}}</a>
+                                                    <a href="{{$uu}}" itemprop="name">{{$p['name']}}</a>
                                                 </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">&#0163;{{number_format($amt,2)}}</ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
+                                                <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                    <ins class="new-price">&#0163;<span itemprop="price">{{number_format($amt,2)}}</span></ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
                                                 </div>
                                             </div>
                                         </div>
