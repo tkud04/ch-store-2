@@ -32,8 +32,8 @@
     <link rel="stylesheet" type="text/css" href="vendor/owl-carousel/owl.carousel.min.css">
 
     <!-- Main CSS File -->
-    <!--<link rel="stylesheet" type="text/css" href="css/demo18.min.css">-->
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/style.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="css/demo1.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/style.min.css')); ?>">-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7CPoppins:400,600,700,900" media="all">
      
 	   <script src="vendor/jquery/jquery.min.js"></script>
@@ -182,8 +182,8 @@
                     </div>
                     <div class="header-center">
                         <a href="<?php echo e(url('/')); ?>" class="logo pt-4 pb-4 mr-0">
-                            <span><img src="images/icons/favicon.png" alt="logo" width="48" height="48">
-							MOBILE BUZZ
+                            <span><img src="images/logo.png" alt="logo">
+							
 							</span>
                         </a>
                         <!-- End Logo -->
@@ -296,7 +296,7 @@
         </header>
         <!-- End Header -->
 		<?php endif; ?>
-        <main class="main mt-5">
+        <main class="main">
 		 <?php if(isset($ph) && $ph): ?>
              <?php echo $__env->make('page-header',['title' => $title,'img' => asset('images/page-header.jpg')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 		 <?php endif; ?>
