@@ -1,5 +1,12 @@
-
- 
+<?php
+$animations = [
+  [
+    'image' => "{'name': 'fadeInLeftShorter', 'duration': '1.2s', 'delay': '.5s'}",
+    'image' => "{'name': 'fadeInLeftShorter', 'duration': '1.2s', 'delay': '.5s'}",
+	
+  ],
+];
+?>
  <section class="intro-section">
                     <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no"
                         data-owl-options="{
@@ -73,54 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="banner banner-fixed intro-slide2" style="background-color: #dddee0;">
-                            <figure>
-                                <img src="images/test/slide2.jpg" alt="intro-banner" width="1903"
-                                    height="630" />
-                            </figure>
-                            <div class="container">
-                                <div class="banner-content y-50 ml-auto text-right">
-                                    <h4 class="banner-subtitle ls-s mb-1 slide-animate"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '.7s'}"><span
-                                            class="d-block text-uppercase mb-2">Coming soon</span><strong
-                                            class="font-weight-semi-bold ls-m">Donald Birthday</strong></h4>
-                                    <h2 class="banner-title mb-2 d-inline-block font-weight-bold text-primary slide-animate"
-                                        data-animation-options="{'name': 'fadeInRight', 'duration': '1.2s', 'delay': '.5s'}">
-                                        Sale</h2>
-                                    <p class="slide-animate font-primary ls-s text-dark mb-4"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '1.2s'}">
-                                        Up to 70% off on all products <br />online &amp; Free Shipping over $90</p>
-                                    <a href="#" class="btn btn-dark slide-animate"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '1.4s'}">Shop
-                                        Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner banner-fixed video-banner intro-slide3" style="background-color: #dddee0;">
-                            <figure>
-                                <video src="video/memory-of-a-woman.mp4" width="1903" height="630"></video>
-                            </figure>
-                            <div class="container">
-                                <div class="banner-content x-50 y-50 text-center">
-                                    <h4 class="banner-subtitle text-white text-uppercase mb-3 slide-animate"
-                                        data-animation-options="{'name': 'fadeIn', 'duration': '.7s'}">Check out Donald
-                                        Store</h4>
-                                    <h2 class="banner-title mb-3 text-white font-weight-bold ls-m slide-animate"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '.7s', 'delay': '.5s'}">
-                                        Fashion Collection</h2>
-                                    <p class="slide-animate mb-5 text-white ls-s font-primary "
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '.8s'}">
-                                        Up to 50% Off this Season’s &amp; Get free shipping<br />on all orders over
-                                        $199.00</p>
-                                    <a href="#" class="btn btn-outline btn-white slide-animate mr-3 mb-1"
-                                        data-animation-options="{'name': 'fadeInLeft', 'duration': '1s', 'delay': '1.5s'}">Shop
-                                        Men</a>
-                                    <a href="#" class="btn btn-outline btn-white slide-animate mb-1"
-                                        data-animation-options="{'name': 'fadeInRight', 'duration': '1s', 'delay': '1.5s'}">Shop
-                                        Women</a>
-                                </div>
-                            </div>
-                        </div>
+
 
 
                     </div>
