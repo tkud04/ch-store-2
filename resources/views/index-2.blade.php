@@ -148,4 +148,146 @@ $ccategories = [
                         
                     </div>
                 </section>
+				
+				<section class="banner-group mb-9 container text-uppercase appear-animate">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="banner banner-1 banner-fixed content-middle" data-animation-options="{
+                                'name': 'fadeInLeftShorter',
+                                'delay': '.5s'
+                            }">
+                                <figure>
+                                    <img src="images/banner4.jpg" alt="banner" width="380"
+                                        height="207" />
+                                </figure>
+                                <div class="banner-content">
+                                    <h3 class="banner-title font-weight-bold mb-0">Apple iPhones</h3>
+                                    <h4 class="banner-subtitle font-weight-semi-bold ls-s text-body mb-0">Starting at
+                                        &#0163;999.00
+                                    </h4>
+                                    <hr class="bg-dark">
+                                    <a href="{{url('categories')}}" class="btn btn-link btn-underline btn-sm">Shop Now<i
+                                            class="d-icon-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4 order-lg-auto order-sm-last">
+                            <div class="banner banner-2 banner-fixed content-middle content-center overlay-light appear-animate"
+                                data-animation-options="{
+                                'name': 'fadeIn',
+                                'delay': '.3s'
+                            }">
+                                <figure>
+                                    <img src="images/banner2.jpg" alt="banner" width="350"
+                                        height="177" />
+                                </figure>
+                                <div class="banner-content">
+                                    <h3 class="banner-title font-weight-bold mb-0">Amazing Discounts</h3>
+                                    <h4 class="banner-subtitle ls-normal">Starting at &#0163;99.00</h4>
+                                    <a href="{{url('categories')}}" class="btn btn-dark btn-md mb-1">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="banner banner-3 banner-fixed content-middle" data-animation-options="{
+                                'name': 'fadeInRightShorter',
+                                'delay': '.5s'
+                            }">
+                                <figure>
+                                    <img src="images/banner5.jpg" alt="banner" width="380"
+                                        height="207" />
+                                </figure>
+                                <div class="banner-content">
+                                    <h3 class="banner-title font-weight-bold mb-0">HP Laptops</h3>
+                                    <h4 class="banner-subtitle font-weight-semi-bold ls-s text-body mb-0">Up to 30% off
+                                    </h4>
+                                    <hr class="bg-dark">
+                                    <a href="{{url('categories')}}" class="btn btn-link btn-underline btn-sm">Shop Now<i
+                                            class="d-icon-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+				
+				<section class="product-wrapper container appear-animate mt-10 pt-3 pb-8" data-animation-options="{
+                    'delay': '.3s'
+                }">
+                    <h2 class="title">Top Products</h2>
+                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
+                        'items': 5,
+                        'nav': false,
+                        'loop': false,
+                        'dots': true,
+                        'margin': 20,
+                        'responsive': {
+                            '0': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3
+                            },
+                            '992': {
+                                'items': 4,
+                                'dots': false,
+                                'nav': true
+                            }
+                        }
+                    }">
+					<?php
+									#$bestSellers = []; $topProducts = [];
+									
+									  foreach($tp as $p)
+									  {
+										  $data = $p['data'];
+										  $imgs = $p['imggs'];
+										  $pc = $data['category'];
+										  $pm = $data['manufacturer'];
+										  $amt = $data['amount'];
+										  $xf = $p['id'];
+										  $uu = url('product')."?xf=".$p['model'];
+									?>
+                        <div class="product">
+                            <figure class="product-media">
+                                <a href="{{$uu}}">
+                                    <img src="{{$imgs[0]}}" alt="{{$p['name']}}" width="280" height="315">
+                                </a>
+                                <div class="product-label-group">
+                                    <label class="product-label label-new">new</label>
+                                </div>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <a href="#" class="btn-wishlist" title="Add to wishlist"><i
+                                        class="d-icon-heart"></i></a>
+                                <div class="product-cat">
+                                    <a href="shop-grid-3col.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="{{$uu}}">{{$p['name']}}</a>
+                                </h3>
+                                <div class="product-price">
+                                    <ins class="new-price">&#0163;{{number_format($amt,2)}}</ins><del class="old-price">&#0163;{{number_format($amt + 50,2)}}</del>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a>
+                                </div>
+                            </div>
+                        </div>
+						<?php
+									  }
+									?>
+                        
+                    </div>
+                </section>
 @stop

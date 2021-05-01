@@ -126,7 +126,7 @@ if(count($banners) < 1)
                                 <i class="icon-box-icon d-icon-truck"></i>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Free Shipping &amp; Return</h4>
-                                    <p>Free shipping on orders over $99</p>
+                                    <p>Free shipping anywhere in the UK</p>
                                 </div>
                             </div>
 
@@ -137,7 +137,7 @@ if(count($banners) < 1)
                                 <i class="icon-box-icon d-icon-service"></i>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">Customer Support 24/7</h4>
-                                    <p>Instant access to perfect support</p>
+                                    <p>Instant access to customer support</p>
                                 </div>
                             </div>
 
@@ -148,7 +148,7 @@ if(count($banners) < 1)
                                 <i class="icon-box-icon d-icon-secure"></i>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">100% Secure Payment</h4>
-                                    <p>We ensure secure payment!</p>
+                                    <p>We never save your payment details!</p>
                                 </div>
                             </div>
                         </div>
