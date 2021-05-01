@@ -290,4 +290,21 @@ $ccategories = [
                         
                     </div>
                 </section>
+				
+				 <section class="banner parallax" data-option="{'offset': 0}"
+                    data-image-src="images/parallax.jpg" style="background-color: #44352d;">
+					<div class="parallax-background" style="background-image: url('images/parallax.jpg'); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transform: translate3d(0px, -46.2812px, 0px); background-position-x: 50%;"></div>
+                    <div class="container banner-content appear-animate text-center" data-animation-options="{
+                        'name': 'blurIn',
+                        'delay': '.3s'
+                    }">
+                        <h3 class="banner-subtitle text-white font-weight-bold mb-2">Extra<span
+                                class="label-star bg-primary text-uppercase text-white ml-2 mr-2">30% Off</span>Online
+                        </h3>
+                        <h2 class="banner-title font-weight-bold text-uppercase text-white mb-2">Phones and Tablets Collection
+                        </h2>
+                        <p class="font-primary text-white mb-6">Free shipping in the UK</p>
+                        <a href="{{url('categories')}}" class="btn btn-solid pl-5 pr-5">Discover&nbsp;Now</a>
+                    </div>
+                </section>
 @stop
