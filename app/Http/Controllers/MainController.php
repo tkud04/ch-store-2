@@ -738,6 +738,7 @@ class MainController extends Controller {
 	 */
 	public function getReturnPolicy(Request $request)
     {
+		/**
        $user = null;
 		$cart = [];
 		if(Auth::check())
@@ -753,6 +754,8 @@ class MainController extends Controller {
 		$info = $this->helpers->getInformationSingle("returns");
 		#dd($info);
 		return view("returns",compact(['user','cart','info','c','pe','signals','plugins']));	
+		**/
+		return redirect()->intended('/');
     }
 	
 	/**
@@ -762,6 +765,7 @@ class MainController extends Controller {
 	 */
 	public function getFAQ(Request $request)
     {
+	 /**
        $user = null;
 		$cart = [];
 		if(Auth::check())
@@ -779,6 +783,9 @@ class MainController extends Controller {
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 		$signals = $this->helpers->signals;
 		return view("faq",compact(['user','cart','c','ad','pe','signals','plugins']));	
+		**/
+		
+		return redirect()->intended('/');
     }
     
 	/**
