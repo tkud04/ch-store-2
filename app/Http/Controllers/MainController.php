@@ -264,7 +264,7 @@ class MainController extends Controller {
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
 		$req = $request->all();
-	    //dd($secure);
+	    dd($req);
 		$validator = Validator::make($req, [
                              'xf' => 'required'
                    ]);
