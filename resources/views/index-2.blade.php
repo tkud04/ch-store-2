@@ -100,6 +100,8 @@ $ccategories = [
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
+										  $pcu = url('category')."?xf=".$pc['category'];
+										  $pcn = $pc['name'];
 										  $pm = $data['manufacturer'];
 										  $amt = $data['amount'];
 										  $xf = $p['id'];
@@ -114,18 +116,17 @@ $ccategories = [
                                     <label class="product-label label-new">new</label>
                                 </div>
                                 <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <a href="#" class="btn-wishlist" title="Add to wishlist"><i
+                                <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
                                         class="d-icon-heart"></i></a>
                                 <div class="product-cat">
-                                    <a href="shop-grid-3col.html">categories</a>
+                                    <a href="{{$pcu}}">{{$pcn}}</a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{$uu}}">{{$p['name']}}</a>
@@ -242,6 +243,8 @@ $ccategories = [
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
+										  $pcu = url('category')."?xf=".$pc['category'];
+										  $pcn = $pc['name'];
 										  $pm = $data['manufacturer'];
 										  $amt = $data['amount'];
 										  $xf = $p['id'];
@@ -256,18 +259,17 @@ $ccategories = [
                                     <label class="product-label label-new">new</label>
                                 </div>
                                 <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart">><i class="d-icon-bag"></i></a>
                                 </div>
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <a href="#" class="btn-wishlist" title="Add to wishlist"><i
+                                <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
                                         class="d-icon-heart"></i></a>
                                 <div class="product-cat">
-                                    <a href="shop-grid-3col.html">categories</a>
+                                    <a href="{{$pcu}}">{{$pcn}}</a>
                                 </div>
                                 <h3 class="product-name">
                                     <a href="{{$uu}}">{{$p['name']}}</a>
