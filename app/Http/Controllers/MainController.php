@@ -264,7 +264,7 @@ class MainController extends Controller {
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
 		$req = $request->all();
-	    dd($req);
+	    #dd($req);
 		$validator = Validator::make($req, [
                              'xf' => 'required'
                    ]);
@@ -280,8 +280,8 @@ class MainController extends Controller {
                  {
 					 $discounts = [];
 
-					 $product = $this->helpers->getProduct($req["xf"],"debug");
-					 dd($product);
+					 $product = $this->helpers->getProduct($req["xf"]);
+					 #dd($product);
 
 					 //$reviews = $this->helpers->getReviews($["model"]);
 					 //$related = $this->helpers->getProducts();

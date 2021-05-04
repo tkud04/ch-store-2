@@ -13,9 +13,9 @@ $pcClass = "";
 			   $pd = $product['data'];
 			   $imgs = $product['imggs'];
 			   $displayName = $name == "" ? $model : $name;
-			   $uu = url('product')."?xf=".$model;
-			   $cu = url('add-to-cart')."?xf=".$model."&qty=1";
-			   $wu = url('add-to-wishlist')."?xf=".$model;
+			   $uu = url('product')."?xf=".$id;
+			   $cu = url('add-to-cart')."?xf=".$id."&qty=1";
+			   $wu = url('add-to-wishlist')."?xf=".$id;
 			   //$ccu = url('add-to-compare')."?sku=".$sku;
 			   $description = $pd['description'];
 			   $category = $pd['category'];
@@ -202,7 +202,7 @@ $pcClass = "";
 									the delivery options we offer, please view our <a href="#" class="text-primary">Delivery
 										information</a><br>We hope you’ll love every
 									purchase, but if you ever need to return an item you can do so within a month of
-									receipt. For full details of how to make a return, please view our <br><a href="#" class="text-primary">Returns information</a></p>
+									receipt.</p>
 							</div>
 							<div class="tab-pane " id="product-tab-reviews">
 							 <?php

@@ -103,7 +103,7 @@ $ccategories = [
 										  $pm = $data['manufacturer'];
 										  $amt = $data['amount'];
 										  $xf = $p['id'];
-										  $uu = url('product')."?xf=".$p['model'];
+										  $uu = url('product')."?xf=".$xf;
 									?>
                         <div class="product">
                             <figure class="product-media">
@@ -245,7 +245,7 @@ $ccategories = [
 										  $pm = $data['manufacturer'];
 										  $amt = $data['amount'];
 										  $xf = $p['id'];
-										  $uu = url('product')."?xf=".$p['model'];
+										  $uu = url('product')."?xf=".$xf;
 									?>
                         <div class="product">
                             <figure class="product-media">
