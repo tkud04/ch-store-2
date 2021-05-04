@@ -822,7 +822,7 @@ $subject = $data['subject'];
 		   
 		   function getProduct($id,$imgId=false)
            {
-			   dd($id);
+			  if($imgId == "debug") dd($id);
            	$ret = [];
               $product = Products::where('id',$id)                           
 			                 ->orWhere('model',$id)->first();
