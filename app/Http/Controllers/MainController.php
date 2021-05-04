@@ -280,7 +280,7 @@ class MainController extends Controller {
                  {
 					 $discounts = [];
 
-					 $product = $this->helpers->getProduct(urldecode($req["xf"]));
+					 $product = $this->helpers->getProduct($req["xf"]);
 					 dd($product);
 
 					 //$reviews = $this->helpers->getReviews($["model"]);
