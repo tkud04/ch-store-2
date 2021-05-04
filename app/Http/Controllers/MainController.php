@@ -281,7 +281,7 @@ class MainController extends Controller {
 					 $discounts = [];
 
 					 $product = $this->helpers->getProduct($req["xf"]);
-					 #dd($product);
+					 dd($product);
 
 					 //$reviews = $this->helpers->getReviews($["model"]);
 					 //$related = $this->helpers->getProducts();
