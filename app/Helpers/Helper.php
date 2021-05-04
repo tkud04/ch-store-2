@@ -1989,7 +1989,7 @@ $subject = $data['subject'];
 				   {
 					   $dt = [];
                        $dt['product_id'] = $p['id'];
-				       $dt['qty'] = $p['qty'];
+				       $dt['qty'] = $c['qty'];
 				       $dt['order_id'] = $order->id;
 				       $this->updateStock($dt['product_id'],$dt['qty']);
                        $oi = $this->createOrderItems($dt);

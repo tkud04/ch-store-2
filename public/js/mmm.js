@@ -122,7 +122,7 @@ $(document).ready(function() {
 		  $(".product-qty").change(function(e){            
 		       e.preventDefault();
 			   
-			      console.log(`xf: ${xf}, qty: ${qty}`);
+			      //console.log(`xf: ${xf}, qty: ${qty}`);
              
 		  });
 		  
