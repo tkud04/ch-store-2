@@ -116,7 +116,7 @@ $ccategories = [
                                     <label class="product-label label-new">new</label>
                                 </div>
                                 <div class="product-action-vertical">
-                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
                                 <div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
@@ -259,7 +259,7 @@ $ccategories = [
                                     <label class="product-label label-new">new</label>
                                 </div>
                                 <div class="product-action-vertical">
-                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart">><i class="d-icon-bag"></i></a>
+                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}},qty: 1})" class="btn-product-icon btn-cart" title="Add to cart">><i class="d-icon-bag"></i></a>
                                 </div>
                                 <div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
