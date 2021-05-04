@@ -47,7 +47,7 @@ $ccategories = [
                             <div class="col-md-3 col-6 mb-4">
                                 <div
                                     class="category category-default category-default-1 category-absolute overlay-zoom">
-                                    <a href="#">
+                                    <a href="<?php echo e($cu); ?>">
                                         <figure class="category-media">
                                             <img src="<?php echo e($cc['image'][0]); ?>" alt="category" width="280" height="280" />
                                         </figure>

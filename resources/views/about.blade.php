@@ -11,7 +11,7 @@ $pcClass = "";
                         <h2 class="title mb-lg-9">Who We Are</h2>
                         <div class="row mb-10">
                             <div class="col-md-6">
-                                <img class="w-100 mb-4 appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{'name':'fadeInLeftShorter'}" src="images/about.jpg" alt="Donald Store" width="587" height="517" style="position: sticky; top: 2rem; animation-duration: 1.2s;">
+                                <img class="w-100 mb-4 appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{'name':'fadeInLeftShorter'}" src="images/about-2.jpg" alt="Mobile Buzz" width="587" height="517" style="position: sticky; top: 2rem; animation-duration: 1.2s;">
                             </div>
                             <div class="col-md-6 order-md-first pt-md-5">
                                 <div class="mb-8">
@@ -22,24 +22,24 @@ $pcClass = "";
 
                                 <div class="row pl-xl-6 pr-xl-8 mb-6">
                                     <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
-                                        <span class="count-to" data-to="35" data-refresh-interval="50">35</span>
-                                        <h5 class="count-title">Business Year</h5>
+                                        <span class="count-to" data-to="35" data-refresh-interval="50">8</span>
+                                        <h5 class="count-title">Business Years</h5>
                                     </div>
                                     <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
                                         <span class="count-to" data-to="50" data-refresh-interval="50">50</span>
-                                        <h5 class="count-title">Design Brands</h5>
+                                        <h5 class="count-title"> Brands</h5>
                                     </div>
                                     <div class="counter text-primary text-center col-sm-4 col-md-12 col-lg-4">
-                                        <span class="count-to" data-to="130" data-refresh-interval="50">130</span>
-                                        <h5 class="count-title">Team Members</h5>
+                                        <span class="count-to" data-to="130" data-refresh-interval="50">430</span>
+                                        <h5 class="count-title">Sales</h5>
                                     </div>
                                 </div>
                                 <ul class="list list-circle row cols-sm-2 cols-md-1 cols-xl-2 font-weight-bold text-dark font-primary mb-4">
-                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.4s'}"><i class="fa fa-check"></i>Pellentesque ultricies nibh</li>
+                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.4s'}"><i class="fa fa-check"></i>Free shipping in the United Kinggdom</li>
                                     <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter'}">
-                                        <i class="fa fa-check"></i>Pellentesque ultricies nibh</li>
-                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.5s'}"><i class="fa fa-check"></i>Ultricies nibh pellen</li>
-                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.3s'}"><i class="fa fa-check"></i>Ultricies nibh pellen</li>
+                                        <i class="fa fa-check"></i>Customer suppport 24/7</li>
+                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.5s'}"><i class="fa fa-check"></i>100% secure payment</li>
+                                    <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.3s'}"><i class="fa fa-check"></i>Wide range of categories</li>
                                 </ul>
                             </div>
                         </div>

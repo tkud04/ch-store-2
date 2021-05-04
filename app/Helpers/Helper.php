@@ -1609,11 +1609,10 @@ $subject = $data['subject'];
 		       return json_encode($s);
 		   }	
 
-             function getBanners()
+              function getBanners()
 		   {
 			   $ret = [];
-			   $banners = Banners::where('id',">",'0')
-			                     ->where('status',"enabled")->get();
+			   $banners = Banners::where('id',">",0)->get();
 			   #dd($ads);
 			   if(!is_null($banners))
 			   {
@@ -1623,9 +1622,13 @@ $subject = $data['subject'];
 					   $temp['id'] = $b->id;
 					   $img = $b->img;
 					   $temp['img'] = $this->getCloudinaryImage($img);
-					   $temp['title'] = $b->title;
-					   $temp['subtitle'] = $b->subtitle;
-					   $temp['copy'] = $b->copy;
+					   $temp['title_1'] = $b->title_1;
+					   $temp['title_2'] = $b->title_2;
+					   $temp['subtitle_1'] = $b->subtitle_1;
+					   $temp['subtitle_2'] = $b->subtitle_2;
+					   $temp['caption'] = $b->caption;
+					   $temp['button_text'] = $b->button_text;
+					   $temp['url'] = $b->url;
 					   $temp['status'] = $b->status;
 					   array_push($ret,$temp);
 				   }
