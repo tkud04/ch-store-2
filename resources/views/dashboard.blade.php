@@ -194,7 +194,7 @@ $pcClass = "";
 							
 							<div class="tab-pane" id="wishlist">
 								<p class=" b-2">No items in your wishlist yet.</p>
-								<a href="{{url('shop')}}" class="btn btn-primary">Go Shopping</a>
+								<a href="{{url('categories')}}" class="btn btn-primary">Go Shopping</a>
 							</div>
 							<div class="tab-pane" id="orders">
 							  <div class="row">
@@ -277,7 +277,7 @@ $pcClass = "";
 								{
 								?>
 								  <p class=" b-2">No order has been made yet.</p>
-								  <a href="{{url('shop')}}" class="btn btn-primary">Go Shop</a>
+								  <a href="{{url('categories')}}" class="btn btn-primary">Go Shop</a>
 								<?php
 								}
 								?>
