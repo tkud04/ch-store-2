@@ -169,11 +169,13 @@
                             </ul>
                         </div>
 						<?php
-						 $tel = "#"; $call = "(123) 456 908";
+						 $tel = "#"; $call = "079 1882 2740";
+						 /**
 						 if(isset($pe['phone']) && $pe['phone'] != null)
 						 {
 							 $tel = $pe['phone']; $call = $tel;
 						 }
+						 **/
 						?>
                         <!-- End DropDown Menu -->
 						 <a href="tel:<?php echo e($tel); ?>" class="call"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary"><?php echo e($call); ?></strong></a>
@@ -412,8 +414,6 @@
                 </li>
                 <li><a href="<?php echo e(url('about')); ?>">About</a></li>
                 <li><a href="<?php echo e(url('terms')); ?>">Terms</a></li>
-                <li><a href="<?php echo e(url('faq')); ?>">FAQ</a></li>
-                <li><a href="<?php echo e(url('returns')); ?>">Returns</a></li>
                 <li><a href="<?php echo e(url('contact')); ?>">Contact</a></li>
                 <li><a href="<?php echo e(url('privacy')); ?>">Privacy</a></li>
             </ul>

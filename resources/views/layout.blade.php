@@ -168,11 +168,13 @@
                             </ul>
                         </div>
 						<?php
-						 $tel = "#"; $call = "(123) 456 908";
+						 $tel = "#"; $call = "079 1882 2740";
+						 /**
 						 if(isset($pe['phone']) && $pe['phone'] != null)
 						 {
 							 $tel = $pe['phone']; $call = $tel;
 						 }
+						 **/
 						?>
                         <!-- End DropDown Menu -->
 						 <a href="tel:{{$tel}}" class="call"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary">{{$call}}</strong></a>
@@ -411,8 +413,6 @@
                 </li>
                 <li><a href="{{url('about')}}">About</a></li>
                 <li><a href="{{url('terms')}}">Terms</a></li>
-                <li><a href="{{url('faq')}}">FAQ</a></li>
-                <li><a href="{{url('returns')}}">Returns</a></li>
                 <li><a href="{{url('contact')}}">Contact</a></li>
                 <li><a href="{{url('privacy')}}">Privacy</a></li>
             </ul>

@@ -22,7 +22,7 @@ $pcClass = "";
                                 <h4 class="mb-1 text-uppercase">Email</h4>
                                 <p>
                                     <a href="#">support@mobilebuzzonline.co.uk</a><br>
-                                    <a href="#">ssales@mobilebuzzonline.co.uk</a><br>
+                                    <a href="#">sales@mobilebuzzonline.co.uk</a><br>
                                 </p>
                             </div>
                             <div class="col-lg-9 col-md-8 col-xs-7">
