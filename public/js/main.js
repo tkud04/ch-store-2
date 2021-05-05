@@ -1100,6 +1100,7 @@ window.Donald = {};
             });
 
         // Open newsletter Popup after 7.5s in home pages
+		/**
 		if(typeof ccndn === "undefined" || !ccndn){
         if (Donald.$body.hasClass('home') && Donald.getCookie('hideNewsletterPopup') !== 'true') {
             setTimeout(function () {
@@ -1120,6 +1121,7 @@ window.Donald = {};
             }, 15000);
         }
 		}
+		**/
     }
 
 	/**

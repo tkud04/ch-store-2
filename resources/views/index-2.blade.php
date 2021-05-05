@@ -291,7 +291,7 @@ $ccategories = [
 									?>
                         
                     </div>
-                </section>
+                </section><br>
 				
 				 <section class="banner parallax" data-option="{'offset': 0}"
                     data-image-src="images/parallax.jpg" style="background-color: #44352d;">
