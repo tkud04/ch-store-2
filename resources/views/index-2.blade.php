@@ -70,26 +70,7 @@ $ccategories = [
                     'delay': '.3s'
                 }">
                     <h2 class="title">Best Selling</h2>
-                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-                        'items': 5,
-                        'nav': false,
-                        'loop': false,
-                        'dots': true,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4,
-                                'dots': false,
-                                'nav': true
-                            }
-                        }
-                    }">
+                    <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
 									
@@ -105,6 +86,7 @@ $ccategories = [
 										  $xf = $p['id'];
 										  $uu = url('product')."?xf=".$xf;
 									?>
+			<div class="col-md-3 col-6 mb-4">
                         <div class="product">
                             <figure class="product-media">
                                 <a href="{{$uu}}">
@@ -141,6 +123,7 @@ $ccategories = [
                                 </div>
                             </div>
                         </div>
+			</div>
 						<?php
 									  }
 									?>
