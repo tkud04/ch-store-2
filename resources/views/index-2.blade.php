@@ -292,8 +292,8 @@ $ccategories = [
                 </section><br>
 				
 				 <section class="banner parallax" data-option="{'offset': 0}"
-                    data-image-src="images/parallax.jpg" style="background-color: #44352d;">
-					<div class="parallax-background" style="background-image: url('images/parallax.jpg'); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transform: translate3d(0px, -46.2812px, 0px); background-position-x: 50%;"></div>
+                    data-image-src="images/parallax-2.jpg" style="background-color: #44352d;">
+					<div class="parallax-background" style="background-image: url('images/parallax-2.jpg'); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transform: translate3d(0px, -46.2812px, 0px); background-position-x: 50%;"></div>
                     <div class="container banner-content appear-animate text-center" data-animation-options="{
                         'name': 'blurIn',
                         'delay': '.3s'
