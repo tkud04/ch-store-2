@@ -99,9 +99,11 @@ $ccategories = [
                                 <div class="product-action-vertical">
                                     <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
-                                <div class="product-action">
+                                <!--
+								<div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
+								-->
                             </figure>
                             <div class="product-details">
                                 <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
@@ -120,7 +122,7 @@ $ccategories = [
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a>
+                                  <!--  <a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a> -->
                                 </div>
                             </div>
                         </div>
@@ -226,9 +228,11 @@ $ccategories = [
                                 <div class="product-action-vertical">
                                     <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
+								<!--
                                 <div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
+								-->
                             </figure>
                             <div class="product-details">
                                 <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
@@ -247,7 +251,7 @@ $ccategories = [
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a>
+                                  <!--  <a href="{{$uu}}" class="rating-reviews">( 6 reviews )</a> -->
                                 </div>
                             </div>
                         </div>

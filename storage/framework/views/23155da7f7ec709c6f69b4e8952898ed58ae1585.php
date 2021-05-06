@@ -35,13 +35,11 @@ $ccategories = [
 										  
 										    foreach($c as $cc)
 											{
-												if(!in_array($cc['id'],$cccc))
-												{
+												
 												$cu = url('category')."?xf=".$cc['category'];
 												$children = $cc['children'];
 												
-												if(count($children) == 0)
-												{
+												
 													
 										   ?>
                             <div class="col-md-3 col-6 mb-4">
@@ -49,7 +47,7 @@ $ccategories = [
                                     class="category category-default category-default-1 category-absolute overlay-zoom">
                                     <a href="<?php echo e($cu); ?>">
                                         <figure class="category-media">
-                                            <img src="<?php echo e($cc['image'][0]); ?>" alt="category" width="280" height="280" />
+                                            <img src="<?php echo e($cc['image'][0]); ?>" alt="category" class="rc" />
                                         </figure>
                                     </a>
                                     <div class="category-content">
@@ -58,8 +56,8 @@ $ccategories = [
                                 </div>
                             </div>
 							 <?php
-												}
-											  }
+												
+											  
 											  array_push($cccc,$cc['id']);
 											}
 										   ?>
@@ -72,31 +70,13 @@ $ccategories = [
                     'delay': '.3s'
                 }">
                     <h2 class="title">Best Selling</h2>
-                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-                        'items': 5,
-                        'nav': false,
-                        'loop': false,
-                        'dots': true,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4,
-                                'dots': false,
-                                'nav': true
-                            }
-                        }
-                    }">
+                    <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
-									
-									  foreach($bs as $p)
+									$bsc = count($bs) > 12 ? 12 : count($bs);
+									  for($i =0; $i < $bsc; $i++)
 									  {
+									     $p = $bs[$i];
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
@@ -107,6 +87,7 @@ $ccategories = [
 										  $xf = $p['id'];
 										  $uu = url('product')."?xf=".$xf;
 									?>
+			<div class="col-md-3 col-6 mb-4">
                         <div class="product">
                             <figure class="product-media">
                                 <a href="<?php echo e($uu); ?>">
@@ -118,9 +99,11 @@ $ccategories = [
                                 <div class="product-action-vertical">
                                     <a href="javascript:void(0)" onclick="addToCart({xf: '<?php echo e($xf); ?>',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
-                                <div class="product-action">
+                                <!--
+								<div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
+								-->
                             </figure>
                             <div class="product-details">
                                 <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
@@ -139,10 +122,11 @@ $ccategories = [
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="<?php echo e($uu); ?>" class="rating-reviews">( 6 reviews )</a>
+                                  <!--  <a href="<?php echo e($uu); ?>" class="rating-reviews">( 6 reviews )</a> -->
                                 </div>
                             </div>
                         </div>
+			</div>
 						<?php
 									  }
 									?>
@@ -215,31 +199,13 @@ $ccategories = [
                     'delay': '.3s'
                 }">
                     <h2 class="title">Top Products</h2>
-                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-                        'items': 5,
-                        'nav': false,
-                        'loop': false,
-                        'dots': true,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4,
-                                'dots': false,
-                                'nav': true
-                            }
-                        }
-                    }">
+                    <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
-									
-									  foreach($tp as $p)
+									$tpc = count($tp) > 12 ? 12 : count($tp);
+									  for($i =0; $i < $tpc; $i++)
 									  {
+									     $p = $tp[$i];
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
@@ -250,6 +216,7 @@ $ccategories = [
 										  $xf = $p['id'];
 										  $uu = url('product')."?xf=".$xf;
 									?>
+			<div class="col-md-3 col-6 mb-4">
                         <div class="product">
                             <figure class="product-media">
                                 <a href="<?php echo e($uu); ?>">
@@ -261,9 +228,11 @@ $ccategories = [
                                 <div class="product-action-vertical">
                                     <a href="javascript:void(0)" onclick="addToCart({xf: '<?php echo e($xf); ?>',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
                                 </div>
+								<!--
                                 <div class="product-action">
                                     <a href="javascript:void(0)" class="btn-product btn-quickview" title="Quick View">Quick View</a>
                                 </div>
+								-->
                             </figure>
                             <div class="product-details">
                                 <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
@@ -282,10 +251,11 @@ $ccategories = [
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="<?php echo e($uu); ?>" class="rating-reviews">( 6 reviews )</a>
+                                  <!--  <a href="<?php echo e($uu); ?>" class="rating-reviews">( 6 reviews )</a> -->
                                 </div>
                             </div>
                         </div>
+			</div>
 						<?php
 									  }
 									?>
@@ -294,15 +264,13 @@ $ccategories = [
                 </section><br>
 				
 				 <section class="banner parallax" data-option="{'offset': 0}"
-                    data-image-src="images/parallax.jpg" style="background-color: #44352d;">
-					<div class="parallax-background" style="background-image: url('images/parallax.jpg'); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transform: translate3d(0px, -46.2812px, 0px); background-position-x: 50%;"></div>
+                    data-image-src="images/parallax-2.jpg" style="background-color: #44352d;">
+					<div class="parallax-background" style="background-image: url('images/parallax-2.jpg'); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; transform: translate3d(0px, -46.2812px, 0px); background-position-x: 50%;"></div>
                     <div class="container banner-content appear-animate text-center" data-animation-options="{
                         'name': 'blurIn',
                         'delay': '.3s'
                     }">
-                        <h3 class="banner-subtitle text-white font-weight-bold mb-2">Extra<span
-                                class="label-star bg-primary text-uppercase text-white ml-2 mr-2">30% Off</span>Online
-                        </h3>
+                        
                         <h2 class="banner-title font-weight-bold text-uppercase text-white mb-2">Phones and Tablets Collection
                         </h2>
                         <p class="font-primary text-white mb-6">Free shipping in the UK</p>
