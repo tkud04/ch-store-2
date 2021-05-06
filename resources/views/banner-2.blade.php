@@ -6,7 +6,7 @@ if(count($banners) < 1)
      'subtitle_1' => "Buy 2, Get",
      'subtitle_2' => "1 Free",
      'title_1' => "Mobile Phones",
-     'title_2' => "<strong>Up to 30% Off</strong> on all Products",
+     'title_2' => "<strong>Up to 10% Off</strong> on all Products",
      'caption' => "Get Free Shipping on all orders over &#0163;999.00",
      'button_text' => "SHOP NOW",
      'url' => url('categories')
@@ -64,12 +64,14 @@ if(count($banners) < 1)
                             <div class="container">
 
                                 <div class="banner-content y-50">
+				   <!--
                                     <h4 class="banner-subtitle text-uppercase font-weight-bold ls-l mb-2">
                                         <span class="d-inline-block slide-animate"
                                             data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.2s'}">{{$b['subtitle_1']}}</span>
                                         <span class="d-inline-block label-star bg-primary text-white slide-animate"
                                             data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.4s'}">{{$b['subtitle_2']}}</span>
                                     </h4>
+				    -->
                                     <h2 class="banner-title text-uppercase font-weight-bold text-white lh-1 ls-l slide-animate"
                                         data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
                                         {!! $b['title_1'] !!}</h2>
