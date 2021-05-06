@@ -96,3 +96,13 @@ td{
 	padding: 5px;
 	text-align: center !important;
 }
+
+.rc{
+	width: 280px !important; height: 280px !important;
+}
+
+@media (min-width: 768px) {
+	.rc{
+		
+	}
+}

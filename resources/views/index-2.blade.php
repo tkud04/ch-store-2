@@ -49,7 +49,7 @@ $ccategories = [
                                     class="category category-default category-default-1 category-absolute overlay-zoom">
                                     <a href="{{$cu}}">
                                         <figure class="category-media">
-                                            <img src="{{$cc['image'][0]}}" alt="category" style=" width: 280px !important; height: 280px !important;" />
+                                            <img src="{{$cc['image'][0]}}" alt="category" class="rc" />
                                         </figure>
                                     </a>
                                     <div class="category-content">
