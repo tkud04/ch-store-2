@@ -68,5 +68,4 @@
 									</div>
 									
 								</div></div>
-							</div>
 						</aside><?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/shop-sidebar.blade.php ENDPATH**/ ?>
