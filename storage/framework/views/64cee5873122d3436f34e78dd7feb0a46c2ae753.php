@@ -73,6 +73,14 @@
 		$xu = url('dashboard'); $xt = "Dashboard";
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
+	  
+						 $tel = "#"; $call = "079 1882 2740";
+						 /**
+						 if(isset($pe['phone']) && $pe['phone'] != null)
+						 {
+							 $tel = $pe['phone']; $call = $tel;
+						 }
+						 **/
 	  ?>
 <body class="home loaded" style="overflow-x: hidden;">
     <div class="loading-overlay">
@@ -94,6 +102,7 @@
                         <p class="welcome-msg">Welcome to Mobile Buzz!</p>
                     </div>
                     <div class="header-right">
+					 <a href="tel:<?php echo e($tel); ?>" class="calll"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary"><?php echo e($call); ?></strong></a>
                         <div class="dropdown">
                             <a href="#currency">GBP</a>
                             <ul class="dropdown-box">
@@ -103,21 +112,7 @@
                             </ul>
                         </div>
                         <!-- End DropDown Menu -->
-                        <div class="dropdown">
-                            <a href="#language"><img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG</a>
-                            <ul class="dropdown-box">
-                                <li>
-                                    <a href="#USD">
-                                        <img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#EUR">
-                                        <img src="images/flags/fr.png" alt="France Flag" class="dropdown-image">FR
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                      
                         <!-- End DropDown Menu -->
                         <div class="dropdown dropdown-expanded d-lg-show">
                             <a href="#dropdown">Links</a>
@@ -153,6 +148,7 @@
                             </ul>
                         </div>
                         <!-- End DropDown Menu -->
+						
                         <div class="dropdown language-dropdown">
                             <a href="#language"><img src="images/flags/en2.png" alt="UK Flag" class="dropdown-image">ENG</a>
                             <ul class="dropdown-box">
@@ -168,18 +164,8 @@
                                 </li>
                             </ul>
                         </div>
-						<?php
-						 $tel = "#"; $call = "079 1882 2740";
-						 /**
-						 if(isset($pe['phone']) && $pe['phone'] != null)
-						 {
-							 $tel = $pe['phone']; $call = $tel;
-						 }
-						 **/
-						?>
-                        <!-- End DropDown Menu -->
-						 <a href="tel:<?php echo e($tel); ?>" class="call"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary"><?php echo e($call); ?></strong></a>
-                        <!-- End Call -->
+						
+						
                     </div>
                     <div class="header-center">
                         <a href="<?php echo e(url('/')); ?>" class="logo pt-4 pb-4 mr-0">

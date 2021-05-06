@@ -122,3 +122,15 @@ td{
 	      height: 280px !important;
 	}
 }
+
+@media (max-width: 576px) {
+	.calll{
+            font-size: 0.5rem !important;
+	}
+}
+
+.calll{
+         font-size: 0.9rem !important;
+	}
+	
+	
