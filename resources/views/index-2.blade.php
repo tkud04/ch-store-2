@@ -36,7 +36,7 @@ $ccategories = [
 										    foreach($c as $cc)
 											{
 												
-												$cu = url('category')."?xf=".$cc['category'];
+												$cu = url('category')."?xf=".$cc['id'];
 												$children = $cc['children'];
 												
 												
