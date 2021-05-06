@@ -12,40 +12,12 @@
 										  
 										    foreach($c as $cc)
 											{
-												if(!in_array($cc['id'],$cccc))
-												{
-												$cu = url('category')."?xf=".$cc['category'];
-												$children = $cc['children'];
 												
-												if(count($children) == 0)
-												{
-													
+												$cu = url('category')."?xf=".$cc['category'];		
 										   ?>
 											<li><a href="<?php echo e($cu); ?>"><?php echo $cc['name']; ?></a></li>
 										   <?php
-												}
-												else if(count($children) > 0)
-												{
-													
-										  ?>
-                                           <li class="with-ul show">
-												<a href="<?php echo e($cu); ?>"><?php echo $cc['name']; ?><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-down"></i></a>
-												<ul style="display: block">
-												   <?php
-												    foreach($children as $c2)
-													{
-													  $cu2 = url('category')."?xf=".$c2['category'];
-												   ?>
-													<li><a href="<?php echo e($cu2); ?>"><?php echo $c2['name']; ?></a></li>
-													<?php
-													 array_push($cccc,$c2['id']);
-													}
-													?>
-												</ul>
-											</li>
-                                           <?php										   
-												}
-											  }
+											  
 											  array_push($cccc,$cc['id']);
 											}
 										   ?>
@@ -72,6 +44,7 @@
 										   ?>
 										</ul>
 									</div>
+									<!--
 									<div class="widget widget-collapsible">
 										<h3 class="widget-title">Price<span class="toggle-btn"></span></h3>
 										<ul class="widget-body filter-items">
@@ -91,6 +64,7 @@
 										<div class="filter-actions">
 										<button id="ssb-btn" class="btn btn-sm btn-primary">Search</button>
 									</div>
+									-->
 									</div>
 									
 								</div></div>
