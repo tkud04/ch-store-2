@@ -16,7 +16,7 @@ $pcClass = "";
 											{
 												
 										$cu = url('category')."?xf=".$cc['category'];
-											$children = $cc['children'];
+											#$children = $cc['children'];
 												
 												
 													
