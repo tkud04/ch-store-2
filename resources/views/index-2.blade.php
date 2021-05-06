@@ -35,13 +35,11 @@ $ccategories = [
 										  
 										    foreach($c as $cc)
 											{
-												if(!in_array($cc['id'],$cccc))
-												{
+												
 												$cu = url('category')."?xf=".$cc['category'];
 												$children = $cc['children'];
 												
-												if(count($children) == 0)
-												{
+												
 													
 										   ?>
                             <div class="col-md-3 col-6 mb-4">
@@ -58,8 +56,8 @@ $ccategories = [
                                 </div>
                             </div>
 							 <?php
-												}
-											  }
+												
+											  
 											  array_push($cccc,$cc['id']);
 											}
 										   ?>
