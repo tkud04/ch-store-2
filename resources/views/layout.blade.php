@@ -8,7 +8,7 @@
     <meta name="description" content="Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="images/cover.png">
 
     <script src="js/webfont.js" async=""></script><script>
         WebFontConfig = {
@@ -182,7 +182,7 @@
                     </div>
                     <div class="header-center">
                         <a href="{{url('/')}}" class="logo pt-4 pb-4 mr-0">
-                            <span><img src="images/logo.png" alt="logo">
+                            <span><img src="images/cover.png" alt="logo">
 							
 							</span>
                         </a>
