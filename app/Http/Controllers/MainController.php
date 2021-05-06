@@ -120,7 +120,7 @@ class MainController extends Controller {
 		{
 			$xf = $req['xf'];
 		  $signals = $this->helpers->signals;
-	   	  $category = $this->helpers->getCategory($xf,['category' => true]);
+	   	  $category = $this->helpers->getCategory($xf);
 		  $c = $this->helpers->getCategories(['children' => true]);
 		  #dd($category);
 		  if(count($category) > 0)
