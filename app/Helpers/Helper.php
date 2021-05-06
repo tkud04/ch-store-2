@@ -745,7 +745,8 @@ $subject = $data['subject'];
 		   function getProductsByCategory($c)
            {
            	$ret = [];
-			  $cc = Categories::where('category',$c)->first();
+			  $cc = Categories::where('category',$c)
+			                  ->orWhere('id',$c)->first();
               
 			  if($cc != null)
 			  {
