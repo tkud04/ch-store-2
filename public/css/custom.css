@@ -98,11 +98,27 @@ td{
 }
 
 .rc{
-	width: 280px !important; height: 280px !important;
+	width: 280px !important; 
+	height: 280px !important;
+}
+
+@media (min-width: 576px) {
+	.rc{
+              width: 100px !important; 
+	      height: 100px !important;
+	}
 }
 
 @media (min-width: 768px) {
 	.rc{
-		
+              width: 150px !important; 
+	      height: 150px !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.rc{
+              width: 280px !important; 
+	      height: 280px !important;
 	}
 }
