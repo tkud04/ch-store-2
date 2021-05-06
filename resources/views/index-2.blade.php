@@ -73,9 +73,10 @@ $ccategories = [
                     <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
-									
-									  foreach($bs as $p)
+									$bsc = count($bs) > 12 ? 12 : count($bs);
+									  for($i =0; $i < $bsc; $i++)
 									  {
+									     $p = $bs[$i];
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
@@ -196,26 +197,7 @@ $ccategories = [
                     'delay': '.3s'
                 }">
                     <h2 class="title">Top Products</h2>
-                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-                        'items': 5,
-                        'nav': false,
-                        'loop': false,
-                        'dots': true,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4,
-                                'dots': false,
-                                'nav': true
-                            }
-                        }
-                    }">
+                    <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
 									
