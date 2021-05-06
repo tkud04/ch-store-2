@@ -98,8 +98,8 @@ td{
 }
 
 .rc{
-	width: 280px !important; 
-	height: 280px !important;
+	width: 100px !important; 
+	height: 100px !important;
 }
 
 @media (min-width: 576px) {
