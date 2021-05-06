@@ -12,7 +12,7 @@ $pcClass = "";
 let page = 1, productsLength = 0, products = [], perPage = 12;
 
 		  <?php
-		  $cimg = $category['image'][0];
+		  $cimg = $manufacturer['image'][0];
 		  $pc = count($products);
 		  $pcText = $pc == 1 ? "Product" : "Products";
 		  $page1 = $pc < 12 ? $pc : 12;
