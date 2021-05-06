@@ -49,7 +49,7 @@ $ccategories = [
                                     class="category category-default category-default-1 category-absolute overlay-zoom">
                                     <a href="{{$cu}}">
                                         <figure class="category-media">
-                                            <img src="{{$cc['image'][0]}}" alt="category" width="280" height="280" />
+                                            <img src="{{$cc['image'][0]}}" alt="category" style=" width: 280px !important; height: 280px !important;" />
                                         </figure>
                                     </a>
                                     <div class="category-content">
@@ -300,9 +300,7 @@ $ccategories = [
                         'name': 'blurIn',
                         'delay': '.3s'
                     }">
-                        <h3 class="banner-subtitle text-white font-weight-bold mb-2">Extra<span
-                                class="label-star bg-primary text-uppercase text-white ml-2 mr-2">30% Off</span>Online
-                        </h3>
+                        
                         <h2 class="banner-title font-weight-bold text-uppercase text-white mb-2">Phones and Tablets Collection
                         </h2>
                         <p class="font-primary text-white mb-6">Free shipping in the UK</p>
