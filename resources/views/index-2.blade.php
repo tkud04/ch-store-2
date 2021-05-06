@@ -200,9 +200,10 @@ $ccategories = [
                     <div class="row">
 					<?php
 									#$bestSellers = []; $topProducts = [];
-									
-									  foreach($tp as $p)
+									$tpc = count($tp) > 12 ? 12 : count($tp);
+									  for($i =0; $i < $tpc; $i++)
 									  {
+									     $p = $tp[$i];
 										  $data = $p['data'];
 										  $imgs = $p['imggs'];
 										  $pc = $data['category'];
@@ -213,6 +214,7 @@ $ccategories = [
 										  $xf = $p['id'];
 										  $uu = url('product')."?xf=".$xf;
 									?>
+			<div class="col-md-3 col-6 mb-4">
                         <div class="product">
                             <figure class="product-media">
                                 <a href="{{$uu}}">
@@ -249,6 +251,7 @@ $ccategories = [
                                 </div>
                             </div>
                         </div>
+			</div>
 						<?php
 									  }
 									?>
