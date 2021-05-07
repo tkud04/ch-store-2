@@ -88,14 +88,12 @@ $(document).ready(() => {
 </script>
 <div class="container">
 <div class="row main-content-wrap gutter-lg">
-						<?php echo $__env->make('shop-sidebar',['c' => $c,'m' => $m], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+						
 						<div class="col-lg-9 main-content">
-							<div class="shop-banner-default banner" style="background-image: url('<?php echo e($cimg); ?>'); background-color: #f2f2f3;">
+							<div class="shop-banner-default banner" style="background-color: #f2f2f3;">
 								<div class="banner-content">
-									<h4 class="banner-subtitle mb-2  text-body text-uppercase ls-m font-weight-normal">
-										Mobile Buzz</h4>
 									<h1 class="banner-title font-weight-normal text-uppercase"><strong class="ls-m"><?php echo e($title); ?></strong></h1>
-									<p class="font-primary lh-1 ls-m mb-0">Browse all products in this category</p>
+									<p class="font-primary lh-1 ls-m mb-5">Browse all products in this category</p>
 								</div>
 							</div>
 							<!--
@@ -163,6 +161,7 @@ $(document).ready(() => {
 							</div>
 							<?php endif; ?>
 						</div>
+						<?php echo $__env->make('shop-sidebar',['c' => $c,'m' => $m], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 					</div>
 				</div>
 <?php $__env->stopSection(); ?>
