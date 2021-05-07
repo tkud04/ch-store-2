@@ -36,7 +36,7 @@ $ccategories = [
 										    foreach($c as $cc)
 											{
 												
-												$cu = url('category')."?xf=".$cc['category'];
+												$cu = url('category')."?xf=".$cc['id'];
 												$children = $cc['children'];
 												
 												
@@ -179,11 +179,11 @@ $ccategories = [
                                 'delay': '.5s'
                             }">
                                 <figure>
-                                    <img src="images/banner5.jpg" alt="banner" width="380"
+                                    <img src="images/hp2.png" alt="banner" width="380"
                                         height="207" />
                                 </figure>
                                 <div class="banner-content">
-                                    <h3 class="banner-title font-weight-bold mb-0">HP Laptops</h3>
+                                    <h3 class="banner-title font-weight-bold mb-0">Laptops</h3>
                                     <h4 class="banner-subtitle font-weight-semi-bold ls-s text-body mb-0">Up to 30% off
                                     </h4>
                                     <hr class="bg-dark">
