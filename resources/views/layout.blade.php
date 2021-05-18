@@ -6,7 +6,7 @@
 
     <meta name="keywords" content="iphone, android">
     <meta name="description" content="Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom">
-
+     @yield('metas')
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/cover.png">
 
