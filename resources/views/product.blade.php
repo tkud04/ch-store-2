@@ -3,9 +3,7 @@ $title = $product['name'];
 $ph = true;
 $pcClass = "";
 ?>
-@extends('layout')
 
-@section('content')
 <?php
                $id = $product['id'];
                $name = $product['name'];
@@ -24,9 +22,50 @@ $pcClass = "";
 			   $imggs = $product['imggs'];
 			    
 ?>
+
+@extends('layout')
+
+@section('metas')
+@stop
+
+@section('content')
 <div class="container">
 <input type="hidden" id="product-xf" value="{{$id}}">
-					<div class="product product-single row mb-4" itemscope itemtype="http://schema.org/Product">
+					<div class="product product-single row mb-4">
+					        <div class="col-md-12" itemtype="http://schema.org/Product" itemscope>
+      <meta itemprop="mpn" content="925872" />
+      <meta itemprop="name" content="Executive Anvil" />
+      <link itemprop="image" href="https://example.com/photos/16x9/photo.jpg" />
+      <link itemprop="image" href="https://example.com/photos/4x3/photo.jpg" />
+      <link itemprop="image" href="https://example.com/photos/1x1/photo.jpg" />
+      <meta itemprop="description" content="Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height." />
+      <div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+        <link itemprop="url" href="https://example.com/anvil" />
+        <meta itemprop="availability" content="https://schema.org/InStock" />
+        <meta itemprop="priceCurrency" content="USD" />
+        <meta itemprop="itemCondition" content="https://schema.org/UsedCondition" />
+        <meta itemprop="price" content="119.99" />
+        <meta itemprop="priceValidUntil" content="2020-11-20" />
+      </div>
+      <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <meta itemprop="reviewCount" content="89" />
+        <meta itemprop="ratingValue" content="4.4" />
+      </div>
+      <div itemprop="review" itemtype="http://schema.org/Review" itemscope>
+        <div itemprop="author" itemtype="http://schema.org/Person" itemscope>
+          <meta itemprop="name" content="Fred Benson" />
+        </div>
+        <div itemprop="reviewRating" itemtype="http://schema.org/Rating" itemscope>
+          <meta itemprop="ratingValue" content="4" />
+          <meta itemprop="bestRating" content="5" />
+        </div>
+      </div>
+      <meta itemprop="sku" content="0446310786" />
+      <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+        <meta itemprop="name" content="ACME" />
+      </div>
+    </div>
+  </div>
 						<div class="col-md-6">
 							<div class="product-gallery pg-vertical">
 								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner owl-loaded owl-drag">
