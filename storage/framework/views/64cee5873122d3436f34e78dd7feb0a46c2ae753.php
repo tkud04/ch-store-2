@@ -6,7 +6,7 @@
 
     <meta name="keywords" content="iphone, android">
     <meta name="description" content="Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom">
-
+     <?php echo $__env->yieldContent('metas'); ?>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/cover.png">
 
@@ -103,15 +103,7 @@
                     </div>
                     <div class="header-right">
 					 <a href="tel:<?php echo e($tel); ?>" class="calll"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary"><?php echo e($call); ?></strong></a>
-                        <div class="dropdown">
-                            <a href="#currency">GBP</a>
-                            <ul class="dropdown-box">
-                                <li><a href="#USD">USD</a></li>
-                                <li><a href="#EUR">EUR</a></li>
-                                <li><a href="#GBP">GBP</a></li>
-                            </ul>
-                        </div>
-                        <!-- End DropDown Menu -->
+                        
                       
                         <!-- End DropDown Menu -->
                         <div class="dropdown dropdown-expanded d-lg-show">
@@ -169,13 +161,22 @@
                     </div>
                     <div class="header-center">
                         <a href="<?php echo e(url('/')); ?>" class="logo pt-4 pb-4 mr-0">
-                            <span><img src="images/cover.png" alt="logo">
+                            <span><img src="images/logo_transparent.png" alt="logo" style="width: 100px !important; height: 100px !important;">
 							
 							</span>
                         </a>
                         <!-- End Logo -->
                     </div>
                     <div class="header-right">
+					<div class="dropdown mr-3">
+                            <a href="#currency">GBP</a>
+                            <ul class="dropdown-box">
+                                <li><a href="#USD">USD</a></li>
+                                <li><a href="#EUR">EUR</a></li>
+                                <li><a href="#GBP">GBP</a></li>
+                            </ul>
+                        </div>
+                        <!-- End DropDown Menu -->
 					<?php if($user == null): ?>
                         <a class="login" href="<?php echo e(url('login')); ?>">
                             <i class="d-icon-user"></i>
