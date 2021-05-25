@@ -259,15 +259,11 @@ $(document).ready(() => {
 												<tr class="sumnary-shipping shipping-row-last">
 													<td colspan="2">
 														<h4 class="summary-subtitle">Shipping</h4>
-														<ul>
-															<li>
-														<div class="custom-radio">
-															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="checked">
-															<label class="custom-control-label" for="free-shipping">Free
-																Shipping</label>
-														</div>
-													</li>
-														</ul>
+														
+														<p class="custom-control-label" for="free-shipping">Free
+																Shipping</p>
+														
+													
 													</td>
 												</tr>
 												<tr class="summary-subtotal">
