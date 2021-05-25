@@ -8,7 +8,7 @@
     <meta name="description" content="Mobile Buzz - Gadgets, Phones and Accessories in the United Kingdom">
      <?php echo $__env->yieldContent('metas'); ?>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/cover.png">
+    <link rel="icon" type="image/png" href="images/logo_transparent.png">
 
     <script src="js/webfont.js" async=""></script><script>
         WebFontConfig = {
@@ -161,7 +161,7 @@
                     </div>
                     <div class="header-center">
                         <a href="<?php echo e(url('/')); ?>" class="logo pt-4 pb-4 mr-0">
-                            <span><img src="images/logo_transparent.png" alt="logo" style="width: 100px !important; height: 100px !important;">
+                            <span><img src="images/youtube_profile_image.png" alt="logo" style="width: 100px !important; height: 100px !important;">
 							
 							</span>
                         </a>
@@ -319,10 +319,96 @@
             </div>
         </main>
         <!-- End Main -->
-        <footer class="footer">
-            <div class="container">
-                <!-- End FooterMiddle -->
-                <div class="footer-bottom">
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-top">
+					<div class="row">
+						<div class="col-lg-4">
+							<a href="<?php echo e(url('/')); ?>" class="logo-footer">
+								<img src="images/facebook_cover_photo_2.png" alt="logo-footer" width="326" height="78">
+							</a>
+							<!-- End FooterLogo -->
+						</div>
+						<div class="col-lg-8">
+							<div class="widget widget-newsletter form-wrapper form-wrapper-inline">
+								<div class="newsletter-info mx-auto mr-lg-2 ml-lg-4">
+									<h4 class="widget-title">Subscribe to our Newsletter</h4>
+									<p>Get all the latest information on Events, Sales and Offers.</p>
+								</div>
+								<form action="#" class="input-wrapper input-wrapper-inline">
+									<input type="email" class="form-control" name="email" id="email" placeholder="Email address here..." required="">
+									<a href="javascript:void(0)" class="btn btn-primary btn-md ml-2">subscribe<i class="d-icon-arrow-right"></i></a>
+								</form>
+							</div>
+							<!-- End Newsletter -->
+						</div>
+					</div>
+				</div>
+				<!-- End FooterTop -->
+				<div class="footer-middle">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<div class="widget">
+								<h4 class="widget-title">Contact Info</h4>
+								<ul class="widget-body">
+									
+									<li>
+										<label>Email:</label>
+								        <a href="mailto:sales@mobilebuzzonline.co.uk">sales@mobilebuzzonline.co.uk</a>
+									</li>
+									<li>
+										<label>Address:</label>
+										<a href="javascript:void(0)">UK Flag 54 Mortlake Road, Ilford, IG1 2SX</a>
+									</li>
+									<li>
+										<label>WORKING DAYS/HOURS</label>
+									</li>
+									<li>
+										<a href="javascript:void(0)">Mon - Fri / 8:30 AM - 7:00 PM</a><br>
+										<a href="javascript:void(0)">Sat / 9:00 AM - 6:00 PM</a><br>
+										<a href="javascript:void(0)">Sun / Closed</a>
+									</li>
+								</ul>
+							</div>
+							<!-- End Widget -->
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="widget ml-lg-4">
+								<h4 class="widget-title">My Account</h4>
+								<ul class="widget-body">
+								   <?php if($user == null): ?>
+									<li>
+										<a class="login" href="<?php echo e(url('login')); ?>">
+                                          <span>Login</span>
+                                        </a>
+									</li>
+								   <?php else: ?>
+									<li>
+										<a href="<?php echo e(url('dashboard')); ?>">Dashboard</a>
+										<a href="<?php echo e(url('bye')); ?>">Logout</a>
+									</li>
+									<?php endif; ?>
+								</ul>
+							</div>
+							<!-- End Widget -->
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="widget ml-lg-4">
+								<h4 class="widget-title">Useful Links</h4>
+								<ul class="widget-body">
+									<li><a href="<?php echo e(url('about')); ?>">About</a></li>
+                                <li><a href="<?php echo e(url('terms')); ?>">Terms</a></li>
+                                <li><a href="<?php echo e(url('delivery')); ?>">Delivery</a></li>
+                                <li><a href="<?php echo e(url('contact')); ?>">Contact</a></li>
+                                <li><a href="<?php echo e(url('privacy')); ?>">Privacy</a></li>
+								</ul>
+							</div>
+							<!-- End Widget -->
+						</div>
+					</div>
+				</div>
+				<!-- End FooterMiddle -->
+				<div class="footer-bottom">
                     <div class="footer-left">
                         <figure class="payment">
                             <img src="images/payment.png" alt="payment" width="159" height="29">
@@ -330,6 +416,7 @@
                     </div>
                     <div class="footer-center">
                         <p class="copyright">Mobile Buzz &copy; <?php echo e(date("Y")); ?>. All Rights Reserved</p>
+                        <p class="copyright text-center">Company No. 12024231</p>
                     </div>
                     <div class="footer-right">
                         <div class="social-links">
@@ -339,9 +426,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- End FooterBottom -->
-            </div>
-        </footer>
+				<!-- End FooterBottom -->
+			</div>
+		</footer>
         <!-- End Footer -->
 
 		

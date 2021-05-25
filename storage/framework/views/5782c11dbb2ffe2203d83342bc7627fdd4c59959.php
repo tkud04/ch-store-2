@@ -13,22 +13,28 @@ $pcClass = "";
                                 <h2 class="font-weight-bold text-uppercase ls-m mb-2">Contact us</h2>
                                 <p>Looking for help? Fill the form and start a new adventure.</p>
 
-                                <h4 class="mb-1 text-uppercase">Headquarters</h4>
-                                <p>54  Guild Street<br>London N11 4TZ</p>
-
+                                <h4 class="mb-1 text-uppercase">Address</h4>
+                                <p>UK Flag 54 Mortlake Road, Ilford, IG1 2SX</p>
+                                
+								<h4 class="mb-1 text-uppercase">Working days / hours</h4>
+                                <p>
+								  <a href="javascript:void(0)">Mon - Fri / 8:30 AM - 7:00 PM</a><br>
+										<a href="javascript:void(0)">Sat / 9:00 AM - 6:00 PM</a><br>
+										<a href="javascript:void(0)">Sun / Closed</a>
+								</p>
+								
                                 <h4 class="mb-1 text-uppercase">Phone</h4>
-                                <p><a href="tel:#">079 1882 2740</a></p>
+                                <p><a href="javascript:void(0)">079 1882 2740</a></p>
 
                                 <h4 class="mb-1 text-uppercase">Email</h4>
                                 <p>
-                                    <a href="#">support@mobilebuzzonline.co.uk</a><br>
-                                    <a href="#">sales@mobilebuzzonline.co.uk</a><br>
+                                    <a href="mailto:sales@mobilebuzzonline.co.uk">sales@mobilebuzzonline.co.uk</a><br>
                                 </p>
                             </div>
                             <div class="col-lg-9 col-md-8 col-xs-7">
                                 <form class="ml-lg-2 pt-8 pb-10 pl-4 pr-4 pl-lg-6 pr-lg-6 grey-section" action="<?php echo e(url('contact')); ?>">
                                     <h3 class="ls-m mb-1">Let’s Connect</h3>
-                                    <p class="text-grey">Your email addres will not be published. Required fields are
+                                    <p class="text-grey">Your email address will not be published. Required fields are
                                         marked *</p>
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
