@@ -257,13 +257,12 @@ $(document).ready(() => {
 													</td>												
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
-													<td colspan="2">
-														<h4 class="summary-subtitle">Shipping</h4>
-														
-														<p class="custom-control-label" for="free-shipping">Free
-																Shipping</p>
-														
 													
+													<td>
+														<h4 class="summary-subtitle">Shipping</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">Free Shipping</p>
 													</td>
 												</tr>
 												<tr class="summary-subtotal">
