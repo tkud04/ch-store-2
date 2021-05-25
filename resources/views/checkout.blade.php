@@ -277,20 +277,7 @@ $(document).ready(() => {
 										</table>
 										<div class="payment accordion radio-type">
 											<h4 class="summary-subtitle">Payment Method: <a href="javascript:void(0)" class="btn btn-sm btn-success" id="checkout-pm">NONE</a></h4>
-											<div class="card">
-												<div class="card-header">
-													<a href="#collapse1" class="collapse">Direct bank transfer
-													</a>
-												</div>
-												<div id="collapse1" class="expanded" style="display: block;">
-													<div class="card-body">
-														Make your payment directly into our bank account. Please use
-														your Order ID as the payment reference. Your order will not be
-														shipped until the funds have cleared in our account.<br>
-														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('direct')">Select</a>
-													</div>
-												</div>
-											</div>
+											
 											
 											<div class="card">
 												<div class="card-header">
