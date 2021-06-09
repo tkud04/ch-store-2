@@ -26,6 +26,7 @@ $pcClass = "";
 @extends('layout')
 
 @section('metas')
+<link rel="canonical" href="{{$uu}}">
 @stop
 
 @section('content')
