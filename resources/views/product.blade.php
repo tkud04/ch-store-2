@@ -34,7 +34,7 @@ $pcClass = "";
 <input type="hidden" id="product-xf" value="{{$id}}">
 					<div class="product product-single row mb-4">
 					        <div class="col-md-12" itemtype="http://schema.org/Product" itemscope>
-      <meta itemprop="mpn" content="{{$pd['mpn']}}" />
+      <meta itemprop="mpn" content="{{$product['mpn']}}" />
       <meta itemprop="name" content="{{$displayName}}" />
       <?php
        for($i = 0; $i < count($imggs); $i++)
