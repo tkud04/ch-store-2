@@ -2128,7 +2128,7 @@ class MainController extends Controller {
 		$ret = ['status' => "error",'msg' => "Nothing happened"];
 		$req = $request->all();
 		
-		if(isset($req['a'])
+		if(isset($req['a']))
 		{
 			$ret = ['status' => "ok",'data' => $_SERVER['REMOTE_ADDR']];
 		}
