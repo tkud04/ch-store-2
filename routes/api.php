@@ -22,3 +22,4 @@ Route::get('mc-hook', 'MainController@getMcHook');
 Route::post('mc-hook', 'MainController@postMcHook');
 Route::get('debugs', 'MainController@getDebugs');
 Route::get('debug', 'MainController@getMcDebug');
+Route::get('axle', 'MainController@getIP');
