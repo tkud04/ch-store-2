@@ -2123,6 +2123,23 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function getIP(Request $request)
+    {
+		$ret = ['status' => "error",'msg' => "Nothing happened"];
+		$req = $request->all();
+		
+		if(isset($req['a'])
+		{
+			$ret = ['status' => "ok",'data' => $_SERVER['REMOTE_ADDR']];
+		}
+    	return json_encode($ret);
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
 	public function getZoho()
     {
         $ret = "49417647";
