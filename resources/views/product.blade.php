@@ -26,6 +26,7 @@ $pcClass = "";
 @extends('layout')
 
 @section('metas')
+<link rel="canonical" href="{{$uu}}">
 @stop
 
 @section('content')
@@ -33,19 +34,26 @@ $pcClass = "";
 <input type="hidden" id="product-xf" value="{{$id}}">
 					<div class="product product-single row mb-4">
 					        <div class="col-md-12" itemtype="http://schema.org/Product" itemscope>
-      <meta itemprop="mpn" content="925872" />
-      <meta itemprop="name" content="Executive Anvil" />
-      <link itemprop="image" href="https://example.com/photos/16x9/photo.jpg" />
-      <link itemprop="image" href="https://example.com/photos/4x3/photo.jpg" />
-      <link itemprop="image" href="https://example.com/photos/1x1/photo.jpg" />
-      <meta itemprop="description" content="Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height." />
+      <meta itemprop="mpn" content="{{$product['mpn']}}" />
+      <meta itemprop="name" content="{{$displayName}}" />
+      <?php
+       for($i = 0; $i < count($imggs); $i++)
+	{
+	   $ii = $imggs[$i];
+      ?>
+      <link itemprop="image" href="{{$ii}}" />
+      <?php
+      }
+      ?>
+     
+      <meta itemprop="description" content="{{$pd['description']}}" />
       <div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-        <link itemprop="url" href="https://example.com/anvil" />
+        <link itemprop="url" href="{{$uu}}" />
         <meta itemprop="availability" content="https://schema.org/InStock" />
-        <meta itemprop="priceCurrency" content="USD" />
-        <meta itemprop="itemCondition" content="https://schema.org/UsedCondition" />
-        <meta itemprop="price" content="119.99" />
-        <meta itemprop="priceValidUntil" content="2020-11-20" />
+        <meta itemprop="priceCurrency" content="GBP" />
+        <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
+        <meta itemprop="price" content="{{number_format($amount,2)}}" />
+        <meta itemprop="priceValidUntil" content="2040-11-20" />
       </div>
       <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
         <meta itemprop="reviewCount" content="89" />
@@ -60,9 +68,9 @@ $pcClass = "";
           <meta itemprop="bestRating" content="5" />
         </div>
       </div>
-      <meta itemprop="sku" content="0446310786" />
+      <meta itemprop="sku" content="{{$product['sku']}}" />
       <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
-        <meta itemprop="name" content="ACME" />
+        <meta itemprop="name" content="{{$manufacturer['name']}}" />
       </div>
     </div>
   </div>
