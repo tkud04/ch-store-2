@@ -2125,7 +2125,7 @@ class MainController extends Controller {
 	 */
 	public function getIP(Request $request)
     {
-		header("Access-Control-Allow-Origin: *");
+		//header("Access-Control-Allow-Origin: *");
 		$ret = ['status' => "error",'msg' => "Nothing happened"];
 		$req = $request->all();
 		
