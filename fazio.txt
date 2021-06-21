@@ -17,8 +17,20 @@ Housing plays a huge role in the effificiency and general well being of anyone. 
 
 The focus of this project is to provide a platform for customers to rent an apartment for a period of time (ranging from 1 night to 1 year) and for owners to post apartments for rent. The solutions currently being offered to customers only focus on the ones who want to rent apartments on a yearly basis. This project focuses on the short term rentals, research has shown that customers all over the world want something like this. A customer can sign up on the platform, rent an apartment, make payment and check in all from the comfort of a mobile phone or laptop. Apartment owners can also post apartments, receive payments, chat with guests and also offer extra services without any for  of physical presence.
 
-Problem Scope
-1) Apart
-Methodology
+Problem Statement
+1) Apartment owners still have to deal with some paperwork, which can be ineffective and time consuming.
+2) Processing information via paperwork and files costs a lot more money.
+3) The apartment rental systems today only focus on the long term rentals.
+
+Objectives
+To develop a system that:
+1) Allows users to sign up and provide the required information: Profile information, Payment information, etc
+2) Allows users to browse through available apartments using various search filters.
+3) Allows users to rent an apartment and make payment online.
+4) Allows users to communicate with hosts and vice versa via private chat
+5) Allows hosts to post apartments for rent.
+6) Allows hosts to manage apartments and access vital information about them.
+
 
 Technologies Used
+The system is designed using a combination of HTML and Javascript for the front end (user interface) and PHP (Laravel framework) to handle business logic. 
