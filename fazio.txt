@@ -1,3 +1,5 @@
+
+
 ABSTRACT
 
 It is no longer news that consumers all over the world now believe and rely on technology to carry out daily tasks or to make life easier. With this in mind business owners and vendors in general are looking for more innovative ways to harness the power of technology to deliver products and services at the customers fingertips. The housing sector is yet to fully tap into this trend.. In truth there are numerous online soultions out there right now but the aim of this paper to to implement a solution that facilitates the process of renting an apartment for a few days or a year all with the click of a button. 
@@ -8,13 +10,15 @@ With this in mind, I decided to develop a apartment rental system that can solve
 
 INTRODUCTION
 
-Due to the widd embrace of digital products and services by consumers all over the world, service providers and businesses from all walks of life are constantly looking for ways to use technology to offer better products and services to customers anywhere in the world. The housing industry is no different. This chapter will provide a brief overview of the background of study, problem scope, objectives and deliverables of this project.
+Due to the wide embrace of digital products and services by consumers all over the world, service providers and businesses from all walks of life are constantly looking for ways to use technology to offer better products and services to customers anywhere in the world. The housing industry is no different. This chapter will provide a brief overview of the background of study, problem scope, objectives and deliverables of this project.
 
 Background of Study
+Housing plays a huge role in the effificiency and general well being of anyone. If one does not have a comfortable and well furnished house, one may not be fully productive in his or her daily activities. This is one of the reasons why some professionals prefer to lodge in a fancy hotel for some days or weeks just to work on a project. It could be that the hotel room has more facilities, or it cloud also be that the hotel environment is preferable. Either way, most people are looking for a home away from home just for a while, and this project aims at delivering a solution to suit their needs, be it professional or for leisure.
+
+The focus of this project is to provide a platform for customers to rent an apartment for a period of time (ranging from 1 night to 1 year) and for owners to post apartments for rent. The solutions currently being offered to customers only focus on the ones who want to rent apartments on a yearly basis. This project focuses on the short term rentals, research has shown that customers all over the world want something like this. A customer can sign up on the platform, rent an apartment, make payment and check in all from the comfort of a mobile phone or laptop. Apartment owners can also post apartments, receive payments, chat with guests and also offer extra services without any for  of physical presence.
 
 Problem Scope
-
+1) Apart
 Methodology
 
 Technologies Used
-
