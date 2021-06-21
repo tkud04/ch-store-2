@@ -1,6 +1,11 @@
 INTRODUCTION
 
 Short Overview
+It is no longer news that consumers all over the world now believe and rely on technology to carry out daily tasks or to make life easier. With this in mind business owners and vendors in general are looking for more innovative ways to harness the power of technology to deliver products and services at the customers fingertips. The housing sector is yet to fully tap into this trend.. In truth there are numerous online soultions out there right now but the aim of this paper to to implement a solution that facilitates the process of renting an apartment for a few days or a year all with the click of a button. 
+
+To achieve this, the goal is to develop a apartment rental system that simplifies the process of getting an apartment (customer) and also makes posting an apartment for rent stress free (vendor). In a bid to fully understand the problem scope, I did some research on the current solutions already out there. I also prepared questionnaires and submitted them to a number of customers and apartment owners. From the information gathered I realized that some bit of paperwork is still involved though the systems are digital. Most of the said paperwork was done manually. Papers can easily get damaged or lost, leading to loss of data. It also costs more money to keep on buying files to store your records. This makes retrieving imformation become more stressful and less efficient, as one would have to sift through a lot of files just to find what was being searched for. 
+
+With this in mind, I decided to develop a apartment rental system that can solve all the problems faced with the current solutions out there. This system was bullt withuser experience in mind, it comes with a friendly UI (user interface) and an effective backend.
 
 Problem Scope
 
