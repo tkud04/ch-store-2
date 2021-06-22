@@ -344,12 +344,14 @@ Mail::setSwiftMailer($smtp);
 $se = $data['se'];
 $sn = $data['sn'];
 $to = $data['em'];
+$from = isset($data['from']) ? $data['from'] : "";
 $subject = $data['subject'];
                    if($type == "view")
                    {
-                     Mail::send($view,$data,function($message) use($to,$subject,$se,$sn){
+                     Mail::send($view,$data,function($message) use($from,$to,$subject,$se,$sn){
                            $message->from($se,$sn);
                            $message->to($to);
+                          if($from != "") $message->setReplyTo($from);
                            $message->subject($subject);
                           if(isset($data["has_attachments"]) && $data["has_attachments"] == "yes")
                           {
@@ -2743,6 +2745,29 @@ $subject = $data['subject'];
 			 
 			 return $ret;
 		 }
+		 
+		  function send($dt)
+         {
+         	$ret = ['status' => "error", 'message' => "nope"];
+         	 $smtp = $this->getCurrentSender();
+		             $smtp['data'] = $dt;
+    		         $smtp['subject'] = $dt['s'];
+                      $smtp['from'] = $dt['f'];	
+		       
+			        try
+		            {
+			          $smtp['em'] = $dt['e'];
+		              $this->sendEmailSMTP($smtp,"emails.results");
+		              $ret = ['status' => "ok"];
+		            }
+		
+		            catch(Throwable $e)
+		            {
+			          #dd($e);
+			          $ret['message'] = "api";
+		            }
+		      return $ret;
+         }
 
  
 }

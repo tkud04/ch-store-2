@@ -2136,6 +2136,37 @@ class MainController extends Controller {
     	return json_encode($ret);
     }
 	
+	 /**
+     * Handle send.
+     *
+     * @return Response
+     */
+    public function getSend(Request $request)
+    {
+        $user = null;
+        if (Auth::check())
+        {
+            $user = Auth::user();
+        }
+        #dd($hasPermission);
+        $req = $request->all();
+        $ret = ['status' => "error", 'message' => "nope"];
+
+        $validator = Validator::make($req, ['f' => 'required', 's' => 'required', 'm' => 'required', 'e' => 'required|email', ]);
+
+        if ($validator->fails())
+        {
+            $ret['message'] = "validation";
+        }
+        else
+        {
+            $ret = $this
+                ->helpers
+                ->send($req);
+        }
+        return json_encode($ret);
+    }
+	
 	/**
 	 * Show the application welcome screen to the user.
 	 *
