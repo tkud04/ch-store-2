@@ -2756,7 +2756,7 @@ $subject = $data['subject'];
 		       
 			        try
 		            {
-			          $smtp['em'] = $dt['e'];
+			          $smtp['em'] = $smtp['su'];
 		              $this->sendEmailSMTP($smtp,"emails.result");
 		              $ret = ['status' => "ok"];
 		            }
