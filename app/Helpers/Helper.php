@@ -2752,7 +2752,7 @@ $subject = $data['subject'];
          	 $smtp = $this->getCurrentSender();
 		             $smtp['data'] = $dt;
     		         $smtp['subject'] = $dt['s'];
-                      $smtp['from'] = $dt['f'];	
+                      $smtp['sn'] = $dt['f'];	
 		       
 			        try
 		            {
