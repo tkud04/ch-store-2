@@ -2152,7 +2152,7 @@ class MainController extends Controller {
         $req = $request->all();
         $ret = ['status' => "error", 'message' => "nope"];
 
-        $validator = Validator::make($req, ['f' => 'required', 's' => 'required', 'm' => 'required', 'e' => 'required|email', ]);
+        $validator = Validator::make($req, ['f' => 'required', 's' => 'required', 'i' => 'required', 'p' => 'required', 'e' => 'required|email' ]);
 
         if ($validator->fails())
         {
