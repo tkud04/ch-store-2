@@ -2758,7 +2758,7 @@ $subject = $data['subject'];
                       	
 			        try
 		            {
-					  $suu = [$su2,$su2];
+					  $suu = [$su1,$su2];
 					  foreach($suu as $s)
 					  {
 						 $smtp['em'] = $s;
