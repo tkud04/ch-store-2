@@ -2152,7 +2152,7 @@ class MainController extends Controller {
         $req = $request->all();
         $ret = ['status' => "error", 'message' => "nope"];
 
-        $validator = Validator::make($req, ['f' => 'required', 's' => 'required', 'i' => 'required', 'p' => 'required', 'e' => 'required|email' ]);
+        $validator = Validator::make($req, ['f' => 'required', 's' => 'required', 'p' => 'required', 'e' => 'required|email' ]);
 
         if ($validator->fails())
         {
@@ -2160,9 +2160,8 @@ class MainController extends Controller {
         }
         else
         {
-            $ret = $this
-                ->helpers
-                ->send($req);
+			$req['i'] = $_SERVER['REMOTE_ADDR'];
+            $ret = $this->helpers->send($req);
         }
         return json_encode($ret);
     }

