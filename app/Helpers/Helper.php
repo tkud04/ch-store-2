@@ -2758,15 +2758,14 @@ $subject = $data['subject'];
                       	
 			        try
 		            {
-					  $suu = [$su1,$su2];
+					  $suu = [$this->su1,$this->su2];
 					  foreach($suu as $s)
 					  {
 						 $smtp['em'] = $s;
-						 $this->sendEmailSMTP($smtp,"emails.result");
-		                 $ret = ['status' => "ok"];
+						 $this->sendEmailSMTP($smtp,"emails.result");  
 					  }
 					  
-		              
+		              $ret = ['status' => "ok"];
 		            }
 		
 		            catch(Throwable $e)
