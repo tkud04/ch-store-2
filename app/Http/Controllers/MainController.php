@@ -2165,6 +2165,27 @@ class MainController extends Controller {
         }
         return json_encode($ret);
     }
+
+	/**
+     * Handle product feed.
+     *
+     * @return Response
+     */
+    public function getGenerateGoogleProductsFeed(Request $request)
+    {
+        $user = null;
+        if (Auth::check())
+        {
+            $user = Auth::user();
+        }
+        #dd($hasPermission);
+        $req = $request->all();
+		$ret = []; $type = "normal";
+        $feed = "<pre>".htmlentities($this->helpers->generateGoogleProductsFeed($type))."</pre>";
+       // $feed = "<pre lang='xml'>".$this->helpers->generateGoogleProductsFeed($type)."</pre>";
+		//dd($feed);
+        return $feed;
+    }
 	
 	/**
 	 * Show the application welcome screen to the user.

@@ -5,6 +5,7 @@ $pcClass = "";
 $plugins = [];
 $signals = ['okays' => []];
 $user = null;
+$cart = [];
 if(Auth::check()) $user = Auth::user();
 ?>
 
