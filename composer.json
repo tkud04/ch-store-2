@@ -21,7 +21,8 @@
         "laravel/helpers": "^1.1",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
-        "unicodeveloper/laravel-paystack": "1.0.*"
+        "unicodeveloper/laravel-paystack": "1.0.*",
+        "vitalybaev/google-merchant-feed": "^2.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
