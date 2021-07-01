@@ -98,3 +98,4 @@ Route::get('gc', 'MainController@getCouriers');
 Route::get('error', 'MainController@getError');
 Route::get('cps', 'MainController@getCpsTest');
 
+Route::get('product-feed', 'MainController@getGenerateGoogleProductsFeed');
