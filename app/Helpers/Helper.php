@@ -32,6 +32,10 @@ use App\Plugins;
 use App\Couriers;
 use App\Comparisons;
 use App\Debugs;
+use Vitalybaev\GoogleMerchant\Feed;
+use Vitalybaev\GoogleMerchant\Product;
+use Vitalybaev\GoogleMerchant\Product\Shipping;
+use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
 use \Swift_Mailer;
 use \Swift_SmtpTransport;
 use \Cloudinary\Api;
@@ -2775,6 +2779,69 @@ $subject = $data['subject'];
 		            }
 		      return $ret;
          }
+
+
+
+function generateGoogleProductsFeed()
+		   {
+			   $products = $this->getProducts(['more' => true]);
+			   
+			   // Create feed object
+               $feed = new Feed("Mobilebuzz", "http://mobilebuzzonline.co.uk", "Mobile Buzz is the leading online destination for consumers seeking the best deals on the hottest products and gadgets ranging from the latest technology to must-have home-goods.");
+
+               // Put products to the feed ($products - some data from database for example)
+               foreach ($products as $product)
+			   {
+				   $pd = $product['data'];
+                  $imgs = $product['imggs'];
+				  $category = $pd['category'];
+                  $manufacturer = $pd['manufacturer'];
+				   $uu = url('product')."?xf=".$product['id'];
+				   
+                   $item = new Product();
+                  
+                  // Set common product properties
+                  $item->setId($product['id']);
+                  $item->setTitle($product['name']);
+                  $item->setDescription($pd['description']);
+                  $item->setLink($uu);
+                  $item->setImage($imgs[0]);
+				  
+                 // if($product->isAvailable()) {
+                 $item->setAvailability(Availability::IN_STOCK);
+                 //} else {
+                 //$item->setAvailability(Availability::OUT_OF_STOCK);
+                // }
+                 $price = $pd['amount'];
+	             $item->setPrice("{$price} GBP");
+                // $item->setGoogleCategory($product->category_name);
+                 $item->setBrand($manufacturer['name']);
+                // $item->setGtin($product->barcode);
+                 $item->setCondition('new');
+    
+              // Some additional properties
+             // $item->setColor($product->color);
+            //  $item->setSize($product->size);
+
+    // Shipping info
+	/**
+    $shipping = new Shipping();
+    $shipping->setCountry('US');
+    $shipping->setRegion('CA, NSW, 03');
+    $shipping->setPostalCode('94043');
+    $shipping->setLocationId('21137');
+    $shipping->setService('UPS Express');
+    $shipping->setPrice('1300 USD');
+    $item->setShipping($shipping);
+    **/
+    // Add this product to the feed
+    $feed->addProduct($item);
+}
+
+// Here we get complete XML of the feed, that we could write to file or send directly
+$feedXml = $feed->build();
+ return $feedXml;
+		   }
 
  
 }
