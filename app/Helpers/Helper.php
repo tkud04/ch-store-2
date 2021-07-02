@@ -2814,7 +2814,7 @@ function generateGoogleProductsFeed()
                 // }
                  $price = $pd['amount'];
 	             $item->setPrice("{$price} GBP");
-                // $item->setGoogleCategory($product->category_name);
+                $item->setGoogleCategory($category['gpc']);
                  $item->setBrand($manufacturer['name']);
                 // $item->setGtin($product->barcode);
                  $item->setCondition('new');
