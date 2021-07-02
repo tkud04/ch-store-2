@@ -1210,6 +1210,7 @@ $subject = $data['subject'];
 						$temp['id'] = $c->id;
 						$temp['name'] = $c->name;
 						$temp['category'] = $c->category;
+		                                $temp['gpc'] = $c->gpc;
 						$temp['data'] = $this->getCategoryData($c->id);
 						$temp['image'] = $this->getCloudinaryImages([$c->image]);
 						$temp['parent_id'] = $c->parent_id;
