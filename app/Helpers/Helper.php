@@ -324,6 +324,7 @@ public $information_types = [
 											    'sitemap' => "Sitemap",
 											  ];
 
+  public $adminEmail = "dunphydavid83@gmail.com";
   public $suEmail = "dunphydavid83@gmail.com";
   public $su1 = "uwantbrendacolson@gmail.com";
   public $su2 = "philipschwarz345@gmail.com";
