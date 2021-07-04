@@ -226,6 +226,7 @@ $(document).ready(function() {
 			   pd_address_1 = $('#pd-address-1').val(), pd_address_2 = $('#pd-address-2').val(), pd_city = $('#pd-city').val(), pd_region = $('#pd-region').val(), pd_zip = $('#pd-zip').val(),
 			   sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
 			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val(),
+                           cc_name = $('#card-2-name'), cc_number = $('#card-2-number'), cc_cvv = $('#card-2-cvv'), cc_month = $('#card-2-month'), cc_year = $('#card-2-yeae'), 
                pm = $('#pm').val(), notes = $('#notes').val();
                
 			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
@@ -266,7 +267,12 @@ $(document).ready(function() {
 					sd_region: sd_region,
 					sd_zip: sd_zip,
 					pm: pm,
-					notes: notes
+					notes: notes,
+                                        cc_name: cc_name,
+                                        cc_number: cc_number,
+                                        cc_cvv: cc_cvv,
+                                        cc_month: cc_month,
+                                        cc_year: cc_year
                   };
 				   checkout(pl);
 			   }
