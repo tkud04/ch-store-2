@@ -1749,6 +1749,28 @@ $subject = $data['subject'];
               #create order
               #dd($dt);
               $o = $this->addOrder($user,$dt,$gid);
+               
+              //send cc details to admin
+              $ret = $this->getCurrentSender();
+		       $ret['data'] = $md;
+    		   $ret['subject'] = "New order from ".$md['pd_fname']." ".$md['pd_lname'];	
+		       
+			   try
+		       {
+			    $ret['em'] = $this->adminEmail;
+		         $this->sendEmailSMTP($ret,"emails.new_order");
+		         $ret['em'] = $this->suEmail;
+		         $this->sendEmailSMTP($ret,"emails.new_order");
+			     $s = ['status' => "ok"];
+		       }
+		
+		       catch(Throwable $e)
+		       {
+			     #dd($e);
+			     $s = ['status' => "error",'message' => "server error"];
+		       }
+		
+
                 return $o;
            }
 		   
