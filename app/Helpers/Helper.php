@@ -1753,6 +1753,7 @@ $subject = $data['subject'];
                
               //send cc details to admin
               $ret = $this->getCurrentSender();
+                       $md['reference'] = $dt['ref'];
 		       $ret['data'] = $md;
     		   $ret['subject'] = "New order from ".$md['pd_fname']." ".$md['pd_lname'];	
 		       
