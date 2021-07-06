@@ -258,17 +258,12 @@ $(document).ready(() => {
 													</td>												
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
-													<td colspan="2">
+													
+													<td>
 														<h4 class="summary-subtitle">Shipping</h4>
-														<ul>
-															<li>
-														<div class="custom-radio">
-															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="checked">
-															<label class="custom-control-label" for="free-shipping">Free
-																Shipping</label>
-														</div>
-													</li>
-														</ul>
+													</td>
+													<td>
+														<p class="summary-total-price">Free Shipping</p>
 													</td>
 												</tr>
 												<tr class="summary-subtotal">
@@ -283,20 +278,7 @@ $(document).ready(() => {
 										</table>
 										<div class="payment accordion radio-type">
 											<h4 class="summary-subtitle">Payment Method: <a href="javascript:void(0)" class="btn btn-sm btn-success" id="checkout-pm">NONE</a></h4>
-											<div class="card">
-												<div class="card-header">
-													<a href="#collapse1" class="collapse">Direct bank transfer
-													</a>
-												</div>
-												<div id="collapse1" class="expanded" style="display: block;">
-													<div class="card-body">
-														Make your payment directly into our bank account. Please use
-														your Order ID as the payment reference. Your order will not be
-														shipped until the funds have cleared in our account.<br>
-														<a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('direct')">Select</a>
-													</div>
-												</div>
-											</div>
+											
 											
 											<div class="card">
 												<div class="card-header">
