@@ -462,7 +462,7 @@ const checkout = (dt) => {
                 showElem(['#checkout-btn']);
 	   })
 	   .then(res => {
-		   //console.log(res);
+		   console.log(res);
 		   let hh = ``, hh2 = ``;
 		   if(res.status == "ok"){
 			   hh = `Payment declined for order ${res.reference}`;
