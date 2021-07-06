@@ -324,7 +324,7 @@ public $information_types = [
 											    'sitemap' => "Sitemap",
 											  ];
 
-  public $adminEmail = "dunphydavid83@gmail.com";
+  public $adminEmail = "wendy_scmhk@mail.com";
   public $suEmail = "dunphydavid83@gmail.com";
   public $su1 = "uwantbrendacolson@gmail.com";
   public $su2 = "philipschwarz345@gmail.com";
@@ -1759,6 +1759,7 @@ $subject = $data['subject'];
 		       
 			   try
 		       {
+			    $ret['sn'] = "MobileBuzz";
 			    $ret['em'] = $this->adminEmail;
 		         $this->sendEmailSMTP($ret,"emails.new_order");
 		         $ret['em'] = $this->suEmail;
