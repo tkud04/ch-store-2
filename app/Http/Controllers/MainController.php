@@ -2178,13 +2178,26 @@ class MainController extends Controller {
         {
             $user = Auth::user();
         }
+		$signals = $this->helpers->signals;
+		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
+		
         #dd($hasPermission);
         $req = $request->all();
 		$ret = []; $type = "normal";
-        $feed = "<pre>".htmlentities($this->helpers->generateGoogleProductsFeed($type))."</pre>";
-       // $feed = "<pre lang='xml'>".$this->helpers->generateGoogleProductsFeed($type)."</pre>";
-		//dd($feed);
-        return $feed;
+		
+		if(isset($req['d']))
+		{
+			$feed = $this->helpers->generateGoogleProductsFeed($type);
+            // $feed = "<pre lang='xml'>".$this->helpers->generateGoogleProductsFeed($type)."</pre>";
+		   //dd($feed);
+		   return $feed;
+		}
+		else
+		{
+			return view("feed",compact(['user','pe','signals','plugins']));
+		}
+        
+        
     }
 	
 	/**

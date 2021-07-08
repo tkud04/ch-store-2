@@ -508,3 +508,11 @@ const checkout = (dt) => {
 			 showElem(['#checkout-btn']);			
 	   });
 }
+
+const download = (blob,fname) => {
+  let a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.setAttribute('download',fname);
+  a.click();
+}
+

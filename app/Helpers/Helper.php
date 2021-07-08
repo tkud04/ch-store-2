@@ -2813,7 +2813,7 @@ function generateGoogleProductsFeed()
 			   $products = $this->getProducts(['more' => true]);
 			   
 			   // Create feed object
-               $feed = new Feed("Mobilebuzz", "http://mobilebuzzonline.co.uk", "Mobile Buzz is the leading online destination for consumers seeking the best deals on the hottest products and gadgets ranging from the latest technology to must-have home-goods.");
+               $feed = new Feed("Mobilebuzz", "https://mobilebuzzonline.co.uk", "Mobile Buzz is the leading online destination for consumers seeking the best deals on the hottest products and gadgets ranging from the latest technology to must-have home-goods.");
 
                // Put products to the feed ($products - some data from database for example)
                foreach ($products as $product)
