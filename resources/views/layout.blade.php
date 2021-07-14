@@ -471,7 +471,7 @@
         <div class="mobile-menu-overlay">
         </div>
         <!-- End Overlay -->
-        <a class="mobile-menu-close" href="#"><i class="d-icon-times"></i></a>
+        <a class="mobile-menu-close" href="#" style="z-index: 100 !important;"><i class="d-icon-times"></i></a>
         <!-- End CloseButton -->
         <div class="mobile-menu-container scrollable">
             
