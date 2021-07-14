@@ -474,13 +474,7 @@
         <a class="mobile-menu-close" href="#"><i class="d-icon-times"></i></a>
         <!-- End CloseButton -->
         <div class="mobile-menu-container scrollable">
-            <form action="#" class="input-wrapper mb-6">
-                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
-                <button class="btn btn-search" type="submit">
-                    <i class="d-icon-search"></i>
-                </button>
-            </form>
-            <!-- End Search Form -->
+            
             <ul class="mobile-menu mmenu-anim">
                 <li class="active">
                     <a href="{{url('/')}}">Home</a>
@@ -490,6 +484,13 @@
                 <li><a href="{{url('contact')}}">Contact</a></li>
                 <li><a href="{{url('privacy')}}">Privacy</a></li>
             </ul>
+            <form action="#" class="input-wrapper mb-6">
+                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
+                <button class="btn btn-search" type="submit">
+                    <i class="d-icon-search"></i>
+                </button>
+            </form>
+            <!-- End Search Form -->
         </div>
     </div>
         <!-- Plugins JS File -->
