@@ -41,7 +41,7 @@ $pcClass = "";
 									<label>Confirm password <span class="req">*</span></label>
 									<input type="password" class="form-control" name="pass_confirmation" id="register-pass-2">
 
-									<button id="register-submit" class="btn btn-primary btn-reveal-right">SUNMIT <i class="d-icon-arrow-right"></i></button>
+									<button id="register-submit" class="btn btn-primary btn-reveal-right">SUBMIT <i class="d-icon-arrow-right"></i></button>
 								</form>
 				</div>
 @stop
