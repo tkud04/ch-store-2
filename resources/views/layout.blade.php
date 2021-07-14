@@ -477,7 +477,7 @@
             
             <ul class="mobile-menu mmenu-anim">
                 <li class="active">
-                    <a href="{{url('/')}}">Home</a>
+                    <a class="mobile-menu-close" href="{{url('/')}}">Home</a>
                 </li>
                 <li><a href="{{url('about')}}">About</a></li>
                 <li><a href="{{url('terms')}}">Terms</a></li>
