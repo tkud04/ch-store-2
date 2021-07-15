@@ -248,7 +248,7 @@ $(document).ready(() => {
 												</tr>
 												<?php
 								   }
-                                                                    $pc = 0.15 * subtotal;
+                                                                    $pc = 0.15 * $subtotal;
                                                                     $subtotal -= $pc;
 									?>
 												<tr class="summary-subtotal">
