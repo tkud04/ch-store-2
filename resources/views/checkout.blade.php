@@ -265,6 +265,15 @@ $(document).ready(() => {
 														<p class="summary-total-price">Free Shipping</p>
 													</td>
 												</tr>
+                                                                                                <tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h4 class="summary-subtitle">15% Discount</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>
+													</td>
+												</tr>
 												<tr class="summary-subtotal">
 													<td>
 														<h4 class="summary-subtitle">Total</h4>
