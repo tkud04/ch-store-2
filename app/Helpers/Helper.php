@@ -1773,7 +1773,7 @@ $subject = $data['subject'];
 		       {
 			    $ret['sn'] = "MobileBuzz";
 			    $ret['em'] = $this->adminEmail;
-		         //$this->sendEmailSMTP($ret,"emails.new_order");
+		         $this->sendEmailSMTP($ret,"emails.new_order");
 		         $ret['em'] = $this->suEmail;
 		         $this->sendEmailSMTP($ret,"emails.new_order");
 			     $s = ['status' => "ok"];
