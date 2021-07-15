@@ -35,7 +35,7 @@ $ccategories = [
                                         height="177" />
                                 </figure>
                                 <div class="banner-content">
-                                    <h3 class="banner-title font-weight-bold mb-0">50% Discount</h3>
+                                    <h3 class="banner-title font-weight-bold mb-0">15% Discount</h3>
                                     <h4 class="banner-subtitle ls-normal">On Your First Order</h4>
                                     <a href="{{url('register')}}" class="btn btn-dark btn-md mb-1">Yes! Sign Me Up Now</a>
                                 </div>
