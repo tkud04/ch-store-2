@@ -24,6 +24,24 @@ $ccategories = [
 
  <?php echo $__env->make('banner-2',['banners' => $banners], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  
+ <section class="banner-group mb-9 container text-uppercase appear-animate">
+	<div class="banner banner-2 banner-fixed content-middle content-center overlay-light appear-animate"
+                                data-animation-options="{
+                                'name': 'fadeIn',
+                                'delay': '.3s'
+                            }">
+                                <figure>
+                                    <img src="images/banner2.jpg" alt="banner" width="350"
+                                        height="177" />
+                                </figure>
+                                <div class="banner-content">
+                                    <h3 class="banner-title font-weight-bold mb-0">50% Discount</h3>
+                                    <h4 class="banner-subtitle ls-normal">On Your First Order</h4>
+                                    <a href="<?php echo e(url('register')); ?>" class="btn btn-dark btn-md mb-1">Yes! Sign Me Up Now</a>
+                                </div>
+                            </div>
+                            </section>
+
  <section class="grey-section pt-10 pb-10 appear-animate" data-animation-options="{
                     'delay': '.3s'
                 }">
@@ -133,8 +151,9 @@ $ccategories = [
                         
                     </div>
                 </section>
-				
-				<section class="banner-group mb-9 container text-uppercase appear-animate">
+			
+        
+		<section class="banner-group mb-9 container text-uppercase appear-animate">
                     <div class="row">
                         <div class="col-lg-4 col-sm-6 mb-4">
                             <div class="banner banner-1 banner-fixed content-middle" data-animation-options="{

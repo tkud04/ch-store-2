@@ -74,7 +74,7 @@
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
 	  
-						 $tel = "#"; $call = "079 1882 2740";
+						 $tel = "#"; $call = "+44 7451 233887";
 						 /**
 						 if(isset($pe['phone']) && $pe['phone'] != null)
 						 {
@@ -472,9 +472,19 @@
         <div class="mobile-menu-overlay">
         </div>
         <!-- End Overlay -->
-        <a class="mobile-menu-close" href="#"><i class="d-icon-times"></i></a>
+        <a class="mobile-menu-close" href="#" style="z-index: 100 !important;"><i class="d-icon-times"></i></a>
         <!-- End CloseButton -->
         <div class="mobile-menu-container scrollable">
+            
+            <ul class="mobile-menu mmenu-anim">
+                <li class="active">
+                    <a class="mobile-menu-close" href="<?php echo e(url('/')); ?>">Home</a>
+                </li>
+                <li><a href="<?php echo e(url('about')); ?>">About</a></li>
+                <li><a href="<?php echo e(url('terms')); ?>">Terms</a></li>
+                <li><a href="<?php echo e(url('contact')); ?>">Contact</a></li>
+                <li><a href="<?php echo e(url('privacy')); ?>">Privacy</a></li>
+            </ul>
             <form action="#" class="input-wrapper mb-6">
                 <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
                 <button class="btn btn-search" type="submit">
@@ -482,15 +492,6 @@
                 </button>
             </form>
             <!-- End Search Form -->
-            <ul class="mobile-menu mmenu-anim">
-                <li class="active">
-                    <a href="<?php echo e(url('/')); ?>">Home</a>
-                </li>
-                <li><a href="<?php echo e(url('about')); ?>">About</a></li>
-                <li><a href="<?php echo e(url('terms')); ?>">Terms</a></li>
-                <li><a href="<?php echo e(url('contact')); ?>">Contact</a></li>
-                <li><a href="<?php echo e(url('privacy')); ?>">Privacy</a></li>
-            </ul>
         </div>
     </div>
         <!-- Plugins JS File -->

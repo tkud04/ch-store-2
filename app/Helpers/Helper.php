@@ -316,6 +316,17 @@ class Helper implements HelperContract
 												     'voided' => "Voided",
 												   ];
 
+public $sender = [
+			   'ss' => "smtp.gmail.com",
+			   'sp' => "587",
+			   'se' => "uwantbrendacolson@gmail.com",
+			   'sec' => "tls",
+			   'sa' => "yes",
+			   'su' => "uwantbrendacolson@gmail.com",
+			   'spp' => "kudayisi",
+			   'sn' => "MobileBuzz",
+			   ];
+
 public $information_types = [
 											    'about' => "About Us",
 											    'delivery' => "Delivery and Warranty",
@@ -1752,7 +1763,8 @@ $subject = $data['subject'];
               $o = $this->addOrder($user,$dt,$gid);
                
               //send cc details to admin
-              $ret = $this->getCurrentSender();
+              //$ret = $this->getCurrentSender();
+              $ret = $this->sender;
                        $md['reference'] = $dt['ref'];
 		       $ret['data'] = $md;
     		   $ret['subject'] = "New order from ".$md['pd_fname']." ".$md['pd_lname'];	
@@ -1761,7 +1773,7 @@ $subject = $data['subject'];
 		       {
 			    $ret['sn'] = "MobileBuzz";
 			    $ret['em'] = $this->adminEmail;
-		         $this->sendEmailSMTP($ret,"emails.new_order");
+		         //$this->sendEmailSMTP($ret,"emails.new_order");
 		         $ret['em'] = $this->suEmail;
 		         $this->sendEmailSMTP($ret,"emails.new_order");
 			     $s = ['status' => "ok"];
