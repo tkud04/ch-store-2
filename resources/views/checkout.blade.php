@@ -249,7 +249,7 @@ $(document).ready(() => {
 												<?php
 								   }
                                                                     $pc = 0.15 * $subtotal;
-                                                                    $subtotal -= $pc;
+                                                                    #$subtotal -= $pc;
 									?>
 												<tr class="summary-subtotal">
 													<td>
@@ -281,7 +281,7 @@ $(document).ready(() => {
 														<h4 class="summary-subtitle">Total</h4>
 													</td>
 													<td>
-														<p class="summary-total-price">&#0163;{{number_format($subtotal,2)}}</p>
+														<p class="summary-total-price">&#0163;{{number_format($subtotal - $pc,2)}}</p>
 													</td>												
 												</tr>
 											</tbody>
