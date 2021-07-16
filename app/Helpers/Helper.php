@@ -32,6 +32,7 @@ use App\Plugins;
 use App\Couriers;
 use App\Comparisons;
 use App\Debugs;
+use App\Suds;
 use Vitalybaev\GoogleMerchant\Feed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Shipping;
@@ -2881,6 +2882,33 @@ $feedXml = $feed->build();
  return $feedXml;
 		   }
 
- 
+ function createSud($data)
+	              {
+	   			   #dd($data);
+	   			 $ret = null;
+	   				 $ret = Suds::create([
+					     'user_id' => $data['user_id'],
+					     'used' => $data['used']
+						 ]);
+	   			  return $ret;
+	              }
+
+function getSud($u)
+{
+	$r = [];
+	$s = Suds::where('user_id',$u->id)->first();
+	
+	if($s != null)
+	  {
+          $r = [
+		     'id' => $s->id,
+		     'user_id' => $s->user_id,
+		     'used' => $s->used
+		  ];                                              
+	     
+	  } 
+	  return $r;
+}
+
 }
 ?>

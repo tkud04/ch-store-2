@@ -40,6 +40,7 @@ class MainController extends Controller {
 
 		$signals = $this->helpers->signals;
 		
+		
 		$c = $this->helpers->getCategories(['children' => true,'id' => true]);
 		$m = $this->helpers->getManufacturers();
 		$bs = $this->helpers->getBestSellers();
@@ -358,13 +359,14 @@ class MainController extends Controller {
 		$pd = $this->helpers->getPaymentDetails($user);
 		$sd = $this->helpers->getShippingDetails($user);
 		
+		$sud = $this->helpers->getSud($user);
 		$countries = $this->helpers->countries;
 		$signals = $this->helpers->signals;
 		$pe = $this->helpers->getPhoneAndEmail();
 		$plugins = $this->helpers->getPlugins();
 		#dd($sd);
 		 $totals = []; $ss = []; $ref = ""; 
-			return view("checkout",compact(['user','cart','totals','countries','pd','sd','c','pe','signals','plugins']));		
+			return view("checkout",compact(['user','cart','totals','sud','countries','pd','sd','c','pe','signals','plugins']));		
 								 
     }
 	

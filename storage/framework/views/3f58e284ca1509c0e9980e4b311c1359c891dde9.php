@@ -220,7 +220,7 @@ $(document).ready(() => {
 								<div class="pin-wrapper" style="height: 1038px;"><div class="sticky-sidebar" data-sticky-options="{'bottom': 50}" style="border-bottom: 0px none rgb(102, 102, 102); width: 474.141px;">
 									<h3 class="title title-simple text-left">Your Order</h3>
 									<div class="summary mb-4">
-										<table class="order-table">
+										<table class="order-table" style="align: center !important;">
 											<thead>
 												<tr>
 													<th>Items</th>
@@ -248,6 +248,9 @@ $(document).ready(() => {
 												</tr>
 												<?php
 								   }
+                                                                    $pc = 0.15 * $subtotal;
+																	$xx = $subtotal;
+																	if(count($sud) == 0) $xx = $subtotal - $pc
 									?>
 												<tr class="summary-subtotal">
 													<td>
@@ -266,12 +269,23 @@ $(document).ready(() => {
 														<p class="summary-total-price">Free Shipping</p>
 													</td>
 												</tr>
+												<?php if(count($sud) == 0): ?>
+                                                <tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h4 class="summary-subtitle">15% Discount</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">&#0163;<?php echo e(number_format($pc,2)); ?></p>
+													</td>
+												</tr>
+												<?php endif; ?>
 												<tr class="summary-subtotal">
 													<td>
 														<h4 class="summary-subtitle">Total</h4>
 													</td>
 													<td>
-														<p class="summary-total-price">&#0163;<?php echo e(number_format($subtotal,2)); ?></p>
+														<p class="summary-total-price">&#0163;<?php echo e(number_format($xx,2)); ?></p>
 													</td>												
 												</tr>
 											</tbody>
