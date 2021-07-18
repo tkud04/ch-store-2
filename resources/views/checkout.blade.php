@@ -220,7 +220,7 @@ $(document).ready(() => {
 								<div class="pin-wrapper" style="height: 1038px;"><div class="sticky-sidebar" data-sticky-options="{'bottom': 50}" style="border-bottom: 0px none rgb(102, 102, 102); width: 474.141px;">
 									<h3 class="title title-simple text-left">Your Order</h3>
 									<div class="summary mb-4">
-										<table class="order-table" style="align: center !important;">
+										<table class="table table-responsive" style="align: center !important;">
 											<thead>
 												<tr>
 													<th>Items</th>
