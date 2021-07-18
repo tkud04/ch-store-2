@@ -243,8 +243,11 @@ $(document).ready(() => {
 									 $ru = url('remove-from-cart')."?xf=".$xf;
 				                 ?>
 												<tr>
-													<td class="product-name">{{$item['name']}} <strong class="product-quantity">×&nbsp;{{$qty}}</strong></td>
-													<td class="product-total">&#0163;{{number_format($itemAmount * $qty,2)}}</td>
+													<td class="product-name">
+                                                                                                        <div class="product-name-section">
+												<a href="{{$uu}}">{{$item['name']}} <strong class="product-quantity">×&nbsp;{{$qty}}</strong></a>
+											</div></td>
+													<td class="product-total"><span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span></td>
 												</tr>
 												<?php
 								   }
