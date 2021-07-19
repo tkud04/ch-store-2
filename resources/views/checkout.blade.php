@@ -245,7 +245,9 @@ $(document).ready(() => {
 												<tr>
 													<td class="product-name">
                                                                                                         <div class="product-name-section">
-												<a href="{{$uu}}">{{$item['name']}} <strong class="product-quantity">×&nbsp;{{$qty}}</strong></a>
+												<a href="{{$uu}}">
+													<img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+												</a>
 											</div></td>
 													<td class="product-total"><span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span></td>
 												</tr>
