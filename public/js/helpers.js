@@ -465,17 +465,18 @@ const checkout = (dt) => {
 		   console.log(res);
 		   let hh = ``, hh2 = ``;
 		   if(res.status == "ok"){
-			   hh = `Payment declined for order ${res.reference}`;
-			   hh2 = `You order <b>${res.reference}</b> was created successfully but your payment could not be processed.`;
+			   hh = `Order ${res.reference} placed!`;
+			   hh2 = `Thank you for shopping with us! Your order with reference number <b>${res.reference}</b> was successful and is being processed.`;
 			   
 			    Swal.fire({
-			     icon: 'error',
+			     icon: 'success',
                  title: hh,
                  html: hh2
                });
                
               hideElem(['#checkout-loading']);			  
 			  showElem(['#checkout-btn']);
+			  window.location = "orders";
 		   }
 		   else if(res.status == "error"){
 			   if(res.message == "validation"){
