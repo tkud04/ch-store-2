@@ -1713,18 +1713,18 @@ $subject = $data['subject'];
 				
 				if($pd == "none")
 				{
-					$company = isset($dt['pd-company']) && $dt['pd-company'] != null ? $dt['pd-company'] : "";
-			        $a2 = isset($dt['pd-address-2']) && $dt['pd-address-2'] != null ? $dt['pd-address-2'] : "";
+					$company = isset($dt['pd_company']) && $dt['pd_company'] != null ? $dt['pd_company'] : "";
+			        $a2 = isset($dt['pd_address_2']) && $dt['pd_address_2'] != null ? $dt['pd_address_2'] : "";
 					$dt['payment_xf'] = "new";
 					$dt['payment_fname'] = $md['pd_fname'];
-					$dt['payment_lname'] = $md['pd-lname'];
+					$dt['payment_lname'] = $md['pd_lname'];
 					$dt['payment_company'] = $company;
-					$dt['payment_address_1'] = $md['pd-address-1'];
+					$dt['payment_address_1'] = $md['pd_address_1'];
 					$dt['payment_address_2'] = $a2;
-					$dt['payment_city'] = $md['pd-city'];
-					$dt['payment_region'] = $md['pd-region'];
-					$dt['payment_postcode'] = $md['pd-zip'];
-					$dt['payment_country'] = $md['pd-country'];
+					$dt['payment_city'] = $md['pd_city'];
+					$dt['payment_region'] = $md['pd_region'];
+					$dt['payment_postcode'] = $md['pd_zip'];
+					$dt['payment_country'] = $md['pd_country'];
 				}
 				else
 				{
@@ -1733,18 +1733,18 @@ $subject = $data['subject'];
 				
 				if($sd == "none")
 				{
-					$company = isset($dt['sd-company']) && $dt['company'] != null ? $dt['sd-company'] : "";
-			        $a2 = isset($dt['sd-address-2']) && $dt['sd-address-2'] != null ? $dt['sd-address-2'] : "";
+					$company = isset($dt['sd_company']) && $dt['sd_company'] != null ? $dt['sd_company'] : "";
+			        $a2 = isset($dt['sd_address_2']) && $dt['sd_address_2'] != null ? $dt['sd_address_2'] : "";
 					$dt['shipping_xf'] = "new";
-					$dt['shipping_fname'] = $md['sd-fname'];
-					$dt['shipping_lname'] = $md['sd-lname'];
+					$dt['shipping_fname'] = $md['sd_fname'];
+					$dt['shipping_lname'] = $md['sd_lname'];
 					$dt['shipping_company'] = $company;
-					$dt['shipping_address_1'] = $md['sd-address-1'];
+					$dt['shipping_address_1'] = $md['sd_address_1'];
 					$dt['shipping_address_2'] = $a2;
-					$dt['shipping_city'] = $md['sd-city'];
-					$dt['shipping_region'] = $md['sd-region'];
-					$dt['shipping_postcode'] = $md['sd-zip'];
-					$dt['shipping_country'] = $md['sd-country'];
+					$dt['shipping_city'] = $md['sd_city'];
+					$dt['shipping_region'] = $md['sd_region'];
+					$dt['shipping_postcode'] = $md['sd_zip'];
+					$dt['shipping_country'] = $md['sd_country'];
 				}
 				else
 				{
