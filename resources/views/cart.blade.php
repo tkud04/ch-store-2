@@ -131,7 +131,7 @@ let cart = [];
 												<h4 class="summary-subtitle">Total</h4>
 											</td>
 											<td>
-												<p class="summary-total-price">&#0163;{{number_format($subtotal,2)}}</p>
+												<p class="summary-total-price">&#0163;{{number_format($xx,2)}}</p>
 											</td>												
 										</tr>
 									</tbody></table>
