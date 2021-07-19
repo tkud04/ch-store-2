@@ -1790,7 +1790,8 @@ $subject = $data['subject'];
 			     $s = ['status' => "error",'message' => "server error"];
 		       }
 		
-
+               #remove sign up discount
+              if(count($sud) == 0) $this->createSud(['user_id' =>$user->id,'used' => "yes"]);
                 return $o;
            }
 		   
