@@ -321,6 +321,7 @@ class MainController extends Controller {
 		$cart = $this->helpers->getCart($user);
 		$totals = $this->helpers->getCartTotals($cart);
 		#dd($cart);
+		$sud = $this->helpers->getSud($user);
 		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$ads = $this->helpers->getAds();
@@ -328,7 +329,7 @@ class MainController extends Controller {
 		shuffle($ads);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 		#session()->reflash();
-		return view("cart",compact(['user','cart','totals','c','ad','pe','signals','plugins']));					 
+		return view("cart",compact(['user','sud','cart','totals','c','ad','pe','signals','plugins']));					 
     }
 	
 	/**

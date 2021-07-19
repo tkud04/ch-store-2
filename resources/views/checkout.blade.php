@@ -251,9 +251,9 @@ $(document).ready(() => {
 												</tr>
 												<?php
 								   }
-                                                                    $pc = 0.15 * $subtotal;
+                                                                    $pc = 0.1 * $subtotal;
 																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
 									?>
 												<tr class="summary-subtotal">
 													<td>
@@ -275,7 +275,7 @@ $(document).ready(() => {
                                                 <tr class="sumnary-shipping shipping-row-last">
 													
 													<td>
-														<h4 class="summary-subtitle">15% Discount</h4>
+														<h4 class="summary-subtitle">10% Discount</h4>
 													</td>
 													<td>
 														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>

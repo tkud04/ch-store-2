@@ -14,7 +14,7 @@ let cart = [];
 				@include('checkout-header',['number' => 1])
 				<div class="container mt-8 mb-4">
 					<div class="row gutter-lg">
-						<div class="col-lg-8 col-md-12">
+						<div class="col-lg-7 col-md-12">
 							<table id="cart-table" class="shop-table cart-table mt-2">
 								<thead>
 									<tr>
@@ -75,6 +75,10 @@ let cart = [];
 									</tr>
 									<?php
 								   }
+								   
+								   $pc = 0.1 * $subtotal;
+								   $xx = $subtotal;
+								   if(count($sud) == 0) $xx = $subtotal - $pc;
 									?>
 									
 								</tbody>
@@ -87,11 +91,12 @@ let cart = [];
 								<a href="javascript:void(0)" id="update-cart-btn" class="btn btn-md btn-icon-left"><i class="d-icon-refresh"></i>Update Cart</a>
 							</div>
 						</div>
-						<aside class="col-lg-4 sticky-sidebar-wrapper">
+						<aside class="col-lg-5 sticky-sidebar-wrapper">
+						   <center>
 							<div class="sticky-sidebar" data-sticky-options="{'bottom': 20}">
 								<div class="summary mb-4">
 									<h3 class="summary-title text-left">Cart Totals</h3>
-									<table class="shipping">
+									<table class="table table-responsive" style="align: center !important;">
 										<tbody><tr class="summary-subtotal">
 											<td>
 												<h4 class="summary-subtitle">Subtotal</h4>
@@ -101,19 +106,24 @@ let cart = [];
 											</td>												
 										</tr>
 										<tr class="sumnary-shipping shipping-row-last">
-											<td colspan="2">
-												<h4 class="summary-subtitle">Shipping</h4>
-												<ul>
-													<li>
-														<div class="custom-radio">
-															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input" checked="checked">
-															<label class="custom-control-label" for="free-shipping">Free
-																Shipping</label>
-														</div>
-													</li>
-												</ul>
-											</td>
+											<td>
+														<h4 class="summary-subtitle">Shipping</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">Free Shipping</p>
+													</td>
 										</tr>
+										@if(count($sud) == 0)
+                                                <tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h4 class="summary-subtitle">10% Discount</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>
+													</td>
+												</tr>
+												@endif
 									</tbody></table>
 									<table>
 										<tbody><tr class="summary-subtotal">
@@ -128,6 +138,7 @@ let cart = [];
 									<a href="{{url('checkout')}}" class="btn btn-dark btn-checkout">Proceed to checkout</a>
 								</div>
 							</div>
+							</center>
 						</aside>
 					</div>
 				</div>

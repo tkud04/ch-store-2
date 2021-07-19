@@ -220,7 +220,7 @@ $(document).ready(() => {
 								<div class="pin-wrapper" style="height: 1038px;"><div class="sticky-sidebar" data-sticky-options="{'bottom': 50}" style="border-bottom: 0px none rgb(102, 102, 102); width: 474.141px;">
 									<h3 class="title title-simple text-left">Your Order</h3>
 									<div class="summary mb-4">
-										<table class="order-table" style="align: center !important;">
+										<table class="table table-responsive" style="align: center !important;">
 											<thead>
 												<tr>
 													<th>Items</th>
@@ -243,14 +243,17 @@ $(document).ready(() => {
 									 $ru = url('remove-from-cart')."?xf=".$xf;
 				                 ?>
 												<tr>
-													<td class="product-name"><?php echo e($item['name']); ?> <strong class="product-quantity">×&nbsp;<?php echo e($qty); ?></strong></td>
-													<td class="product-total">&#0163;<?php echo e(number_format($itemAmount * $qty,2)); ?></td>
+													<td class="product-name">
+                                                                                                        <div class="product-name-section">
+												<a href="<?php echo e($uu); ?>"><?php echo e($item['name']); ?> <strong class="product-quantity">×&nbsp;<?php echo e($qty); ?></strong></a>
+											</div></td>
+													<td class="product-total"><span class="amount">&#0163;<?php echo e(number_format($itemAmount * $qty,2)); ?></span></td>
 												</tr>
 												<?php
 								   }
-                                                                    $pc = 0.15 * $subtotal;
+                                                                    $pc = 0.1 * $subtotal;
 																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
 									?>
 												<tr class="summary-subtotal">
 													<td>
@@ -273,7 +276,7 @@ $(document).ready(() => {
                                                 <tr class="sumnary-shipping shipping-row-last">
 													
 													<td>
-														<h4 class="summary-subtitle">15% Discount</h4>
+														<h4 class="summary-subtitle">10% Discount</h4>
 													</td>
 													<td>
 														<p class="summary-total-price">&#0163;<?php echo e(number_format($pc,2)); ?></p>
