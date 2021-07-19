@@ -1750,8 +1750,12 @@ $subject = $data['subject'];
 				{
 					$dt['shipping_xf'] = $sd;
 				}
-				
-				$dt['amount'] = $subtotal;
+				$sud = $this->getSud($user);
+				 $pc = 0.1 * $subtotal;
+								   $xx = $subtotal;
+								   if(count($sud) == 0) $xx = $subtotal - $pc;
+								   
+				$dt['amount'] = $xx;
 				
                	$dt['ref'] = $this->getRandomString(5);
 				$dt['comment'] = isset($md['notes']) ? $md['notes'] : "";
