@@ -1716,7 +1716,7 @@ $subject = $data['subject'];
 					$company = isset($dt['pd-company']) && $dt['pd-company'] != null ? $dt['pd-company'] : "";
 			        $a2 = isset($dt['pd-address-2']) && $dt['pd-address-2'] != null ? $dt['pd-address-2'] : "";
 					$dt['payment_xf'] = "new";
-					$dt['payment_fname'] = $md['pd-fname'];
+					$dt['payment_fname'] = $md['pd_fname'];
 					$dt['payment_lname'] = $md['pd-lname'];
 					$dt['payment_company'] = $company;
 					$dt['payment_address_1'] = $md['pd-address-1'];
