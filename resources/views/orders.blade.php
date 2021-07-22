@@ -14,8 +14,8 @@ $pcClass = "";
 							    if(count($orders) > 0)
 								{
 							   ?>
-							   
-								<table class="table table-responsive" style="align: center !important; overflow-x: scroll !important;">
+							       <div style="overflow-x: auto !important;">
+								<table class="table table-responsive" style="align: center !important;">
 											<thead>
 											  <tr>
 												<th>Details</th>
@@ -76,7 +76,7 @@ $pcClass = "";
 									       }
 								         ?>
 										</table>
-								  
+								              </div>
 								<?php
 								}
 								else
