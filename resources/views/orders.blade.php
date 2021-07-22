@@ -15,7 +15,7 @@ $pcClass = "";
 								{
 							   ?>
 							   
-								<table class="table table-responsive" style="align: center !important;">
+								<table class="table table-responsive" style="align: center !important; overflow-x: scroll !important;">
 											<thead>
 											  <tr>
 												<th>Details</th>
@@ -33,7 +33,7 @@ $pcClass = "";
 										$ou = url('order')."?xf=".$o['reference'];
 					                 
 				                 ?>
-												<tr>
+												<tr style="margin-bottom: 5px;">
 													<td class="product-name">
                                                       <div class="product-name-section">
                                                             <p class="mb-2">Reference: <b class="badge badge-success">{{$o['reference']}}</b></p>
