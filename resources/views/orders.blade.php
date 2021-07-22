@@ -62,11 +62,11 @@ $pcClass = "";
 										   ?>
 											</div>
                                            </td>
-										  <td class="product-total"><span class="amount">&#0163;{{number_format($o['amount'],2)}}</span></td>
-										  <td class="product-total">
+										  <td class="product-name"><span class="amount">&#0163;{{number_format($o['amount'],2)}}</span></td>
+										  <td class="product-name">
 									       <span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span>
 								          </td>
-								         <td class="product-total">
+								         <td class="product-name">
 									      <a href="{{$ou}}" class="btn-product"><span>VIEW</span></a>
 								         </td>
 												</tr>
