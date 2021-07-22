@@ -15,7 +15,7 @@ $pcClass = "";
 								{
 							   ?>
 							       <div style="overflow-x: auto !important;">
-								<table class="table table-responsive" style="align: center !important;">
+								<table class="table table-responsive" style="align: center !important; width: 100% !important;">
 											<thead>
 											  <tr>
 												<th>Details</th>
