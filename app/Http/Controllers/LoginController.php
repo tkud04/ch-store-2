@@ -82,7 +82,7 @@ class LoginController extends Controller {
     {
         $req = $request->all();
         #dd($req);
-        $rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "";
+        $rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "dashboard";
 		
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6',
@@ -130,7 +130,7 @@ class LoginController extends Controller {
     {
         $req = $request->all();
        #dd($req);   
-		$rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "";
+		$rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "dashboard";
 		
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6|confirmed',
@@ -168,8 +168,7 @@ class LoginController extends Controller {
 				//after creating the user, send back to the registration view with a success message
                 #$this->helpers->sendEmail($user->email,'Welcome To Disenado!',['name' => $user->fname, 'id' => $user->id],'emails.welcome','view');
                 session()->flash("signup-status", "ok");
-			    $rex = isset($req['u']) ? $req['u'] : 'dashboard';
-                return redirect()->intended($rex);
+			     return redirect()->intended($rdr);
 			}
 			else
 			{
