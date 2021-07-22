@@ -15,28 +15,30 @@ $pcClass = "";
 								{
 							   ?>
 							   
-								 <table class="shop-table wishlist-table mt-2 mb-5">
-								    <thead>
-									  <tr>
-										<th>Details</th>
-								        <th class="product-price"><span>Total</span></th>
-								        <th class="product-stock-status"><span>Status</span></th>
-								        <th class="product-add-to-cart"></th>
-									  </tr>
-									</thead>
-							   <?php
-									foreach($orders as $o)
+								<table class="table table-responsive" style="align: center !important;">
+											<thead>
+											  <tr>
+												<th>Details</th>
+								                <th><span>Total</span></th>
+								               <th><span>Status</span></th>
+								              <th></th>
+								             <tr>
+											</thead>
+											<tbody>
+											<?php
+								
+				                   foreach($orders as $o)
 									{
 										$items = $o['items'];
 										$ou = url('order')."?xf=".$o['reference'];
-							   ?>
-								
-								    <tbody>
-									 <tr>
-									    <td class="product-name">
-										    <p class="mb-2">Reference: <b class="badge badge-success">{{$o['reference']}}</b></p>
-										    <p class="mb-2">Date: {{$o['date']}}</p>
-										   <?php
+					                 
+				                 ?>
+												<tr>
+													<td class="product-name">
+                                                      <div class="product-name-section">
+                                                            <p class="mb-2">Reference: <b class="badge badge-success">{{$o['reference']}}</b></p>
+										          <p class="mb-2">Date ordered: {{$o['date']}}</p>   
+                                                     <?php
 										    for($x = 0; $x < count($items); $x++)
 											{
 												$i = $items[$x];
@@ -51,35 +53,29 @@ $pcClass = "";
 												}
 												
 												
-										   ?>
-										   <div class="mb-2">
-										   <a href="{{$uu}}" class="mb-2">
-										     <figure>
-											  <img src="{{$imggs[0]}}" width="60" height="60" alt="{{$pname}}">
-										     </figure>
-									       </a>
-									       <a href="{{$uu}}">{{$pname}}</a> <b class="badge badge-success">x{{$i['qty']}}</b>
-										   </div>
-										   <?php
+										   ?>                                      
+												<a href="{{$uu}}">
+													<img src="{{$imggs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+												</a>
+											<?php
 									        }
 										   ?>
-								        </td>
-								<td class="product-price">
-									<span class="amount">&#0163;{{number_format($o['amount'],2)}}</span>
-								</td>
-								<td class="product-stock-status">
-									<span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span>
-								</td>
-								<td class="product-add-to-cart">
-									<a href="{{$ou}}" class="btn-product"><span>VIEW</span></a>
-								</td>
-									  </tr>
-									</tbody>
-								
-								<?php
-									}
-								?>
-								  </table>
+											</div>
+                                           </td>
+										  <td class="product-total"><span class="amount">&#0163;{{number_format($o['amount'],2)}}</span></td>
+										  <td class="product-total">
+									       <span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span>
+								          </td>
+								         <td class="product-total">
+									      <a href="{{$ou}}" class="btn-product"><span>VIEW</span></a>
+								         </td>
+												</tr>
+												
+											</tbody>
+											<?php
+									       }
+								         ?>
+										</table>
 								  
 								<?php
 								}
