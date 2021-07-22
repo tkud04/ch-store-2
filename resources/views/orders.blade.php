@@ -55,7 +55,7 @@ $pcClass = "";
 												
 										   ?>                                      
 												<a href="{{$uu}}">
-													<img src="{{$imggs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+													<img src="{{$imggs[0]}}" width="100" height="100" alt="{{$pname}}">
 												</a>
 											<?php
 									        }
