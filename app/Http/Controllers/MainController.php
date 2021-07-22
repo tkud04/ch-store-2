@@ -512,6 +512,9 @@ class MainController extends Controller {
         $user = null;
 		$cart = [];
 		$shipping = [];
+                $req = $request->all();
+		$rdr = "q_checkout";
+		
 		if(Auth::check())
 		{
 			$user = Auth::user();
@@ -520,10 +523,8 @@ class MainController extends Controller {
 		}
 		else
 		{
-			return redirect()->intended('/');
+			return redirect()->intended('login?rdr='.$rdr);
 		}
-		$req = $request->all();
-		
 		
 		$c = $this->helpers->getCategories();
 		
@@ -1026,11 +1027,14 @@ class MainController extends Controller {
 	public function getDashboard(Request $request)
     {
 		$user = null;
+                  $req = $request->all();
+		$rdr = "q_dashboard";
+		
 		if(Auth::check())
 		{
 			$user = Auth::user();
 		
-			$req = $request->all();
+			
 		$cart = $this->helpers->getCart($user);
 			$c = $this->helpers->getCategories();
 			$countries = $this->helpers->countries;
@@ -1050,7 +1054,7 @@ class MainController extends Controller {
 		}
 		else
 		{
-			return redirect()->intended('login');
+			return redirect()->intended('login?rdr='.$rdr);
 		}
 		
     }
@@ -1073,13 +1077,14 @@ class MainController extends Controller {
 	 */
     public function postProfile(Request $request)
     {
+        $rdr = "q_dashboard";
     	if(Auth::check())
 		{
 			$user = Auth::user();
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr='.$rdr);
         }
         
         $req = $request->all();
@@ -1114,13 +1119,14 @@ class MainController extends Controller {
 	 */
     public function postPassword(Request $request)
     {
+        $rdr = "q_dashboard";
     	if(Auth::check())
 		{
 			$user = Auth::user();
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr='.$rdr);
         }
         
         $req = $request->all();
@@ -1157,6 +1163,7 @@ class MainController extends Controller {
 	public function getEditAddress(Request $request)
     {	
 		$user = null;
+                $rdr = "q_dashboard";
 		if(Auth::check())
 		{
 			$user = Auth::user();
@@ -1198,7 +1205,7 @@ class MainController extends Controller {
 		}
 		else
 		{
-			return redirect()->intended('login');
+			return redirect()->intended('login?rdr='.$rdr);
 		}
 		
     }
@@ -1266,7 +1273,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_dashboard');
         }
 		
        $req = $request->all();
@@ -1305,7 +1312,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_dashboard');
         }
 		
 		$req = $request->all();
@@ -1335,7 +1342,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_dashboard');
         }
         
         $validator = Validator::make($req, [
@@ -1484,7 +1491,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_orders');
         }
 		
 		$req = $request->all();
@@ -1515,7 +1522,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_orders');
         }
 		
        $req = $request->all();
@@ -1561,7 +1568,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_orders');
         }
 		
        $req = $request->all();
@@ -1607,7 +1614,7 @@ class MainController extends Controller {
 		}
 		else
         {
-        	return redirect()->intended('login?return=dashboard');
+        	return redirect()->intended('login?rdr=q_orders');
         }
 		
        $req = $request->all();
