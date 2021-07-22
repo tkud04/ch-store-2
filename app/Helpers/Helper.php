@@ -2915,5 +2915,20 @@ function getSud($u)
 	  return $r;
 }
 
+
+function getRedirect($u)
+{
+	$r = "dashboard";
+	$s = explode('_',$u);
+	
+	if(count($s) > 0)
+	  {
+          if($s[0] == "p") $r = "product?xf=".$s[1];                                        
+          elseif($s[0] == "q") $r = $s[1];                                           
+	  }
+	  
+	  return $r;
+}
+
 }
 ?>

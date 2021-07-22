@@ -358,7 +358,7 @@
 									</li>
 									<li>
 										<label>Address:</label>
-										<a href="javascript:void(0)">UK Flag 54 Mortlake Road, Ilford, IG1 2SX</a>
+										<a href="javascript:void(0)">54 Mortlake Road, Ilford, IG1 2SX</a>
 									</li>
 									<li>
 										<label>WORKING DAYS/HOURS</label>

@@ -52,7 +52,7 @@ $pcClass = "";
 								<a class="nav-link" href="#returns">Returns</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{url('bye')}}">Logout</a>
+								<a class="nav-link" onclick="window.location = '{{url('bye')}}'">Logout</a>
 							</li>
 						</ul>
 						<div class="tab-content">

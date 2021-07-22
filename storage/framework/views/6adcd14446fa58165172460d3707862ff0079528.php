@@ -4,8 +4,6 @@ $ph = true;
 $pcClass = "";
 ?>
 
-
-<?php $__env->startSection('content'); ?>
 <?php
                $id = $product['id'];
                $name = $product['name'];
@@ -13,9 +11,9 @@ $pcClass = "";
 			   $pd = $product['data'];
 			   $imgs = $product['imggs'];
 			   $displayName = $name == "" ? $model : $name;
-			   $uu = url('product')."?xf=".$model;
-			   $cu = url('add-to-cart')."?xf=".$model."&qty=1";
-			   $wu = url('add-to-wishlist')."?xf=".$model;
+			   $uu = url('product')."?xf=".$id;
+			   $cu = url('add-to-cart')."?xf=".$id."&qty=1";
+			   $wu = url('add-to-wishlist')."?xf=".$id;
 			   //$ccu = url('add-to-compare')."?sku=".$sku;
 			   $description = $pd['description'];
 			   $category = $pd['category'];
@@ -24,9 +22,58 @@ $pcClass = "";
 			   $imggs = $product['imggs'];
 			    
 ?>
+
+
+
+<?php $__env->startSection('metas'); ?>
+<link rel="canonical" href="<?php echo e($uu); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="container">
 <input type="hidden" id="product-xf" value="<?php echo e($id); ?>">
 					<div class="product product-single row mb-4">
+					        <div class="col-md-12" itemtype="http://schema.org/Product" itemscope>
+      <meta itemprop="mpn" content="<?php echo e($product['mpn']); ?>" />
+      <meta itemprop="name" content="<?php echo e($displayName); ?>" />
+      <?php
+       for($i = 0; $i < count($imggs); $i++)
+	{
+	   $ii = $imggs[$i];
+      ?>
+      <link itemprop="image" href="<?php echo e($ii); ?>" />
+      <?php
+      }
+      ?>
+     
+      <meta itemprop="description" content="<?php echo e($pd['description']); ?>" />
+      <div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+        <link itemprop="url" href="<?php echo e($uu); ?>" />
+        <meta itemprop="availability" content="https://schema.org/InStock" />
+        <meta itemprop="priceCurrency" content="GBP" />
+        <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
+        <meta itemprop="price" content="<?php echo e(number_format($amount,2)); ?>" />
+        <meta itemprop="priceValidUntil" content="2040-11-20" />
+      </div>
+      <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <meta itemprop="reviewCount" content="89" />
+        <meta itemprop="ratingValue" content="4.4" />
+      </div>
+      <div itemprop="review" itemtype="http://schema.org/Review" itemscope>
+        <div itemprop="author" itemtype="http://schema.org/Person" itemscope>
+          <meta itemprop="name" content="Fred Benson" />
+        </div>
+        <div itemprop="reviewRating" itemtype="http://schema.org/Rating" itemscope>
+          <meta itemprop="ratingValue" content="4" />
+          <meta itemprop="bestRating" content="5" />
+        </div>
+      </div>
+      <meta itemprop="sku" content="<?php echo e($product['sku']); ?>" />
+      <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+        <meta itemprop="name" content="<?php echo e($manufacturer['name']); ?>" />
+      </div>
+    </div>
+  </div>
 						<div class="col-md-6">
 							<div class="product-gallery pg-vertical">
 								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner owl-loaded owl-drag">
@@ -38,10 +85,11 @@ $pcClass = "";
 									 {
 										$ii = $imggs[$i];
 										$ss = $i == 0 ? " active" : "";
+										$ss2 = $i == 0 ? " itemprop='image'" : "";
                                     ?>								    
 									<div class="owl-item active<?php echo e($ss); ?>" style="width: 461px;">
 									   <figure class="product-image">
-										<img src="<?php echo e($ii); ?>" data-zoom-image="<?php echo e($ii); ?>" alt="<?php echo e($displayName); ?>" width="800" height="900">
+										<img src="<?php echo e($ii); ?>" data-zoom-image="<?php echo e($ii); ?>" alt="<?php echo e($displayName); ?>" width="800" height="900" <?php echo e($ss2); ?>>
 									    <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0px;top:0px;height:519.109px;width:461px;">
 										  <div class="zoomWindowContainer" style="width: 400px;">
 										    <div style="z-index: 999; overflow: hidden; margin-left: 0px; margin-top: 0px; background-position: 0px 0px; width: 461px; height: 519.109px; float: left; display: none; cursor: crosshair; border: 0px solid rgb(136, 136, 136); background-repeat: no-repeat; position: absolute; background-image: url(&quot;<?php echo e($ii); ?>&quot;); top: 0px; left: 0px;" class="zoomWindow">&nbsp;</div>
@@ -87,13 +135,16 @@ $pcClass = "";
 									</ul>
 								</div>
 
-								<h1 class="product-name"><?php echo e($displayName); ?></h1>
+								<h1 class="product-name" itemprop="name"><?php echo e($displayName); ?></h1>
 								<div class="product-meta">
 									Model #: <span class="product-sku"><?php echo e($model); ?></span>
 									<?php if($product['sku'] != ""): ?> SKU: <span class="product-sku"><?php echo e($product['sku']); ?></span> <?php endif; ?>
 									Manufacturer: <span class="product-brand"><a href="javascript:void(0)"><?php echo e($manufacturer['name']); ?></a></span>
 								</div>
-								<div class="product-price">&#0163;<?php echo e($amount); ?></div>
+								<div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+								   &#0163;<span itemprop="price"><?php echo e($amount); ?></span>
+								   <meta itemprop="priceCurrency" content="GBP"/>
+								 </div>
 								<div class="ratings-container">
 									<div class="ratings-full">
 										<span class="ratings" style="width:80%"></span>
@@ -101,7 +152,7 @@ $pcClass = "";
 									</div>
 									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 6 reviews )</a>
 								</div>
-								<p class="product-short-desc"><?php echo $description; ?></p>
+								<p class="product-short-desc"  itemprop="description"><?php echo $description; ?></p>
 
 								<hr class="product-divider">
 
@@ -198,7 +249,7 @@ $pcClass = "";
 									the delivery options we offer, please view our <a href="#" class="text-primary">Delivery
 										information</a><br>We hope you’ll love every
 									purchase, but if you ever need to return an item you can do so within a month of
-									receipt. For full details of how to make a return, please view our <br><a href="#" class="text-primary">Returns information</a></p>
+									receipt.</p>
 							</div>
 							<div class="tab-pane " id="product-tab-reviews">
 							 <?php

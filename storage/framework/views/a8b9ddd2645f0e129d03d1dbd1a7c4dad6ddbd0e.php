@@ -11,7 +11,7 @@ $pcClass = "";
 				<div class="container pt-1">
 					<form action="<?php echo e(url('login')); ?>" id="login-form" method="post" class="form mt-5">	
 						<?php echo csrf_field(); ?>		
-
+                        <input type="hidden" name="rdr" value="<?php echo e($rdr); ?>">
                         <p class="mb-2">
 						Don't have an account? <a href="<?php echo e(url('register')); ?>" class="text-secondary">Register</a>
 					</p>						

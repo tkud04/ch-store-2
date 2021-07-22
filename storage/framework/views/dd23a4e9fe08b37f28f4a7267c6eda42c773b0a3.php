@@ -52,7 +52,7 @@ $pcClass = "";
 								<a class="nav-link" href="#returns">Returns</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="<?php echo e(url('bye')); ?>">Logout</a>
+								<a class="nav-link" onclick="window.location = '<?php echo e(url('bye')); ?>'">Logout</a>
 							</li>
 						</ul>
 						<div class="tab-content">

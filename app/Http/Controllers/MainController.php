@@ -332,6 +332,176 @@ class MainController extends Controller {
 		return view("cart",compact(['user','sud','cart','totals','c','ad','pe','signals','plugins']));					 
     }
 	
+		
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getAddToCart(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		$req = $request->all();
+		$rdr = isset($req['xf']) ? "p_".$req['xf'] : "";
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else
+		{
+			session()->flash("auth-status-error","ok");
+			return redirect()->intended('login?rdr='.$rdr);
+		} 
+		
+		
+		
+		$cart = $this->helpers->getCart($user);
+        $req = $request->all();
+        #dd($req);
+        
+        $validator = Validator::make($req, [
+                             'xf' => 'required|numeric',
+                             'qty' => 'required|numeric'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         {
+			 $req['user_id'] = $user->id;
+         	$ret = $this->helpers->addToCart($req);
+			//dd($ret);
+			
+			
+			if($ret == "ok")
+			{
+				session()->flash("add-to-cart-status",$ret);
+				if(isset($req['from_wishlist']) && $req['from_wishlist'] == "yes")
+			    {
+				  $this->helpers->removeFromWishlist($req);
+		   	    }
+				
+				return redirect()->intended('cart');
+			}
+			elseif($ret == "error")
+			{
+				session()->flash("add-to-cart-status-error","ok");
+				return redirect()->intended('/');
+			}
+			elseif($ret == "insufficient-stock")
+			{
+				session()->flash("insufficient-stock-status-error","ok");
+				return redirect()->intended('/');
+			}
+         }             
+    }
+	
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getUpdateCart(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		else
+		{
+			session()->flash("auth-status-error","ok");
+			return redirect()->intended('/');
+		} 
+		
+		$req = $request->all();
+		
+		$cart = $this->helpers->getCart($user);
+        $req = $request->all();
+        #dd($req);
+        
+        $validator = Validator::make($req, [
+                             'dt' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         {
+			 $dt = [
+			    'dt' => json_decode($req['dt']),
+				'user_id' => $user->id
+			 ];
+			$ret = $this->helpers->updateCart($dt);
+			//dd($ret);
+			session()->flash("update-cart-status",$ret);
+			
+			if($ret == "ok")
+			{
+				return redirect()->intended('cart');
+			}
+			elseif($ret == "error")
+			{
+				return redirect()->back();
+			}
+         }        
+    }
+    
+    /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getRemoveFromCart(Request $request)
+    {
+		$user = null;
+		$cart = [];
+		
+    	if(Auth::check())
+		{
+			$user = Auth::user();
+			
+		}
+		
+        $req = $request->all();
+		
+		$cart = $this->helpers->getCart($user);
+        
+        $validator = Validator::make($req, [
+                             'xf' => 'required'
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             return redirect()->back()->withInput()->with('errors',$messages);
+             //dd($messages);
+         }
+         
+         else
+         {
+			 $req['user_id'] = $user->id;
+         	$this->helpers->removeFromCart($req);
+	        session()->flash("remove-from-cart-status","ok");
+			return redirect()->intended('cart');
+         }       
+    }
+	
 	/**
 	 * Show the application welcome screen to the user.
 	 *
@@ -1502,293 +1672,7 @@ class MainController extends Controller {
 	        session()->flash("add-review-status","ok");
 			return redirect()->back();
          }        
-    }
-	
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getAddToCart(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-		}
-		else
-		{
-			session()->flash("auth-status-error","ok");
-			return redirect()->intended('/');
-		} 
-		
-		$req = $request->all();
-		
-		$cart = $this->helpers->getCart($user);
-        $req = $request->all();
-        #dd($req);
-        
-        $validator = Validator::make($req, [
-                             'xf' => 'required|numeric',
-                             'qty' => 'required|numeric'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 $req['user_id'] = $user->id;
-         	$ret = $this->helpers->addToCart($req);
-			//dd($ret);
-			
-			
-			if($ret == "ok")
-			{
-				session()->flash("add-to-cart-status",$ret);
-				if(isset($req['from_wishlist']) && $req['from_wishlist'] == "yes")
-			    {
-				  $this->helpers->removeFromWishlist($req);
-		   	    }
-				
-				return redirect()->intended('cart');
-			}
-			elseif($ret == "error")
-			{
-				session()->flash("add-to-cart-status-error","ok");
-				return redirect()->intended('/');
-			}
-			elseif($ret == "insufficient-stock")
-			{
-				session()->flash("insufficient-stock-status-error","ok");
-				return redirect()->intended('/');
-			}
-         }             
-    }
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getUpdateCart(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		else
-		{
-			session()->flash("auth-status-error","ok");
-			return redirect()->intended('/');
-		} 
-		
-		$req = $request->all();
-		
-		$cart = $this->helpers->getCart($user);
-        $req = $request->all();
-        #dd($req);
-        
-        $validator = Validator::make($req, [
-                             'dt' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 $dt = [
-			    'dt' => json_decode($req['dt']),
-				'user_id' => $user->id
-			 ];
-			$ret = $this->helpers->updateCart($dt);
-			//dd($ret);
-			session()->flash("update-cart-status",$ret);
-			
-			if($ret == "ok")
-			{
-				return redirect()->intended('cart');
-			}
-			elseif($ret == "error")
-			{
-				return redirect()->back();
-			}
-         }        
-    }
-    
-    /**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getRemoveFromCart(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-        $req = $request->all();
-		
-		$cart = $this->helpers->getCart($user);
-        
-        $validator = Validator::make($req, [
-                             'xf' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 $req['user_id'] = $user->id;
-         	$this->helpers->removeFromCart($req);
-	        session()->flash("remove-from-cart-status","ok");
-			return redirect()->intended('cart');
-         }       
-    }
-	
-	
-	
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function getConfirmPayment(Request $request)
-    {
-		$user = null;
-		$cart = [];
-		$c = $this->helpers->getCategories();
-			$ads = $this->helpers->getAds();
-			shuffle($ads);
-		    $ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-			 $signals = $this->helpers->signals;
-			 $pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
-			 $banks = $this->helpers->banks;
-			 $bank = $this->helpers->getCurrentBank();
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-		
-		
-       $req = $request->all();
-	  # dd($req);
-		
-		$cart = $this->helpers->getCart($user);
-        
-        $validator = Validator::make($req, [
-                             'oid' => 'required'
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->intended('orders');
-             //dd($messages);
-         }
-         
-         else
-         {
-			$order = $this->helpers->getOrder($req['oid']);
-			#dd($order);
-			
-			if(isset($order['status']) && $order['status'] == "unpaid" && $order['type'] == "bank")
-			{
-				$anon = is_null($user) ? $this->helpers->getAnonOrder($order['reference']) : [];
-				return view("confirm-payment",compact(['user','cart','c','ad','anon','order','banks','bank','pe','signals','plugins']));
-			}
-			else
-			{
-				
-             return redirect()->intended('orders');
-			}
-					
-         }       
-    }
-	
-	
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-    public function postConfirmPayment(Request $request)
-    {
-		$user = null;
-		
-    	if(Auth::check())
-		{
-			$user = Auth::user();
-			
-		}
-
-        $req = $request->all();
-        
-        $validator = Validator::make($req, [
-                             'o' => 'required',
-                             'bname' => 'required|not_in:none',
-                             'acname' => 'required',
-                             'acnum' => 'required',
-                             'email' => 'required|email',
-                             'phone' => 'required|numeric',
-         ]);
-         
-         if($validator->fails())
-         {
-             $messages = $validator->messages();
-             return redirect()->back()->withInput()->with('errors',$messages);
-             //dd($messages);
-         }
-         
-         else
-         {
-			 if($req['bname'] == "other")
-			 {
-				 if(!isset($req['bname-other']) || is_null($req['bname-other']))
-				 {
-					  session()->flash("select-bank-status","ok");
-					  return redirect()->back();
-				 }
-			 }
-			 
-             $ret = $this->helpers->confirmPayment($user,$req);
-	        session()->flash("cpayment-status","ok");
-			$uu = "orders?wext=".$this->helpers->getRandomString(4);
-			return redirect()->intended($uu);
-         }        
-    }
-	
-	
-	
-	
+    }	
 	
 	/**
 	 * Show the application welcome screen to the user.

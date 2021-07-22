@@ -34,12 +34,13 @@ class LoginController extends Controller {
 			return redirect()->intended('dashboard');
 		}
 		$req = $request->all();
+		$rdr = isset($req['rdr']) ? $req['rdr'] : "";
 		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
 		#dd($info);
-		return view("register",compact(['user','cart','c','signals','plugins']));	
+		return view("register",compact(['user','rdr','cart','c','signals','plugins']));	
     }
 	/**
 	 * Show the application welcome screen to the user.
@@ -62,12 +63,13 @@ class LoginController extends Controller {
 		}
 		
 		$req = $request->all();
+		$rdr = isset($req['rdr']) ? $req['rdr'] : "";
 		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
 		#dd($info);
-		return view("login",compact(['user','cart','c','signals','plugins']));	
+		return view("login",compact(['user','rdr','cart','c','signals','plugins']));	
     }
 
   
@@ -80,7 +82,8 @@ class LoginController extends Controller {
     {
         $req = $request->all();
         #dd($req);
-        
+        $rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "";
+		
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6',
                              'id' => 'required'
@@ -96,7 +99,6 @@ class LoginController extends Controller {
          else
          {
          	$remember = true; 
-             $return = isset($req['u']) ? $req['u'] : 'dashboard';
              
          	//authenticate this login
             if(Auth::attempt(['email' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember) || Auth::attempt(['phone' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember))
@@ -107,7 +109,8 @@ class LoginController extends Controller {
 				
              #  if($this->helpers->isAdmin($user)){return redirect()->intended('/');}
                #else{
-                  return redirect()->intended($return);
+				   #dd($rdr);
+                  return redirect()->intended($rdr);
               # }
             }
 			
@@ -126,8 +129,9 @@ class LoginController extends Controller {
     public function postRegister(Request $request)
     {
         $req = $request->all();
-       #dd($req);
-        
+       #dd($req);   
+		$rdr = isset($req['rdr']) ? $this->helpers->getRedirect($req['rdr']) : "";
+		
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6|confirmed',
                              'email' => 'required|email',                            

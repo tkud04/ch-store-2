@@ -8,9 +8,9 @@ $pcClass = "";
 
 @section('content')
 				<div class="container pt-1">
-					<form action="{{url('register')}}" method="post" id="register-form" class="form mt-5">
+					<form action="{{url('register').}}" method="post" id="register-form" class="form mt-5">
 					{!! csrf_field() !!}
-					
+					<input type="hidden" name="rdr" value="{{$rdr}}">
 					<p class="mb-2">
 						Existing user? <a href="{{url('login')}}" class="text-secondary">Sign in</a>
 					</p>
