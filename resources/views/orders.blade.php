@@ -67,7 +67,7 @@ $pcClass = "";
 									       <span class="badge badge-success">{{strtoupper($statuses[$o['status']])}}</span>
 								          </td>
 								         <td class="product-name">
-									      <a href="{{$ou}}" class="btn-product"><span>VIEW</span></a>
+									      <a href="{{$ou}}" class="btn btn-primary btn-md"><span>VIEW</span></a>
 								         </td>
 												</tr>
 												
