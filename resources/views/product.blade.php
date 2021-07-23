@@ -166,7 +166,7 @@ $pcClass = "";
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active in" id="product-tab-description">
-								<p>{!! $description !!}</p>
+							
                                                                <ul class="list-none">
 									<li>
 										<p><label>Model number:</label> {{$model}}</p>
