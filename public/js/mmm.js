@@ -1,5 +1,5 @@
 	let  toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment'];
-	
+	let qv = 0;
 
 $(document).ready(function() {
     "use strict";
@@ -119,9 +119,18 @@ $(document).ready(function() {
              
 		  });
 		  
-		  $(".product-qty").change(function(e){            
+		  $("#qminus").click(function(e){            
 		       e.preventDefault();
-			   
+			qv = $('#product-qty').val();
+                         $('#product-qty').val(qv - 1);
+			      //console.log(`xf: ${xf}, qty: ${qty}`);
+             
+		  });
+
+                 $("#qplus").click(function(e){            
+		       e.preventDefault();
+			qv = $('#product-qty').val();
+                         $('#product-qty').val(qv + 1);
 			      //console.log(`xf: ${xf}, qty: ${qty}`);
              
 		  });
