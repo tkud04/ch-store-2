@@ -112,10 +112,10 @@ $ccategories = [
                                     <img src="{{$imgs[0]}}" alt="{{$p['name']}}" width="280" height="315">
                                 </a>
                                 <div class="product-label-group">
-                                    <label class="product-label label-new">new</label>
+                                   <!-- <label class="product-label label-new">new</label>-->
                                 </div>
                                 <div class="product-action-vertical">
-                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="javascript:void(0)"  class="btn-product-icon btn-cart" title="Add to wishlist"><i class="d-icon-heart"></i></a>
                                 </div>
                                 <!--
 								<div class="product-action">
@@ -124,8 +124,8 @@ $ccategories = [
 								-->
                             </figure>
                             <div class="product-details">
-                                <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
-                                        class="d-icon-heart"></i></a>
+                                <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})"class="btn-wishlist" title="Add to cart"><i
+                                        class="d-icon-bag"></i></a>
                                 <div class="product-cat">
                                     <a href="{{$pcu}}">{{$pcn}}</a>
                                 </div>
@@ -244,8 +244,8 @@ $ccategories = [
                                 <div class="product-label-group">
                                     <label class="product-label label-new">new</label>
                                 </div>
-                                <div class="product-action-vertical">
-                                    <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})" class="btn-product-icon btn-cart" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                 <div class="product-action-vertical">
+                                    <a href="javascript:void(0)"  class="btn-product-icon btn-cart" title="Add to wishlist"><i class="d-icon-heart"></i></a>
                                 </div>
 								<!--
                                 <div class="product-action">
@@ -254,8 +254,8 @@ $ccategories = [
 								-->
                             </figure>
                             <div class="product-details">
-                                <a href="javascript:void(0)" class="btn-wishlist" title="Add to wishlist"><i
-                                        class="d-icon-heart"></i></a>
+                                 <a href="javascript:void(0)" onclick="addToCart({xf: '{{$xf}}',qty: 1})"class="btn-wishlist" title="Add to cart"><i
+                                        class="d-icon-bag"></i></a>
                                 <div class="product-cat">
                                     <a href="{{$pcu}}">{{$pcn}}</a>
                                 </div>

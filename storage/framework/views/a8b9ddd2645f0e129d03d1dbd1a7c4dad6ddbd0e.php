@@ -13,7 +13,7 @@ $pcClass = "";
 						<?php echo csrf_field(); ?>		
                         <input type="hidden" name="rdr" value="<?php echo e($rdr); ?>">
                         <p class="mb-2">
-						Don't have an account? <a href="<?php echo e(url('register')); ?>" class="text-secondary">Register</a>
+						Don't have an account? <a href="<?php echo e(url('register').'?rdr='.$rdr); ?>" class="text-secondary">Register</a>
 					</p>						
 									<label>Email address <span class="req">*</span></label>
 									<input type="email" class="form-control" name="id" id="login-email" required="">

@@ -175,13 +175,9 @@ $pcClass = "";
 									<div class="social-links">
 										<a href="javascript:void(0)" class="social-link social-facebook fab fa-facebook-f"></a>
 										<a href="javascript:void(0)" class="social-link social-twitter fab fa-twitter"></a>
-										<a href="javascript:void(0)" class="social-link social-vimeo fab fa-vimeo-v"></a>
+										<a href="javascript:void(0)" onclick="addToWishlist({xf: '<?php echo e($product['id']); ?>')" class="social-link fab fa-heart"></a>
 									</div>
-									<div class="product-action">
-										<a href="javascript:void(0)" onclick="addToWishlist({xf: '<?php echo e($product['id']); ?>')" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To
-											Wishlist</a>
-										<span class="divider"></span>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -192,22 +188,12 @@ $pcClass = "";
 							<li class="nav-item">
 								<a class="nav-link active" href="#product-tab-description">Description</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#product-tab-additional">Additional</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#product-tab-shipping-returns">Shipping &amp; Returns</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#product-tab-reviews">Reviews (0)</a>
-							</li>
+							
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active in" id="product-tab-description">
 								<p><?php echo $description; ?></p>
-							</div>
-							<div class="tab-pane" id="product-tab-additional">
-								<ul class="list-none">
+                                                               <ul class="list-none">
 									<li>
 										<p><label>Model number:</label> <?php echo e($model); ?></p>
 									</li>
@@ -242,14 +228,16 @@ $pcClass = "";
 									</li>
 									<?php endif; ?>
 								</ul>
-							</div>
-							<div class="tab-pane " id="product-tab-shipping-returns">
-								<h6 class="mb-2">Free Shipping</h6>
+                                                               <h6 class="mb-2">Free Shipping</h6>
 								<p class="mb-0">We deliver to over 100 countries around the world. For full details of
 									the delivery options we offer, please view our <a href="#" class="text-primary">Delivery
 										information</a><br>We hope you’ll love every
 									purchase, but if you ever need to return an item you can do so within a month of
 									receipt.</p>
+							</div>
+							
+							<div class="tab-pane " id="product-tab-shipping-returns">
+								
 							</div>
 							<div class="tab-pane " id="product-tab-reviews">
 							 <?php

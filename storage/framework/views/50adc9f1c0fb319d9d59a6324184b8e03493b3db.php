@@ -11,7 +11,7 @@ $pcClass = "";
 					<form action="<?php echo e(url('register')); ?>" method="post" id="register-form" class="form mt-5">
 					<?php echo csrf_field(); ?>
 
-					
+					<input type="hidden" name="rdr" value="<?php echo e($rdr); ?>">
 					<p class="mb-2">
 						Existing user? <a href="<?php echo e(url('login')); ?>" class="text-secondary">Sign in</a>
 					</p>
@@ -42,7 +42,7 @@ $pcClass = "";
 									<label>Confirm password <span class="req">*</span></label>
 									<input type="password" class="form-control" name="pass_confirmation" id="register-pass-2">
 
-									<button id="register-submit" class="btn btn-primary btn-reveal-right">SUNMIT <i class="d-icon-arrow-right"></i></button>
+									<button id="register-submit" class="btn btn-primary btn-reveal-right">SUBMIT <i class="d-icon-arrow-right"></i></button>
 								</form>
 				</div>
 <?php $__env->stopSection(); ?>
