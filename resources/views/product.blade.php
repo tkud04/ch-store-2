@@ -135,7 +135,7 @@ $pcClass = "";
 									<div class="product-form-group">
 										<div class="input-group">
 											<button class="quantity-minus d-icon-minus"></button>
-											<input id="product-qty" class="quantity form-control" type="number" min="1" max="1000000">
+											<input id="product-qty" class="quantity form-control" type="number" value="1" min="1" max="1000000">
 											<button class="quantity-plus d-icon-plus"></button>
 										</div>
 										<a href="javascript:void(0)" id="product-add-to-cart-btn" class="btn-product btn-cart"><i class="d-icon-bag"></i>Add To
