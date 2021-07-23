@@ -46,6 +46,10 @@
 	 	<!--SweetAlert--> 
     <link href="lib/sweet-alert/sweetalert2.css" rel="stylesheet">
     <script src="lib/sweet-alert/sweetalert2.js"></script>
+	
+	<!--Slider--> 
+    <link href="lib/slider/style.css" rel="stylesheet">
+    <script src="lib/slider/index.js"></script>
 	 
     <!-- Custom CSS File -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css').'?ver='.rand(32,99999)}}">

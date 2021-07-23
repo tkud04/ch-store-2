@@ -74,56 +74,30 @@ $pcClass = "";
       </div>
     </div>
   </div>
+  
+  <div class="product product-single row mb-4">
 						<div class="col-md-6">
-							<div class="product-gallery pg-vertical">
-								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner owl-loaded owl-drag">
-									
-								<div class="owl-stage-outer">
-								   <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2305px;">
+							 <div id="slider" class="slider">
+                              <div class="wrapper">
+                                <div id="items" class="items">
                                     <?php
                                      for($i = 0; $i < count($imggs); $i++)
 									 {
 										$ii = $imggs[$i];
 										$ss = $i == 0 ? " active" : "";
 										$ss2 = $i == 0 ? " itemprop='image'" : "";
-                                    ?>								    
-									<div class="owl-item active{{$ss}}" style="width: 461px;">
-									   <figure class="product-image">
-										<img src="{{$ii}}" data-zoom-image="{{$ii}}" alt="{{$displayName}}" width="800" height="900" {{$ss2}}>
-									    <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0px;top:0px;height:519.109px;width:461px;">
-										  <div class="zoomWindowContainer" style="width: 400px;">
-										    <div style="z-index: 999; overflow: hidden; margin-left: 0px; margin-top: 0px; background-position: 0px 0px; width: 461px; height: 519.109px; float: left; display: none; cursor: crosshair; border: 0px solid rgb(136, 136, 136); background-repeat: no-repeat; position: absolute; background-image: url(&quot;{{$ii}}&quot;); top: 0px; left: 0px;" class="zoomWindow">&nbsp;</div>
-										  </div>
-										</div>
-									   </figure>
-									 </div>
+                                    ?>	
+                                      <span class="slide">									
+									     <img src="{{$ii}}" data-zoom-image="{{$ii}}" alt="{{$displayName}}">								  
+									 </span>
 									 <?php
 									 }
 									 ?>
-								   </div>
-							    </div><a href="#" class="product-image-full"><i class="d-icon-zoom"></i></a><div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button></div>
-								<div class="owl-dots disabled"></div>
-								
-								</div>
-								<div class="product-thumbs-wrap">
-									<div class="product-thumbs">
-									    <?php
-                                         for($i = 0; $i < count($imggs); $i++)
-									     {
-										   $ii = $imggs[$i];
-										   $ss = $i == 0 ? " active" : "";
-                                        ?>	
-										<div class="product-thumb{{$ss}}">
-											<img src="{{$ii}}" alt="product thumbnail" width="109" height="122">
-										</div>
-										<?php
-									     }
-									    ?>
-									</div>
-									<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
-									<button class="thumb-down"><i class="fas fa-chevron-right"></i></button>
-								</div>
-							</div>
+							    </div>
+                              </div>
+                              <a id="prev" class="control prev"></a>
+                              <a id="next" class="control next"></a>
+                           </div>
 						</div>
 						<div class="col-md-6">
 							<div class="product-details">
@@ -135,7 +109,7 @@ $pcClass = "";
 									</ul>
 								</div>
 
-								<h1 class="product-name" itemprop="name">{{$displayName}}</h1>
+								<!--<h1 class="product-name" itemprop="name">{{$displayName}}</h1>-->
 								<div class="product-meta">
 									Model #: <span class="product-sku">{{$model}}</span>
 									@if($product['sku'] != "") SKU: <span class="product-sku">{{$product['sku']}}</span> @endif
@@ -181,8 +155,8 @@ $pcClass = "";
 								</div>
 							</div>
 						</div>
-					</div>
 
+                    <div class="col-md-12">
 					<div class="tab tab-nav-simple product-tabs mb-4">
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
@@ -364,94 +338,9 @@ $pcClass = "";
 								?>
 							</div>
 						</div>
+					  </div>
 					</div>
                     
-					<?php
-					 $related = [];
-					 if(count($related) > 0)
-					 {
-					?>
-					<section>
-						<h2 class="title">Our Featured</h2>
-
-						<div class="owl-carousel owl-theme owl-nav-full owl-loaded owl-drag" data-owl-options="{
-							'items': 5,
-							'nav': false,
-							'loop': false,
-							'dots': true,
-							'margin': 20,
-							'responsive': {
-								'0': {
-									'items': 2
-								},
-								'768': {
-									'items': 3
-								},
-								'992': {
-									'items': 4,
-									'dots': false,
-									'nav': true
-								}
-							}
-						}">
-							
-							
-							
-							
-						<div class="owl-stage-outer">
-						  <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;">
-						    <?php
-							 foreach($related as $p)
-							 {
-							?>
-						    <div class="owl-item active" style="width: 280px; margin-right: 20px;">
-							  <div class="product shadow-media">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="images/product/featured1.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-label-group">
-										<label class="product-label label-new">new</label>
-									</div>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<a href="#" class="btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">categories</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Women's Fashion Summer Dress</a>
-									</h3>
-									<div class="product-price">
-										<ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:100%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							  </div>
-							</div>
-							<?php
-					         }
-							?>
-						   </div>
-						 </div>
-						 <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div>
-					  </div>
-					</section>
-					<?php
-					 }
-					?>
+					
 				</div>
 @stop
