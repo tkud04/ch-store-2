@@ -76,6 +76,23 @@ class MainController extends Controller {
 		
     	return view("index.backup",compact(['user','cart','c','pe','signals','plugins']));
     }
+
+     /* Show the Contact Us page.
+	 *
+	 * @return Response
+      */
+    public function getCheckoutToken(Request $request)
+    {
+		$user = null;
+       
+	    if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+                $data = [];
+		$result = $this->helpers->bomb($data);
+		dd($debugs);
+    }
 	
 	/**
 	 * Show the application welcome screen to the user.
