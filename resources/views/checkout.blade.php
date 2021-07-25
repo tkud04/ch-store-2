@@ -7,9 +7,11 @@ $pcClass = "";
 
 @section('content')
 <script>
-let pd = [], sd = [], ppd = null, pm = "none";
+let pd = [], sd = [], ppd = null, pm = "none", ct = "";
 
 $(document).ready(() => {
+
+getCT();
 
 @if(count($pd) > 0)
   @foreach($pd as $p)
