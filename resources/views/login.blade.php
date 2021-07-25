@@ -10,7 +10,7 @@ $pcClass = "";
 @section('content')
 <script>
 $(document).ready(() => {
-	hideElem(['.register-div']);
+	$('.register-div').hide();
 });
 </script>
 				<div class="container pt-1">
