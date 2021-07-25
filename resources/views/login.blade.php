@@ -1,5 +1,5 @@
 <?php
-$title = "Sign In";
+$title = "Log In/ Sign Up";
 $ph = true;
 $no_header = true;
 $pcClass = "";
@@ -12,19 +12,19 @@ $pcClass = "";
 					<form action="{{url('login')}}" id="login-form" method="post" class="form mt-5">	
 						{!! csrf_field() !!}		
                         <input type="hidden" name="rdr" value="{{$rdr}}">
-                        <p class="mb-2">
+                      <!--  <p class="mb-2">
 						Don't have an account? <a href="{{url('register').'?rdr='.$rdr}}" class="text-secondary">Register</a>
-					</p>						
+					</p>	-->					
 									<label>Email to log in / sign up <span class="req">*</span></label>
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
 									<label>Have a Password? <span class="req">*</span></label>
 									<div class="row">
 									  <div class="col-md-6">
-									    <input type="radio" class="form-control" id="login-pass-yes"> Yes
+									    <input type="radio" id="login-pass-yes"> Yes
 									  </div>
 									  <div class="col-md-6">
-									    <input type="radio" class="form-control" id="login-pass-no"> No
+									    <input type="radio" id="login-pass-no"> No
 									  </div>
 									</div>
 									
