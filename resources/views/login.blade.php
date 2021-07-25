@@ -19,18 +19,20 @@ $pcClass = "";
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
 									<label>Have a Password? <span class="req">*</span></label>
-									<select id="login-has-pass" class="form-control">
+									<select id="login-has-pass">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
 									
-									<div class="row">
+									<div class="row register-div">
 									  <div class="col-md-6">
-									    <input type="radio" id="login-pass-yes"> Yes
+										<label>First Name <span class="req">*</span></label>
+									    <input type="text" id="login-pass-fname" class="form-control" placeholder="Your first name">
 									  </div>
 									  <div class="col-md-6">
-									    <input type="radio" id="login-pass-no"> No
+									   <label>Last Name <span class="req">*</span></label>
+									    <input type="text" id="login-pass-lname" class="form-control" placeholder="Your last name">
 									  </div>
 									</div>
 									
