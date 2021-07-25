@@ -19,7 +19,7 @@ $pcClass = "";
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
 									<label>Have a Password? <span class="req">*</span></label>
-									<select id="login-has-pass">
+									<select id="login-has-pass" class="form-control">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
@@ -36,9 +36,14 @@ $pcClass = "";
 									  </div>
 									</div>
 									
-									<label>Password</label>
-									<input type="password" class="form-control" name="pass" id="login-pass">
-
+									<label>Password <span class="req">*</span></label>
+									<input type="password" class="form-control" name="pass" id="login-pass" placeholder="Your password">
+										
+                                    <div class="register-div">
+                                       <label>Re-enter Password <span class="req">*</span></label>
+									   <input type="password" class="form-control" name="pass" id="login-pass-2" placeholder="Confirm password">
+                                    </div>
+                                    
 									<button id="login-submit" class="btn btn-primary btn-reveal-right">SUBMIT <i class="d-icon-arrow-right"></i></button>
 								</form>
 				</div>
