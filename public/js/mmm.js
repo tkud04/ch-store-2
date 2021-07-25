@@ -6,7 +6,7 @@ $(document).ready(function() {
        
 	   //auth
        $("#login-has-pass").change(function(e) {
-       // e.preventDefault();
+        e.preventDefault();
        let hp = $('#login-has-pass').val();
 	   if(hp == "none" || hp == "yes"){
              hideElem(['.register-div']);
