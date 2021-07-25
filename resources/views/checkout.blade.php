@@ -5,6 +5,10 @@ $pcClass = "";
 ?>
 @extends('layout')
 
+@section('scripts')
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+@stop
+
 @section('content')
 <script>
 let pd = [], sd = [], ppd = null, pm = "none", ct = "";
@@ -12,6 +16,7 @@ let pd = [], sd = [], ppd = null, pm = "none", ct = "";
 $(document).ready(() => {
 
 getCT();
+initCT();
 
 @if(count($pd) > 0)
   @foreach($pd as $p)
