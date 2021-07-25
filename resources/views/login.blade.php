@@ -7,10 +7,12 @@ $pcClass = "";
 <script>let ccndn = 338;</script>
 @extends('layout')
 
-@section('script')
+@section('scripts')
+<script>
 $(document).ready(() => {
 	hideElem(['.register-div']);
 });
+</script>
 @stop
 
 @section('content')
