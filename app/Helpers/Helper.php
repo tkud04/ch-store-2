@@ -343,7 +343,8 @@ public $information_types = [
    
   public $paypalAuth = [
                'AS8O-aZcgCZbkCu4Mbci65Nu_b9lbHXMkdtrfUm6p5IlV6fFp9kVaDSw01O4AcjEGrdEyL-pHUrJ4nCQ',
-               'pass'];
+               'EO5v5m1SVrydFiLIMngqyECS0sR8GRmUW1bfaCuBuW8d_LPy0T21mqHfW6zkzbx2b99xEElTyOV7YN94'
+            ];
 
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
