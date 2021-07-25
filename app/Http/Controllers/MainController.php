@@ -87,11 +87,18 @@ class MainController extends Controller {
        
 	    if(Auth::check())
 		{
-			$user = Auth::user();
+		   $user = Auth::user();
 		}
-                $data = [];
-		$result = $this->helpers->bomb($data);
-		dd($debugs);
+                $dt = [
+                  'url' => "https://api-m.sandbox.paypal.com/v1/oauth2/token",
+                  'method' => "post",
+                  'auth' => ['userna],
+                  'headers' => ['Accept' => "application/json",'Accept-Language' => "en_US"],
+                  'type' => "raw",
+                  'data' => ['grant_type' => "client_credentials"]
+                ];
+		$result = $this->helpers->bomb($dt);
+		dd($result);
     }
 	
 	/**
