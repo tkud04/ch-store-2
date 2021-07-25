@@ -9,10 +9,10 @@ $(document).ready(function() {
         e.preventDefault();
        let hp = $('#login-has-pass').val();
 	   if(hp == "none" || hp == "yes"){
-             hideElem(['.register-div']);
+             $('.register-div').hide();
             } 
             else if(hp == "no"){
-             showElem(['.register-div']);
+             $('.register-div').fadeIn();
             } 
     });
 
