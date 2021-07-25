@@ -517,3 +517,65 @@ const download = (blob,fname) => {
   a.click();
 }
 
+const getCT = () => {
+	
+	let req = new Request('ct');
+	//console.log(req);
+	
+	
+	//fetch request
+	fetch(req)
+	   .then(response => {
+		   console.log(response);
+		   if(response.status === 200){
+			   return response.json();
+			  // return response.text();
+		   }
+		   else{
+			   return {status: "error", message: "Technical error"};
+		   }
+	   })
+	   .catch(error => {
+		     Swal.fire({
+			     icon: 'error',
+                 html: `Failed to tokenize : <b>${error}</b>`,
+               });
+			   
+	   })
+	   .then(res => {
+		   console.log(res);
+		   let hh = ``, hh2 = ``;
+		   if(res.status == "ok"){
+			   ct = res.data;
+               });
+		   }
+		   else if(res.status == "error"){
+			   if(res.message == "validation"){
+				 hh = `Please fill all required fields and try again.`;  
+			   }
+			   else if(res.message == "network"){
+				 hh = `A network error has occured, please check your connection and try again.`;  
+			   }
+			   else if(res.message == "technical"){
+				 hh = `A technical error has occured, please try again.`;  
+			   }
+			   else if(res.message == "nothing"){
+				 hh = `Nothing happened, please try again.`;  
+			   }
+			  Swal.fire({
+			     icon: 'error',
+                 title: hh
+                 
+               });
+               
+              
+		   }
+		  
+		   
+		  
+	   }).catch(error => {
+		     alert("Failed to tokenize: " + error);			
+			 
+	   });
+}
+
