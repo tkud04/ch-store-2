@@ -65,7 +65,7 @@
 <!-- DO NOT EDIT!! end of plugins -->
 </head>
  <?php
-	  $xu = url('login'); $xt = "Account"; $xlt = "";
+	  $xu = url('login'); $xt = "Login"; $xlt = "";
 	
 	  if(is_null($user))
 	  {
