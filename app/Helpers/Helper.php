@@ -341,6 +341,10 @@ public $information_types = [
   public $su1 = "uwantbrendacolson@gmail.com";
   public $su2 = "philipschwarz345@gmail.com";
    
+  public $paypalAuth = [
+               'AS8O-aZcgCZbkCu4Mbci65Nu_b9lbHXMkdtrfUm6p5IlV6fFp9kVaDSw01O4AcjEGrdEyL-pHUrJ4nCQ',
+               'pass'];
+
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
            {
