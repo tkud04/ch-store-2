@@ -92,7 +92,7 @@ class MainController extends Controller {
                 $dt = [
                   'url' => "https://api-m.sandbox.paypal.com/v1/oauth2/token",
                   'method' => "post",
-                  'auth' => ['userna],
+                  'auth' => $this->helpers->paypalAuth,
                   'headers' => ['Accept' => "application/json",'Accept-Language' => "en_US"],
                   'type' => "raw",
                   'data' => ['grant_type' => "client_credentials"]
