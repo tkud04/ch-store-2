@@ -19,7 +19,7 @@ $pcClass = "";
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
 									<label>Have a Password? <span class="req">*</span></label>
-									<select id="login-has-pass">
+									<select id="login-has-pass" class="form-control">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
