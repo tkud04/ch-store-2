@@ -5,6 +5,17 @@ $(document).ready(function() {
     "use strict";
        
 	   //auth
+       $("#login-has-pass").change(function(e) {
+       // e.preventDefault();
+       let hp = $('#login-has-pass').val();
+	   if(hp == "none" || hp == "yes"){
+             hideElem(['.register-div']);
+            } 
+            else if(hp == "no"){
+             showElem(['.register-div']);
+            } 
+    });
+
        $("#login-submit").click(function(e){            
 		       e.preventDefault();
 			   let valid = true;
