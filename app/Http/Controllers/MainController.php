@@ -99,13 +99,13 @@ class MainController extends Controller {
                   'data' => "grant_type=client_credentials"
                 ];
 		$result = json_decode($this->helpers->bomb($dt));
-		dd($result);
+		#dd($result);
 	       
 	        if(isset($result->access_token))
 		 {
 		    $ret = ['status' => 'ok', 'data' => $result->access_token];
 		 }
-	    return $ret;
+	    return json_encode($ret);
     }
 	
 	/**
