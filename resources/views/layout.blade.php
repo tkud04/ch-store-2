@@ -65,7 +65,7 @@
 <!-- DO NOT EDIT!! end of plugins -->
 </head>
  <?php
-	  $xu = url('login'); $xt = "Account";
+	  $xu = url('login'); $xt = "Account"; $xlt = "";
 	
 	  if(is_null($user))
 	  {
@@ -73,7 +73,7 @@
 	  }
 	  else
 	  {
-		$xu = url('dashboard'); $xt = "Dashboard";
+		$xu = url('dashboard'); $xt = "Dashboard"; $xlt = " | <a href='{{url('bye')}}'><strong class="text-primary">Logout</strong></a>";
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
 	  
@@ -102,7 +102,7 @@
 		 <div class="header-top">
                 <div class="container">
                     <div class="header-left">
-                        <p class="welcome-msg">Welcome to Mobile Buzz! | <a href="{{$xu}}"><strong class="text-primary">{{$xt}}</strong></a></p>
+                        <p class="welcome-msg">Welcome to Mobile Buzz! | <a href="{{$xu}}"><strong class="text-primary">{{$xt}}</strong></a>{{$xlt}}</p>
                     </div>
                     <div class="header-right">
 					 <a href="tel:{{$tel}}" class="calll"><span class="text-uppercase font-weight-semi-bold ls-l"></span><strong class="text-primary">{{$call}}</strong></a>
