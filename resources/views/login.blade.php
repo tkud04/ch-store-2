@@ -7,15 +7,12 @@ $pcClass = "";
 <script>let ccndn = 338;</script>
 @extends('layout')
 
-@section('scripts')
+@section('content')
 <script>
 $(document).ready(() => {
 	hideElem(['.register-div']);
 });
 </script>
-@stop
-
-@section('content')
 				<div class="container pt-1">
 					<form action="{{url('login')}}" id="login-form" method="post" class="form mt-5">	
 						{!! csrf_field() !!}		
