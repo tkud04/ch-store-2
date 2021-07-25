@@ -44,7 +44,7 @@ $(document).ready(() => {
 									<label>Password <span class="req">*</span></label>
 									<input type="password" class="form-control" name="pass" id="login-pass" placeholder="Your password">
 										
-									<div class="register-div">
+									<div class="login-div">
                                        <a href="{{url('forgot-password')}}" class="text-primary">Forgot Password? </a>   
                                     </div>
 										
