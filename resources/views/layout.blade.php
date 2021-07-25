@@ -73,7 +73,7 @@
 	  }
 	  else
 	  {
-		$xu = url('dashboard'); $xt = "Dashboard"; $xlt = " | <a href='{{url('bye')}}'><strong class="text-primary">Logout</strong></a>";
+		$xu = url('dashboard'); $xt = "Dashboard"; $xlt = " | <a href='bye'><strong class="text-primary">Logout</strong></a>";
 		 $welcomeText = "Welcome back, ".$user->fname."!";
 	  }
 	  
