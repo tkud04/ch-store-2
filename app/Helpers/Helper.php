@@ -453,7 +453,8 @@ $subject = $data['subject'];
 				 }
 				 catch(RequestException $e)
 				 {
-					 $mm = (is_null($e->getResponse())) ? null: Psr7\str($e->getResponse());
+					# $mm = (is_null($e->getResponse())) ? null: Psr7\str($e->getResponse());
+					 $mm = (is_null($e->getResponse())) ? null: $e->getResponse();
 					 $ret = json_encode(["status" => "error","message" => $mm]);
 				 }
 			     $rett = json_decode($ret);
