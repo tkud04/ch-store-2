@@ -84,7 +84,8 @@ class MainController extends Controller {
     public function getCheckoutToken(Request $request)
     {
 		$user = null;
-       
+                 $ret = ['status' => 'error', 'message' => "nothing"];
+	    
 	    if(Auth::check())
 		{
 		   $user = Auth::user();
@@ -97,8 +98,14 @@ class MainController extends Controller {
                   'type' => "raw",
                   'data' => "grant_type=client_credentials"
                 ];
-		$result = $this->helpers->bomb($dt);
+		$result = json_decode($this->helpers->bomb($dt));
 		dd($result);
+	       
+	        if(isset($result->access_token))
+		 {
+		    $ret = ['status' => 'ok', 'data' => $result->access_token];
+		 }
+	    return $ret;
     }
 	
 	/**
