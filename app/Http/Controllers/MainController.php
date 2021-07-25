@@ -95,7 +95,7 @@ class MainController extends Controller {
                   'auth' => $this->helpers->paypalAuth,
                   'headers' => ['Accept' => "application/json",'Accept-Language' => "en_US"],
                   'type' => "raw",
-                  'data' => json_encode(['grant_type' => "client_credentials"])
+                  'data' => "grant_type=client_credentials"
                 ];
 		$result = $this->helpers->bomb($dt);
 		dd($result);
