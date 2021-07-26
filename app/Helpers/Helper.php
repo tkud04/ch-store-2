@@ -538,7 +538,7 @@ $subject = $data['subject'];
            	   $ret = User::create(['fname' => $data['fname'], 
                                                       'lname' => $data['lname'], 
                                                       'email' => $data['email'], 
-                                                      'phone' => $data['phone'], 
+                                                      'phone' => "", 
                                                       'role' => $data['role'], 
                                                       'mode' => "", 
                                                       'mode_type' => "", 

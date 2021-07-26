@@ -547,7 +547,6 @@ const getCT = () => {
 		   let hh = ``, hh2 = ``;
 		   if(res.status == "ok"){
 			   ct = res.data;
-               });
 		   }
 		   else if(res.status == "error"){
 			   if(res.message == "validation"){
