@@ -123,7 +123,7 @@ class LoginController extends Controller {
 				return redirect()->back();
 			}
 	    }
-            elseif($req[] == "no")
+            elseif($req['lhp'] == "no")
 	    {
 		    $isNew = !$this->helpers->isDuplicateUser(['email' => $req['email'], 'phone' => $req['phone']]);
 			             
