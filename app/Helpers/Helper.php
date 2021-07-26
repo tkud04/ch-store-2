@@ -2449,8 +2449,7 @@ $subject = $data['subject'];
 	{
 		$ret = false;
 
-		$dup = User::where('email',$data['email'])
-		           ->orWhere('phone',$data['phone'])->get();
+		$dup = User::where('email',$data['email'])->get();
 
        if(count($dup) > 0) $ret = true;		
 		return $ret;
