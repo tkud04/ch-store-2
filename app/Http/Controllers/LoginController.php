@@ -267,10 +267,12 @@ class LoginController extends Controller {
 			$user = Auth::user();
 			return redirect()->intended('/');
 		}
+		$rdr = isset($req['rdr']) ? $req['rdr'] : "";
+		$cart = $this->helpers->getCart($user);
+		$c = $this->helpers->getCategories();
 		$signals = $this->helpers->signals;
 		$plugins = $this->helpers->getPlugins();
-		$layoutAd = $this->helpers->getAds();
-         return view('forgot-password', compact(['layoutAd','user','signals','plugins']));
+         return view('forgot-password', compact(['rdr','user','cart','c','signals','plugins']));
     }
     
     /**
@@ -292,35 +294,42 @@ class LoginController extends Controller {
              return redirect()->back()->withInput()->with('errors',$messages);
          }
          
-         else{
-         	$ret = $req['id'];
+         else
+		 {
+         	$rex = $req['id'];
 
-                $user = User::where('email',$ret)
-                                  ->orWhere('phone',$ret)->first();
+                $user = User::where('email',$rex)->first();
 
-                if(is_null($user) || ($user->role == 'user'))
+                if(is_null($user))
                 {
-                        return redirect()->back()->withErrors("No admin account exists with that email or phone number!","errors"); 
+					session()->flash("fp-status-error","success");   
                 }
-                
-                //get the reset code 
-                $code = $this->helpers->getPasswordResetCode($user);
+                else
+				{
+                  //get the reset code 
+                  $code = $this->helpers->getPasswordResetCode($user);
               
-                //Configure the smtp sender
-                $sender = $this->helpers->emailConfig;              
-                $sender['sn'] = 'KloudTransact Support'; 
-                #$sender['se'] = 'kloudtransact@gmail.com'; 
-                $sender['em'] = $user->email; 
-                $sender['subject'] = 'Reset Your Password'; 
-                $sender['link'] = 'www.kloudtransact.com'; 
-                $sender['ll'] = url('reset').'?code='.$code; 
-                
-                //Send password reset link
-                $this->helpers->sendEmailSMTP($sender,'emails.password','view');                                                         
-            session()->flash("forgot-password-status","ok");           
-            return redirect()->intended('forgot-password');
-
-      }
+			      $ret = $this->helpers->getCurrentSender();
+		          $ret['data'] = ['code' => $code];
+    		      $ret['subject'] = "Reset your password";	
+		       
+			      try
+		          {
+			       $ret['em'] = $rex;
+		            $this->helpers->sendEmailSMTP($ret,"emails.fp");
+			        $s = ['status' => "ok"];
+		          }
+		  
+		          catch(Throwable $e)
+		          {
+			        #dd($e);
+			        $s = ['status' => "error",'message' => "server error"];
+		          }
+                                                   
+                  session()->flash("fp-status","ok");     
+				}
+				 return redirect()->back(); 
+          }
                   
     }    
     
@@ -334,33 +343,33 @@ class LoginController extends Controller {
     {
        $user = null;
        $req = $request->all();
-       $return = isset($req['return']) ? $req['return'] : '/';
-	   $plugins = $this->helpers->getPlugins();
+       $cart = $this->helpers->getCart($user);
+		$c = $this->helpers->getCategories();
+		$signals = $this->helpers->signals;
+		$plugins = $this->helpers->getPlugins();
 		
 		if(Auth::check())
 		{
 			$user = Auth::user();
 			$return = 'dashboard';
-			if($this->helpers->isAdmin($user)) $return = 'cobra';
 			return redirect()->intended($return);
 		} 
        else
         {
 			if(isset($req['code']))
             {
-            	$user = $this->helpers->verifyPasswordResetCode($req['code']);
-                if($user == null)   
+            	$x = $this->helpers->verifyPasswordResetCode($req['code']);
+                if($x == null)   
                 { 
-                	return redirect()->back()->withErrors("The code is invalid or has expired. ","errors"); 
+			       session()->flash("reset-status","success");  
+                	return redirect()->intended("login");
                 }
-                $v = ($user->role == "user") ? 'reset' : 'admin.reset';
-				$layoutAd = $this->helpers->getAds();
-            	return view($v,compact(['layoutAd','user','return','plugins']));
+               return view("reset",compact(['x','user','cart','c','signals','plugins']));
             }
             
             else
             {
-            	return redirect()->intended($return);
+            	return redirect()->intended("/");
             }
          	
           }
@@ -394,8 +403,8 @@ class LoginController extends Controller {
             $user = User::where('id',$id)->first();
             $user->update(['password' => bcrypt($ret)]);
                 
-            session()->flash("reset-status","ok");  
-            $v = ($user->role == "user") ? 'login' : 'admin';         
+            session()->flash("reset-status","success");  
+            $v = 'login';         
             return redirect()->intended($v);
 
       }

@@ -52,6 +52,8 @@ class Helper implements HelperContract
 
  public $signals = ['okays'=> ["login-status" => "Welcome back!",            
                      "signup-status" => "Welcome to your new account. Enjoy your shopping!",
+                     "fp-status" => "A password reset link has been sent to your email address",
+                     "reset-status" => "Password reset successful",
                      "profile-status" => "Profile updated!",
                      "address-status" => "Address updated!",
 					 "cpayment-status" => "Your request has been received, you will be notified via email shortly if your payment has been cleared.",
@@ -76,6 +78,8 @@ class Helper implements HelperContract
 					 //ERRORS
 					 "login-status-error" => "Wrong username or password, please try again.",
 					 "signup-status-error" => "There was a problem creating your account, please try again.",
+					 "fp-status-error" => "No account exists with that email.",
+					 "reset-status-error" => "The code is invalid or has expired.",
 					 "duplicate-user-status-error" => "An account with this email or phone number already exists.",
 					 "profile-status-error" => "There was a problem updating your profile, please try again.",
 					 "address-status-error" => "There was a problem updating address, please try again.",
