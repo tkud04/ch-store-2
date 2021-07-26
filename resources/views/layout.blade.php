@@ -442,10 +442,11 @@
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
-        <a href="{{url('categories')}}" class="sticky-link">
-            <i class="d-icon-volume"></i>
-            <span>Categories</span>
+        <a href="{{$xu}}" class="sticky-link">
+            <i class="d-icon-user"></i>
+            <span>{{$xt}}</span>
         </a>
+        
         <a href="{{url('cart')}}" class="sticky-link">
             <i class="d-icon-bag"></i>
             <span>Cart({{count($cart)}})</span>
@@ -462,9 +463,9 @@
                 </a>
             </form>
         </div>
-        <a href="{{$xu}}" class="sticky-link">
-            <i class="d-icon-user"></i>
-            <span>{{$xt}}</span>
+        <a href="{{url('categories')}}" class="sticky-link">
+            <i class="d-icon-volume"></i>
+            <span>Categories</span>
         </a>
     </div>
     <!-- Scroll Top -->
