@@ -5,5 +5,8 @@
 <h3 style="background: #ff9bbc; color: #fff; padding: 10px 15px;">Reset your password</h3>
 
 
+
+
 <p>Hi! Here is the link to reset your password: <a href="{{$uu}}" target="_blank">Reset password</a></p><br>
-<p>Message: <em>{{$msg}}</em></p><br><br>
+<p>If you can't click the link above, just copy and paste the following link: <a href="{{$uu}}" target="_blank">{{$uu}}</a></p><br>
+
