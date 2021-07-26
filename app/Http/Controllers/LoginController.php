@@ -127,7 +127,7 @@ class LoginController extends Controller {
 	    {
 		    $isNew = !$this->helpers->isDuplicateUser(['email' => $req['id'], 'phone' => ""]);
 			             
-             dd($isNew);            
+             #dd($isNew);            
 
 			if($isNew)
 			{
