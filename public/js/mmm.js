@@ -19,7 +19,9 @@ $(document).ready(function() {
        $("#login-submit").click(function(e){            
 		       e.preventDefault();
 			   let valid = true;
-			   let ee = $('#login-email').val(), p = $('#login-pass').val(), validation = (ee == "" || p == "");
+			   let ee = $('#login-email').val(), p = $('#login-pass').val(), hp = $('#login-has-pass').val(),
+			       p2 = $('#login-pass-2').val(), fn = $('#login-pass-fname').val(), ln = $('#login-pass-lname').val(),
+			       signupValidation = (ee == "" || p == "" || p2 == "" || p != p2 || fn == "" || ln == ""), loginValidation = (ee == "" || p == ""), validation = (signupValidation || loginValidation);
 			   
 		       if(validation){
 				 Swal.fire({
