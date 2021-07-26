@@ -12,6 +12,7 @@ $(document).ready(function() {
              $('.register-div').hide();
             } 
             else if(hp == "no"){
+	    $('.login-div').hide(); 
              $('.register-div').fadeIn();
             } 
     });
