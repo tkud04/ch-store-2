@@ -24,7 +24,7 @@ $(document).ready(() => {
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
 									<label>Have a Password? <span class="req">*</span></label>
-									<select id="login-has-pass" class="form-control">
+									<select id="login-has-pass" name="lhp" class="form-control">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
@@ -33,11 +33,11 @@ $(document).ready(() => {
 									<div class="row register-div">
 									  <div class="col-md-6">
 										<label>First Name <span class="req">*</span></label>
-									    <input type="text" id="login-pass-fname" class="form-control" placeholder="Your first name">
+									    <input type="text" id="login-pass-fname" name="fname" class="form-control" placeholder="Your first name">
 									  </div>
 									  <div class="col-md-6">
 									   <label>Last Name <span class="req">*</span></label>
-									    <input type="text" id="login-pass-lname" class="form-control" placeholder="Your last name">
+									    <input type="text" id="login-pass-lname" name="lname" class="form-control" placeholder="Your last name">
 									  </div>
 									</div>
 									
@@ -50,7 +50,12 @@ $(document).ready(() => {
 										
                                     <div class="register-div">
                                        <label>Re-enter Password <span class="req">*</span></label>
-									   <input type="password" class="form-control" name="pass" id="login-pass-2" placeholder="Confirm password">
+				      <input type="password" class="form-control" name="pass_confirmation" id="login-pass-2" placeholder="Confirm password">
+				      
+				      <div style="padding: 10px; border: 1px dashed skyblue;">
+				        <p class="mb-2">TIP: Passwords must be at least 8 characters.</p>
+					<p>We suggest using a combination of uppercase letters, lowercase letters, numbers and symbols to protect your password.</p>
+				      </div>
                                     </div>
                                     
 									<button id="login-submit" class="btn btn-primary btn-reveal-right">SUBMIT <i class="d-icon-arrow-right"></i></button>
