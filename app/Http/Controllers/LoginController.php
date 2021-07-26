@@ -125,13 +125,14 @@ class LoginController extends Controller {
 	    }
             elseif($req['lhp'] == "no")
 	    {
-		    $isNew = !$this->helpers->isDuplicateUser(['email' => $req['email'], 'phone' => $req['phone']]);
+		    $isNew = !$this->helpers->isDuplicateUser(['email' => $req['id'], 'phone' => ""]);
 			             
              #dd($isNew);            
 
 			if($isNew)
 			{
 				$req['role'] = "user";    
+				$req['email'] = $req['id'];    
                 $req['status'] = "enabled";           
                 $req['verified'] = "yes";           
             
