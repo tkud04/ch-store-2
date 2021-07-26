@@ -23,7 +23,7 @@ $(document).ready(() => {
 									<label>Email to log in / sign up <span class="req">*</span></label>
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
-									<label>Have a Password? <span class="req">*</span></label>
+									<h3 class="text-uppercase">Have a Password? </h3>
 									<select id="login-has-pass" name="lhp" class="form-control">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
@@ -52,9 +52,24 @@ $(document).ready(() => {
                                        <label>Re-enter Password <span class="req">*</span></label>
 				      <input type="password" class="form-control" name="pass_confirmation" id="login-pass-2" placeholder="Confirm password">
 				      
-				      <div style="padding: 10px; border: 1px dashed skyblue;">
+				      <div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
 				        <p class="mb-2">TIP: Passwords must be at least 8 characters.</p>
 					<p>We suggest using a combination of uppercase letters, lowercase letters, numbers and symbols to protect your password.</p>
+				      </div>
+				      
+				      <div style="margin-bottom: 5px;">
+				        <h3 class="text-uppercase">How would you like to hear from us?</h3>
+					<ul>
+					 <li><input type="checkbox" id="mp-all">Select all</li>
+					 <li><input type="checkbox" id="mp-email">Email</li>
+					 <li><input type="checkbox" id="mp-mail">Direct mail</li>
+					 <li><input type="checkbox" id="mp-call">Phone</li>
+					 <li><input type="checkbox" id="mp-sms">SMS</li>
+					</ul>
+					
+					<p>
+					 We use a market leading third party Company (Sendgrid) to manage our newsletters which gathers statistics around email opening & clicks to help us monitor and improve our services for all. This involves the collection of IP addresses & device information when you open our newsletter. Once signed up you can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us. You can contact us at support@mobilebuzzonline.co.uk. View our <a class="text-primary" href="{{url('privacy')}}">Privacy Policy</a>. By clicking below, you agree that we may process your information in accordance with these terms.
+					</p>
 				      </div>
                                     </div>
                                     
