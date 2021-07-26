@@ -23,7 +23,7 @@ $(document).ready(() => {
 									<label>Email to log in / sign up <span class="req">*</span></label>
 									<input type="email" class="form-control" name="id" id="login-email" required="">
 									
-									<h3 class="text-uppercase">Have a Password? </h3>
+									<h4 class="text-uppercase">Have a Password? </h4>
 									<select id="login-has-pass" name="lhp" class="form-control">
 										<option value="none">Select an option</option>
 										<option value="yes">Yes</option>
@@ -58,9 +58,8 @@ $(document).ready(() => {
 				      </div>
 				      
 				      <div style="margin-bottom: 5px;">
-				        <h3 class="text-uppercase">How would you like to hear from us?</h3>
+				        <h4 class="text-uppercase">How would you like to hear from us?</h4>
 					<ul>
-					 <li><input type="checkbox" id="mp-all">Select all</li>
 					 <li><input type="checkbox" id="mp-email">Email</li>
 					 <li><input type="checkbox" id="mp-mail">Direct mail</li>
 					 <li><input type="checkbox" id="mp-call">Phone</li>
