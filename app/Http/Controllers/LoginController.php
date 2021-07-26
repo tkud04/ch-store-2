@@ -86,7 +86,8 @@ class LoginController extends Controller {
 		
         $validator = Validator::make($req, [
                              'pass' => 'required|min:6',
-                             'id' => 'required'
+                             'id' => 'required',
+		             'lhp' => 'required|not_in:none'
          ]);
          
          if($validator->fails())
@@ -98,11 +99,13 @@ class LoginController extends Controller {
          
          else
          {
+	    if($req['lhp'] == "yes")
+	    {
          	$remember = true; 
              
          	//authenticate this login
-            if(Auth::attempt(['email' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember) || Auth::attempt(['phone' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember))
-            {
+               if(Auth::attempt(['email' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember) || Auth::attempt(['phone' => $req['id'],'password' => $req['pass'],'status'=> "enabled"],$remember))
+               {
             	//Login successful               
                $user = Auth::user();          
                 #dd($user); 
@@ -112,13 +115,42 @@ class LoginController extends Controller {
 				   #dd($rdr);
                   return redirect()->intended($rdr);
               # }
-            }
+               }
 			
 			else
 			{
 				session()->flash("login-status-error","ok");
 				return redirect()->back();
 			}
+	    }
+            elseif($req[] == "no")
+	    {
+		    $isNew = !$this->helpers->isDuplicateUser(['email' => $req['email'], 'phone' => $req['phone']]);
+			             
+             #dd($isNew);            
+
+			if($isNew)
+			{
+				$req['role'] = "user";    
+                $req['status'] = "enabled";           
+                $req['verified'] = "yes";           
+            
+				$user =  $this->helpers->createUser($req); 
+			    Auth::login($user);
+			    $req['user_id'] = $user->id;
+			    //$shippingDetails =  $this->helpers->createShippingDetails($req); 
+			    
+				//after creating the user, send back to the registration view with a success message
+                #$this->helpers->sendEmail($user->email,'Welcome To Disenado!',['name' => $user->fname, 'id' => $user->id],'emails.welcome','view');
+                session()->flash("signup-status", "ok");
+			     return redirect()->intended($rdr);
+			}
+			else
+			{
+              session()->flash("duplicate-user-status-error", "ok");
+			  return redirect()->back();
+			}
+	    }
          }        
     }
 
