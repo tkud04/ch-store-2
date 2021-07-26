@@ -26,7 +26,7 @@ $(document).ready(() => {
 									<h4 class="text-uppercase">Have a Password? </h4>
 									<select id="login-has-pass" name="lhp" class="form-control">
 										<option value="none">Select an option</option>
-										<option value="yes">Yes</option>
+										<option value="yes" checked="checked">Yes</option>
 										<option value="no">No</option>
 									</select>
 									
