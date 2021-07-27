@@ -443,10 +443,11 @@
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
-        <a href="<?php echo e(url('categories')); ?>" class="sticky-link">
-            <i class="d-icon-volume"></i>
-            <span>Categories</span>
+        <a href="<?php echo e($xu); ?>" class="sticky-link">
+            <i class="d-icon-user"></i>
+            <span><?php echo e($xt); ?></span>
         </a>
+        
         <a href="<?php echo e(url('cart')); ?>" class="sticky-link">
             <i class="d-icon-bag"></i>
             <span>Cart(<?php echo e(count($cart)); ?>)</span>
@@ -463,9 +464,9 @@
                 </a>
             </form>
         </div>
-        <a href="<?php echo e($xu); ?>" class="sticky-link">
-            <i class="d-icon-user"></i>
-            <span><?php echo e($xt); ?></span>
+        <a href="<?php echo e(url('categories')); ?>" class="sticky-link">
+            <i class="d-icon-volume"></i>
+            <span>Categories</span>
         </a>
     </div>
     <!-- Scroll Top -->

@@ -620,3 +620,9 @@ const initCT = () => {
 
 }
 
+const showCT = (n) => {
+	 cts.forEach((x,i) => {
+		 if(x == n) $(`#checkout-tab-${x}`).fadeIn();
+		 else $(`#checkout-tab-${x}`).hide();
+	 });
+}
