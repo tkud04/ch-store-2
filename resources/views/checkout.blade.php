@@ -317,48 +317,27 @@ initCT();
 														</div>
 														<div id="card-2">
 														  <div class="row">
-									                         <div class="col-xs-12">
+									                         <div class="col-xs-12 col-sm-12">
 										                       <label>Full name*</label>
 										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
 														     </div>
-														     <div class="col-xs-8">
+														     <div class="col-xs-12 col-sm-12">
 										                       <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
 														     </div>
-														    <div class="col-xs-4">
+														    
+														    <div class="col-xs-4 col-sm-4">
+										                       <label>Expiry Date*</label>
+										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
+														     </div>
+														     <div class="col-xs-4 col-sm-4">
 										                       <label>CVV*</label>
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
 														     </div>
-														    <div class="col-xs-6">
-										                       <label>Expiry Month*</label>
-										                       <select class="form-control" id="card-2-month">
-											                     <option value="none">Select month</option>
-											                      <?php
-											                        $months = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-											                       foreach($months as $m)
-                                                                   {
-                                                                  ?>
-                                                                  	<option value="{{$m}}">{{ucwords($m)}}</option>
-                                                                  <?php      	
-                                                                   }
-											                      ?>
-											                   </select>
-														     </div>
-														     <div class="col-xs-6">
-										                       <label>Expiry Year*</label>
-										                       <select class="form-control" id="card-2-yeae">
-											                     <option value="none">Select year</option>
-											                      <?php
-											                        $y = date("Y");
-											                       for($i=$y; $i < $y + 10; $i++)
-                                                                   {
-                                                                  ?>
-                                                                  	<option value="{{$i}}">{{$i}}</option>
-                                                                  <?php      	
-                                                                   }
-											                      ?>
-											                   </select>
-														     </div>
+														     <div class="col-xs-4 col-sm-4">
+										                       <img src="images/cvv.png" class="img-responsive">
+														     </div>     
+														     
 													      </div>
 														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" id="card-2-back">Cancel</a>
 													    </div>
@@ -367,7 +346,7 @@ initCT();
 										</div>
 										<h4 class="mt-3">Info</h4>
 										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Place Order</a>
+										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Pay now</a>
 										<p id="checkout-loading">
 											Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
                                         </p>
