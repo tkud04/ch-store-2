@@ -11,7 +11,8 @@ $pcClass = "";
 
 @section('content')
 <script>
-let pd = [], sd = [], ppd = null, pm = "none", ct = "";
+
+let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 
 $(document).ready(() => {
 
@@ -51,9 +52,10 @@ initCT();
    });
   @endforeach
 @endif
-
- hideElem(['#card-2','#checkout-loading']);
- showElem(['#card-1']);
+ 
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
+	
+  hh.forEach((x,i) => {$(x).hide();});
 });
 </script>
 				@include('checkout-header',['number' => 2])
@@ -62,172 +64,11 @@ initCT();
 						<input type="hidden" id="tk" value="{{ csrf_token() }}">
 						<input type="hidden" id="pm" name="pm" value="none">
 						<div class="row gutter-lg">
-							<div class="col-lg-7 mb-6">
+							<div class="col-lg-12 mb-6">
 							
-							<h3 class="title title-simple text-left">Your Details</h3>
-							
-							<div class="accordion accordion-simple">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse1-1" class="collapse">Billing Details</a>
-                                        </div>
-                                        <div id="collapse1-1" class="card-body expanded">
-                                           <div class="row">
-									<div class="col-xs-12">
-									  <select class="form-control" id="checkout-pd" name="pd">
-									    <option value="none">Add new billing detail</option>
-										<?php
-										 if(count($pd) > 0)
-										 {
-											 foreach($pd as $p)
-											 {
-										?>
-									    <option value="{{$p['id']}}">{{$p['address_1'].", ".$p['city'].", ".strtoupper($p['country'])}}</option>
-									    <?php
-											 }
-										 }
-										?>
-									  </select>
-									</div>
-									<div class="col-xs-6">
-										<label>First Name *</label>
-										<input type="text" class="form-control bd" id="pd-fname" name="pd-fname" required="">
-									</div>
-									<div class="col-xs-6">
-										<label>Last Name *</label>
-										<input type="text" class="form-control bd" id="pd-lname" name="pd-lname" required="">
-									</div>
-								</div>
-								<label>Company Name(Optional)</label>
-								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
-								<label>Country / Region *</label>
-								<select class="form-control bd" id="pd-country" name="pd-country">
-									    <option value="none">Select country</option>
-									    <option value="uk">United Kingdom</option>
-										<?php
-										 if(count($countries) > 0)
-										 {
-											 foreach($countries as $k => $v)
-											 {
-										?>
-									    <option value="{{$k}}">{{$v}}</option>
-									    <?php
-											 }
-										 }
-										?>
-									  </select>
-								<label>Street Address *</label>
-								<input type="text" class="form-control bd" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
-								<input type="text" class="form-control bd" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
-								<div class="row">
-									<div class="col-xs-6">
-										<label>Town / City *</label>
-										<input type="text" class="form-control bd" id="pd-city" name="pd-city" required="">
-									</div>
-									<div class="col-xs-6">
-										<label>State / County *</label>
-										<input type="text" class="form-control bd" id="pd-region" name="pd-region" required="">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<label>Postcode / ZIP *</label>
-										<input type="text" class="form-control bd" id="pd-zip" name="pd-zip" required="">
-									</div>
-								</div>
-								
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse1-2" class="expand">Shipping Details</a>
-                                        </div>
-                                        <div class="card-body collapsed" id="collapse1-2">
-                                             <div class="row">
-									<div class="col-xs-12">
-									  <select class="form-control sd" id="checkout-sd" name="sd">
-									    <option value="none">Add new shipping detail</option>
-										<?php
-										 if(count($sd) > 0)
-										 {
-											 foreach($sd as $s)
-											 {
-										?>
-									    <option value="{{$s['id']}}">{{$s['address_1'].", ".$s['city'].", ".strtoupper($s['country'])}}</option>
-									    <?php
-											 }
-										 }
-										?>
-									  </select>
-									</div>
-									<div class="col-xs-6">
-										<label>First Name *</label>
-										<input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
-									</div>
-									<div class="col-xs-6">
-										<label>Last Name *</label>
-										<input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
-									</div>
-								</div>
-								<label>Company Name(Optional)</label>
-								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
-								<label>Country / Region *</label>
-								<select class="form-control sd" id="sd-country" name="sd-country">
-									    <option value="none">Select country</option>
-									    <option value="uk">United Kingdom</option>
-										<?php
-										 if(count($countries) > 0)
-										 {
-											 foreach($countries as $k => $v)
-											 {
-										?>
-									    <option value="{{$k}}">{{$v}}</option>
-									    <?php
-											 }
-										 }
-										?>
-									  </select>
-								<label>Street Address *</label>
-								<input type="text" class="form-control sd" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
-								<input type="text" class="form-control sd" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
-								<div class="row">
-									<div class="col-xs-6">
-										<label>Town / City *</label>
-										<input type="text" class="form-control sd" id="sd-city" name="sd-city" required="">
-									</div>
-									<div class="col-xs-6">
-										<label>State / County *</label>
-										<input type="text" class="form-control sd" id="sd-region" name="sd-region" required="">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<label>Postcode / ZIP *</label>
-										<input type="text" class="form-control sd" id="sd-zip" name="sd-zip" required="">
-									</div>
-								</div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse1-3" class="expand">Additional Information</a>
-                                        </div>
-                                        <div id="collapse1-3" class="card-body collapsed">
-                                            <label>Order Notes (optional)</label>
-							               	<textarea class="form-control" cols="30" rows="6" id="notes" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-							
-                                        </div>
-                                    </div>
-                                </div>
-							
-							
-								
-								</div>
-							<aside class="col-lg-5 sticky-sidebar-wrapper">
-								<div class="pin-wrapper" style="height: 1038px;"><div class="sticky-sidebar" data-sticky-options="{'bottom': 50}" style="border-bottom: 0px none rgb(102, 102, 102); width: 474.141px;">
-									<h3 class="title title-simple text-left">Your Order</h3>
-									<div class="summary mb-4">
-										<table class="table table-responsive" style="align: center !important;">
+							        <div id="checkout-tab-1">
+									  <h3 class="title title-simple text-left">Your Order</h3>
+									   <table class="table table-responsive" style="align: center !important;">
 											<thead>
 												<tr>
 													<th>Items</th>
@@ -301,59 +142,191 @@ initCT();
 												</tr>
 											</tbody>
 										</table>
-										<div class="payment accordion radio-type">
-											<h4 class="summary-subtitle">Payment Method: <a href="javascript:void(0)" class="btn btn-sm btn-success" id="checkout-pm">NONE</a></h4>
+										<center>
+										<a href="javascript:void(0)" onclick="showCT(2)" class="btn btn-dark btn-order">Next</a>
+										</center>
+									</div>
+							        <div id="checkout-tab-2">
+									 <h3 class="title title-simple text-left">Shipping Details</h3>
+									 <select class="form-control sd" id="checkout-sd" name="sd">
+									    <option value="none">Add new shipping detail</option>
+										<?php
+										 if(count($sd) > 0)
+										 {
+											 foreach($sd as $s)
+											 {
+										?>
+									    <option value="{{$s['id']}}">{{$s['address_1'].", ".$s['city'].", ".strtoupper($s['country'])}}</option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+										<label>First Name *</label>
+										<input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
+										
+										<label>Last Name *</label>
+										<input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
+									
+								<label>Company Name(Optional)</label>
+								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
+								<label>Country / Region *</label>
+								<select class="form-control sd" id="sd-country" name="sd-country">
+									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="{{$k}}">{{$v}}</option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+								<label>Street Address *</label>
+								<input type="text" class="form-control sd" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control sd" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
+								<div class="row">
+									<div class="col-xs-6">
+										<label>Town / City *</label>
+										<input type="text" class="form-control sd" id="sd-city" name="sd-city" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>State / County *</label>
+										<input type="text" class="form-control sd" id="sd-region" name="sd-region" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Postcode / ZIP *</label>
+										<input type="text" class="form-control sd" id="sd-zip" name="sd-zip" required="">
+									</div>
+								</div>
+								<center>
+										<a href="javascript:void(0)" onclick="showCT(1)" class="btn btn-dark btn-order">Back</a>
+										<a href="javascript:void(0)" onclick="showCT(3)" class="btn btn-dark btn-order">Next</a>
+										</center>
+                                        </div>
+									
+							        <div id="checkout-tab-3">
+									  <h3 class="title title-simple text-left">Billing Details</h3>
+                                           <div class="row">
+									<div class="col-xs-12">
+									  <select class="form-control" id="checkout-pd" name="pd">
+									    <option value="none">Add new billing detail</option>
+										<?php
+										 if(count($pd) > 0)
+										 {
+											 foreach($pd as $p)
+											 {
+										?>
+									    <option value="{{$p['id']}}">{{$p['address_1'].", ".$p['city'].", ".strtoupper($p['country'])}}</option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+									</div>
+									<div class="col-xs-6">
+										<label>First Name *</label>
+										<input type="text" class="form-control bd" id="pd-fname" name="pd-fname" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>Last Name *</label>
+										<input type="text" class="form-control bd" id="pd-lname" name="pd-lname" required="">
+									</div>
+								</div>
+								<label>Company Name(Optional)</label>
+								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
+								<label>Country / Region *</label>
+								<select class="form-control bd" id="pd-country" name="pd-country">
+									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="{{$k}}">{{$v}}</option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+								<label>Street Address *</label>
+								<input type="text" class="form-control bd" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control bd" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
+								<div class="row">
+									<div class="col-xs-6">
+										<label>Town / City *</label>
+										<input type="text" class="form-control bd" id="pd-city" name="pd-city" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>State / County *</label>
+										<input type="text" class="form-control bd" id="pd-region" name="pd-region" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Postcode / ZIP *</label>
+										<input type="text" class="form-control bd" id="pd-zip" name="pd-zip" required="">
+									</div>
+								</div>
+								   <center>
+										<a href="javascript:void(0)" onclick="showCT(2)" class="btn btn-dark btn-order">Back</a>
+										<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order">Next</a>
+										</center>
+                                    </div>
+                                   
+                                    <div id="checkout-tab-4">
+									  <h3 class="title title-simple text-left">Additional Information</h3>
+                                            <label>Order Notes (optional)</label>
+							               	<textarea class="form-control" cols="30" rows="6" id="notes" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea><br>
 											
-											
-											<div class="card">
-												<div class="card-header">
-													<a href="#collapse4" class="expand">Pay online</a>
-												</div>
-												<div id="collapse4" class="collapsed">
-													<div class="card-body">
-														<div id="card-1">
-														  Our secure online payment gateway will process your payment and complete your order.<br>
-														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" onclick="setPM('online')">Select</a>
-														</div>
-														<div id="card-2">
-														  <div class="row">
-									                         <div class="col-xs-12 col-sm-12">
+											 <h5>You will be charged &#0163;{{number_format($xx,2)}}</h5>
+                                       <center>
+										<a href="javascript:void(0)" onclick="showCT(5)" class="btn btn-dark btn-order mb-5">Pay via card</a>
+										<a href="javascript:void(0)" onclick="showCT(6)">
+										  <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
+										</a>
+										<p class="mt-5">By placing your order, you agree to our <a class="text-primary" href="{{url('terms')}}">Terms and Conditions</a>.</p>
+										</center>
+                                    </div>
+								    <div id="checkout-tab-5">
+									  <h3 class="title title-simple text-left">Card Details</h3>
 										                       <label>Full name*</label>
 										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
-														     </div>
-														     <div class="col-xs-12 col-sm-12">
-										                       <label>Card number*</label>
+														   
+														   <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
-														     </div>
-														    <div class="row">
-														    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-										                       <label>Expiry Date*</label>
+												
+														      <label>Expiry Date*</label>
 										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
-														     </div>
-														     <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-										                       <label>CVV*</label>
+														  
+														        <label>CVV*</label>
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
-														     </div>
-														     <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-										                       <img src="images/cvv.png" class="img-responsive" style="width: 100px; height: 20px;">
-														     </div>     
-														     </div> 
-													      </div>
-														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" id="card-2-back">Cancel</a>
-													    </div>
-												    </div>
-											</div>
-										</div>
-										<h4 class="mt-3">Info</h4>
-										<p class="checkout-info">Your personal data will used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-										<a href="javascript:void(0)" class="btn btn-dark btn-order" id="checkout-btn">Pay now</a>
-										<p id="checkout-loading">
-											Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
-                                        </p>
+														  
+															 
+												
+												<center>
+												<div id="checkout-cd-btn">
+												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order mt-5">Back</a>
+												</div>
+											   	 <p id="checkout-cd-loading">
+											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                                 </p>
+										        </center>
+                                    </div>
 									</div>
-								</div></div>
-							</aside>
-						</div>
+									<div id="checkout-tab-6">
+									 
+									</div>
+								</div>
 					</form>
 				</div>
 @stop
