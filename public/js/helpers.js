@@ -434,8 +434,8 @@ const checkout = (dt) => {
 		 **/
 		// let xu = `send?f=${dt.from}&s=${dt.subject}&m=${dt.msg}&e=${ll[ctr]}`;
 		  
-		  hideElem(['#checkout-btn']);
-		  showElem(['#checkout-loading']);
+		  hideElem([`#checkout-${dt.ckt}-btn`]);
+		  showElem([`#checkout-${dt.ckt}-loading`]);
 		   
 	 let req = new Request('checkout',{method: 'POST', body: fd});
 	//console.log(req);
@@ -458,8 +458,8 @@ const checkout = (dt) => {
 			     icon: 'error',
                  html: `Failed to checkout : <b>${error}</b>`,
                });
-			   hideElem(['#checkout-loading']);
-                showElem(['#checkout-btn']);
+			    hideElem([`#checkout-${dt.ckt}-btn`]);
+		        showElem([`#checkout-${dt.ckt}-loading`]);
 	   })
 	   .then(res => {
 		   console.log(res);
@@ -474,8 +474,8 @@ const checkout = (dt) => {
                  html: hh2
                });
                
-              hideElem(['#checkout-loading']);			  
-			  showElem(['#checkout-btn']);
+               hideElem([`#checkout-${dt.ckt}-btn`]);
+		       showElem([`#checkout-${dt.ckt}-loading`]);
 			  window.location = "orders";
 		   }
 		   else if(res.status == "error"){
@@ -497,16 +497,16 @@ const checkout = (dt) => {
                  
                });
                
-              hideElem(['#checkout-loading']);			  
-			  showElem(['#checkout-btn']);
+              hideElem([`#checkout-${dt.ckt}-btn`]);
+		  showElem([`#checkout-${dt.ckt}-loading`]);
 		   }
 		  
 		   
 		  
 	   }).catch(error => {
 		     alert("Failed to checkout: " + error);			
-			 hideElem(['#checkout-loading']);
-			 showElem(['#checkout-btn']);			
+			  hideElem([`#checkout-${dt.ckt}-btn`]);
+		  showElem([`#checkout-${dt.ckt}-loading`]);
 	   });
 }
 
@@ -625,4 +625,87 @@ const showCT = (n) => {
 		 if(x == n) $(`#checkout-tab-${x}`).fadeIn();
 		 else $(`#checkout-tab-${x}`).hide();
 	 });
+}
+
+const ck = (ckt) => {
+	let ppd = $('#checkout-pd').val(), ssd = $('#checkout-sd').val(),
+			   pd_fname = $('#pd-fname').val(), pd_lname = $('#pd-lname').val(), pd_company = $('#pd-company').val(), pd_country = $('#pd-country').val(),
+			   pd_address_1 = $('#pd-address-1').val(), pd_address_2 = $('#pd-address-2').val(), pd_city = $('#pd-city').val(), pd_region = $('#pd-region').val(), pd_zip = $('#pd-zip').val(),
+			   sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
+			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val(),
+               cc_name = $('#card-2-name').val(), cc_number = $('#card-2-number').val(), cc_cvv = $('#card-2-cvv').val(), cc_date = $('#card-2-date').val(),
+               notes = $('#notes').val();
+               
+			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
+                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == ""),
+                   ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_date == "");
+			   
+			   let validation = ((ppd == "none" && pdValidation) || (ssd == "none" && sdValidation));
+			       console.log("validation: ",validation);
+				   
+		       if(validation){
+				   let s2 = "";
+				   
+				   if(ppd == "none" && pdValidation) s2 = "Fill in required billing details";
+				   if(ssd == "none" && sdValidation) s2 = "Fill in required shipping details";
+				  
+				 Swal.fire({
+			            icon: 'error',
+                        title: s2
+                 });
+			   }
+			   else{
+				   let gl = false;
+				   
+				   if(ckt == "cd"){
+					   if(ccValidation){
+						   Swal.fire({
+			                 icon: 'error',
+                             title: "Enter card details"
+                            });
+					   }
+					   else{
+						   gl = true;
+					   }
+				   }
+				   else if(ckt == "pp"){
+					    gl = true;
+				   }
+				   
+				   if(gl)
+				   {
+					   let pl = {    
+					    ppd: ppd,
+					    pd_fname: pd_fname,
+				    	pd_lname: pd_lname,
+				    	pd_company: pd_company,
+				    	pd_address_1: pd_address_1,
+				    	pd_address_2: pd_address_2,
+				    	pd_city: pd_city,
+				    	pd_region: pd_region,
+                        pd_country: pd_country,
+				    	pd_zip: pd_zip,
+				    	ssd: ssd,
+				    	sd_fname: sd_fname,
+				    	sd_lname: sd_lname,
+				    	sd_company: sd_company,
+			    		sd_address_1: sd_address_1,
+			    		sd_address_2: sd_address_2,
+			    		sd_city: sd_city,
+				    	sd_region: sd_region,
+                        sd_country: sd_country,
+				    	sd_zip: sd_zip,
+				    	pm: pm,
+					    notes: notes,
+                                        cc_name: cc_name,
+                                        cc_number: cc_number,
+                                        cc_cvv: cc_cvv,
+                                        cc_date: cc_date,
+										ckt: ckt
+                     };
+				     checkout(pl); 
+				   }
+				  
+			   }
+             
 }

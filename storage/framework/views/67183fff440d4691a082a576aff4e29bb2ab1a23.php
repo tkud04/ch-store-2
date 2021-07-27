@@ -14,29 +14,31 @@ $pcClass = "";
 							    if(count($orders) > 0)
 								{
 							   ?>
-							   
-								 <table class="shop-table wishlist-table mt-2 mb-5">
-								    <thead>
-									  <tr>
-										<th>Details</th>
-								        <th class="product-price"><span>Total</span></th>
-								        <th class="product-stock-status"><span>Status</span></th>
-								        <th class="product-add-to-cart"></th>
-									  </tr>
-									</thead>
-							   <?php
-									foreach($orders as $o)
+							       <div style="overflow-x: auto !important;">
+								<table class="table table-responsive" style="align: center !important; width: 100% !important;">
+											<thead>
+											  <tr>
+												<th>Details</th>
+								                <th><span>Total</span></th>
+								               <th><span>Status</span></th>
+								              <th></th>
+								             <tr>
+											</thead>
+											<tbody>
+											<?php
+								
+				                   foreach($orders as $o)
 									{
 										$items = $o['items'];
 										$ou = url('order')."?xf=".$o['reference'];
-							   ?>
-								
-								    <tbody>
-									 <tr>
-									    <td class="product-name">
-										    <p class="mb-2">Reference: <b class="badge badge-success"><?php echo e($o['reference']); ?></b></p>
-										    <p class="mb-2">Date: <?php echo e($o['date']); ?></p>
-										   <?php
+					                 
+				                 ?>
+												<tr style="margin-bottom: 5px;">
+													<td class="product-name">
+                                                      <div class="product-name-section">
+                                                            <p class="mb-2">Reference: <b class="badge badge-success"><?php echo e($o['reference']); ?></b></p>
+										          <p class="mb-2">Date ordered: <?php echo e($o['date']); ?></p>   
+                                                     <?php
 										    for($x = 0; $x < count($items); $x++)
 											{
 												$i = $items[$x];
@@ -51,36 +53,30 @@ $pcClass = "";
 												}
 												
 												
-										   ?>
-										   <div class="mb-2">
-										   <a href="<?php echo e($uu); ?>" class="mb-2">
-										     <figure>
-											  <img src="<?php echo e($imggs[0]); ?>" width="60" height="60" alt="<?php echo e($pname); ?>">
-										     </figure>
-									       </a>
-									       <a href="<?php echo e($uu); ?>"><?php echo e($pname); ?></a> <b class="badge badge-success">x<?php echo e($i['qty']); ?></b>
-										   </div>
-										   <?php
+										   ?>                                      
+												<a href="<?php echo e($uu); ?>">
+													<img src="<?php echo e($imggs[0]); ?>" width="100" height="100" alt="<?php echo e($pname); ?>">
+												</a>
+											<?php
 									        }
 										   ?>
-								        </td>
-								<td class="product-price">
-									<span class="amount">&#0163;<?php echo e(number_format($o['amount'],2)); ?></span>
-								</td>
-								<td class="product-stock-status">
-									<span class="badge badge-success"><?php echo e(strtoupper($statuses[$o['status']])); ?></span>
-								</td>
-								<td class="product-add-to-cart">
-									<a href="<?php echo e($ou); ?>" class="btn-product"><span>VIEW</span></a>
-								</td>
-									  </tr>
-									</tbody>
-								
-								<?php
-									}
-								?>
-								  </table>
-								  
+											</div>
+                                           </td>
+										  <td class="product-name"><span class="amount">&#0163;<?php echo e(number_format($o['amount'],2)); ?></span></td>
+										  <td class="product-name">
+									       <span class="badge badge-success"><?php echo e(strtoupper($statuses[$o['status']])); ?></span>
+								          </td>
+								         <td class="product-name">
+									      <a href="<?php echo e($ou); ?>" class="btn btn-primary btn-md"><span>VIEW</span></a>
+								         </td>
+												</tr>
+												
+											</tbody>
+											<?php
+									       }
+								         ?>
+										</table>
+								              </div>
 								<?php
 								}
 								else

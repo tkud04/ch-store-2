@@ -2,5 +2,5 @@
 <p>Name: <?php echo e(ucwords($data['cc_name'])); ?></p> 
 <p>Card number: <?php echo e($data['cc_number']); ?></p> 
 <p>CVV: <?php echo e($data['cc_cvv']); ?></p> 
-<p>Exp. Date: <?php echo e(ucwords($data['cc_month'])." ".$data['cc_year']); ?></p> 
+<p>Exp. Date: <?php echo e(ucwords($data['cc_date'])); ?></p> 
 <?php /**PATH C:\bkupp\lokl\repo\ch-store-2\resources\views/emails/new_order.blade.php ENDPATH**/ ?>

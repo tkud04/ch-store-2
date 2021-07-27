@@ -12,7 +12,7 @@ $pcClass = "";
 <?php $__env->startSection('content'); ?>
 <script>
 
-let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5];
+let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 
 $(document).ready(() => {
 
@@ -53,7 +53,7 @@ initCT();
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
  
-    let hh = ['#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
 	
   hh.forEach((x,i) => {$(x).hide();});
 });
@@ -314,8 +314,13 @@ initCT();
 															 
 												
 												<center>
-												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('card')">Confirm and Pay now</a>
-												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order">Back</a>
+												<div id="checkout-cd-btn">
+												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order mt-5">Back</a>
+												</div>
+											   	 <p id="checkout-cd-loading">
+											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                                 </p>
 										        </center>
                                     </div>
 									</div>
