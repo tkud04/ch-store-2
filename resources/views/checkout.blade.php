@@ -335,7 +335,7 @@ initCT();
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
 														     </div>
 														     <div class="col-md-4 col-xs-4 col-sm-4">
-										                       <img src="images/cvv.png" class="img-responsive" style="width: 50px; height: 70px;">
+										                       <img src="images/cvv.png" class="img-responsive" style="width: 40px; height: 100px;">
 														     </div>     
 														     </div> 
 													      </div>
