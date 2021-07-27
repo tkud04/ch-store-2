@@ -325,7 +325,7 @@ initCT();
 										                       <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
 														     </div>
-														    
+														    <div class="row">
 														    <div class="col-xs-4 col-sm-4">
 										                       <label>Expiry Date*</label>
 										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
@@ -335,9 +335,9 @@ initCT();
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
 														     </div>
 														     <div class="col-xs-4 col-sm-4">
-										                       <img src="images/cvv.png" class="img-responsive">
+										                       <img src="images/cvv.png" class="img-responsive" style="width: 100px; height: 100px;">
 														     </div>     
-														     
+														     </div> 
 													      </div>
 														  <a href="javascript:void(0)" class="btn btn-sm btn-primary" id="card-2-back">Cancel</a>
 													    </div>
