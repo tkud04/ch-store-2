@@ -325,7 +325,7 @@ initCT();
 										                       <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
 														     </div>
-														    <div class="row">
+														    <div class="form-row">
 														    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
 										                       <label>Expiry Date*</label>
 										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
