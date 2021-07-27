@@ -58,6 +58,7 @@ initCT();
   hh.forEach((x,i) => {$(x).hide();});
 });
 </script>
+<div class=="cd-wrapper">
 				@include('checkout-header',['number' => 2])
 				<div class="container mt-8">
 					<form action="{{url('checkout')}}" method="post" class="form">
@@ -329,4 +330,5 @@ initCT();
 								</div>
 					</form>
 				</div>
+</div>
 @stop

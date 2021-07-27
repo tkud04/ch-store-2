@@ -22,7 +22,7 @@ if($user != null)
                                 <p>Looking for help? Fill the form and start a new adventure.</p>
 
                                 <h4 class="mb-1 text-uppercase">Address</h4>
-                                <p>UK Flag 54 Mortlake Road, Ilford, IG1 2SX</p>                             							
+                                <p>54 Mortlake Road, Ilford, IG1 2SX</p>                             							
 								
                                 <h4 class="mb-1 text-uppercase">Phone</h4>
                                 <p><a href="javascript:void(0)">+44 7451 233887</a></p>
