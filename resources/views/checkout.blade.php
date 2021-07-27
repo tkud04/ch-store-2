@@ -64,7 +64,7 @@ initCT();
 						<input type="hidden" id="tk" value="{{ csrf_token() }}">
 						<input type="hidden" id="pm" name="pm" value="none">
 						<div class="row gutter-lg">
-							<div class="col-lg-7 mb-6">
+							<div class="col-lg-12 mb-6">
 							
 							        <div id="checkout-tab-1">
 									  <h3 class="title title-simple text-left">Your Order</h3>
