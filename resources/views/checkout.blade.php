@@ -93,7 +93,83 @@ initCT();
 			   <div class="row">
 			     <div class="col-md-6 mt-5">
 				   <div style="border: 3px solid #000!important; padding: 8px!important;">
-				     <div id="scd-display"></div>
+				     <div>
+					 									   <table class="table table-responsive" style="align: center !important;">
+											<thead>
+												<tr>
+													<th>Items</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+											<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+									 $imgs = $item['imggs'];
+									 $uu = url('product')."?xf=".$xf;
+									 $ru = url('remove-from-cart')."?xf=".$xf;
+				                 ?>
+												<tr>
+													<td class="product-name">
+                                                                                                        <div class="product-name-section">
+												<a href="{{$uu}}">
+													<img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+												</a>
+											</div></td>
+													<td class="product-total"><span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span></td>
+												</tr>
+												<?php
+								   }
+                                                                    $pc = 0.1 * $subtotal;
+																	$xx = $subtotal;
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
+									?>
+												<tr class="summary-subtotal">
+													<td>
+														<h4 class="summary-subtitle">Subtotal</h4>
+													</td>
+													<td class="summary-subtotal-price">&#0163;{{number_format($subtotal,2)}}
+													</td>												
+												</tr>
+												<tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h4 class="summary-subtitle">Shipping</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">Free Shipping</p>
+													</td>
+												</tr>
+												@if(count($sud) == 0)
+                                                <tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h4 class="summary-subtitle">10% Discount</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>
+													</td>
+												</tr>
+												@endif
+												<tr class="summary-subtotal">
+													<td>
+														<h4 class="summary-subtitle">Total</h4>
+													</td>
+													<td>
+														<p class="summary-total-price">&#0163;{{number_format($xx,2)}}</p>
+													</td>												
+												</tr>
+											</tbody>
+										</table>
+
+					 </div>
 				   </div>
 		         </div>
 			     <div class="col-md-6 mt-5">
