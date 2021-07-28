@@ -713,6 +713,7 @@ const ck = (ckt) => {
 
 const initSDSummary = () => {
 	let hh = `
+	<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>
 	`;
 	
 	if(sd.length > 0){
@@ -740,6 +741,7 @@ const initSDSummary = () => {
 
 const initPDSummary = () => {
 	let hh = `
+	<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>
 	`;
 	
 	if(pd.length > 0){

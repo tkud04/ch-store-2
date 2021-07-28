@@ -250,7 +250,7 @@ initCT();
 					  </div>
 				    </div>
 					<div class="col-md-6">
-					  <div id="payc-tab">
+					  <div id="payc-tab" class="mt-5">
 									  <h3 class="cd-caption">Card Details</h3>
                                       <form>
                                                                                 	
@@ -271,7 +271,7 @@ initCT();
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
 														  </div>
 															 
-												<div class="col-12 col-md-12">
+												<div class="col-12 col-md-12 mt-5 mb-5">
 												<center>
 												<div id="checkout-cd-btn">
 												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
@@ -284,7 +284,7 @@ initCT();
 										</div>
 										</form>
                                     </div>
-									<div id="payp-tab">
+									<div id="payp-tab" class="mt-5">
 									  <p>You will be redirected to Paypal to complete your payment.</p>
 									  <div id="checkout-pp-btn">
 										 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
