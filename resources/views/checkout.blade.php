@@ -59,6 +59,8 @@ initCT();
   
   initSDSummary();
   initPDSummary();
+  
+  $('#payc-tab').hide();
 });
 </script>
 <div class="container">
