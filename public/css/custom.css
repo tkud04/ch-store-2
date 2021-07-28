@@ -192,5 +192,13 @@ td{
     bottom: 10px !important;
 }
 
+.cd-header{
+    text-transform: uppercase;
+	padding: 10px;
+    background-color: #f4f2f1;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
 	
 	

@@ -89,7 +89,8 @@ initCT();
 				</div>
 		     </div>	
 			 <div class="col-md-12 mt-5">
-			   <h2 class="cd-caption">delivery option:</h2>
+			   <h2 class="cd-caption">choose delivery option:</h2>
+			   <h4 class="cd-header">1 of 1 options:</h4>
 			   <div class="row">
 			     <div class="col-md-6 mt-5">
 				   <div style="border: 3px solid #000!important; padding: 8px!important;">
@@ -97,7 +98,6 @@ initCT();
 					 									   <table class="table table-responsive" style="align: center !important;">
 											<thead>
 												<tr>
-													<th>Items</th>
 													<th></th>
 												</tr>
 											</thead>
@@ -117,13 +117,27 @@ initCT();
 									 $ru = url('remove-from-cart')."?xf=".$xf;
 				                 ?>
 												<tr>
-													<td class="product-name">
-                                                                                                        <div class="product-name-section">
-												<a href="{{$uu}}">
-													<img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
-												</a>
-											</div></td>
-													<td class="product-total"><span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span></td>
+												<div class="row">
+												   <div class="col-3 col-md-3">
+												     <a href="{{$uu}}">
+													   <img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+												     </a>
+												   </div>
+												   <div class="col-5 col-md-5">
+												     <a href="{{$uu}}">
+													   <p><b>{{$item['name']}}</b></p>
+												     </a>
+												   </div>
+												   <div class="col-2 col-md-2">
+													   <p><b>Qty</b></p>
+													   <p>{{$qty}}</p>
+												   </div>
+												   <div class="col-2 col-md-2">
+												     <p><b>Total</b></p>
+													   <p>&#0163;{{number_format($itemAmount * $qty,2)}}</p>
+												   </div>
+												</div>
+												
 												</tr>
 												<?php
 								   }
@@ -131,7 +145,25 @@ initCT();
 																	$xx = $subtotal;
 																	if(count($sud) == 0) $xx = $subtotal - $pc;
 									?>
-												<tr class="summary-subtotal">
+												
+											</tbody>
+										</table>
+
+					 </div>
+				   </div>
+		         </div>
+			     <div class="col-md-6 mt-5">
+				   <div style="border: 3px solid #000!important; padding: 8px!important;">
+				    <h4 class="cd-header">your final order</h4>
+				     <div>
+					 									   <table class="table table-responsive" style="align: center !important;">
+											<thead>
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+											  <tr class="summary-subtotal">
 													<td>
 														<h4 class="summary-subtitle">Subtotal</h4>
 													</td>
@@ -167,14 +199,7 @@ initCT();
 													</td>												
 												</tr>
 											</tbody>
-										</table>
-
-					 </div>
-				   </div>
-		         </div>
-			     <div class="col-md-6 mt-5">
-				   <div style="border: 3px solid #000!important; padding: 8px!important;">
-				     <div id="scd-display"></div>
+							</table>
 				   </div>
 		         </div>	
 		       </div>	
