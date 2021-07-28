@@ -53,12 +53,14 @@ initCT();
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading'];
 	
   hh.forEach((x,i) => {$(x).hide();});
   
   initSDSummary();
   initPDSummary();
+  
+  $('#payc-tab').hide();
 });
 </script>
 <div class="container">
@@ -233,7 +235,7 @@ initCT();
 				</div>
 		     </div>		
 			 <div class="col-md-12 mt-5">
-			    <h2 class="cd-caption">payment option:</h2>
+			    <h4 class="cd-header">payment option:</h4>
 				<div>
 				  <div class="row">
 			        <div class="col-md-6">
@@ -243,7 +245,7 @@ initCT();
 					    </div>
 						<div class="col-md-6">
 						 <center>
-					      <a href="javascript:void(0)" id="payc">
+					      <a href="javascript:void(0)" id="payp">
 					       <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
                           </a>
 						  </center>
@@ -251,7 +253,47 @@ initCT();
 					  </div>
 				    </div>
 					<div class="col-md-6">
-					  
+					  <div id="payc-tab">
+									  <h3 class="cd-caption">Card Details</h3>
+                                      <form>
+                                                                                	
+  
+										                       <label>Full name*</label>
+										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
+														   <div class="row mt-5 mb-5">
+                                                                                	<div class="col-12 col-md-12">
+														   <label>Card number*</label>
+										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
+												            </div>
+												           <div class="col-6 col-md-6">
+														      <label>Expiry Date*</label>
+										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
+														  </div>
+														<div class="col-6 col-md-6">
+														        <label>CVV*</label>
+										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
+														  </div>
+															 
+												<div class="col-12 col-md-12">
+												<center>
+												<div id="checkout-cd-btn">
+												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+												</div>
+											   	 <p id="checkout-cd-loading">
+											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                                 </p>
+										        </center>
+										   </div>
+										</div>
+										</form>
+                                    </div>
+									<div id="payp-tab">
+									  <p>You will be redirected to Paypal to complete your payment.</p>
+									  <div id="checkout-pp-btn">
+										 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+									  </div>
+									</div>
+						   </div>
 				    </div>
 				 </div>
 				</div>

@@ -210,6 +210,24 @@ $(document).ready(function() {
              
 		  });
 		  
+		  $("#payc").click(function(e){            
+		       e.preventDefault();
+			   hideElem(['#payp-tab','#payn-tab']);
+               showElem(['#payc-tab']);
+		  });
+		  
+		  $("#payp").click(function(e){            
+		       e.preventDefault();
+			   hideElem(['#payc-tab','#payn-tab']);
+               showElem(['#payp-tab']);
+		  });
+		  
+		  $("#payn").click(function(e){            
+		       e.preventDefault();
+			   hideElem(['#payc-tab','#payp-tab']);
+               showElem(['#payn-tab']);
+		  });
+		  
 		   $("#checkout-pd").change(function(e) {
                e.preventDefault();
               let ppd = $('#checkout-pd').val(), edh = null;

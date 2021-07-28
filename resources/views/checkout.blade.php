@@ -53,7 +53,7 @@ initCT();
   @endforeach
 @endif
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading'];
 	
   hh.forEach((x,i) => {$(x).hide();});
   
@@ -61,6 +61,7 @@ initCT();
   initPDSummary();
   
   $('#payc-tab').hide();
+  $('#payp-tab').hide();
 });
 </script>
 <div class="container">
@@ -241,7 +242,7 @@ initCT();
 					    </div>
 						<div class="col-md-6">
 						 <center>
-					      <a href="javascript:void(0)" id="payc">
+					      <a href="javascript:void(0)" id="payp">
 					       <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
                           </a>
 						  </center>
@@ -251,7 +252,7 @@ initCT();
 					<div class="col-md-6">
 					  <div id="payc-tab">
 									  <h3 class="cd-caption">Card Details</h3>
-                                                                                <form>
+                                      <form>
                                                                                 	
   
 										                       <label>Full name*</label>
@@ -274,7 +275,6 @@ initCT();
 												<center>
 												<div id="checkout-cd-btn">
 												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
-												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order mt-5">Back</a>
 												</div>
 											   	 <p id="checkout-cd-loading">
 											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
@@ -284,7 +284,13 @@ initCT();
 										</div>
 										</form>
                                     </div>
+									<div id="payp-tab">
+									  <p>You will be redirected to Paypal to complete your payment.</p>
+									  <div id="checkout-pp-btn">
+										 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+									  </div>
 									</div>
+						   </div>
 				    </div>
 				 </div>
 				</div>
