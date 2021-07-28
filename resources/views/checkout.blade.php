@@ -58,6 +58,7 @@ initCT();
   hh.forEach((x,i) => {$(x).hide();});
   
   initSDSummary();
+  initPDSummary();
 });
 </script>
 <div class="container">
@@ -93,7 +94,7 @@ initCT();
 			   <h4 class="cd-header">1 of 1 options:</h4>
 			   <div class="row">
 			     <div class="col-md-6 mt-5">
-				   <div style="border: 3px solid #000!important; padding: 8px!important;">
+				   <div style=" padding: 8px!important;">
 				     <div>
 					 									   <table class="table table-responsive" style="align: center !important;">
 											<thead>
@@ -153,7 +154,10 @@ initCT();
 				   </div>
 		         </div>
 			     <div class="col-md-6 mt-5">
-				   <div style="border: 3px solid #000!important; padding: 8px!important;">
+				   <div style=" padding: 8px!important;">
+				    <div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
+					  Standard - Get it in 5 working days
+					</div>
 				    <h4 class="cd-header">your final order</h4>
 				     <div>
 					 									   <table class="table table-responsive" style="align: center !important;">
@@ -165,37 +169,46 @@ initCT();
 											<tbody>
 											  <tr class="summary-subtotal">
 													<td>
-														<h4 class="summary-subtitle">Subtotal</h4>
+														<h5 class="cd-caption mt-4">Subtotal:</h5>
 													</td>
-													<td class="summary-subtotal-price">&#0163;{{number_format($subtotal,2)}}
+													<td>
+													 &#0163;{{number_format($subtotal,2)}}
 													</td>												
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
 													
 													<td>
-														<h4 class="summary-subtitle">Shipping</h4>
+														<h5 class="cd-caption mt-4">Shipping:</h5>
 													</td>
 													<td>
-														<p class="summary-total-price">Free Shipping</p>
+													 Free Shipping
 													</td>
 												</tr>
 												@if(count($sud) == 0)
                                                 <tr class="sumnary-shipping shipping-row-last">
 													
 													<td>
-														<h4 class="summary-subtitle">10% Discount</h4>
+														<h5 class="cd-caption mt-4">10% Discount:</h5>
 													</td>
 													<td>
-														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>
+														&#0163;{{number_format($pc,2)}}
 													</td>
 												</tr>
 												@endif
 												<tr class="summary-subtotal">
 													<td>
-														<h4 class="summary-subtitle">Total</h4>
+														<h5 class="cd-caption mt-4">VAT:</h5>
 													</td>
 													<td>
-														<p class="summary-total-price">&#0163;{{number_format($xx,2)}}</p>
+														&#0163;{{number_format($xx,2)}}
+													</td>												
+												</tr>
+												<tr class="summary-subtotal">
+													<td>
+														<h5 class="cd-caption mt-4">Total inc vat:</h5>
+													</td>
+													<td>
+														&#0163;{{number_format($xx,2)}}
 													</td>												
 												</tr>
 											</tbody>
@@ -205,7 +218,40 @@ initCT();
 		       </div>	
 		     </div>	
 			 	  
-		  </div>		  
+		  </div>	
+          <div class="col-md-12 mt-5">
+			    <h2 class="cd-caption">billing address:</h2>
+				<div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
+					  Your billing address must match the address to which your card is registered.
+					</div>
+				<div style="border: 3px solid #000!important; padding: 8px!important;">
+				  <div id="pd-display"></div>
+				</div>
+		     </div>		
+			 <div class="col-md-12 mt-5">
+			    <h2 class="cd-caption">payment option:</h2>
+				<div>
+				  <div class="row">
+			        <div class="col-md-6">
+					  <div class="row">
+					    <div class="col-md-6">
+					      <center><a href="javascript:void(0)" id="payc" class="btn btn-primary mb-5">Pay via card</a></center>
+					    </div>
+						<div class="col-md-6">
+						 <center>
+					      <a href="javascript:void(0)" id="payc">
+					       <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
+                          </a>
+						  </center>
+					    </div>
+					  </div>
+				    </div>
+					<div class="col-md-6">
+					  
+				    </div>
+				 </div>
+				</div>
+		     </div>		  
 	     </div>
        </div>
      </div>

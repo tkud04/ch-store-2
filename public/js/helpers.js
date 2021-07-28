@@ -737,3 +737,30 @@ const initSDSummary = () => {
 	
 	$('#sd-display').html(hh);
 }
+
+const initPDSummary = () => {
+	let hh = `
+	`;
+	
+	if(pd.length > 0){
+		let ppd = pd[0];
+		let sdc = ppd.company == "" ? "" : `${ppd.company}<br>`;
+		let sad2 = ppd.address_2 == "" ? "" : `${ppd.address_2}<br>`;
+		
+		hh = `
+		<p>
+		  ${ppd.fname} ${ppd.lname}<br>
+		${sdc}
+		${ppd.address_1}
+		${sad2}<br>
+		${ppd.city}<br>
+		${ppd.region}<br>
+		${ppd.zip}<br>
+		${ppd.country.toUpperCase()}<br>
+		</p>
+		<a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+	`;
+	}
+	
+	$('#pd-display').html(hh);
+}
