@@ -536,10 +536,10 @@ const getCT = () => {
 		   }
 	   })
 	   .catch(error => {
-		     Swal.fire({
+		  /*   Swal.fire({
 			     icon: 'error',
                  html: `Failed to tokenize : <b>${error}</b>`,
-               });
+               }); */
 			   
 	   })
 	   .then(res => {
@@ -561,11 +561,12 @@ const getCT = () => {
 			   else if(res.message == "nothing"){
 				 hh = `Nothing happened, please try again.`;  
 			   }
-			  Swal.fire({
+			  
+			  /* Swal.fire({
 			     icon: 'error',
                  title: hh
                  
-               });
+               });*/
                
               
 		   }
@@ -573,7 +574,7 @@ const getCT = () => {
 		   
 		  
 	   }).catch(error => {
-		     alert("Failed to tokenize: " + error);			
+		    // alert("Failed to tokenize: " + error);			
 			 
 	   });
 }
@@ -708,4 +709,31 @@ const ck = (ckt) => {
 				  
 			   }
              
+}
+
+const initSDSummary = () => {
+	let hh = `
+	`;
+	
+	if(sd.length > 0){
+		let ssd = sd[0];
+		let sdc = ssd.company == "" ? "" : `${ssd.company}<br>`;
+		let sad2 = ssd.address_2 == "" ? "" : `${ssd.address_2}<br>`;
+		
+		hh = `
+		<p>
+		  ${ssd.fname} ${ssd.lname}<br>
+		${sdc}
+		${ssd.address_1}
+		${sad2}<br>
+		${ssd.city}<br>
+		${ssd.region}<br>
+		${ssd.zip}<br>
+		${ssd.country}<br>
+		</p>
+		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary" style="text-align: right;">Edit</a>
+	`;
+	}
+	
+	$('#sd-display').html(hh);
 }
