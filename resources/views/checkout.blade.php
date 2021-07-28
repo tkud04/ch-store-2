@@ -229,7 +229,7 @@ initCT();
 				</div>
 		     </div>		
 			 <div class="col-md-12 mt-5">
-			    <h2 class="cd-caption">payment option:</h2>
+			    <h4 class="cd-header">payment option:</h4>
 				<div>
 				  <div class="row">
 			        <div class="col-md-6">
@@ -254,7 +254,7 @@ initCT();
   
 										                       <label>Full name*</label>
 										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
-														   <div class="row">
+														   <div class="row mt-5 mb-5">
                                                                                 	<div class="col-6 col-md-6">
 														   <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
