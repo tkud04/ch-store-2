@@ -729,9 +729,9 @@ const initSDSummary = () => {
 		${ssd.city}<br>
 		${ssd.region}<br>
 		${ssd.zip}<br>
-		${ssd.country}<br>
+		${ssd.country.toUpperCase()}<br>
 		</p>
-		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary" style="text-align: right;">Edit</a>
+		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
 	`;
 	}
 	

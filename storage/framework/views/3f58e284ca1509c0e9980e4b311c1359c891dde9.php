@@ -82,12 +82,28 @@ initCT();
                  </tbody>
 				</table>
 			 </div>
-			 <div class="col-md-7 mt-5">
+			 <div class="col-md-12 mt-5">
 			    <h2 class="cd-caption">details for delivery:</h2>
 				<div style="border: 3px solid #000!important; padding: 8px!important;">
 				  <div id="sd-display"></div>
 				</div>
-		     </div>		  
+		     </div>	
+			 <div class="col-md-12 mt-5">
+			   <h2 class="cd-caption">delivery option:</h2>
+			   <div class="row">
+			     <div class="col-md-6 mt-5">
+				   <div style="border: 3px solid #000!important; padding: 8px!important;">
+				     <div id="scd-display"></div>
+				   </div>
+		         </div>
+			     <div class="col-md-6 mt-5">
+				   <div style="border: 3px solid #000!important; padding: 8px!important;">
+				     <div id="scd-display"></div>
+				   </div>
+		         </div>	
+		       </div>	
+		     </div>	
+			 	  
 		  </div>		  
 	     </div>
        </div>
