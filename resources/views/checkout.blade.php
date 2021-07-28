@@ -247,7 +247,42 @@ initCT();
 					  </div>
 				    </div>
 					<div class="col-md-6">
-					  
+					  <div id="payc-tab">
+									  <h3 class="cd-caption">Card Details</h3>
+                                                                                <form>
+                                                                                	
+  
+										                       <label>Full name*</label>
+										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
+														   <div class="row">
+                                                                                	<div class="col-6 col-md-6">
+														   <label>Card number*</label>
+										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
+												            </div>
+												           <div class="col-3 col-md-3">
+														      <label>Expiry Date*</label>
+										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
+														  </div>
+														<div class="col-3 col-md-3">
+														        <label>CVV*</label>
+										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
+														  </div>
+															 
+												<div class="col-12 col-md-12">
+												<center>
+												<div id="checkout-cd-btn">
+												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order mt-5">Back</a>
+												</div>
+											   	 <p id="checkout-cd-loading">
+											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                                 </p>
+										        </center>
+										   </div>
+										</div>
+										</form>
+                                    </div>
+									</div>
 				    </div>
 				 </div>
 				</div>
