@@ -766,3 +766,9 @@ const initPDSummary = () => {
 	
 	$('#pd-display').html(hh);
 }
+
+
+const editSD = (i) => {
+	hideElem(['#sd-display']);
+    showElem(['#sd-edit']);
+}

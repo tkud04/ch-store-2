@@ -53,7 +53,7 @@ initCT();
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#sd-edit','#cd-edit'];
 	
   hh.forEach((x,i) => {$(x).hide();});
   
@@ -90,6 +90,73 @@ initCT();
 			    <h2 class="cd-caption">details for delivery:</h2>
 				<div style="border: 3px solid #000!important; padding: 8px!important;">
 				  <div id="sd-display"></div>
+				  <div id="sd-edit">
+				   <form>
+				     <select class="form-control sd" id="checkout-sd" name="sd">
+									    <option value="none">Add new shipping detail</option>
+										<?php
+										 if(count($sd) > 0)
+										 {
+											 foreach($sd as $s)
+											 {
+										?>
+									    <option value="<?php echo e($s['id']); ?>"><?php echo e($s['address_1'].", ".$s['city'].", ".strtoupper($s['country'])); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+				     <div class="row">
+					   <div class="col-md-6 mt-5">
+					     <label>First Name *</label>
+						 <input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
+					   </div>
+					   <div class="col-md-6 mt-5">
+					     <label>Last Name *</label>
+						 <input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
+					   </div>
+					   <label>Company Name(Optional)</label>
+								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
+								<label>Country / Region *</label>
+								<select class="form-control sd" id="sd-country" name="sd-country">
+									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="<?php echo e($k); ?>"><?php echo e($v); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+								<label>Street Address *</label>
+								<input type="text" class="form-control sd" id="sd-address-1" name="sd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control sd" id="sd-address-2" name="sd-address-2" required="" placeholder="Address line 2">
+								<div class="row">
+									<div class="col-xs-6">
+										<label>Town / City *</label>
+										<input type="text" class="form-control sd" id="sd-city" name="sd-city" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>State / County *</label>
+										<input type="text" class="form-control sd" id="sd-region" name="sd-region" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Postcode / ZIP *</label>
+										<input type="text" class="form-control sd" id="sd-zip" name="sd-zip" required="">
+									</div>
+								</div>
+					 </div>
+					 <a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
+					 <a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
+				   </form>
+				  </div>
 				</div>
 		     </div>	
 			 <div class="col-md-12 mt-5">
@@ -159,7 +226,7 @@ initCT();
 			     <div class="col-md-6 mt-5">
 				   <div style=" padding: 8px!important;">
 				    <div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
-					  Standard - Get it in 5 working days
+					  Standard - Get it in 2 to 5 working days
 					</div>
 				    <h4 class="cd-header">your final order</h4>
 				     <div>
