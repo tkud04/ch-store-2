@@ -772,3 +772,28 @@ const editSD = (i) => {
 	hideElem(['#sd-display']);
     showElem(['#sd-edit']);
 }
+
+const refreshSDSummary = (i) => {
+	let sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
+			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val();
+	
+	let sdc = sd_company == "" ? "" : `${sd_company}<br>`;
+		let sad2 = sd_address_2 == "" ? "" : `${sd_address_2}<br>`;
+		
+	let hh = `
+		<p>
+		  ${sd_fname} ${sd_lname}<br>
+		${sdc}
+		${sd_address_1}
+		${sad2}<br>
+		${sd_city}<br>
+		${sd_region}<br>
+		${ssd.zip}<br>
+		${ssd.country.toUpperCase()}<br>
+		</p>
+		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+	`;
+	
+	hideElem(['#sd-display']);
+    showElem(['#sd-edit']);
+}
