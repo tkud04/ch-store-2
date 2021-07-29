@@ -53,7 +53,7 @@ initCT();
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#sd-edit','#cd-edit'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#sd-edit','#pd-edit'];
 	
   hh.forEach((x,i) => {$(x).hide();});
   
@@ -67,6 +67,7 @@ initCT();
 <div class="container">
   <div class="row">
      <div class="col-md-12">
+	  <input type="hidden" id="tk" value="<?php echo e(csrf_token()); ?>">
        <div class="cd-wrapper">
 		 <?php echo $__env->make('checkout-header',['number' => 2], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				
@@ -153,8 +154,8 @@ initCT();
 									</div>
 								</div>
 					 </div>
-					 <a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
-					 <a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
+					 <a href="javascript:void(0)" id="sd-done" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
+					 <a href="javascript:void(0)" id="sd-cancel" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
 				   </form>
 				  </div>
 				</div>
@@ -300,6 +301,73 @@ initCT();
 					</div>
 				<div style="border: 3px solid #000!important; padding: 8px!important;">
 				  <div id="pd-display"></div>
+				  <div id="pd-edit">
+				     <form>
+					   <select class="form-control" id="checkout-pd" name="pd">
+									    <option value="none">Add new billing detail</option>
+										<?php
+										 if(count($pd) > 0)
+										 {
+											 foreach($pd as $p)
+											 {
+										?>
+									    <option value="<?php echo e($p['id']); ?>"><?php echo e($p['address_1'].", ".$p['city'].", ".strtoupper($p['country'])); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+						<div class="row">
+						  <div class="col-xs-6">
+										<label>First Name *</label>
+										<input type="text" class="form-control bd" id="pd-fname" name="pd-fname" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>Last Name *</label>
+										<input type="text" class="form-control bd" id="pd-lname" name="pd-lname" required="">
+									</div>
+								<label>Company Name(Optional)</label>
+								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
+								<label>Country / Region *</label>
+								<select class="form-control bd" id="pd-country" name="pd-country">
+									    <option value="none">Select country</option>
+									    <option value="uk">United Kingdom</option>
+										<?php
+										 if(count($countries) > 0)
+										 {
+											 foreach($countries as $k => $v)
+											 {
+										?>
+									    <option value="<?php echo e($k); ?>"><?php echo e($v); ?></option>
+									    <?php
+											 }
+										 }
+										?>
+									  </select>
+								<label>Street Address *</label>
+								<input type="text" class="form-control bd" id="pd-address-1" name="pd-address-1" required="" placeholder="Address line 1">
+								<input type="text" class="form-control bd" id="pd-address-2" name="pd-address-2" required="" placeholder="Address line 2">
+								<div class="row">
+									<div class="col-xs-6">
+										<label>Town / City *</label>
+										<input type="text" class="form-control bd" id="pd-city" name="pd-city" required="">
+									</div>
+									<div class="col-xs-6">
+										<label>State / County *</label>
+										<input type="text" class="form-control bd" id="pd-region" name="pd-region" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Postcode / ZIP *</label>
+										<input type="text" class="form-control bd" id="pd-zip" name="pd-zip" required="">
+									</div>
+								</div>						
+						</div>
+						<a href="javascript:void(0)" id="pd-done" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
+					 <a href="javascript:void(0)" id="pd-cancel" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
+				     <form>
+				   </div>
 				</div>
 		     </div>		
 			 <div class="col-md-12 mt-5">

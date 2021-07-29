@@ -496,9 +496,9 @@ const checkout = (dt) => {
                  title: hh
                  
                });
-               
-              hideElem([`#checkout-${dt.ckt}-btn`]);
-		  showElem([`#checkout-${dt.ckt}-loading`]);
+                hideElem([`#checkout-${dt.ckt}-loading`])
+              showElem([`#checkout-${dt.ckt}-btn`]);
+		 ;
 		   }
 		  
 		   
@@ -716,25 +716,7 @@ const initSDSummary = () => {
 	<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>
 	`;
 	
-	if(sd.length > 0){
-		let ssd = sd[0];
-		let sdc = ssd.company == "" ? "" : `${ssd.company}<br>`;
-		let sad2 = ssd.address_2 == "" ? "" : `${ssd.address_2}<br>`;
-		
-		hh = `
-		<p>
-		  ${ssd.fname} ${ssd.lname}<br>
-		${sdc}
-		${ssd.address_1}
-		${sad2}<br>
-		${ssd.city}<br>
-		${ssd.region}<br>
-		${ssd.zip}<br>
-		${ssd.country.toUpperCase()}<br>
-		</p>
-		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
-	`;
-	}
+	
 	
 	$('#sd-display').html(hh);
 }
@@ -744,25 +726,7 @@ const initPDSummary = () => {
 	<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>
 	`;
 	
-	if(pd.length > 0){
-		let ppd = pd[0];
-		let sdc = ppd.company == "" ? "" : `${ppd.company}<br>`;
-		let sad2 = ppd.address_2 == "" ? "" : `${ppd.address_2}<br>`;
-		
-		hh = `
-		<p>
-		  ${ppd.fname} ${ppd.lname}<br>
-		${sdc}
-		${ppd.address_1}
-		${sad2}<br>
-		${ppd.city}<br>
-		${ppd.region}<br>
-		${ppd.zip}<br>
-		${ppd.country.toUpperCase()}<br>
-		</p>
-		<a href="javascript:void(0)" onclick="editPD(${ppd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
-	`;
-	}
+	
 	
 	$('#pd-display').html(hh);
 }
@@ -773,14 +737,19 @@ const editSD = (i) => {
     showElem(['#sd-edit']);
 }
 
-const refreshSDSummary = (i) => {
-	let sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
+const refreshSDSummary = () => {
+	let  ssd = $('#checkout-sd').val(), sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
 			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val();
 	
 	let sdc = sd_company == "" ? "" : `${sd_company}<br>`;
 		let sad2 = sd_address_2 == "" ? "" : `${sd_address_2}<br>`;
 		
-	let hh = `
+	let hh = ``;
+	if(ssd == "none"){
+		hh = `<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
+	}
+	else{
+	hh = `
 		<p>
 		  ${sd_fname} ${sd_lname}<br>
 		${sdc}
@@ -788,12 +757,52 @@ const refreshSDSummary = (i) => {
 		${sad2}<br>
 		${sd_city}<br>
 		${sd_region}<br>
-		${ssd.zip}<br>
-		${ssd.country.toUpperCase()}<br>
+		${sd_zip}<br>
+		${sd_country.toUpperCase()}<br>
 		</p>
-		<a href="javascript:void(0)" onclick="editSD(${ssd.xf})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+		<a href="javascript:void(0)" onclick="editSD(${ssd})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
 	`;
+	}
+	$('#sd-display').html(hh);
 	
-	hideElem(['#sd-display']);
-    showElem(['#sd-edit']);
+	hideElem(['#sd-edit']);
+    showElem(['#sd-display']);
+}
+
+const editPD = (i) => {
+	hideElem(['#pd-display']);
+    showElem(['#pd-edit']);
+}
+
+const refreshPDSummary = () => {
+	let ppd = $('#checkout-pd').val(),
+			   pd_fname = $('#pd-fname').val(), pd_lname = $('#pd-lname').val(), pd_company = $('#pd-company').val(), pd_country = $('#pd-country').val(),
+			   pd_address_1 = $('#pd-address-1').val(), pd_address_2 = $('#pd-address-2').val(), pd_city = $('#pd-city').val(), pd_region = $('#pd-region').val(), pd_zip = $('#pd-zip').val();
+	
+	let pdc = pd_company == "" ? "" : `${pd_company}<br>`;
+		let pad2 = pd_address_2 == "" ? "" : `${pd_address_2}<br>`;
+		
+	let hh = ``;
+	if(ppd == "none"){
+		hh = `<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
+	}
+	else{
+	hh = `
+		<p>
+		  ${pd_fname} ${pd_lname}<br>
+		${pdc}
+		${pd_address_1}
+		${pad2}<br>
+		${pd_city}<br>
+		${pd_region}<br>
+		${pd_zip}<br>
+		${pd_country.toUpperCase()}<br>
+		</p>
+		<a href="javascript:void(0)" onclick="editPD(${ppd})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+	`;
+	}
+	$('#pd-display').html(hh);
+	
+	hideElem(['#pd-edit']);
+    showElem(['#pd-display']);
 }

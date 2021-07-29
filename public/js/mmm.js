@@ -228,6 +228,28 @@ $(document).ready(function() {
                showElem(['#payn-tab']);
 		  });
 		  
+		  $("#sd-done").click(function(e){            
+		       e.preventDefault();
+			   refreshSDSummary();
+		  });
+		  
+		  $("#pd-done").click(function(e){            
+		       e.preventDefault();
+			   refreshPDSummary();
+		  });
+		  
+		  $("#sd-cancel").click(function(e){            
+		       e.preventDefault();
+			   hideElem(['#sd-edit']);
+               showElem(['#sd-display']);
+		  });
+		  
+		  $("#pd-cancel").click(function(e){            
+		       e.preventDefault();
+			   hideElem(['#pd-edit']);
+               showElem(['#pd-display']);
+		  });
+		  
 		   $("#checkout-pd").change(function(e) {
                e.preventDefault();
               let ppd = $('#checkout-pd').val(), edh = null;
