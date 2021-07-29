@@ -515,8 +515,8 @@ const checkout = (dt) => {
 		 **/
 		// let xu = `send?f=${dt.from}&s=${dt.subject}&m=${dt.msg}&e=${ll[ctr]}`;
 		  
-		  hideElem([`#checkout-${dt.ckt}-btn`]);
-		  showElem([`#checkout-${dt.ckt}-loading`]);
+		  hideElem([`#checkout-${dt.pm}-btn`]);
+		  showElem([`#checkout-${dt.pm}-loading`]);
 		   
 	 let req = new Request('checkout',{method: 'POST', body: fd});
 	//console.log(req);
@@ -539,8 +539,8 @@ const checkout = (dt) => {
 			     icon: 'error',
                  html: `Failed to checkout : <b>${error}</b>`,
                });
-			    hideElem([`#checkout-${dt.ckt}-btn`]);
-		        showElem([`#checkout-${dt.ckt}-loading`]);
+			    hideElem([`#checkout-${dt.pm}-btn`]);
+		        showElem([`#checkout-${dt.pm}-loading`]);
 	   })
 	   .then(res => {
 		   console.log(res);
@@ -555,8 +555,8 @@ const checkout = (dt) => {
                  html: hh2
                });
                
-               hideElem([`#checkout-${dt.ckt}-btn`]);
-		       showElem([`#checkout-${dt.ckt}-loading`]);
+               hideElem([`#checkout-${dt.pm}-btn`]);
+		       showElem([`#checkout-${dt.pm}-loading`]);
 			  window.location = "orders";
 		   }
 		   else if(res.status == "error"){
@@ -577,8 +577,8 @@ const checkout = (dt) => {
                  title: hh
                  
                });
-                hideElem([`#checkout-${dt.ckt}-loading`])
-              showElem([`#checkout-${dt.ckt}-btn`]);
+                hideElem([`#checkout-${dt.pm}-loading`])
+              showElem([`#checkout-${dt.pm}-btn`]);
 		 ;
 		   }
 		  

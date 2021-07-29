@@ -70,7 +70,7 @@ initCT("<?php echo e($xx); ?>");
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#sd-edit','#pd-edit'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-pp-loading','#sd-edit','#pd-edit'];
 	
   hh.forEach((x,i) => {$(x).hide();});
   
@@ -448,6 +448,9 @@ initCT("<?php echo e($xx); ?>");
                                           </div>
                                           </div>
 									  </div>
+									  <p id="checkout-pp-loading">
+										 Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                      </p>
 									</div>
 						   </div>
 				    </div>
