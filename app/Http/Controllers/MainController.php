@@ -589,7 +589,7 @@ class MainController extends Controller {
 			$rules = [
                              'ppd' => 'required',
                              'ssd' => 'required',                       
-                             'ckt' => 'required',                       
+                             'pm' => 'required',                       
          ];
 		}
 		else

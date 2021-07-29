@@ -421,6 +421,87 @@ const addToCart = dt => {
 	}
 }
 
+const validateCheckout = (dt) => {
+	let x = null;
+	
+	let ppd = $('#checkout-pd').val(), ssd = $('#checkout-sd').val(),
+			   pd_fname = $('#pd-fname').val(), pd_lname = $('#pd-lname').val(), pd_company = $('#pd-company').val(), pd_country = $('#pd-country').val(),
+			   pd_address_1 = $('#pd-address-1').val(), pd_address_2 = $('#pd-address-2').val(), pd_city = $('#pd-city').val(), pd_region = $('#pd-region').val(), pd_zip = $('#pd-zip').val(),
+			   sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
+			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val(),
+               cc_name = $('#card-2-name').val(), cc_number = $('#card-2-number').val(), cc_cvv = $('#card-2-cvv').val(), cc_month = $('#card-2-month').val(), cc_year = $('#card-2-yeae').val(), 
+               notes = $('#notes').val();
+			   
+			   let pl = {    
+					ppd: ppd,
+					pd_fname: pd_fname,
+					pd_lname: pd_lname,
+					pd_company: pd_company,
+					pd_address_1: pd_address_1,
+					pd_address_2: pd_address_2,
+					pd_city: pd_city,
+					pd_region: pd_region,
+                                        pd_country: pd_country,
+					pd_zip: pd_zip,
+					ssd: ssd,
+					sd_fname: sd_fname,
+					sd_lname: sd_lname,
+					sd_company: sd_company,
+					sd_address_1: sd_address_1,
+					sd_address_2: sd_address_2,
+					sd_city: sd_city,
+					sd_region: sd_region,
+                                        sd_country: sd_country,
+					sd_zip: sd_zip,
+					pm: dt,
+					notes: notes,
+                                        cc_name: cc_name,
+                                        cc_number: cc_number,
+                                        cc_cvv: cc_cvv,
+                                        cc_month: cc_month,
+                                        cc_year: cc_year
+                  };
+               
+			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
+                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == ""),
+                   ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_month == "" || cc_year == "");
+			   
+			   let validation = null; let s2 = "";
+			   if(dt == "cd"){
+				   validation = ((ppd == "none" && pdValidation) || (ssd == "none" && sdValidation) || ccValidation);
+				   if(ppd == "none" && pdValidation) s2 = "Fill in required billing details";
+				   if(ssd == "none" && sdValidation) s2 = "Fill in required shipping details";
+				   if(ccValidation) s2 = "Enter card details";
+			   } 
+			   else if(dt == "pp"){
+				   validation = ((ppd == "none" && pdValidation) || (ssd == "none" && sdValidation));
+				   if(ppd == "none" && pdValidation) s2 = "Fill in required billing details";
+				   if(ssd == "none" && sdValidation) s2 = "Fill in required shipping details";
+			   } 
+			       console.log("validation,dt: ",[validation,dt]);
+	
+				x = {
+					pl: pl,
+					valid: validation,
+					message: s2
+				};
+				return x;
+}
+
+const handleCheckout = (pm) => {
+	           let ivc = validateCheckout(pm);
+		       if(ivc.valid){
+				 Swal.fire({
+			            icon: 'error',
+                        title: ivc.message
+                 });
+			   }
+			   else{
+				  let pl = ivc.pl;
+				   checkout(pl);
+			   }
+}
+
 const checkout = (dt) => {
 	//create request
 			let fd = new FormData();
@@ -580,26 +661,29 @@ const getCT = () => {
 }
 
 
-const initCT = () => {
+const initCT = (total) => {
 	paypal.Buttons({
         createOrder: function(data, actions) {
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: '0.01'
-              }
+                value: total
+              },
+			  
             }]
           });
         },
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
+            //alert('Transaction completed by ' + details.payer.name.given_name);
+			 handleCheckout("pp");
+			//jerw
           });
         }
       }).render('#paypal-button-container'); // Display payment options on your web page
 }
 
-const initCT2 = () => {
+const initCT2 = (total) => {
   paypal.Button.render({
     // Configure environment
     env: 'sandbox',
@@ -623,8 +707,8 @@ const initCT2 = () => {
       return actions.payment.create({
         transactions: [{
           amount: {
-            total: '0.01',
-            currency: 'USD'
+            total: total,
+            currency: 'GBP'
           }
         }]
       });

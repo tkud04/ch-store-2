@@ -6,10 +6,27 @@ $pcClass = "";
 @extends('layout')
 
 @section('scripts')
- <script src="https://www.paypal.com/sdk/js?client-id={{$pp[0]}}"></script>
+ <script src="https://www.paypal.com/sdk/js?currency=GBP&client-id={{$pp[0]}}"></script>
 @stop
 
 @section('content')
+<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+								   }
+								   
+								    $pc = 0.1 * $subtotal;
+																	$xx = $subtotal;
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
+?>
+
 <script>
 
 let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
@@ -17,7 +34,7 @@ let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 $(document).ready(() => {
 
 getCT();
-initCT();
+initCT("{{$xx}}");
 
 @if(count($pd) > 0)
   @foreach($pd as $p)
@@ -213,9 +230,7 @@ initCT();
 												</tr>
 												<?php
 								   }
-                                                                    $pc = 0.1 * $subtotal;
-																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc;
+                                                                   
 									?>
 												
 											</tbody>

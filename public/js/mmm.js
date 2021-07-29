@@ -212,14 +212,34 @@ $(document).ready(function() {
 		  
 		  $("#payc").click(function(e){            
 		       e.preventDefault();
-			   hideElem(['#payp-tab','#payn-tab']);
+			   let ivc = validateCheckout(pm);
+		       if(ivc.valid){
+				 Swal.fire({
+			            icon: 'error',
+                        title: ivc.message
+                 });
+			   }
+			   else{
+				  hideElem(['#payp-tab','#payn-tab']);
                showElem(['#payc-tab']);
+			   }
+			   
 		  });
 		  
 		  $("#payp").click(function(e){            
 		       e.preventDefault();
-			   hideElem(['#payc-tab','#payn-tab']);
+			   let ivc = validateCheckout("pp");
+		       if(ivc.valid){
+				 Swal.fire({
+			            icon: 'error',
+                        title: ivc.message
+                 });
+			   }
+			   else{
+				  hideElem(['#payc-tab','#payn-tab']);
                showElem(['#payp-tab']);
+			   }
+			   
 		  });
 		  
 		  $("#payn").click(function(e){            
@@ -284,65 +304,7 @@ $(document).ready(function() {
 		   
 		    $("#checkout-btn").click(function(e){            
 		       e.preventDefault();
-			   let ppd = $('#checkout-pd').val(), ssd = $('#checkout-sd').val(),
-			   pd_fname = $('#pd-fname').val(), pd_lname = $('#pd-lname').val(), pd_company = $('#pd-company').val(), pd_country = $('#pd-country').val(),
-			   pd_address_1 = $('#pd-address-1').val(), pd_address_2 = $('#pd-address-2').val(), pd_city = $('#pd-city').val(), pd_region = $('#pd-region').val(), pd_zip = $('#pd-zip').val(),
-			   sd_fname = $('#sd-fname').val(), sd_lname = $('#sd-lname').val(), sd_company = $('#sd-company').val(), sd_country = $('#sd-country').val(),
-			   sd_address_1 = $('#sd-address-1').val(), sd_address_2 = $('#sd-address-2').val(), sd_city = $('#sd-city').val(), sd_region = $('#sd-region').val(), sd_zip = $('#sd-zip').val(),
-               cc_name = $('#card-2-name').val(), cc_number = $('#card-2-number').val(), cc_cvv = $('#card-2-cvv').val(), cc_month = $('#card-2-month').val(), cc_year = $('#card-2-yeae').val(), 
-               pm = $('#pm').val(), notes = $('#notes').val();
-               
-			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
-                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == ""),
-                   ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_month == "" || cc_year == "");
-			   
-			   let validation = (pm == "none" || (ppd == "none" && pdValidation) || (ssd == "none" && sdValidation) || ccValidation);
-			       console.log("validation: ",validation);
-		       if(validation){
-				   let s2 = "";
-				   
-				   if(ppd == "none" && pdValidation) s2 = "Fill in required billing details";
-				   if(ssd == "none" && sdValidation) s2 = "Fill in required shipping details";
-				   if(pm == "none") s2 = "Select a payment method";
-				   if(ccValidation) s2 = "Enter card details";
-				   
-				 Swal.fire({
-			            icon: 'error',
-                        title: s2
-                 });
-			   }
-			   else{
-				  let pl = {    
-					ppd: ppd,
-					pd_fname: pd_fname,
-					pd_lname: pd_lname,
-					pd_company: pd_company,
-					pd_address_1: pd_address_1,
-					pd_address_2: pd_address_2,
-					pd_city: pd_city,
-					pd_region: pd_region,
-                                        pd_country: pd_country,
-					pd_zip: pd_zip,
-					ssd: ssd,
-					sd_fname: sd_fname,
-					sd_lname: sd_lname,
-					sd_company: sd_company,
-					sd_address_1: sd_address_1,
-					sd_address_2: sd_address_2,
-					sd_city: sd_city,
-					sd_region: sd_region,
-                                        sd_country: sd_country,
-					sd_zip: sd_zip,
-					pm: pm,
-					notes: notes,
-                                        cc_name: cc_name,
-                                        cc_number: cc_number,
-                                        cc_cvv: cc_cvv,
-                                        cc_month: cc_month,
-                                        cc_year: cc_year
-                  };
-				   checkout(pl);
-			   }
+			  handleCheckout("cd");
              
 		  });
 	

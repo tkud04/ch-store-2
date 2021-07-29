@@ -1782,7 +1782,9 @@ $subject = $data['subject'];
               //$ret = $this->getCurrentSender();
               $ret = $this->sender;
                        $md['reference'] = $dt['ref'];
+					   $md['pp'] = "New order from ".$md['pd_fname']." ".$md['pd_lname'];	
 		       $ret['data'] = $md;
+    		   
     		   $ret['subject'] = "New order from ".$md['pd_fname']." ".$md['pd_lname'];	
 		       
 			   try

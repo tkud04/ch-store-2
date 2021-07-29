@@ -6,10 +6,27 @@ $pcClass = "";
 
 
 <?php $__env->startSection('scripts'); ?>
- <script src="https://www.paypal.com/sdk/js?client-id=<?php echo e($pp[0]); ?>"></script>
+ <script src="https://www.paypal.com/sdk/js?currency=GBP&client-id=<?php echo e($pp[0]); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
+<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+								   }
+								   
+								    $pc = 0.1 * $subtotal;
+																	$xx = $subtotal;
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
+?>
+
 <script>
 
 let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
@@ -17,7 +34,7 @@ let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 $(document).ready(() => {
 
 getCT();
-initCT();
+initCT("<?php echo e($xx); ?>");
 
 <?php if(count($pd) > 0): ?>
   <?php $__currentLoopData = $pd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -213,9 +230,7 @@ initCT();
 												</tr>
 												<?php
 								   }
-                                                                    $pc = 0.1 * $subtotal;
-																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc;
+                                                                   
 									?>
 												
 											</tbody>
