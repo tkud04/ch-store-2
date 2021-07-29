@@ -53,102 +53,47 @@ initCT();
   @endforeach
 @endif
  
-    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#checkout-tab-2','#checkout-tab-3','#checkout-tab-4','#checkout-tab-5','#checkout-tab-6'];
+    let hh = ['#checkout-cd-loading','#card-2','#checkout-loading','#sd-edit','#pd-edit'];
 	
   hh.forEach((x,i) => {$(x).hide();});
+  
+  initSDSummary();
+  initPDSummary();
+  
+  $('#payc-tab').hide();
+  $('#payp-tab').hide();
 });
 </script>
-				@include('checkout-header',['number' => 2])
-				<div class="container mt-8">
-					<form action="{{url('checkout')}}" method="post" class="form">
-						<input type="hidden" id="tk" value="{{ csrf_token() }}">
-						<input type="hidden" id="pm" name="pm" value="none">
-						<div class="row gutter-lg">
-							<div class="col-lg-12 mb-6">
-							
-							        <div id="checkout-tab-1">
-									  <h3 class="title title-simple text-left">Your Order</h3>
-									   <table class="table table-responsive" style="align: center !important;">
-											<thead>
-												<tr>
-													<th>Items</th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-											<?php
-								$cc = (isset($cart)) ? count($cart) : 0;
-								   $subtotal = 0;
-				                   for($a = 0; $a < $cc; $a++)
-				                   {
-					                 $item = $cart[$a]['product'];
-									 $xf = $item['id'];
-					                 $qty = $cart[$a]['qty'];
-					                 $itemAmount = $item['data']['amount'];
-									 $subtotal += ($itemAmount * $qty);
-									 $imgs = $item['imggs'];
-									 $uu = url('product')."?xf=".$xf;
-									 $ru = url('remove-from-cart')."?xf=".$xf;
-				                 ?>
-												<tr>
-													<td class="product-name">
-                                                                                                        <div class="product-name-section">
-												<a href="{{$uu}}">
-													<img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
-												</a>
-											</div></td>
-													<td class="product-total"><span class="amount">&#0163;{{number_format($itemAmount * $qty,2)}}</span></td>
-												</tr>
-												<?php
-								   }
-                                                                    $pc = 0.1 * $subtotal;
-																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc;
-									?>
-												<tr class="summary-subtotal">
-													<td>
-														<h4 class="summary-subtitle">Subtotal</h4>
-													</td>
-													<td class="summary-subtotal-price">&#0163;{{number_format($subtotal,2)}}
-													</td>												
-												</tr>
-												<tr class="sumnary-shipping shipping-row-last">
-													
-													<td>
-														<h4 class="summary-subtitle">Shipping</h4>
-													</td>
-													<td>
-														<p class="summary-total-price">Free Shipping</p>
-													</td>
-												</tr>
-												@if(count($sud) == 0)
-                                                <tr class="sumnary-shipping shipping-row-last">
-													
-													<td>
-														<h4 class="summary-subtitle">10% Discount</h4>
-													</td>
-													<td>
-														<p class="summary-total-price">&#0163;{{number_format($pc,2)}}</p>
-													</td>
-												</tr>
-												@endif
-												<tr class="summary-subtotal">
-													<td>
-														<h4 class="summary-subtitle">Total</h4>
-													</td>
-													<td>
-														<p class="summary-total-price">&#0163;{{number_format($xx,2)}}</p>
-													</td>												
-												</tr>
-											</tbody>
-										</table>
-										<center>
-										<a href="javascript:void(0)" onclick="showCT(2)" class="btn btn-dark btn-order">Next</a>
-										</center>
-									</div>
-							        <div id="checkout-tab-2">
-									 <h3 class="title title-simple text-left">Shipping Details</h3>
-									 <select class="form-control sd" id="checkout-sd" name="sd">
+<div class="container">
+  <div class="row">
+     <div class="col-md-12">
+	  <input type="hidden" id="tk" value="{{ csrf_token() }}">
+       <div class="cd-wrapper">
+		 @include('checkout-header',['number' => 2])
+				
+	     <div class="cd-content">
+		  <h2 class="cd-caption">select shipping method:</h2>
+          <div class="row">
+		     
+		     <div class="col-md-12">
+			    <table class="cd-table">
+                  <tbody>
+				   <tr>
+                    <th>  <img src="images/truck.png" style="width: 40px; height: 48px; margin-right: 10px; max-width: none !important;"></th>
+                    <td>
+                      <span class="cd-table-span">Free Delivery</span>
+                    </td>
+                  </tr>
+                 </tbody>
+				</table>
+			 </div>
+			 <div class="col-md-12 mt-5">
+			    <h2 class="cd-caption">details for delivery:</h2>
+				<div style="border: 3px solid #000!important; padding: 8px!important;">
+				  <div id="sd-display"></div>
+				  <div id="sd-edit">
+				   <form>
+				     <select class="form-control sd" id="checkout-sd" name="sd">
 									    <option value="none">Add new shipping detail</option>
 										<?php
 										 if(count($sd) > 0)
@@ -162,13 +107,16 @@ initCT();
 										 }
 										?>
 									  </select>
-										<label>First Name *</label>
-										<input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
-										
-										<label>Last Name *</label>
-										<input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
-									
-								<label>Company Name(Optional)</label>
+				     <div class="row">
+					   <div class="col-md-6 mt-5">
+					     <label>First Name *</label>
+						 <input type="text" class="form-control sd" id="sd-fname" name="sd-fname" required="">
+					   </div>
+					   <div class="col-md-6 mt-5">
+					     <label>Last Name *</label>
+						 <input type="text" class="form-control sd" id="sd-lname" name="sd-lname" required="">
+					   </div>
+					   <label>Company Name(Optional)</label>
 								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
 								<label>Country / Region *</label>
 								<select class="form-control sd" id="sd-country" name="sd-country">
@@ -205,17 +153,153 @@ initCT();
 										<input type="text" class="form-control sd" id="sd-zip" name="sd-zip" required="">
 									</div>
 								</div>
-								<center>
-										<a href="javascript:void(0)" onclick="showCT(1)" class="btn btn-dark btn-order">Back</a>
-										<a href="javascript:void(0)" onclick="showCT(3)" class="btn btn-dark btn-order">Next</a>
-										</center>
-                                        </div>
-									
-							        <div id="checkout-tab-3">
-									  <h3 class="title title-simple text-left">Billing Details</h3>
-                                           <div class="row">
-									<div class="col-xs-12">
-									  <select class="form-control" id="checkout-pd" name="pd">
+					 </div>
+					 <a href="javascript:void(0)" id="sd-done" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
+					 <a href="javascript:void(0)" id="sd-cancel" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
+				   </form>
+				  </div>
+				</div>
+		     </div>	
+			 <div class="col-md-12 mt-5">
+			   <h2 class="cd-caption">choose delivery option:</h2>
+			   <h4 class="cd-header">1 of 1 options:</h4>
+			   <div class="row">
+			     <div class="col-md-6 mt-5">
+				   <div style=" padding: 8px!important;">
+				     <div>
+					 									   <table class="table table-responsive" style="align: center !important;">
+											<thead>
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+											<?php
+								$cc = (isset($cart)) ? count($cart) : 0;
+								   $subtotal = 0;
+				                   for($a = 0; $a < $cc; $a++)
+				                   {
+					                 $item = $cart[$a]['product'];
+									 $xf = $item['id'];
+					                 $qty = $cart[$a]['qty'];
+					                 $itemAmount = $item['data']['amount'];
+									 $subtotal += ($itemAmount * $qty);
+									 $imgs = $item['imggs'];
+									 $uu = url('product')."?xf=".$xf;
+									 $ru = url('remove-from-cart')."?xf=".$xf;
+				                 ?>
+												<tr>
+												<div class="row">
+												   <div class="col-3 col-md-3">
+												     <a href="{{$uu}}">
+													   <img src="{{$imgs[0]}}" width="100" height="100" alt="{{$item['name']}}">
+												     </a>
+												   </div>
+												   <div class="col-5 col-md-5">
+												     <a href="{{$uu}}">
+													   <p><b>{{$item['name']}}</b></p>
+												     </a>
+												   </div>
+												   <div class="col-2 col-md-2">
+													   <p><b>Qty</b></p>
+													   <p>{{$qty}}</p>
+												   </div>
+												   <div class="col-2 col-md-2">
+												     <p><b>Total</b></p>
+													   <p>&#0163;{{number_format($itemAmount * $qty,2)}}</p>
+												   </div>
+												</div>
+												
+												</tr>
+												<?php
+								   }
+                                                                    $pc = 0.1 * $subtotal;
+																	$xx = $subtotal;
+																	if(count($sud) == 0) $xx = $subtotal - $pc;
+									?>
+												
+											</tbody>
+										</table>
+
+					 </div>
+				   </div>
+		         </div>
+			     <div class="col-md-6 mt-5">
+				   <div style=" padding: 8px!important;">
+				    <div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
+					  Standard - Get it in 2 to 5 working days
+					</div>
+				    <h4 class="cd-header">your final order</h4>
+				     <div>
+					 									   <table class="table table-responsive" style="align: center !important;">
+											<thead>
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+											  <tr class="summary-subtotal">
+													<td>
+														<h5 class="cd-caption mt-4">Subtotal:</h5>
+													</td>
+													<td>
+													 &#0163;{{number_format($subtotal,2)}}
+													</td>												
+												</tr>
+												<tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h5 class="cd-caption mt-4">Shipping:</h5>
+													</td>
+													<td>
+													 Free Shipping
+													</td>
+												</tr>
+												@if(count($sud) == 0)
+                                                <tr class="sumnary-shipping shipping-row-last">
+													
+													<td>
+														<h5 class="cd-caption mt-4">10% Discount:</h5>
+													</td>
+													<td>
+														&#0163;{{number_format($pc,2)}}
+													</td>
+												</tr>
+												@endif
+												<tr class="summary-subtotal">
+													<td>
+														<h5 class="cd-caption mt-4">VAT:</h5>
+													</td>
+													<td>
+														&#0163;{{number_format($xx,2)}}
+													</td>												
+												</tr>
+												<tr class="summary-subtotal">
+													<td>
+														<h5 class="cd-caption mt-4">Total inc vat:</h5>
+													</td>
+													<td>
+														&#0163;{{number_format($xx,2)}}
+													</td>												
+												</tr>
+											</tbody>
+							</table>
+				   </div>
+		         </div>	
+		       </div>	
+		     </div>	
+			 	  
+		  </div>	
+          <div class="col-md-12 mt-5">
+			    <h2 class="cd-caption">billing address:</h2>
+				<div style="margin-bottom: 5px; padding: 10px; border: 1px dashed skyblue;">
+					  Your billing address must match the address to which your card is registered.
+					</div>
+				<div style="border: 3px solid #000!important; padding: 8px!important;">
+				  <div id="pd-display"></div>
+				  <div id="pd-edit">
+				     <form>
+					   <select class="form-control" id="checkout-pd" name="pd">
 									    <option value="none">Add new billing detail</option>
 										<?php
 										 if(count($pd) > 0)
@@ -229,8 +313,8 @@ initCT();
 										 }
 										?>
 									  </select>
-									</div>
-									<div class="col-xs-6">
+						<div class="row">
+						  <div class="col-xs-6">
 										<label>First Name *</label>
 										<input type="text" class="form-control bd" id="pd-fname" name="pd-fname" required="">
 									</div>
@@ -238,7 +322,6 @@ initCT();
 										<label>Last Name *</label>
 										<input type="text" class="form-control bd" id="pd-lname" name="pd-lname" required="">
 									</div>
-								</div>
 								<label>Company Name(Optional)</label>
 								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
 								<label>Country / Region *</label>
@@ -275,58 +358,81 @@ initCT();
 										<label>Postcode / ZIP *</label>
 										<input type="text" class="form-control bd" id="pd-zip" name="pd-zip" required="">
 									</div>
-								</div>
-								   <center>
-										<a href="javascript:void(0)" onclick="showCT(2)" class="btn btn-dark btn-order">Back</a>
-										<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order">Next</a>
-										</center>
-                                    </div>
-                                   
-                                    <div id="checkout-tab-4">
-									  <h3 class="title title-simple text-left">Additional Information</h3>
-                                            <label>Order Notes (optional)</label>
-							               	<textarea class="form-control" cols="30" rows="6" id="notes" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea><br>
-											
-											 <h5>You will be charged &#0163;{{number_format($xx,2)}}</h5>
-                                       <center>
-										<a href="javascript:void(0)" onclick="showCT(5)" class="btn btn-dark btn-order mb-5">Pay via card</a>
-										<a href="javascript:void(0)" onclick="showCT(6)">
-										  <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
-										</a>
-										<p class="mt-5">By placing your order, you agree to our <a class="text-primary" href="{{url('terms')}}">Terms and Conditions</a>.</p>
-										</center>
-                                    </div>
-								    <div id="checkout-tab-5">
-									  <h3 class="title title-simple text-left">Card Details</h3>
+								</div>						
+						</div>
+						<a href="javascript:void(0)" id="pd-done" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Done</a>
+					 <a href="javascript:void(0)" id="pd-cancel" class="btn btn-sm btn-primary mt-5" style="text-align: right;">Cancel</a>
+				     <form>
+				   </div>
+				</div>
+		     </div>		
+			 <div class="col-md-12 mt-5">
+			    <h4 class="cd-header">payment option:</h4>
+				<div>
+				  <div class="row">
+			        <div class="col-md-6">
+					  <div class="row">
+					    <div class="col-md-6">
+					      <center><a href="javascript:void(0)" id="payc" class="btn btn-primary mb-5">Pay via card</a></center>
+					    </div>
+						<div class="col-md-6">
+						 <center>
+					      <a href="javascript:void(0)" id="payp">
+					       <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
+                          </a>
+						  </center>
+					    </div>
+					  </div>
+				    </div>
+					<div class="col-md-6">
+					  <div id="payc-tab" class="mt-5">
+									  <h3 class="cd-caption">Card Details</h3>
+                                      <form>
+                                                                                	
+  
 										                       <label>Full name*</label>
 										                       <input type="text" class="form-control" id="card-2-name" placeholder="Full name">
-														   
+														   <div class="row mt-5 mb-5">
+                                                                                	<div class="col-12 col-md-12">
 														   <label>Card number*</label>
 										                       <input type="number" class="form-control" id="card-2-number" placeholder="Card number">
-												
+												            </div>
+												           <div class="col-6 col-md-6">
 														      <label>Expiry Date*</label>
 										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
-														  
+														  </div>
+														<div class="col-6 col-md-6">
 														        <label>CVV*</label>
 										                       <input type="number" class="form-control" id="card-2-cvv" placeholder="CVV">
-														  
+														  </div>
 															 
-												
+												<div class="col-12 col-md-12 mt-5 mb-5">
 												<center>
 												<div id="checkout-cd-btn">
 												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
-												<a href="javascript:void(0)" onclick="showCT(4)" class="btn btn-dark btn-order mt-5">Back</a>
 												</div>
 											   	 <p id="checkout-cd-loading">
 											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
                                                  </p>
 										        </center>
+										   </div>
+										</div>
+										</form>
                                     </div>
+									<div id="payp-tab" class="mt-5">
+									  <p>You will be redirected to Paypal to complete your payment.</p>
+									  <div id="checkout-pp-btn">
+										 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+									  </div>
 									</div>
-									<div id="checkout-tab-6">
-									 
-									</div>
-								</div>
-					</form>
+						   </div>
+				    </div>
+				 </div>
 				</div>
+		     </div>		  
+	     </div>
+       </div>
+     </div>
+   </div>
+</div>
 @stop

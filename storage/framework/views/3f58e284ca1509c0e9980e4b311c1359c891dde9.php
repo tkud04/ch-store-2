@@ -6,7 +6,7 @@ $pcClass = "";
 
 
 <?php $__env->startSection('scripts'); ?>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+ <script src="https://www.paypal.com/sdk/js?client-id=<?php echo e($pp[0]); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -423,10 +423,15 @@ initCT();
 										</div>
 										</form>
                                     </div>
-									<div id="payp-tab" class="mt-5">
+									<div id="payp-tab" class="mt-5 mb-5">
 									  <p>You will be redirected to Paypal to complete your payment.</p>
+									  
 									  <div id="checkout-pp-btn">
-										 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+									    <div class="row">
+										  <div class="col-12 col-md-12 mt-5 mb-5 p-5">
+										    <div id="paypal-button-container"></div>
+                                          </div>
+                                          </div>
 									  </div>
 									</div>
 						   </div>

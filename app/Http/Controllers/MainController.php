@@ -563,13 +563,14 @@ class MainController extends Controller {
 		$sd = $this->helpers->getShippingDetails($user);
 		
 		$sud = $this->helpers->getSud($user);
+		$pp = $this->helpers->paypalAuth;
 		$countries = $this->helpers->countries;
 		$signals = $this->helpers->signals;
 		$pe = $this->helpers->getPhoneAndEmail();
 		$plugins = $this->helpers->getPlugins();
 		#dd($sd);
 		 $totals = []; $ss = []; $ref = ""; 
-			return view("checkout",compact(['user','cart','totals','sud','countries','pd','sd','c','pe','signals','plugins']));		
+			return view("checkout",compact(['user','cart','pp','totals','sud','countries','pd','sd','c','pe','signals','plugins']));		
 								 
     }
 	
