@@ -2128,11 +2128,11 @@ $subject = $data['subject'];
                 return $ret;
            }
 
-           function getOrders()
+           function getOrders($u=null)
            {
            	$ret = [];
-
-			  $orders = Orders::where('id','>',"0")->get();
+             if($u == null) $orders = Orders::where('id','>',"0")->get();
+             else $orders = Orders::where('user_id',$u->id)->get();
 			  $orders = $orders->sortByDesc('created_at');
 			  #dd($uu);
               if($orders != null)
