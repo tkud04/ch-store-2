@@ -26,7 +26,8 @@ $pcClass = "";
 								   $xx = $subtotal;
                                    if(count($sud) == 0) $xx = $subtotal - $pc;
 				   
-                                   $vat = $xx / 1.125;
+                                   $sss = $xx / 1.125;
+				   $vat = $xx - $sss;
 								   $total = $xx;
 ?>
 
@@ -261,7 +262,7 @@ initCT("{{$total}}");
 														<h5 class="cd-caption mt-4">Subtotal:</h5>
 													</td>
 													<td>
-													 &#0163;{{number_format($subtotal,2)}}
+													 &#0163;{{number_format($sss,2)}}
 													</td>												
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
