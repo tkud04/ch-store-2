@@ -23,9 +23,10 @@ $pcClass = "";
 								   }
 								   
 								    $pc = 0.1 * $subtotal;
-																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc;
-                                
+								   $xx = $subtotal;
+                                   if(count($sud) == 0) $xx = $subtotal - $pc;
+                                   $vat = $xx * 0.125;
+								   $total = $xx + $vat;
 ?>
 
 <script>
@@ -35,7 +36,7 @@ let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 $(document).ready(() => {
 
 getCT();
-initCT("{{$xx}}");
+initCT("{{$total}}");
 
 @if(count($pd) > 0)
   @foreach($pd as $p)
@@ -287,7 +288,7 @@ initCT("{{$xx}}");
 														<h5 class="cd-caption mt-4">VAT:</h5>
 													</td>
 													<td>
-														&#0163;{{number_format(($xx * 0.2),2)}}
+														&#0163;{{number_format(($vat),2)}}
 													</td>												
 												</tr>
 												<tr class="summary-subtotal">
@@ -295,7 +296,7 @@ initCT("{{$xx}}");
 														<h5 class="cd-caption mt-4">Total inc vat:</h5>
 													</td>
 													<td>
-														&#0163;{{number_format($xx,2)}}
+														&#0163;{{number_format($total,2)}}
 													</td>												
 												</tr>
 											</tbody>

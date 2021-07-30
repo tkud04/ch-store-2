@@ -23,8 +23,10 @@ $pcClass = "";
 								   }
 								   
 								    $pc = 0.1 * $subtotal;
-																	$xx = $subtotal;
-																	if(count($sud) == 0) $xx = $subtotal - $pc;
+								   $xx = $subtotal;
+                                   if(count($sud) == 0) $xx = $subtotal - $pc;
+                                   $vat = $xx * 0.125;
+								   $total = $xx + $vat;
 ?>
 
 <script>
@@ -34,7 +36,7 @@ let pd = [], sd = [], ppd = null, pm = "none", ct = "", cts = [1,2,3,4,5,6];
 $(document).ready(() => {
 
 getCT();
-initCT("<?php echo e($xx); ?>");
+initCT("<?php echo e($total); ?>");
 
 <?php if(count($pd) > 0): ?>
   <?php $__currentLoopData = $pd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -288,7 +290,7 @@ initCT("<?php echo e($xx); ?>");
 														<h5 class="cd-caption mt-4">VAT:</h5>
 													</td>
 													<td>
-														&#0163;<?php echo e(number_format($xx,2)); ?>
+														&#0163;<?php echo e(number_format(($vat),2)); ?>
 
 													</td>												
 												</tr>
@@ -297,7 +299,7 @@ initCT("<?php echo e($xx); ?>");
 														<h5 class="cd-caption mt-4">Total inc vat:</h5>
 													</td>
 													<td>
-														&#0163;<?php echo e(number_format($xx,2)); ?>
+														&#0163;<?php echo e(number_format($total,2)); ?>
 
 													</td>												
 												</tr>
