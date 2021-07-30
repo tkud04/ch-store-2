@@ -25,6 +25,7 @@ $pcClass = "";
 								    $pc = 0.1 * $subtotal;
 																	$xx = $subtotal;
 																	if(count($sud) == 0) $xx = $subtotal - $pc;
+                                
 ?>
 
 <script>
@@ -286,7 +287,7 @@ initCT("{{$xx}}");
 														<h5 class="cd-caption mt-4">VAT:</h5>
 													</td>
 													<td>
-														&#0163;{{number_format($xx,2)}}
+														&#0163;{{number_format(($xx * 0.2),2)}}
 													</td>												
 												</tr>
 												<tr class="summary-subtotal">
