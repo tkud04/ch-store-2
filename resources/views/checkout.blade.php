@@ -25,8 +25,9 @@ $pcClass = "";
 								    $pc = 0.1 * $subtotal;
 								   $xx = $subtotal;
                                    if(count($sud) == 0) $xx = $subtotal - $pc;
-                                   $vat = $xx * 0.125;
-								   $total = $xx + $vat;
+				   
+                                   $vat = $xx / 1.125;
+								   $total = $xx;
 ?>
 
 <script>
