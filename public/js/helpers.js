@@ -463,7 +463,7 @@ const validateCheckout = (dt) => {
                
 			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_zip == ""), 
                    sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_zip == ""),
-                   ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_month == "" || cc_year == "");
+                   ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_date == "");
 			   
 			   let validation = null; let s2 = "";
 			   if(dt == "cd"){
