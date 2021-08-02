@@ -863,7 +863,7 @@ const refreshSDSummary = () => {
 		${sd_zip}<br>
 		${sd_country.toUpperCase()}<br>
 		</p>
-		<a href="javascript:void(0)" onclick="editSD(${ssd})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+		<a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
 	`;
 	}
 	$('#sd-display').html(hh);
@@ -901,7 +901,7 @@ const refreshPDSummary = () => {
 		${pd_zip}<br>
 		${pd_country.toUpperCase()}<br>
 		</p>
-		<a href="javascript:void(0)" onclick="editPD(${ppd})" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
+		<a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn" style="text-align: right;">Edit</a>
 	`;
 	}
 	$('#pd-display').html(hh);
