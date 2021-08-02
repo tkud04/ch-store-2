@@ -139,7 +139,7 @@ initCT("{{$total}}");
 					   </div>
 					   <label>Company Name(Optional)</label>
 								<input type="text" class="form-control sd" id="sd-company" name="sd-company" required="">
-								<label>Country / Region *</label>
+								<label>Country *</label>
 								<select class="form-control sd" id="sd-country" name="sd-country">
 									    <option value="none">Select country</option>
 									    <option value="uk">United Kingdom</option>
@@ -164,7 +164,7 @@ initCT("{{$total}}");
 										<input type="text" class="form-control sd" id="sd-city" name="sd-city" required="">
 									</div>
 									<div class="col-xs-6">
-										<label>State / County *</label>
+										<label>State / Region *</label>
 										<input type="text" class="form-control sd" id="sd-region" name="sd-region" required="">
 									</div>
 								</div>
@@ -343,7 +343,7 @@ initCT("{{$total}}");
 									</div>
 								<label>Company Name(Optional)</label>
 								<input type="text" class="form-control bd" id="pd-company" name="pd-company" required="">
-								<label>Country / Region *</label>
+								<label>Country *</label>
 								<select class="form-control bd" id="pd-country" name="pd-country">
 									    <option value="none">Select country</option>
 									    <option value="uk">United Kingdom</option>
@@ -368,7 +368,7 @@ initCT("{{$total}}");
 										<input type="text" class="form-control bd" id="pd-city" name="pd-city" required="">
 									</div>
 									<div class="col-xs-6">
-										<label>State / County *</label>
+										<label>State / Region *</label>
 										<input type="text" class="form-control bd" id="pd-region" name="pd-region" required="">
 									</div>
 								</div>
@@ -428,7 +428,7 @@ initCT("{{$total}}");
 												<div class="col-12 col-md-12 mt-5 mb-5">
 												<center>
 												<div id="checkout-cd-btn">
-												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="ck('cd')">Confirm and Pay now</a>
+												 <a href="javascript:void(0)" class="btn btn-dark btn-order" onclick="handleCheckout('cd')">Confirm and Pay now</a>
 												</div>
 											   	 <p id="checkout-cd-loading">
 											      Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
