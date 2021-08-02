@@ -462,8 +462,8 @@ const validateCheckout = (dt) => {
                                         cc_year: cc_year
                   };
                
-			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_region == "" || pd_zip == ""), 
-                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == ""),
+			   let pdValidation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_zip == ""), 
+                   sdValidation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_zip == ""),
                    ccValidation = (cc_name == "" || cc_number == "" || cc_cvv == "" || cc_month == "" || cc_year == "");
 			   
 			   let validation = null; let s2 = "";
@@ -887,7 +887,7 @@ const refreshPDSummary = () => {
 		
 	let hh = ``,  validation = (pd_fname == "" || pd_lname == "" || pd_country == "none" || pd_address_1 == "" || pd_city == "" || pd_zip == "");
 	if(validation){
-		hh = `<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
+		hh = `<p style="margin-top: 20px !important;>Some fields are missing <a href="javascript:void(0)" onclick="editPD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
 	}
 	else{
 	hh = `
