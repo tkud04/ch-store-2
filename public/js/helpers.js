@@ -847,9 +847,9 @@ const refreshSDSummary = () => {
 	let sdc = sd_company == "" ? "" : `${sd_company}<br>`;
 		let sad2 = sd_address_2 == "" ? "" : `${sd_address_2}<br>`;
 		
-	let hh = ``, validation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_region == "" || sd_zip == "");
+	let hh = ``, validation = (sd_fname == "" || sd_lname == "" || sd_country == "none" || sd_address_1 == "" || sd_city == "" || sd_zip == "");
 	if(validation){
-		hh = `<p style="margin-top: 20px !important;">Click Edit to add your details <a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
+		hh = `<p style="margin-top: 20px !important;">Click Edit to add all required details <a href="javascript:void(0)" onclick="editSD(0)" class="btn btn-sm btn-primary cd-summary-btn mb-5" style="text-align: right;">Edit</a><p>`;
 	}
 	else{
 	hh = `
