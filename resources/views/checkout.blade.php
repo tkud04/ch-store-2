@@ -418,7 +418,7 @@ initCT("{{$total}}");
 												            </div>
 												           <div class="col-6 col-md-6">
 														      <label>Expiry Date*</label>
-										                       <input type="number" class="form-control" id="card-2-date" placeholder="MM/YY">
+										                       <input type="text" class="form-control" id="card-2-date" placeholder="MM/YY">
 														  </div>
 														<div class="col-6 col-md-6">
 														        <label>CVV*</label>
