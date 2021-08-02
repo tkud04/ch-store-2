@@ -2032,7 +2032,7 @@ $subject = $data['subject'];
 			   $data['user_id'] = $user->id;
 			   
 			   $pd = $data['payment_xf'];
-			   if($pd == "none")
+			   if($pd == "new")
 			   {
 				   $ppd = $this->createPaymentDetails($data);
 				   $pd = $ppd->id;
@@ -2040,7 +2040,7 @@ $subject = $data['subject'];
 			   $data['payment_id'] = $pd;
 			   
 			   $sd = $data['shipping_xf'];
-			   if($sd == "none")
+			   if($sd == "new")
 			   {
 				   $ssd = $this->createShippingDetails($data);
 				   $sd = $ssd->id;
