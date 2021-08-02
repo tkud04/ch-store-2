@@ -91,7 +91,7 @@ class MainController extends Controller {
 		   $user = Auth::user();
 		}
                 $dt = [
-                  'url' => "https://api-m.sandbox.paypal.com/v1/oauth2/token",
+                  'url' => "https://api.sandbox.paypal.com/v1/oauth2/token",
                   'method' => "post",
                   'auth' => $this->helpers->livePaypal,
                   'headers' => ['Accept' => "application/json",'Accept-Language' => "en_US"],
@@ -563,7 +563,7 @@ class MainController extends Controller {
 		$sd = $this->helpers->getShippingDetails($user);
 		
 		$sud = $this->helpers->getSud($user);
-		$pp = $this->helpers->paypalAuth;
+		$pp = $this->helpers->livePaypal;
 		$countries = $this->helpers->countries;
 		$signals = $this->helpers->signals;
 		$pe = $this->helpers->getPhoneAndEmail();
