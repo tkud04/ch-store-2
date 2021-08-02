@@ -345,10 +345,14 @@ public $information_types = [
   public $su1 = "uwantbrendacolson@gmail.com";
   public $su2 = "philipschwarz345@gmail.com";
    
-  public $paypalAuth = [
+  public $sandboxPaypal = [
                'AS8O-aZcgCZbkCu4Mbci65Nu_b9lbHXMkdtrfUm6p5IlV6fFp9kVaDSw01O4AcjEGrdEyL-pHUrJ4nCQ',
                'EO5v5m1SVrydFiLIMngqyECS0sR8GRmUW1bfaCuBuW8d_LPy0T21mqHfW6zkzbx2b99xEElTyOV7YN94'
             ];
+  public $livePaypal = [
+    'AQshRPPKqh-naVCdRXDBvRqwSRYAMn7vPcuyf5t6JXk0hYL42_wG3kBUs-V1yGFhS_edDMRXVcRweMpz',
+    'EBwXQ81N3dbzwHejdkpSVwXatyzt9UOcXfhJE2IzVC6Z3Gb1JDaOdU2cKyjiYusBbYZWIt3CuPTXa20D'
+  ];
 
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
