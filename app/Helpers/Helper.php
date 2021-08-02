@@ -1749,7 +1749,7 @@ $subject = $data['subject'];
 				if($sd == "none")
 				{
 					$company = isset($md['sd_company']) && $md['sd_company'] != null ? $md['sd_company'] : "";
-			        $a2 = isset($md['sd_address_2']) && $mf['sd_address_2'] != null ? $md['sd_address_2'] : "";
+			        $a2 = isset($md['sd_address_2']) && $md['sd_address_2'] != null ? $md['sd_address_2'] : "";
 					$dt['shipping_xf'] = "new";
 					$dt['shipping_fname'] = $md['sd_fname'];
 					$dt['shipping_lname'] = $md['sd_lname'];
