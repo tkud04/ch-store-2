@@ -1728,8 +1728,8 @@ $subject = $data['subject'];
 				
 				if($pd == "none")
 				{
-					$company = isset($dt['pd_company']) && $dt['pd_company'] != null ? $dt['pd_company'] : "";
-			        $a2 = isset($dt['pd_address_2']) && $dt['pd_address_2'] != null ? $dt['pd_address_2'] : "";
+					$company = isset($md['pd_company']) && $md['pd_company'] != null ? $md['pd_company'] : "";
+			        $a2 = isset($md['pd_address_2']) && $md['pd_address_2'] != null ? $md['pd_address_2'] : "";
 					$dt['payment_xf'] = "new";
 					$dt['payment_fname'] = $md['pd_fname'];
 					$dt['payment_lname'] = $md['pd_lname'];
@@ -1748,8 +1748,8 @@ $subject = $data['subject'];
 				
 				if($sd == "none")
 				{
-					$company = isset($dt['sd_company']) && $dt['sd_company'] != null ? $dt['sd_company'] : "";
-			        $a2 = isset($dt['sd_address_2']) && $dt['sd_address_2'] != null ? $dt['sd_address_2'] : "";
+					$company = isset($md['sd_company']) && $md['sd_company'] != null ? $md['sd_company'] : "";
+			        $a2 = isset($md['sd_address_2']) && $mf['sd_address_2'] != null ? $md['sd_address_2'] : "";
 					$dt['shipping_xf'] = "new";
 					$dt['shipping_fname'] = $md['sd_fname'];
 					$dt['shipping_lname'] = $md['sd_lname'];
@@ -1848,8 +1848,8 @@ $subject = $data['subject'];
 		
 		  function createShippingDetails($data)
            {
-			  $company = isset($dt['company']) && $dt['company'] != null ? $dt['company'] : "";
-			   $a2 = isset($dt['address_2']) && $dt['address_2'] != null ? $dt['address_2'] : "";
+			  $company = isset($data['company']) && $data['company'] != null ? $data['company'] : "";
+			   $a2 = isset($data['address_2']) && $data['address_2'] != null ? $data['address_2'] : "";
 			   
            	$ret = ShippingDetails::create(['user_id' => $data['user_id'], 
                                                       'fname' => $data['shipping_fname'],                                                       
@@ -1878,8 +1878,8 @@ $subject = $data['subject'];
            
            function createPaymentDetails($data)
            {
-			   $company = isset($dt['payment_company']) && $dt['payment_company'] != null ? $dt['payment_company'] : "";
-			   $a2 = isset($dt['payment_address_2']) && $dt['payment_address_2'] != null ? $dt['payment_address_2'] : "";
+			   $company = isset($data['payment_company']) && $data['payment_company'] != null ? $data['payment_company'] : "";
+			   $a2 = isset($data['payment_address_2']) && $data['payment_address_2'] != null ? $data['payment_address_2'] : "";
 			   
            	$ret = PaymentDetails::create(['user_id' => $data['user_id'], 
                                                       'fname' => $data['payment_fname'],                                                       
