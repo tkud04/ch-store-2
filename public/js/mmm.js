@@ -228,6 +228,7 @@ $(document).ready(function() {
 		  
 		  $("#payp").click(function(e){            
 		       e.preventDefault();
+                           /**
 			   let ivc = validateCheckout("pp");
 		       if(ivc.valid){
 				 Swal.fire({
@@ -239,7 +240,15 @@ $(document).ready(function() {
 				  hideElem(['#payc-tab','#payn-tab']);
                showElem(['#payp-tab']);
 			   }
-			   
+			   **/
+                    showElem(['#checkout-pp-loading']);
+                    setTimeout(() => {
+                     hideElem(['#checkout-pp-loading']);
+                      Swal.fire({
+			            icon: 'error',
+                              title: "PayPal checkout failed to respond, please use another form of payment."
+                        });
+			   },2000);
 		  });
 		  
 		  $("#payn").click(function(e){            
