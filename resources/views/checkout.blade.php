@@ -440,8 +440,9 @@ initCT("{{$total}}");
                                     </div>
 									<div id="payp-tab" class="mt-5 mb-5">
 									  <p>You will be redirected to Paypal to complete your payment.</p>
-                                                                          <p style="color: red;"><b>NOTE:</b> Due to Paypal's policies, select the <em>Family and Friends</em> option when making payment to ensure it goes through without a hitch.</p>
-									  
+                                                                         <!-- 
+                                                                           <p style="color: red;"><b>NOTE:</b> Due to Paypal's policies, select the <em>Family and Friends</em> option when making payment to ensure it goes through without a hitch.</p>
+									  -->
 									  <div id="checkout-pp-btn">
 									    <div class="row">
 										  <div class="col-12 col-md-12 mt-5 mb-5 p-5">
