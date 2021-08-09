@@ -17,47 +17,46 @@ if($user != null)
 <section class="contact-section">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-3 col-md-4 col-xs-5 ls-m pt-3">
-                                <h2 class="font-weight-bold text-uppercase ls-m mb-2">Contact us</h2>
-                                <p>Looking for help? Fill the form and start a new adventure.</p>
-
-                                <h4 class="mb-1 text-uppercase">Address</h4>
-                                <p>54 Mortlake Road, Ilford, IG1 2SX</p>                             							
-								
-                                <h4 class="mb-1 text-uppercase">Phone</h4>
-                                <p><a href="javascript:void(0)">+44 7451 233887</a></p>
-
-                                <h4 class="mb-1 text-uppercase">Email</h4>
-                                <p>
-                                    <a href="mailto:sales@mobilebuzzonline.co.uk">sales@mobilebuzzonline.co.uk</a><br>
-                                </p>
-				
-				<h4 class="mb-1 text-uppercase">Working days / hours</h4>
-                                <p>
-				  <a href="javascript:void(0)">Mon - Fri / 8:30 AM - 7:00 PM</a><br>
-				  <a href="javascript:void(0)">Sat / 9:00 AM - 6:00 PM</a><br>
-				  <a href="javascript:void(0)">Sun / Closed</a>
-				</p>
-                            </div>
-                            <div class="col-lg-9 col-md-8 col-xs-7">
-                                <form class="ml-lg-2 pt-8 pb-10 pl-4 pr-4 pl-lg-6 pr-lg-6 grey-section" action="{{url('contact')}}" method="post">
-				 {!! csrf_field() !!}
-                                    <h3 class="ls-m mb-1">Let’s Connect</h3>
-                                    <p class="text-grey">Your email address will not be published. Required fields are
-                                        marked *</p>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <input class="form-control" type="text" name="name" placeholder="Name *" value="{{$n}}" required="">
-                                        </div>
-                                        <div class="col-md-6 mb-4">
-                                            <input class="form-control" type="email" name="email" placeholder="Email *" value="{{$e}}" required="">
-                                        </div>
-                                        <div class="col-12 mb-4">
-                                            <textarea class="form-control" name="msg" required="" placeholder="Your Message *"></textarea>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-md btn-primary mb-2" type="submit">Send</button>
+                            <div class="col-lg-12 col-md-12 col-xs-12 pt-3">
+							  <h1 class=""><b>NEED HELP? CONTACT US</b></h1>
+                   
+							  <form class="ml-lg-2 pt-8 pb-10 pl-4 pr-4 pl-lg-6 pr-lg-6 grey-section">
+                                    <h4 class="ls-m mb-1">Due to an unprecedented level of demand during Lockdown we may be taking longer to answer enquiries at the moment.</h4>
+								   <h6 class="text-grey"><b>Before you contact us please take a look at the most commonly asked questions and answers below:</b></h6>
                                 </form>
+                            </div>
+
+							<div class="col-lg-12 col-md-12 col-xs-12 pt-3">
+							 <h1 class=""><b>FREQUENTLY ASKED QUESTIONS</b></h1>
+							 <div class="row">
+							   <div class="col-lg-6 col-md-6 col-xs-12 pt-3">
+							     <table class="table">
+								  <thead>
+								   <tr><th class="faq-header">POPULAR PRODUCT QUESTIONS</th></tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+									</tr>
+								  </tbody>
+								</table>
+                               </div>
+							   <div class="col-lg-6 col-md-6 col-xs-12 pt-3">
+							    <table class="table">
+								  <thead>
+								   <tr><th class="faq-header">ORDERING</th></tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								    <td>
+									<ul class="faq-list">
+									  <li>Question 1</li>
+									</ul>
+									</td>
+									</tr>
+								  </tbody>
+								</table>
+                               </div>
+                             </div>
                             </div>
                         </div>
                     </div>

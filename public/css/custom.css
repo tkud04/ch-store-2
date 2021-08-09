@@ -200,5 +200,24 @@ td{
     font-size: 12px;
 }
 
+.faq-header{
+	font-size: 20px;
+    margin: 0px;
+    background-color: #f4f2f1;
+    padding: 15px 20px;
+}
+
+.faq-list{
+    margin: 0px 20px;
+    padding: 0px;
+}
+
+.faq-list li{
+    padding: 0px 0px;
+    border-bottom: 2px solid #f4f2f1;
+    margin: 0px;
+    list-style: none;
+    font-size: 14px;
+}
 	
 	
