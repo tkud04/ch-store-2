@@ -36,6 +36,11 @@ if($user != null)
 								  </thead>
 								  <tbody>
 								    <tr>
+								    <td>
+									<ul class="faq-list">
+									  <li>Question 1</li>
+									</ul>
+									</td>
 									</tr>
 								  </tbody>
 								</table>
