@@ -38,7 +38,7 @@ if($user != null)
 								    <tr>
 								    <td>
 									<ul class="faq-list">
-									  <li>Question 1</li>
+									  <li class="faq-item">Question 1</li>
 									</ul>
 									</td>
 									</tr>
@@ -54,7 +54,7 @@ if($user != null)
 								    <tr>
 								    <td>
 									<ul class="faq-list">
-									  <li>Question 1</li>
+									  <li class="faq-item">Question 1</li>
 									</ul>
 									</td>
 									</tr>
