@@ -353,6 +353,18 @@ public $information_types = [
     'AQshRPPKqh-naVCdRXDBvRqwSRYAMn7vPcuyf5t6JXk0hYL42_wG3kBUs-V1yGFhS_edDMRXVcRweMpz',
     'EBwXQ81N3dbzwHejdkpSVwXatyzt9UOcXfhJE2IzVC6Z3Gb1JDaOdU2cKyjiYusBbYZWIt3CuPTXa20D'
   ];
+  
+  public $faqs = [
+  'product' => [
+   'I have pre-ordered a PS5 - when will I receive it?' => "<p>We are receiving small quantities of PS5 consoles each month - unfortunately a lot less than we need to fulfil all orders taken. Once our pre-orders have been fulfilled we will look to offer more PS5 consoles to new customers.<p><p>If you have already ordered a PS5 from us already please bear with us as we are doing our best to get more stock to fulfil your order.</p><p>If you are waiting to order a PS5 please keep an eye on our social and website for updates</p>",
+   'When will you receive more PS5 stock?' => "<p>We are receiving small quantities of PS5 consoles each month - unfortunately a lot less than we need to fulfil all orders taken.</p><p>We are fulfilling all pre-orders before we will release any new stock for new orders. If you are waiting to order a PS5 please keep an eye on our social and website for updates. As soon as pre-orders are fulfilled we will release more information on how new orders can be placed. Currently we do not have a timescale for when this may be.</p>",
+   'Can I pre-order a product?' => "<p>If we are accepting pre orders we will give you the option to pre-order on the product page. If it does not give this option this means that we are not accepting pre orders. You may use the notify button to be informed when the product comes into stock.</p>",
+   'If a product says coming soon when is it due?' => "value",
+   'Do you install Appliances and TVs?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+   'When will you receive more PS5 stock?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+   'When will you receive more PS5 stock?' => "value"
+   ],
+ ];
 
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
