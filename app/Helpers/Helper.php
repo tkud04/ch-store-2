@@ -386,10 +386,18 @@ public $information_types = [
      'Do you charge for delivery to Non-UK Mainland/ROI?' => "<p>The charge for delivery to Non-UK Mainland/Northern Ireland/Ireland/North Scotland/Isle of Man is £14.95. For more information please see the delivery options and prices during the checkout process.</p>",
    ],
    'returns' => [
-     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'My item arrived damaged - what do I do?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'How do I track the progress of my return?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'How long does the returns process take?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'What if something happens to my TV/Monitor in transit to you?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'How long will it take for a refund to be in my account?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
    ],
    'other' => [
-     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'Do you offer a price match service?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'How do I stop receiving marketing emails?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'What do I do if I am having an issue with the website?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'How do I make a complaint?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'Do you work with streamers & influencers?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
    ],
  ];
 
