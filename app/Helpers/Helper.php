@@ -379,7 +379,11 @@ public $information_types = [
      'When do you take payment for the order?' => "<p>We take payment immediately once you have placed your order and your payment details have been authorised.</p>",
    ],
    'delivery' => [
-     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+     'I did not receive a tracking number - how do I get one?' => "<p>We ship from multiple locations using various delivery companies - some companies unfortunately do not provide us with a tracking number.</p><p>If a tracking number is available you will see it in your account or it will be emailed to you after dispatch.</p>",
+     'What do I do if there are items missing from my delivery?' => "<p>In the unlikely event that there’s items missing from your delivery contact us within 48 hours.</p>",
+     'Can I change my delivery address?' => "<p>We are sorry but for security reasons we cannot change the delivery address once your order has been dispatched so please make sure the delivery and billing address are correct before placing your order.</p>",
+     'Can I collect my order?' => "<p>Due to COVID-19 we will no longer be offering collection from our warehouse. We have also made the difficult decision to close our showroom permanently.</p><p>Please also note that due to COVID-19 we are not currently offering the DPD Pickup service - once it is safe to do so this service will be available at checkout.</p>",
+     'Do you charge for delivery to Non-UK Mainland/ROI?' => "<p>The charge for delivery to Non-UK Mainland/Northern Ireland/Ireland/North Scotland/Isle of Man is £14.95. For more information please see the delivery options and prices during the checkout process.</p>",
    ],
    'returns' => [
      'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
