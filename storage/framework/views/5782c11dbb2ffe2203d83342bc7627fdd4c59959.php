@@ -29,33 +29,36 @@ if($user != null)
 							<div class="col-lg-12 col-md-12 col-xs-12 pt-3">
 							 <h1 class=""><b>FREQUENTLY ASKED QUESTIONS</b></h1>
 							 <div class="row">
+							  <?php
+							   foreach($faqs as $tit => $content)
+							   {     
+							  ?>
 							   <div class="col-lg-6 col-md-6 col-xs-12 pt-3">
-							     <table class="table">
+							     <table class="table p-10">
 								  <thead>
-								   <tr><th class="faq-header">POPULAR PRODUCT QUESTIONS</th></tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-									</tr>
-								  </tbody>
-								</table>
-                               </div>
-							   <div class="col-lg-6 col-md-6 col-xs-12 pt-3">
-							    <table class="table">
-								  <thead>
-								   <tr><th class="faq-header">ORDERING</th></tr>
+								   <tr><th class="faq-header"> <?php echo e(strtoupper($tit)); ?> QUESTIONS</th></tr>
 								  </thead>
 								  <tbody>
 								    <tr>
 								    <td>
 									<ul class="faq-list">
-									  <li>Question 1</li>
+									  <?php
+									   foreach($content as $q => $a)
+									   {
+				                      ?>
+									  <li class="faq-item"><a href="javascript:void(0)" onclick="showFAQ(this)" data-a="<?php echo e($a); ?>"><?php echo e($q); ?></a></li>
+									 <?php
+									  }
+									 ?>
 									</ul>
 									</td>
 									</tr>
 								  </tbody>
 								</table>
                                </div>
+							   <?php
+							   }
+							  ?>
                              </div>
                             </div>
                         </div>

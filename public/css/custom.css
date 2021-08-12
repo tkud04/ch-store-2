@@ -202,6 +202,8 @@ td{
 
 .faq-header{
 	font-size: 20px;
+	color: #000;
+	font-weight: bold;"
     margin: 0px;
     background-color: #f4f2f1;
     padding: 15px 20px;
@@ -218,6 +220,14 @@ td{
     margin: 0px;
     list-style: none;
     font-size: 14px;
+}
+
+.faq-item a{
+    color: #000;
+	font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0px;
 }
 	
 	

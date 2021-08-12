@@ -30,13 +30,13 @@ if($user != null)
 							 <h1 class=""><b>FREQUENTLY ASKED QUESTIONS</b></h1>
 							 <div class="row">
 							  <?php
-							   foreach($faqs as $title => $content)
+							   foreach($faqs as $tit => $content)
 							   {     
 							  ?>
 							   <div class="col-lg-6 col-md-6 col-xs-12 pt-3">
-							     <table class="table">
+							     <table class="table p-10">
 								  <thead>
-								   <tr><th class="faq-header"> {{strtoupper($title)}} QUESTIONS</th></tr>
+								   <tr><th class="faq-header"> {{strtoupper($tit)}} QUESTIONS</th></tr>
 								  </thead>
 								  <tbody>
 								    <tr>
