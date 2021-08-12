@@ -908,3 +908,12 @@ const refreshPDSummary = () => {
 	hideElem(['#pd-edit']);
     showElem(['#pd-display']);
 }
+
+const showFAQ = elem => {
+let q = elem.innerHTML, a = elem.getAttribute('data-a');
+Swal.fire({
+  icon: 'info',
+  title: q,
+  html: a
+ });
+}
