@@ -364,6 +364,29 @@ public $information_types = [
    'When will you receive more PS5 stock?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
    'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
    ],
+   'ordering' => [
+     'When will my order be delivered?' => "<p>As we deliver from different warehouses and offer multiple options on delivery please see the basket page before ordering for an idea of when your order will arrive. You have the option to select a day with most orders or an estimate will be given. We also send tracking details for the majority orders once they have shipped.</p>",
+     'How can I cancel or amend my order?' => "<p>If you change your mind and would like to cancel an existing order then in most cases you can contact support via email or by clicking the green button at the bottom right of your screen.</p>",
+     'I have been informed there is a problem with my order, what can I do?' => "<p>In the unlikely event that there’s a problem with your order, you’ll receive an email with the next steps to follow. We aim to rectify any issues as soon as possible and will keep you informed of any updates.</p>",
+     'Can I place an order over the phone?' => "<p>Unfortunately we are unable to take orders over the telephone however, we are happy to help with any general or technical enquiries you may have before placing your order.</p>",
+     'What time do you process orders until?' => "<p>Orders are processed and reviewed throughout the day and up to midnight. Depending on your chosen delivery date through the checkout process we will dispatch / process accordingly and if there any problems we will be in touch as soon as possible.</p>",
+   ],
+   'billing' => [
+     'Which payment methods do you accept?' => "<p>We offer a number of payment options including MasterCard, Visa,  Maestro and PayPal. If your order is over £999, you may also be eligible for finance options.</p><p>Please see our checkout for the options that are applicable for your order as this can vary depending on the products in your basket.</p>",
+     'What happens if my payment fails?' => "<p>If your payment fails, and payment is attempted multiple times, we will only receive one payment. Any failed attempts will clear from your account in 48 hours.</p>",
+     'How long do refunds take?' => "<p>Please allow up to 5 working days for your payment to be refunded (excludes weekends and bank holidays).</p>",
+     'Is there a charge for using certain cards or PayPal?' => "<p>There are no charges for using UK debit/credit cards or Paypal. However, corporate cards have a surcharge of 1%. In order to bring you the lowest prices, our profit margins are very low.</p><p>Due to this, we are unable to absorb the surcharges incurred when using a corporate card.</p>",
+     'When do you take payment for the order?' => "<p>We take payment immediately once you have placed your order and your payment details have been authorised.</p>",
+   ],
+   'delivery' => [
+     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+   ],
+   'returns' => [
+     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+   ],
+   'other' => [
+     'How does the xbox series x/s ballot work?' => "<p>If a product says coming soon we do not know when this will arrive in stock. You can opt to be notified when it arrives from the product screen and we will then email you once the product arrives back in stock.</p>",
+   ],
  ];
 
      #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
