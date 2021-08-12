@@ -742,10 +742,11 @@ class MainController extends Controller {
 		$req = $request->all();
 		$cart = $this->helpers->getCart($user);
 		$c = $this->helpers->getCategories();
-		$signals = $this->helpers->signals;
+		$faqs = $this->helpers->faqs;
+                $signals = $this->helpers->signals;
 		$pe = $this->helpers->getPhoneAndEmail();$plugins = $this->helpers->getPlugins();
 		
-		return view("contact",compact(['user','cart','c','pe','signals','plugins']));							 
+		return view("contact",compact(['user','faqs','cart','c','pe','signals','plugins']));							 
     }
 	
 	/**
