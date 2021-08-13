@@ -61,6 +61,60 @@ if($user != null)
 							  ?>
                              </div>
                             </div>
+							
+							<div class="col-lg-12 col-md-12 col-xs-12 pt-3">
+							<center><h4 class="ls-m mb-5 mt-5">If your query is still not answered above please find contact details below:</h4></center>
+                           </div>
+						   
+						   <div class="col-lg-12 col-md-12 col-xs-12 pt-3">
+							<div class="row">
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							        <h3 class="cbox-header text-uppercase"><i class="d-icon-plugin"></i> product support</h3>
+								    <p style="font-weight:bold;color: #000;">If you have a question about a product you have purchased then the manufacturer is usually best placed to answer this and advise you if you need to return it.</p>
+									<a href="javascript:void(0)" onclick="cbox('support')" class="cbox-header text-uppercase">view support numbers</a>
+                                 </div>
+                               </div>
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							       <h3 class="cbox-header text-uppercase"><i class="d-icon-comments"></i> livechat</h3>
+								   <p style="font-weight:bold;color: #000;">Chat online with a member of our customer services team. We’re here Monday – Friday, 10am – 5pm (excluding bank holidays)</p>
+									<a href="javascript:void(0)" onclick="cbox('chat')" class="cbox-header text-uppercase">chat now</a>
+                                 </div>
+                               </div>
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							       <h3 class="cbox-header text-uppercase"><i class="d-icon-phone"></i> by phone</h3>
+								   <p style="font-weight:bold;color: #000;">At MobileBuzz we’re passionate about tech. For expert advice, product recommendations or general enquiries please contact us and a member of the team will be happy to help.</p>
+									<a href="javascript:void(0)" onclick="cbox('contact')" class="cbox-header text-uppercase">view contact numbers</a>
+                                 </div>
+                               </div>
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							       <h3 class="cbox-header text-uppercase"><i class="d-icon-rocket"></i> by email</h3>
+								   <p style="font-weight:bold;color: #000;">We aim to reply within 48 hours however we are currently experiencing an unprecedented level of demand meaning your queries could take longer to respond to than normal.</p>
+									<a href="javascript:void(0)" onclick="cbox('email')" class="cbox-header text-uppercase">email us</a>
+                                 </div>
+                               </div> 
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							       <h3 class="cbox-header text-uppercase"><i class="d-icon-rocket"></i> by post</h3>
+								   <p style="font-weight:bold;color: #000;">MobileBuzz<br>54 Mortlake Road<br>Ilford<br>IG1 2SX</p>
+                                 </div>
+                               </div>
+							   <div class="col-lg-4 col-md-6 col-xs-12 pt-3">
+							     <div class="cbox">
+							       <h3 class="cbox-header text-uppercase"><i class="d-icon-map"></i> visit us</h3>
+								   <p style="font-weight:bold;color: #000;">Due to COVID-19 our Offices are currently closed for meetings and visits from anyone outside the company.</p>
+                                 </div>
+                               </div>
+                            </div>
+                           </div>
+						   
+						   <div class="col-lg-12 col-md-12 col-xs-12 pt-3">
+							<center><h4 class="ls-m mb-5 mt-5">Please bear with us if we do take longer than usual to answer your query. We are working hard to respond as quickly as possible and apologise for any inconvenience caused.</h4></center>
+                           </div>
+						   
                         </div>
                     </div>
                 </section>

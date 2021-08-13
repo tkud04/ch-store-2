@@ -917,3 +917,27 @@ Swal.fire({
   html: a
  });
 }
+
+
+const cbox = t => {
+let hh = ``, show = false;
+
+if(t == "support"){
+	
+}
+else if(t == "chat"){
+	
+}
+else if(t == "contact"){
+	
+}
+else if(t == "email"){
+	
+}
+
+if(show){
+  Swal.fire({
+    html: hh
+  });
+ }
+}
