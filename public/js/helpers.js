@@ -923,16 +923,33 @@ const cbox = t => {
 let hh = ``, show = false;
 
 if(t == "support"){
-	
+	hh = `
+	  <h3 class="cbox-header text-uppercase"> support team</h3>
+	  <p style="font-weight:bold;color: #000;">All calls are charged at a local rate from landlines and mobiles. Please note that we are unable to take orders over the telephone.</p>
+	  <h5 class="cbox-header text-uppercase"> call: +44 7451 233887</h5>
+	  <p>Lines are open Monday – Friday, 10am – 5pm (excluding bank holidays)</p>
+	`;
+	show = true;
 }
 else if(t == "chat"){
 	
 }
 else if(t == "contact"){
-	
+	 hh = `
+	  <h3 class="cbox-header text-uppercase"> contact team</h3>
+	  <p style="font-weight:bold;color: #000;">All calls are charged at a local rate from landlines and mobiles. Please note that we are unable to take orders over the telephone.</p>
+	  <h5 class="cbox-header text-uppercase"> call: +44 7451 233887</h5>
+	  <p>Lines are open Monday – Friday, 10am – 5pm (excluding bank holidays)</p>
+	`;
+	show = true;
 }
 else if(t == "email"){
-	
+	hh = `
+	  <p style="font-weight:bold;color: #000;">Got a question?<br>Send us an email - we always aim to reply within 48 hours however we are currently experiencing an unprecedented level of demand meaning your queries could take longer to respond to than normal.</p>
+	  <h5 class="cbox-header text-uppercase"> general enquiries: sales@mobilebuzzonline.co.uk</h5>
+	  <p style="font-weight:bold;color: #000;">To send an email to the returns team, you can also sens us an email and remember to include your reference in all correspondence.</p>
+	`;
+	show = true;
 }
 
 if(show){
