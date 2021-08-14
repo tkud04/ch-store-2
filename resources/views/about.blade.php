@@ -20,20 +20,7 @@ $pcClass = "";
 								  @endif
 								</div>
 
-                                <div class="row pl-xl-6 pr-xl-8 mb-6">
-                                    <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
-                                        <span class="count-to" data-to="35" data-refresh-interval="50">8</span>
-                                        <h5 class="count-title">Business Years</h5>
-                                    </div>
-                                    <div class="counter text-primary text-center col-sm-4 col-md-6 col-lg-4">
-                                        <span class="count-to" data-to="50" data-refresh-interval="50">50</span>
-                                        <h5 class="count-title"> Brands</h5>
-                                    </div>
-                                    <div class="counter text-primary text-center col-sm-4 col-md-12 col-lg-4">
-                                        <span class="count-to" data-to="130" data-refresh-interval="50">430</span>
-                                        <h5 class="count-title">Sales</h5>
-                                    </div>
-                                </div>
+                                
                                 <ul class="list list-circle row cols-sm-2 cols-md-1 cols-xl-2 font-weight-bold text-dark font-primary mb-4">
                                     <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter','delay':'.4s'}"><i class="fa fa-check"></i>Free shipping in the United Kinggdom</li>
                                     <li class="appear-animate" data-animation-options="{'name': 'fadeInRightShorter'}">
