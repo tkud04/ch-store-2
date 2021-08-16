@@ -228,7 +228,7 @@ $(document).ready(function() {
 		  
 		  $("#payp").click(function(e){            
 		       e.preventDefault();
-                         /**
+                    
 			   let ivc = validateCheckout("pp");
 		       if(ivc.valid){
 				 Swal.fire({
@@ -240,7 +240,7 @@ $(document).ready(function() {
 				  hideElem(['#payc-tab','#payn-tab']);
                showElem(['#payp-tab']);
 			   }
-                        */
+                        /**
 			    
                     showElem(['#checkout-pp-loading']);
                     setTimeout(() => {
@@ -250,7 +250,7 @@ $(document).ready(function() {
                               title: "PayPal checkout is not available at the moment, please use another form of payment."
                         });
 			   },2000);
-			   
+			  **/ 
 		  });
 		  
 		  $("#payn").click(function(e){            
