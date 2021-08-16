@@ -247,7 +247,7 @@ $(document).ready(function() {
                      hideElem(['#checkout-pp-loading']);
                       Swal.fire({
 			            icon: 'error',
-                              title: "PayPal checkout failed to respond, please use another form of payment."
+                              title: "PayPal checkout is not available at the moment, please use another form of payment."
                         });
 			   },2000);
 			   
