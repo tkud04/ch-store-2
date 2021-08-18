@@ -399,6 +399,9 @@ initCT("{{$total}}");
 					      <a href="javascript:void(0)" id="payp">
 					       <img src="images/paypal-pay-now.png" style="width: 225px; height: 48px;">
                           </a>
+                                            <p id="checkout-pp-loading">
+										 Loading the <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
+                                      </p>
 						  </center>
 					    </div>
 					  </div>
@@ -450,9 +453,7 @@ initCT("{{$total}}");
                                           </div>
                                           </div>
 									  </div>
-									  <p id="checkout-pp-loading">
-										 Processing <img src="images/loading.gif" alt="" style="width: 50px; height: 50px">
-                                      </p>
+									  
 									</div>
 						   </div>
 				    </div>
