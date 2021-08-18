@@ -241,10 +241,11 @@ $(document).ready(function() {
                showElem(['#payp-tab']);
 			   }
                         **/
-			    
+	            hideElem(['#payp']);
                     showElem(['#checkout-pp-loading']);
                     setTimeout(() => {
                      hideElem(['#checkout-pp-loading']);
+                     showElem(['#payp']);
                       Swal.fire({
 			            icon: 'error',
                               title: "PayPal checkout is not available at the moment, please use another form of payment."
